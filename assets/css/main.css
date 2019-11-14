@@ -1,0 +1,45 @@
+@keyframes logo {
+    from {
+        width: 500px;
+        opacity: 0
+    }
+    to {
+        width: 100px;
+        opacity: 1
+    }
+}
+@keyframes background {
+    from {
+        opacity: 0;
+        background-color: #eee
+    }
+    to {
+        opacity: 1;
+        background-color: #000
+    }
+}
+
+body {
+    background-color: #000;
+
+    animation-duration: 5s;
+    animation-name: background;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+}
+img {
+    display: flex;
+	justify-content: center;
+	margin: auto;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+    bottom: 0;
+    width: 100px;
+
+    animation-duration: 5s;
+    animation-name: logo;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+}
