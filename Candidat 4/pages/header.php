@@ -1,3 +1,5 @@
+<?php
+echo '
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -9,4 +11,5 @@
     <title>VRC - PixalTeam</title>
 </head>
 <body>
-    
+';
+?>
