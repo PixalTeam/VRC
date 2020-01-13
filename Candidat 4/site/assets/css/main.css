@@ -102,10 +102,58 @@ img {
     top: 40px;
 }
 span[first] {
-    left: 150px;
+    left: 5%;
     animation-delay: 4s;
+    transition: .5s
+}
+span[first]:hover p {
+    color: #ddd;
+    cursor: pointer
 }
 span[second] {
-    right: 150px;
+    right: 5%;
     animation-delay: 4.2s;
+    transition: .5s
+}
+span[second]:hover p {
+    color: #ddd;
+    cursor: pointer
+}
+.center {
+    display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+    margin: auto;
+    position: absolute;
+
+    top: 0;
+	left: 0;
+	right: 0;
+    bottom: 0;
+
+    z-index: -2;
+}
+.login {
+    display: block;
+    background-color: #171e27;
+    height: auto;
+    width: auto;
+    padding: 50px;
+    border-radius: 5px;
+    position: relative
+}
+.center input {
+    width: 300px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    margin: 7px;
+    padding-left: 5px
+}
+h1 {
+    font-size:48px;
+    position: relative;
+    top: -25px;
+    color: white
 }

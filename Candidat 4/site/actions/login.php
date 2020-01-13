@@ -14,7 +14,7 @@ if(isset($_GET['login'])){
             $_SESSION['id'] = $userinfo['id'];
             $requser = $bdd->prepare("UPDATE users SET ip = ?, date = UNIX_TIMESTAMP() WHERE id = ?");
             $requser->execute(array($_SERVER['REMOTE_ADDR'], $userinfo['id']));
-            echo $_SESSION['id'];
+            echo "ok";
         } else {
             echo "Vous n'êtes pas enregistré dans nos bases de données. Veuillez vous inscrire s'il vous plaît.";
         }
