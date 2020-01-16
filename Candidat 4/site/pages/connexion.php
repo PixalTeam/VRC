@@ -1,8 +1,17 @@
-<div class="center">
-    <div class="login">
-        <h1>CONNEXION</h1>
-        <input type="text" placeholder="Identifiant"><br>
-        <input type="password" placeholder="Mot de passe"><br>
-        <input class="form" type="submit" value="Connnexion">
-    </div>
-</div>
+<?php
+session_start();
+if (!isset($_SESSION['id'])) {
+    echo '
+        <div class="center">
+            <div class="box animated fadeInRight fast">
+                <h1>CONNEXION</h1>
+                <input type="text" placeholder="Identifiant ou Email"><br>
+                <input type="password" placeholder="Mot de passe"><br>
+                <input type="submit" class="form" value="Connexion">
+            </div>
+        </div>';
+}
+else {
+    echo 'session';
+}
+?>

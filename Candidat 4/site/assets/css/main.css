@@ -49,7 +49,14 @@
         background-color: #000
     }
 }
-
+a {
+    color: #fff;
+    text-decoration: none
+}
+a:hover {
+    color: #ddd;
+    text-decoration: none
+}
 body {
     background-color: #000;
     font-family: built;
@@ -75,7 +82,7 @@ img.open {
     animation-iteration-count: 1;
     animation-direction: alternate;
 }
-img {
+.header img {
     width: 150px;
 
     display: flex;
@@ -91,6 +98,12 @@ img {
     animation-name: logo_header;
     animation-iteration-count: 1;
     animation-direction: alternate;
+
+    transition: 1s
+}
+.header img:hover {
+    width: 200px;
+    cursor: pointer;
 }
 .header {
     font-size: 58px;
@@ -106,16 +119,22 @@ span[first] {
     animation-delay: 4s;
     transition: .5s
 }
-span[first]:hover p {
-    color: #ddd;
-    cursor: pointer
-}
 span[second] {
     right: 5%;
     animation-delay: 4.2s;
     transition: .5s
 }
-span[second]:hover p {
+span[third] {
+    left: 25%;
+    animation-delay: 4.2s;
+    transition: .5s
+}
+span[fourth] {
+    right: 25%;
+    animation-delay: 4.2s;
+    transition: .5s
+}
+span:hover p {
     color: #ddd;
     cursor: pointer
 }
@@ -134,7 +153,7 @@ span[second]:hover p {
 
     z-index: -2;
 }
-.login {
+.box {
     display: block;
     background-color: #171e27;
     height: auto;

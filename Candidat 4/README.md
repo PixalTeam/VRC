@@ -5,3 +5,10 @@
  |2019-12-19| - Créer un script php pour pouvoir s'inscrire et se connecter sur l'appli <br>- Créer un script php pour pouvoir ajouter des VRC |
  |2020-01-09| - Maquette du site <br>- Commencé les pages JavaScript |
  |2020-01-13| - Créé page de connexion <br>- Commencé les actions JavaScript |
+ |2020-01-16| - Créé page d'inscription <br>- Créé page d'ajout de VRC <br>- Créé page de deconnexion <br>- Fini l'header <br>- Tranformé les éléments HTML des pages PHP en PHP by echo<br> |
+
+<br>
+
+ | Preview Date     | Preview News |
+ |----------|--------------|
+ |2020-01-20| * Modifier les pages JavaScript en PHP simpl avec un switch <br>* Construire les pages d'insert en SQL <br>* Sécuriser les entrées des forms <br>* Finir la page du profil |
