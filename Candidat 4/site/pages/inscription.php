@@ -1,5 +1,4 @@
 <?php
-session_start();
 if (!isset($_SESSION['id'])) {
     echo '
         <div class="center">
@@ -9,11 +8,11 @@ if (!isset($_SESSION['id'])) {
                 <input type="email" placeholder="Email"><br>
                 <input type="password" placeholder="Mot de passe"><br>
                 <input type="password" placeholder="Répéter mot de passe"><br>
-                <input type="submit" class="form" value="Inscription">
+                <input type="submit" class="form" onclick="register(\'Inscription\')" value="Inscription">
             </div>
         </div>';
 }
 else {
-    echo 'session';
+    header('Location: index.php');
 }
 ?>

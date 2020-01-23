@@ -1,5 +1,4 @@
 <?php
-session_start();
 if (!isset($_SESSION['id'])) {
     echo '
         <div class="center">
@@ -7,11 +6,11 @@ if (!isset($_SESSION['id'])) {
                 <h1>CONNEXION</h1>
                 <input type="text" placeholder="Identifiant ou Email"><br>
                 <input type="password" placeholder="Mot de passe"><br>
-                <input type="submit" class="form" value="Connexion">
+                <input type="submit" class="form" onclick="connexion(\'Connexion\')" value="Connexion">
             </div>
         </div>';
 }
 else {
-    echo 'session';
+    header('Location: index.php');
 }
 ?>

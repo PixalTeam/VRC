@@ -1,1 +1,0 @@
-<img src="assets/img/logo.png" class="open">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 19 déc. 2019 à 10:39
+-- Généré le :  jeu. 23 jan. 2020 à 10:51
 -- Version du serveur :  5.7.24
 -- Version de PHP :  7.2.14
 
@@ -31,11 +31,12 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
-  `username` varchar(16) NOT NULL,
+  `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `date` int(15) NOT NULL,
-  `ip` varchar(15) NOT NULL,
+  `date` int(255) NOT NULL,
+  `ip` varchar(255) NOT NULL,
   `perm` int(1) NOT NULL,
+  `mail` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
