@@ -33,8 +33,8 @@ CREATE TABLE IF NOT EXISTS `users` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `date` int(10) NOT NULL,
-  `ip` varchar(15) NOT NULL,
+  `date` int(255) NOT NULL,
+  `ip` varchar(255) NOT NULL,
   `perm` int(1) NOT NULL,
   `mail` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
