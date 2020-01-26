@@ -8,6 +8,7 @@
  |2020-01-16| - Créé page d'inscription <br>- Créé page d'ajout de VRC <br>- Créé page de deconnexion <br>- Fini l'header <br>- Tranformé les éléments HTML des pages PHP en PHP by echo |
  |2020-01-20||
  |2020-01-23| - Modifié les pages JavaScript en PHP simple avec un switch <br>- Construit les pages d'insert en SQL <br>- Sécurisé les entrées des forms |
+ |2020-01-23| - Modifié le z-index 5 sur le logo du header |
 
 <br>
 
