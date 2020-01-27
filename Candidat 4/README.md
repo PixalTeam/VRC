@@ -9,9 +9,10 @@
  |2020-01-20||
  |2020-01-23| - Modifié les pages JavaScript en PHP simple avec un switch <br>- Construit les pages d'insert en SQL <br>- Sécurisé les entrées des forms |
  |2020-01-26| - Modifié le z-index 5 sur le logo du header |
+ |2020-01-27| - Fini la page du profil <br>- Construit la page d'inscription pour l'application Android |
 
 <br>
 
  | Preview Date     | Preview News |
  |----------|--------------|
- |2020-01-27| * Finir la page du profil <br>* Construire les script d'insert pour l'appli mobile en SQL |
+ |2020-01-30| * Construire les script d'insert pour l'appli mobile en SQL |
