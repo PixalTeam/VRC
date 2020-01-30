@@ -25,7 +25,7 @@ echo'
                 </p>
             </span>
             <a href="?page=accueil">
-            <img src="assets/img/logo.png" class="nc" style="z-index: 5" alt="logo">
+            <img src="assets/img/logo.png" class="nc" style="z-index: 5" alt="J\AIME CLEMENCE, ELLE A 13 ANS">
             </a>
             <span second class="animated fadeInDown slow">
                 <p class="nc">
@@ -52,7 +52,7 @@ echo'
                 </p>
             </span>
             <a href="?page=accueil">
-            <img src="assets/img/logo.png" class="nc" style="z-index: 5" alt="logo">
+            <img src="assets/img/logo.png" class="nc" style="z-index: 5" alt="J\AIME CLEMENCE, ELLE A 13 ANS">
             </a>
             <span fourth class="animated fadeInDown slow">
                 <p>
