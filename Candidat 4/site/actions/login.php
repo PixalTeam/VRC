@@ -15,7 +15,7 @@ if(isset($_POST['Connexion'])){
         if($userexist == 1 OR $mailexist == 1) {
             $userinfo = $requser->fetch();
             $_SESSION['id'] = $userinfo['id'];
-            $requser = $bdd->prepare("UPDATE users SET ip = ?, date = UNIX_TIMESTAMP() WHERE id = ?");
+            $requser = $bdd->prepare("UPDATE users SET ip = ? WHERE id = ?");
             $requser->execute(array($_SERVER['REMOTE_ADDR'], $userinfo['id']));
 
             $requsernamefr = $bdd->prepare("SELECT * FROM users WHERE username = ?");
