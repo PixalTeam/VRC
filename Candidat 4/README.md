@@ -24,11 +24,14 @@ VRC est un projet créé par le lycée La Morandière pour un club de VRC. Voici
 |2020-01-09| - Maquette du site <br>- Commencé les pages JavaScript | No |
 |2020-01-13| - Créé page de connexion <br>- Commencé les actions JavaScript | No |
 |2020-01-16| - Créé page d'inscription <br>- Créé page d'ajout de VRC <br>-Créé page de deconnexion <br>- Fini l'header <br>- Tranformé les élémentsHTML des pages PHP en PHP by echo | No |
-|2020-01-20||
+|2020-01-20|||
 |2020-01-23| - Modifié les pages JavaScript en PHP simple avec un switch<br>- Construit les pages d'insert en SQL <br>- Sécurisé les entrées desforms | No |
 |2020-01-26| - Modifié le z-index 5 sur le logo du header | No |
 |2020-01-27| - Fini la page du profil <br>- Construit la page d'inscriptionpour l'application Android | No |
 |2020-01-30| - Debug le fichier d'ajout de VRC<br>- Debug le fichier duprofil<br>- Construit les scripts d'insert pour l'appli mobile en SQL | No |
+|2020-02-03|||
+|2020-02-06|||
+|2020-02-10| - Fini le programme du chrono sous Arduino | No |
 <br>
 
 | Preview Date     | Preview News |
