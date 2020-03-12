@@ -24,6 +24,7 @@ VRC est un projet créé par le lycée La Morandière pour un club de VRC. Voici
 | 5 semaines | Création du site et de ses pages | No |
 | 1 semaine | Debug des scripts | No |
 | 1/2 semaine | Création du programme Arduino | No |
+| UNDEFINED | Finition du diaporama | <a href="https://github.com/PixalTeam/VRC/releases/tag/v1.0.0.0.1">v1.0.0.0.1</a> |
 
 ## Chronologie des modifications
 
@@ -43,11 +44,11 @@ VRC est un projet créé par le lycée La Morandière pour un club de VRC. Voici
 |2020-02-03|||
 |2020-02-06|||
 |2020-02-10| - Fini le programme du chrono sous Arduino | No |
-|2020-02-13|||
-|2020-03-05|||
-|2020-03-09|| <a href="https://github.com/PixalTeam/VRC/releases/tag/v1.0.0.0.1">v1.0.0.0.1</a> |
+|2020-02-13| - Diaporama ||
+|2020-03-05| - Diaporama ||
+|2020-03-09| - Diaporama | <a href="https://github.com/PixalTeam/VRC/releases/tag/v1.0.0.0.1">v1.0.0.0.1</a> |
+|2020-03-13| - Diaporama<br>- Upload les fichiers de la VRC sur le serveur en ligne  | No |
 <br>
 
 | Date prévue | Nouveautés prévues |
 | --- | --- |
-| 2020-03-12 | - Upload les fichiers de la VRC sur le serveur en ligne |
