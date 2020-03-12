@@ -47,7 +47,7 @@ VRC est un projet créé par le lycée La Morandière pour un club de VRC. Voici
 |2020-02-13| - Diaporama ||
 |2020-03-05| - Diaporama ||
 |2020-03-09| - Diaporama | <a href="https://github.com/PixalTeam/VRC/releases/tag/v1.0.0.0.1">v1.0.0.0.1</a> |
-|2020-03-13| - Diaporama<br>- Upload les fichiers de la VRC sur le serveur en ligne  | No |
+|2020-03-12| - Diaporama<br>- Upload les fichiers de la VRC sur le serveur en ligne  | No |
 <br>
 
 | Date prévue | Nouveautés prévues |
