@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="@android:style/Theme">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="switchStyle">@style/ClassicSwitch</item>
+    </style>
+    <style name="ClassicSwitch" parent="@style/Widget.AppCompat.CompoundButton.Switch">
+        <item name="android:background">@drawable/abc_item_background_holo_light</item>
+    </style>
+    <style name="TextAppearance.AppCompat.Button" parent="@style/TextAppearance.AppCompat">
+        <item name="textAllCaps">false</item>
+    </style>
+</resources>

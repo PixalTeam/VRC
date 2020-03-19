@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Base.V7.Widget.AppCompat.AutoCompleteTextView" parent="@android:style/Widget.AutoCompleteTextView">
+        <item name="android:textAppearance">?android:textAppearanceMediumInverse</item>
+        <item name="android:textColor">?editTextColor</item>
+        <item name="android:background">?editTextBackground</item>
+        <item name="android:dropDownSelector">?listChoiceBackgroundIndicator</item>
+        <item name="android:popupBackground">@drawable/abc_popup_background_mtrl_mult</item>
+        <item name="android:textCursorDrawable">@drawable/abc_text_cursor_material</item>
+    </style>
+    <style name="Base.V7.Widget.AppCompat.EditText" parent="@android:style/Widget.EditText">
+        <item name="android:textAppearance">?android:textAppearanceMediumInverse</item>
+        <item name="android:textColor">?editTextColor</item>
+        <item name="android:background">?editTextBackground</item>
+        <item name="android:textCursorDrawable">@drawable/abc_text_cursor_material</item>
+    </style>
+</resources>
