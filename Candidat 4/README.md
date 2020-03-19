@@ -54,3 +54,4 @@ VRC est un projet créé par le lycée La Morandière pour un club de VRC. Voici
 
 | Date prévue | Nouveautés prévues |
 | --- | --- |
+| 2020-03-20 | - Relier l'application aux données PHP sur site |
