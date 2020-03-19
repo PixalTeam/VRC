@@ -9,8 +9,8 @@ Je dois créer un site internet ainsi que gérer une base de données MySQL par 
 | Travail | Tâche réalisée |
 | --- | --- |
 | Identifier les voitures circulants sur la piste | ``int id = XX;`` |
-| Chronométer les temps de parcours  | <a href="./Arduino/chrono/chrono.ino">./Arduino/chrono/chrono.ino</a> |
-| Mémoriser le meilleur temps au tour | <a href="./site/android/actions/sendchrono.php">./site/android/actions/sendchrono.php</a><br><a href="../Candidat 3/Pixal.apk">./Candidat 3/Pixal.apk</a> |
+| Chronométer les temps de parcours  | <a href="./Arduino/chrono/chrono.ino">./Arduino/chrono/chrono.ino</a><br><a href="./Arduino/color_sensor/color_sensor.ino">./Arduino/color_sensor/color_sensor.ino</a> |
+| Mémoriser le meilleur temps au tour | <a href="./site/android/actions/sendchrono.php">./site/android/actions/sendchrono.php</a><br><a href="../Candidat 3/Pixal.apk">../Candidat 3/Pixal.apk</a> |
 | Création su site web | <a href="./site">./site</a> |
 | Conservation des courses | <a href="./site/vrc.sql">./site/vrc.sql</a><br><a href="./site/pages/accueil.php">./site/pages/accueil.php</a><br> |
 
@@ -48,6 +48,8 @@ VRC est un projet créé par le lycée La Morandière pour un club de VRC. Voici
 |2020-03-05| - Diaporama ||
 |2020-03-09| - Diaporama | <a href="https://github.com/PixalTeam/VRC/releases/tag/v1.0.0.0.1">v1.0.0.0.1</a> |
 |2020-03-12| - Diaporama<br>- Upload les fichiers de la VRC sur le serveur en ligne  | No |
+|2020-03-16| COVID-19 | --- |
+|2020-03-19| - Mise à jour de l'application mobile en Java<br>- Créé le fichier du capteur de couleur Arduino | <a href="https://github.com/PixalTeam/VRC/releases/tag/v1.0.0.1.2">v1.0.0.1.2</a> |
 <br>
 
 | Date prévue | Nouveautés prévues |
