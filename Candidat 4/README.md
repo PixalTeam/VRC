@@ -36,22 +36,15 @@ VRC est un projet créé par le lycée La Morandière pour un club de VRC. Voici
 |2020-01-09| - Maquette du site <br>- Commencé les pages JavaScript | No |
 |2020-01-13| - Créé page de connexion <br>- Commencé les actions JavaScript | No |
 |2020-01-16| - Créé page d'inscription <br>- Créé page d'ajout de VRC <br>-Créé page de deconnexion <br>- Fini l'header <br>- Tranformé les éléments HTML des pages PHP en PHP by echo | No |
-|2020-01-20|||
 |2020-01-23| - Modifié les pages JavaScript en PHP simple avec un switch<br>- Construit les pages d'insert en SQL <br>- Sécurisé les entrées desforms | No |
 |2020-01-26| - Modifié le z-index 5 sur le logo du header | No |
 |2020-01-27| - Fini la page du profil <br>- Construit la page d'inscription pour l'application Android | No |
 |2020-01-30| - Debug le fichier d'ajout de VRC<br>- Debug le fichier du profil<br>- Construit les scripts d'insert pour l'appli mobile en SQL | No |
-|2020-02-03|||
-|2020-02-06|||
 |2020-02-10| - Fini le programme du chrono sous Arduino | No |
 |2020-02-13| - Diaporama ||
 |2020-03-05| - Diaporama ||
 |2020-03-09| - Diaporama | <a href="https://github.com/PixalTeam/VRC/releases/tag/v1.0.0.0.1">v1.0.0.0.1</a> |
 |2020-03-12| - Diaporama<br>- Upload les fichiers de la VRC sur le serveur en ligne  | No |
-|2020-03-16| COVID-19 | --- |
 |2020-03-19| - Mise à jour de l'application mobile en Java<br>- Créé le fichier du capteur de couleur Arduino | <a href="https://github.com/PixalTeam/VRC/releases/tag/v1.0.0.1.2">v1.0.0.1.2</a> |
-<br>
-
-| Date prévue | Nouveautés prévues |
-| --- | --- |
-| 2020-03-20 | - Relier l'application aux données PHP sur site |
+|2020-04-13| Mise à jour de l'application mobile en Java: <br> - Mise en place d'une protection de fichiers anti pirates<br> - Mise en place des scripts php de connexion, d'inscription et d'ajout de VRC via http://vrc.kellis.fr<br>| No|
+|2020-04-14| Mise à jour de l'application mobile en Java: <br>- Mise en place d'un nouveau screen de démarrage indiquant les erreurs au démarrage (si il y en a)<br> - Construction de la page de profil avec les VRC de l'utilisateur connecté<br> - Mise en place de la base de données stable TinyDB<br> - Stockage de toutes variables du style: ``user_id`` contenant l'ID de l'utilisateur connecté (est égal à 0 avant connexion et après déconnexion), ``bluetoothData`` contenant l'adresse UUID de l'appareil connecté en Bluetooth (est NULL avant connexion et après déconnexion Bluetooth), ``isConnected`` contenant un boolean pour savoir si l'utilisateur est connecté à son compte ou non et ``isBluetooth`` contenant un boolean pour savoir si l'utilisateur est connecté en Bluetooth ou non. Cette donnée empêche les bugs du Notifier venant du Screen1 quand l'appareil n'était pas connecté, ainsi que ``init`` contenant un boolean pour savoir si l'Initialisation de l'application a bien étét effectuée au démarrage de celle-ci. | <a href="https://github.com/PixalTeam/VRC/releases/tag/v2.0">v2.0</a> |
