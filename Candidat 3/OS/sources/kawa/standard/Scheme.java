@@ -188,7 +188,7 @@ public class Scheme extends LispLanguage {
         defProcStFld("cddddr", "kawa.lib.lists");
         defProcStFld("null?", "kawa.lib.lists");
         defProcStFld("list?", "kawa.lib.lists");
-        defProcStFld("length", "kawa.lib.lists");
+        defProcStFld(PropertyTypeConstants.PROPERTY_TYPE_LENGTH, "kawa.lib.lists");
         defProcStFld("append", "kawa.standard.append", "append");
         defProcStFld("reverse", "kawa.lib.lists");
         defProcStFld("reverse!", "kawa.lib.lists");

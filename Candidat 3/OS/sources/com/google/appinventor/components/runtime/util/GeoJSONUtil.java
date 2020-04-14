@@ -29,13 +29,21 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 import org.osmdroid.util.GeoPoint;
 
 public final class GeoJSONUtil {
+    private static final int ERROR_CODE_MALFORMED_GEOJSON = -3;
+    private static final String ERROR_MALFORMED_GEOJSON = "Malformed GeoJSON response. Expected FeatureCollection as root element.";
+    private static final String ERROR_UNKNOWN_TYPE = "Unrecognized/invalid type in JSON object";
     private static final String GEOJSON_COORDINATES = "coordinates";
     private static final String GEOJSON_FEATURE = "Feature";
+    private static final String GEOJSON_FEATURECOLLECTION = "FeatureCollection";
+    private static final String GEOJSON_FEATURES = "features";
     private static final String GEOJSON_GEOMETRY = "geometry";
+    private static final String GEOJSON_GEOMETRYCOLLECTION = "GeometryCollection";
     private static final String GEOJSON_PROPERTIES = "properties";
     private static final String GEOJSON_TYPE = "type";
     private static final int KEY = 1;
@@ -651,6 +659,64 @@ public final class GeoJSONUtil {
         throw new IllegalArgumentException();
     }
 
+    public static List<YailList> getGeoJSONFeatures(String logTag, String content) throws JSONException {
+        JSONArray features = new JSONObject(stripBOM(content)).getJSONArray(GEOJSON_FEATURES);
+        List<YailList> yailFeatures = new ArrayList<>();
+        for (int i = 0; i < features.length(); i++) {
+            yailFeatures.add(jsonObjectToYail(logTag, features.getJSONObject(i)));
+        }
+        return yailFeatures;
+    }
+
+    public static String getGeoJSONType(String content, String geojsonType) throws JSONException {
+        return new JSONObject(stripBOM(content)).optString(geojsonType);
+    }
+
+    private static YailList jsonObjectToYail(String logTag, JSONObject object) throws JSONException {
+        List<YailList> pairs = new ArrayList<>();
+        Iterator<String> j = object.keys();
+        while (j.hasNext()) {
+            String key = (String) j.next();
+            Object value = object.get(key);
+            if ((value instanceof Boolean) || (value instanceof Integer) || (value instanceof Long) || (value instanceof Double) || (value instanceof String)) {
+                pairs.add(YailList.makeList(new Object[]{key, value}));
+            } else if (value instanceof JSONArray) {
+                pairs.add(YailList.makeList(new Object[]{key, jsonArrayToYail(logTag, (JSONArray) value)}));
+            } else if (value instanceof JSONObject) {
+                pairs.add(YailList.makeList(new Object[]{key, jsonObjectToYail(logTag, (JSONObject) value)}));
+            } else if (!JSONObject.NULL.equals(value)) {
+                Log.wtf(logTag, "Unrecognized/invalid type in JSON object: " + value.getClass());
+                throw new IllegalArgumentException(ERROR_UNKNOWN_TYPE);
+            }
+        }
+        return YailList.makeList((List) pairs);
+    }
+
+    private static YailList jsonArrayToYail(String logTag, JSONArray array) throws JSONException {
+        List<Object> items = new ArrayList<>();
+        for (int i = 0; i < array.length(); i++) {
+            Object value = array.get(i);
+            if ((value instanceof Boolean) || (value instanceof Integer) || (value instanceof Long) || (value instanceof Double) || (value instanceof String)) {
+                items.add(value);
+            } else if (value instanceof JSONArray) {
+                items.add(jsonArrayToYail(logTag, (JSONArray) value));
+            } else if (value instanceof JSONObject) {
+                items.add(jsonObjectToYail(logTag, (JSONObject) value));
+            } else if (!JSONObject.NULL.equals(value)) {
+                Log.wtf(logTag, "Unrecognized/invalid type in JSON object: " + value.getClass());
+                throw new IllegalArgumentException(ERROR_UNKNOWN_TYPE);
+            }
+        }
+        return YailList.makeList((List) items);
+    }
+
+    private static String stripBOM(String content) {
+        if (content.charAt(0) == 65279) {
+            return content.substring(1);
+        }
+        return content;
+    }
+
     public static void writeFeaturesAsGeoJSON(List<MapFeature> featuresToSave, String path) throws IOException {
         PrintStream out = null;
         try {
@@ -691,6 +757,15 @@ public final class GeoJSONUtil {
             Pair p = (Pair) coordinate.getCdr();
             p.setCar(coordinate.get(2));
             ((Pair) p.getCdr()).setCar(temp);
+        }
+        return coordinates;
+    }
+
+    public static <E> List<List<E>> swapCoordinates2(List<List<E>> coordinates) {
+        for (List<E> point : coordinates) {
+            E temp = point.get(0);
+            point.set(0, point.get(1));
+            point.set(1, temp);
         }
         return coordinates;
     }

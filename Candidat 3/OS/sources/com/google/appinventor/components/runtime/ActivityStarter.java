@@ -264,10 +264,17 @@ public class ActivityStarter extends AndroidNonvisibleComponent implements Activ
         for (int i = 0; i < length; i++) {
             YailList castExtra = (YailList) array[i];
             String key = castExtra.getString(0);
-            String value = castExtra.getString(1);
-            if (!(key.length() == 0 || value.length() == 0)) {
-                Log.i(LOG_TAG, "Adding extra (pairs), key = " + key + " value = " + value);
-                intent.putExtra(key, value);
+            Object value = castExtra.getObject(1);
+            Log.i(LOG_TAG, "Adding extra, key = " + key + " value = " + value);
+            if (key.length() != 0) {
+                if (value instanceof YailList) {
+                    Log.i(LOG_TAG, "Adding extra list, key = " + key + " value = " + value);
+                    intent.putExtra(key, ((YailList) value).toStringArray());
+                } else {
+                    String stringValue = castExtra.getString(1);
+                    Log.i(LOG_TAG, "Adding extra string, key = " + key + " value = " + stringValue);
+                    intent.putExtra(key, stringValue);
+                }
             }
         }
         return intent;

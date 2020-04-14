@@ -1,5 +1,6 @@
 package gnu.kawa.functions;
 
+import com.google.appinventor.components.common.PropertyTypeConstants;
 import gnu.bytecode.Access;
 import gnu.bytecode.ArrayType;
 import gnu.bytecode.ClassType;
@@ -97,7 +98,7 @@ public class CompileNamedPart {
                     ApplyExp applyExp = new ApplyExp(typeHasNamedParts.getDeclaredMethod("get", 1), args2);
                     Expression[] expressionArr = args2;
                     return applyExp.setLine((Expression) exp);
-                } else if (SlotGet.lookupMember(otype, mname, caller) != null || (mname.equals("length") && (type instanceof ArrayType))) {
+                } else if (SlotGet.lookupMember(otype, mname, caller) != null || (mname.equals(PropertyTypeConstants.PROPERTY_TYPE_LENGTH) && (type instanceof ArrayType))) {
                     ApplyExp aexp = new ApplyExp((Procedure) SlotGet.field, args);
                     aexp.setLine((Expression) exp);
                     return visitor.visitApplyOnly(aexp, required);

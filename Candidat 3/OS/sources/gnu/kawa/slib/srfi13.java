@@ -4,6 +4,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.InputDeviceCompat;
 import android.support.v4.view.PointerIconCompat;
 import com.google.appinventor.components.common.ComponentConstants;
+import com.google.appinventor.components.common.PropertyTypeConstants;
 import com.google.appinventor.components.common.YaVersion;
 import com.google.appinventor.components.runtime.util.ErrorMessages;
 import com.google.appinventor.components.runtime.util.FullScreenVideoUtil;
@@ -7221,7 +7222,7 @@ public class srfi13 extends ModuleBody {
         string$Mnparse$Mnstart$Plend = new ModuleMethod(srfi13, FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_SOURCE, Lit45, 12291);
         $Pccheck$Mnbounds = new ModuleMethod(srfi13, FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_FULLSCREEN, Lit46, 16388);
         string$Mnparse$Mnfinal$Mnstart$Plend = new ModuleMethod(srfi13, FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_DURATION, Lit47, 12291);
-        substring$Mnspec$Mnok$Qu = new ModuleMethod(srfi13, YaVersion.YOUNG_ANDROID_VERSION, Lit48, 12291);
+        substring$Mnspec$Mnok$Qu = new ModuleMethod(srfi13, 197, Lit48, 12291);
         check$Mnsubstring$Mnspec = new ModuleMethod(srfi13, 198, Lit49, 16388);
         ModuleMethod moduleMethod = new ModuleMethod(srfi13, 199, null, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         moduleMethod.setProperty("source-location", "/u2/home/jis/ai2-kawa/gnu/kawa/slib/srfi13.scm:223");
@@ -7232,7 +7233,7 @@ public class srfi13 extends ModuleBody {
         string$Mnmap = new ModuleMethod(srfi13, 203, Lit53, -4094);
         $Pcstring$Mnmap = new ModuleMethod(srfi13, 204, Lit54, 16388);
         string$Mnmap$Ex = new ModuleMethod(srfi13, 205, Lit55, -4094);
-        $Pcstring$Mnmap$Ex = new ModuleMethod(srfi13, 206, Lit56, 16388);
+        $Pcstring$Mnmap$Ex = new ModuleMethod(srfi13, YaVersion.YOUNG_ANDROID_VERSION, Lit56, 16388);
         string$Mnfold = new ModuleMethod(srfi13, 207, Lit57, -4093);
         string$Mnfold$Mnright = new ModuleMethod(srfi13, 208, Lit58, -4093);
         ModuleMethod moduleMethod2 = new ModuleMethod(srfi13, 209, null, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
@@ -7476,7 +7477,7 @@ public class srfi13 extends ModuleBody {
                 callContext.proc = moduleMethod;
                 callContext.pc = 3;
                 return 0;
-            case YaVersion.YOUNG_ANDROID_VERSION /*197*/:
+            case 197:
                 callContext.value1 = obj;
                 callContext.value2 = obj2;
                 callContext.value3 = obj3;
@@ -7557,7 +7558,7 @@ public class srfi13 extends ModuleBody {
                 callContext.proc = moduleMethod;
                 callContext.pc = 4;
                 return 0;
-            case 206:
+            case YaVersion.YOUNG_ANDROID_VERSION /*206*/:
                 callContext.value1 = obj;
                 callContext.value2 = obj2;
                 callContext.value3 = obj3;
@@ -10221,7 +10222,7 @@ public class srfi13 extends ModuleBody {
                 return stringParseStart$PlEnd(obj, obj2, obj3);
             case FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_DURATION /*196*/:
                 return stringParseFinalStart$PlEnd(obj, obj2, obj3);
-            case YaVersion.YOUNG_ANDROID_VERSION /*197*/:
+            case 197:
                 return isSubstringSpecOk(obj, obj2, obj3) ? Boolean.TRUE : Boolean.FALSE;
             case ErrorMessages.ERROR_CAMERA_NO_IMAGE_RETURNED /*201*/:
                 try {
@@ -10779,7 +10780,7 @@ public class srfi13 extends ModuleBody {
             }
             return s;
         } catch (ClassCastException e4) {
-            throw new WrongType(e4, "length", 1, clist);
+            throw new WrongType(e4, PropertyTypeConstants.PROPERTY_TYPE_LENGTH, 1, clist);
         }
     }
 
@@ -11237,7 +11238,7 @@ public class srfi13 extends ModuleBody {
                 return checkSubstringSpec(obj, obj2, obj3, obj4);
             case 204:
                 return $PcStringMap(obj, obj2, obj3, obj4);
-            case 206:
+            case YaVersion.YOUNG_ANDROID_VERSION /*206*/:
                 return $PcStringMap$Ex(obj, obj2, obj3, obj4);
             case 299:
                 try {

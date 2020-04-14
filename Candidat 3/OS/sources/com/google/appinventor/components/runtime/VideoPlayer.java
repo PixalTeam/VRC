@@ -220,32 +220,49 @@ public final class VideoPlayer extends AndroidViewComponent implements OnDestroy
     }
 
     @DesignerProperty(defaultValue = "", editorType = "asset")
+    @UsesPermissions({"android.permission.READ_EXTERNAL_STORAGE"})
     @SimpleProperty(category = PropertyCategory.BEHAVIOR, description = "The \"path\" to the video.  Usually, this will be the name of the video file, which should be added in the Designer.")
     public void Source(String path) {
-        if (this.inFullScreen) {
-            this.container.$form().fullScreenVideoAction(FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_SOURCE, this, path);
-            return;
-        }
+        final String tempPath;
         if (path == null) {
-            path = "";
+            tempPath = "";
+        } else {
+            tempPath = path;
         }
-        this.sourcePath = path;
-        this.videoView.invalidateMediaPlayer(true);
-        if (this.videoView.isPlaying()) {
-            this.videoView.stopPlayback();
-        }
-        this.videoView.setVideoURI(null);
-        this.videoView.clearAnimation();
-        if (this.sourcePath.length() > 0) {
-            Log.i("VideoPlayer", "Source path is " + this.sourcePath);
-            try {
-                this.mediaReady = false;
-                MediaUtil.loadVideoView(this.videoView, this.container.$form(), this.sourcePath);
-                Log.i("VideoPlayer", "loading video succeeded");
-            } catch (PermissionException e) {
-                this.container.$form().dispatchPermissionDeniedEvent((Component) this, "Source", e);
-            } catch (IOException e2) {
-                this.container.$form().dispatchErrorOccurredEvent(this, "Source", ErrorMessages.ERROR_UNABLE_TO_LOAD_MEDIA, this.sourcePath);
+        if (MediaUtil.isExternalFile(tempPath) && this.container.$form().isDeniedPermission("android.permission.READ_EXTERNAL_STORAGE")) {
+            this.container.$form().askPermission("android.permission.READ_EXTERNAL_STORAGE", new PermissionResultHandler() {
+                public void HandlePermissionResponse(String permission, boolean granted) {
+                    if (granted) {
+                        VideoPlayer.this.Source(tempPath);
+                    } else {
+                        VideoPlayer.this.container.$form().dispatchPermissionDeniedEvent((Component) VideoPlayer.this, "Source", permission);
+                    }
+                }
+            });
+        } else if (this.inFullScreen) {
+            this.container.$form().fullScreenVideoAction(FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_SOURCE, this, path);
+        } else {
+            if (path == null) {
+                path = "";
+            }
+            this.sourcePath = path;
+            this.videoView.invalidateMediaPlayer(true);
+            if (this.videoView.isPlaying()) {
+                this.videoView.stopPlayback();
+            }
+            this.videoView.setVideoURI(null);
+            this.videoView.clearAnimation();
+            if (this.sourcePath.length() > 0) {
+                Log.i("VideoPlayer", "Source path is " + this.sourcePath);
+                try {
+                    this.mediaReady = false;
+                    MediaUtil.loadVideoView(this.videoView, this.container.$form(), this.sourcePath);
+                    Log.i("VideoPlayer", "loading video succeeded");
+                } catch (PermissionException e) {
+                    this.container.$form().dispatchPermissionDeniedEvent((Component) this, "Source", e);
+                } catch (IOException e2) {
+                    this.container.$form().dispatchErrorOccurredEvent(this, "Source", ErrorMessages.ERROR_UNABLE_TO_LOAD_MEDIA, this.sourcePath);
+                }
             }
         }
     }

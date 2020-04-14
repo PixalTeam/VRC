@@ -78,6 +78,10 @@ public class BluetoothReflection {
         invokeMethodThrowsIOException(getMethod(bluetoothSocket.getClass(), "connect"), bluetoothSocket, new Object[0]);
     }
 
+    public static boolean isBluetoothSocketConnected(Object bluetoothSocket) {
+        return ((Boolean) invokeMethod(getMethod(bluetoothSocket.getClass(), "isConnected"), bluetoothSocket, new Object[0])).booleanValue();
+    }
+
     public static InputStream getInputStream(Object bluetoothSocket) throws IOException {
         return (InputStream) invokeMethodThrowsIOException(getMethod(bluetoothSocket.getClass(), "getInputStream"), bluetoothSocket, new Object[0]);
     }

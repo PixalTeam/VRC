@@ -18,7 +18,7 @@ import com.google.appinventor.components.runtime.util.AssetFetcher;
 import com.google.appinventor.components.runtime.util.CsvUtil;
 import com.google.appinventor.components.runtime.util.ErrorMessages;
 import com.google.appinventor.components.runtime.util.FullScreenVideoUtil;
-import com.google.appinventor.components.runtime.util.JavaJoinListOfStrings;
+import com.google.appinventor.components.runtime.util.JavaStringUtils;
 import com.google.appinventor.components.runtime.util.PropertyUtil;
 import com.google.appinventor.components.runtime.util.RetValManager;
 import com.google.appinventor.components.runtime.util.YailDictionary;
@@ -90,7 +90,7 @@ import kawa.standard.Scheme;
 import kawa.standard.expt;
 import kawa.standard.syntax_case;
 
-/* compiled from: runtime9130887760156434227.scm */
+/* compiled from: runtime7968961605135708732.scm */
 public class runtime extends ModuleBody implements Runnable {
     public static final ModuleMethod $Pcset$Mnand$Mncoerce$Mnproperty$Ex;
     public static final ModuleMethod $Pcset$Mnsubform$Mnlayout$Mnproperty$Ex;
@@ -103,7 +103,7 @@ public class runtime extends ModuleBody implements Runnable {
     public static final ModuleMethod $Stformat$Mninexact$St;
     public static Object $Stinit$Mnthunk$Mnenvironment$St;
     public static String $Stjava$Mnexception$Mnmessage$St;
-    public static final Macro $Stlist$Mnfor$Mnruntime$St = Macro.make(Lit90, Lit91, $instance);
+    public static final Macro $Stlist$Mnfor$Mnruntime$St = Macro.make(Lit96, Lit97, $instance);
     public static Object $Stmax$Mncolor$Mncomponent$St;
     public static Object $Stnon$Mncoercible$Mnvalue$St;
     public static IntNum $Stnum$Mnconnections$St;
@@ -132,451 +132,462 @@ public class runtime extends ModuleBody implements Runnable {
     public static final Class Integer = Integer.class;
     public static final Class JavaCollection = Collection.class;
     public static final Class JavaIterator = Iterator.class;
-    public static final Class JavaJoinListOfStrings = JavaJoinListOfStrings.class;
     public static final Class JavaMap = Map.class;
+    public static final Class JavaStringUtils = JavaStringUtils.class;
     public static final Class KawaEnvironment = Environment.class;
     static final SimpleSymbol Lit0;
     static final SimpleSymbol Lit1;
     static final SimpleSymbol Lit10 = ((SimpleSymbol) new SimpleSymbol("pair").readResolve());
-    static final SyntaxTemplate Lit100 = new SyntaxTemplate("\u0001\u0001\u0001\u0001\u0000", "\b\u0011\u0018\u0004\u0011\u0018\f\u0011\u0018\u0014\u0011\u0018\u001c)\u0011\u0018$\b\u000b\b\u0011\u0018$\b\u0013\b\u0011\u0018,)\u0011\u0018$\b\u000b\b\u0011\u0018$\b\u0013", new Object[]{Lit324, Lit333, PairWithPosition.make(Lit322, Pair.make(Lit395, Pair.make(Pair.make(Lit323, Pair.make(Lit416, LList.Empty)), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 2994193), PairWithPosition.make(Lit380, PairWithPosition.make(Lit396, PairWithPosition.make((SimpleSymbol) new SimpleSymbol("*this-form*").readResolve(), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2998359), "/tmp/runtime9130887760156434227.scm", 2998293), "/tmp/runtime9130887760156434227.scm", 2998289), Lit334, Lit356}, 0);
-    static final SimpleSymbol Lit101 = ((SimpleSymbol) new SimpleSymbol("define-generic-event").readResolve());
-    static final SyntaxPattern Lit102 = new SyntaxPattern("\f\u0007\f\u000f\f\u0017\f\u001f#", new Object[0], 5);
-    static final SyntaxTemplate Lit103 = new SyntaxTemplate("\u0001\u0001\u0001\u0001\u0000", "\u0018\u0004", new Object[]{PairWithPosition.make(Lit329, LList.Empty, "/tmp/runtime9130887760156434227.scm", 3039242)}, 0);
-    static final SyntaxTemplate Lit104;
-    static final SimpleSymbol Lit105 = ((SimpleSymbol) new SimpleSymbol("any$").readResolve());
-    static final SyntaxTemplate Lit106 = new SyntaxTemplate("\u0001\u0001\u0001\u0001\u0000", "\u000b", new Object[0], 0);
-    static final SyntaxTemplate Lit107 = new SyntaxTemplate("\u0001\u0001\u0001\u0001\u0000", "\u0013", new Object[0], 0);
-    static final SyntaxTemplate Lit108 = new SyntaxTemplate("\u0001\u0001\u0001\u0001\u0000", "\t\u001b\b\"", new Object[0], 0);
-    static final SyntaxTemplate Lit109 = new SyntaxTemplate("\u0001\u0001\u0001\u0001\u0000", "\u0010", new Object[0], 0);
+    static final SyntaxTemplate Lit100 = new SyntaxTemplate("\u0001\u0001\u0001\u0001\u0000", "\u0018\u0004", new Object[]{PairWithPosition.make(Lit340, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2965514)}, 0);
+    static final SyntaxTemplate Lit101 = new SyntaxTemplate("\u0001\u0001\u0001\u0001\u0000", "\u0018\u0004", new Object[]{PairWithPosition.make(Lit94, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2969612)}, 0);
+    static final SyntaxTemplate Lit102 = new SyntaxTemplate("\u0001\u0001\u0001\u0001\u0000", "\u000b", new Object[0], 0);
+    static final SimpleSymbol Lit103 = ((SimpleSymbol) new SimpleSymbol("$").readResolve());
+    static final SyntaxTemplate Lit104 = new SyntaxTemplate("\u0001\u0001\u0001\u0001\u0000", "\u0013", new Object[0], 0);
+    static final SyntaxTemplate Lit105 = new SyntaxTemplate("\u0001\u0001\u0001\u0001\u0000", "\t\u001b\b\"", new Object[0], 0);
+    static final SyntaxTemplate Lit106 = new SyntaxTemplate("\u0001\u0001\u0001\u0001\u0000", "\b\u0011\u0018\u0004\u0011\u0018\f\u0011\u0018\u0014\u0011\u0018\u001c)\u0011\u0018$\b\u000b\b\u0011\u0018$\b\u0013\b\u0011\u0018,)\u0011\u0018$\b\u000b\b\u0011\u0018$\b\u0013", new Object[]{Lit335, Lit344, PairWithPosition.make(Lit333, Pair.make(Lit406, Pair.make(Pair.make(Lit334, Pair.make(Lit427, LList.Empty)), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 2994193), PairWithPosition.make(Lit391, PairWithPosition.make(Lit407, PairWithPosition.make((SimpleSymbol) new SimpleSymbol("*this-form*").readResolve(), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2998359), "/tmp/runtime7968961605135708732.scm", 2998293), "/tmp/runtime7968961605135708732.scm", 2998289), Lit345, Lit367}, 0);
+    static final SimpleSymbol Lit107 = ((SimpleSymbol) new SimpleSymbol("define-generic-event").readResolve());
+    static final SyntaxPattern Lit108 = new SyntaxPattern("\f\u0007\f\u000f\f\u0017\f\u001f#", new Object[0], 5);
+    static final SyntaxTemplate Lit109 = new SyntaxTemplate("\u0001\u0001\u0001\u0001\u0000", "\u0018\u0004", new Object[]{PairWithPosition.make(Lit340, LList.Empty, "/tmp/runtime7968961605135708732.scm", 3039242)}, 0);
     static final SimpleSymbol Lit11 = ((SimpleSymbol) new SimpleSymbol("key").readResolve());
-    static final SimpleSymbol Lit110 = ((SimpleSymbol) new SimpleSymbol("def").readResolve());
-    static final SyntaxRules Lit111 = new SyntaxRules(new Object[]{Lit321}, new SyntaxRule[]{new SyntaxRule(new SyntaxPattern("\f\u0018<\f\u0007\r\u000f\b\b\b\r\u0017\u0010\b\b", new Object[0], 3), "\u0001\u0003\u0003", "\u0011\u0018\u0004\b\u0011\u0018\f\u0011\u0018\u0014¡\u0011\u0018\u001c)\u0011\u0018$\b\u0003\b\u0011\u0018,\u0019\b\r\u000b\b\u0015\u0013\b\u0011\u00184)\u0011\u0018$\b\u0003\b\u0011\u0018,\t\u0010\b\u0011\u0018,\u0019\b\r\u000b\b\u0015\u0013", new Object[]{Lit329, Lit324, Lit333, Lit118, Lit334, Lit327, Lit335}, 1), new SyntaxRule(new SyntaxPattern("\f\u0018\f\u0007\f\u000f\b", new Object[0], 2), "\u0001\u0001", "\u0011\u0018\u0004\b\u0011\u0018\f\u0011\u0018\u0014Y\u0011\u0018\u001c)\u0011\u0018$\b\u0003\b\u000b\b\u0011\u0018,)\u0011\u0018$\b\u0003\b\u0011\u00184\t\u0010\b\u000b", new Object[]{Lit329, Lit324, Lit333, Lit118, Lit334, Lit335, Lit327}, 0)}, 3);
-    static final SimpleSymbol Lit112 = ((SimpleSymbol) new SimpleSymbol("do-after-form-creation").readResolve());
-    static final SyntaxRules Lit113 = new SyntaxRules(new Object[]{Lit321}, new SyntaxRule[]{new SyntaxRule(new SyntaxPattern("\f\u0018\r\u0007\u0000\b\b", new Object[0], 1), "\u0003", "\u0011\u0018\u0004\u0011\u0018\f1\u0011\u0018\u0014\b\u0005\u0003\b\u0011\u0018\u001c\b\u0011\u0018$\b\u0011\u0018\u0014\b\u0005\u0003", new Object[]{Lit324, Lit333, Lit329, Lit369, Lit332}, 1)}, 1);
-    static final SimpleSymbol Lit114 = ((SimpleSymbol) new SimpleSymbol("add-to-current-form-environment").readResolve());
-    static final SimpleSymbol Lit115 = ((SimpleSymbol) new SimpleSymbol("lookup-in-current-form-environment").readResolve());
-    static final SimpleSymbol Lit116 = ((SimpleSymbol) new SimpleSymbol("delete-from-current-form-environment").readResolve());
-    static final SimpleSymbol Lit117 = ((SimpleSymbol) new SimpleSymbol("rename-in-current-form-environment").readResolve());
-    static final SimpleSymbol Lit118 = ((SimpleSymbol) new SimpleSymbol("add-global-var-to-current-form-environment").readResolve());
-    static final SimpleSymbol Lit119 = ((SimpleSymbol) new SimpleSymbol("lookup-global-var-in-current-form-environment").readResolve());
+    static final SyntaxTemplate Lit110;
+    static final SimpleSymbol Lit111 = ((SimpleSymbol) new SimpleSymbol("any$").readResolve());
+    static final SyntaxTemplate Lit112 = new SyntaxTemplate("\u0001\u0001\u0001\u0001\u0000", "\u000b", new Object[0], 0);
+    static final SyntaxTemplate Lit113 = new SyntaxTemplate("\u0001\u0001\u0001\u0001\u0000", "\u0013", new Object[0], 0);
+    static final SyntaxTemplate Lit114 = new SyntaxTemplate("\u0001\u0001\u0001\u0001\u0000", "\t\u001b\b\"", new Object[0], 0);
+    static final SyntaxTemplate Lit115 = new SyntaxTemplate("\u0001\u0001\u0001\u0001\u0000", "\u0010", new Object[0], 0);
+    static final SimpleSymbol Lit116 = ((SimpleSymbol) new SimpleSymbol("def").readResolve());
+    static final SyntaxRules Lit117 = new SyntaxRules(new Object[]{Lit332}, new SyntaxRule[]{new SyntaxRule(new SyntaxPattern("\f\u0018<\f\u0007\r\u000f\b\b\b\r\u0017\u0010\b\b", new Object[0], 3), "\u0001\u0003\u0003", "\u0011\u0018\u0004\b\u0011\u0018\f\u0011\u0018\u0014¡\u0011\u0018\u001c)\u0011\u0018$\b\u0003\b\u0011\u0018,\u0019\b\r\u000b\b\u0015\u0013\b\u0011\u00184)\u0011\u0018$\b\u0003\b\u0011\u0018,\t\u0010\b\u0011\u0018,\u0019\b\r\u000b\b\u0015\u0013", new Object[]{Lit340, Lit335, Lit344, Lit124, Lit345, Lit338, Lit346}, 1), new SyntaxRule(new SyntaxPattern("\f\u0018\f\u0007\f\u000f\b", new Object[0], 2), "\u0001\u0001", "\u0011\u0018\u0004\b\u0011\u0018\f\u0011\u0018\u0014Y\u0011\u0018\u001c)\u0011\u0018$\b\u0003\b\u000b\b\u0011\u0018,)\u0011\u0018$\b\u0003\b\u0011\u00184\t\u0010\b\u000b", new Object[]{Lit340, Lit335, Lit344, Lit124, Lit345, Lit346, Lit338}, 0)}, 3);
+    static final SimpleSymbol Lit118 = ((SimpleSymbol) new SimpleSymbol("do-after-form-creation").readResolve());
+    static final SyntaxRules Lit119 = new SyntaxRules(new Object[]{Lit332}, new SyntaxRule[]{new SyntaxRule(new SyntaxPattern("\f\u0018\r\u0007\u0000\b\b", new Object[0], 1), "\u0003", "\u0011\u0018\u0004\u0011\u0018\f1\u0011\u0018\u0014\b\u0005\u0003\b\u0011\u0018\u001c\b\u0011\u0018$\b\u0011\u0018\u0014\b\u0005\u0003", new Object[]{Lit335, Lit344, Lit340, Lit380, Lit343}, 1)}, 1);
     static final SimpleSymbol Lit12 = ((SimpleSymbol) new SimpleSymbol("dictionary").readResolve());
-    static final SimpleSymbol Lit120 = ((SimpleSymbol) new SimpleSymbol("reset-current-form-environment").readResolve());
-    static final SimpleSymbol Lit121 = ((SimpleSymbol) new SimpleSymbol("foreach").readResolve());
-    static final PairWithPosition Lit122 = PairWithPosition.make(Lit326, LList.Empty, "/tmp/runtime9130887760156434227.scm", 3567620);
-    static final PairWithPosition Lit123 = PairWithPosition.make(Lit327, LList.Empty, "/tmp/runtime9130887760156434227.scm", 3571717);
-    static final PairWithPosition Lit124 = PairWithPosition.make(Lit129, LList.Empty, "/tmp/runtime9130887760156434227.scm", 3571725);
-    static final PairWithPosition Lit125 = PairWithPosition.make(Lit328, LList.Empty, "/tmp/runtime9130887760156434227.scm", 3575815);
-    static final PairWithPosition Lit126 = PairWithPosition.make(Lit331, LList.Empty, "/tmp/runtime9130887760156434227.scm", 3575821);
-    static final PairWithPosition Lit127 = PairWithPosition.make(Lit327, LList.Empty, "/tmp/runtime9130887760156434227.scm", 3575827);
-    static final PairWithPosition Lit128 = PairWithPosition.make(Lit259, PairWithPosition.make(Lit331, LList.Empty, "/tmp/runtime9130887760156434227.scm", 3579928), "/tmp/runtime9130887760156434227.scm", 3579913);
-    static final SimpleSymbol Lit129;
+    static final SimpleSymbol Lit120 = ((SimpleSymbol) new SimpleSymbol("add-to-current-form-environment").readResolve());
+    static final SimpleSymbol Lit121 = ((SimpleSymbol) new SimpleSymbol("lookup-in-current-form-environment").readResolve());
+    static final SimpleSymbol Lit122 = ((SimpleSymbol) new SimpleSymbol("delete-from-current-form-environment").readResolve());
+    static final SimpleSymbol Lit123 = ((SimpleSymbol) new SimpleSymbol("rename-in-current-form-environment").readResolve());
+    static final SimpleSymbol Lit124 = ((SimpleSymbol) new SimpleSymbol("add-global-var-to-current-form-environment").readResolve());
+    static final SimpleSymbol Lit125 = ((SimpleSymbol) new SimpleSymbol("lookup-global-var-in-current-form-environment").readResolve());
+    static final SimpleSymbol Lit126 = ((SimpleSymbol) new SimpleSymbol("reset-current-form-environment").readResolve());
+    static final SimpleSymbol Lit127 = ((SimpleSymbol) new SimpleSymbol("foreach").readResolve());
+    static final PairWithPosition Lit128 = PairWithPosition.make(Lit337, LList.Empty, "/tmp/runtime7968961605135708732.scm", 3567620);
+    static final PairWithPosition Lit129 = PairWithPosition.make(Lit338, LList.Empty, "/tmp/runtime7968961605135708732.scm", 3571717);
     static final SimpleSymbol Lit13 = ((SimpleSymbol) new SimpleSymbol("any").readResolve());
-    static final SimpleSymbol Lit130 = ((SimpleSymbol) new SimpleSymbol("forrange").readResolve());
-    static final PairWithPosition Lit131 = PairWithPosition.make(Lit326, LList.Empty, "/tmp/runtime9130887760156434227.scm", 3649540);
-    static final PairWithPosition Lit132 = PairWithPosition.make(Lit327, LList.Empty, "/tmp/runtime9130887760156434227.scm", 3653637);
-    static final PairWithPosition Lit133 = PairWithPosition.make(Lit129, LList.Empty, "/tmp/runtime9130887760156434227.scm", 3653645);
-    static final PairWithPosition Lit134 = PairWithPosition.make(Lit260, LList.Empty, "/tmp/runtime9130887760156434227.scm", 3657735);
-    static final PairWithPosition Lit135 = PairWithPosition.make(Lit327, LList.Empty, "/tmp/runtime9130887760156434227.scm", 3657751);
-    static final SimpleSymbol Lit136 = ((SimpleSymbol) new SimpleSymbol("while").readResolve());
-    static final PairWithPosition Lit137 = PairWithPosition.make(Lit328, LList.Empty, "/tmp/runtime9130887760156434227.scm", 3710980);
-    static final PairWithPosition Lit138 = PairWithPosition.make(Lit36, LList.Empty, "/tmp/runtime9130887760156434227.scm", 3710986);
-    static final PairWithPosition Lit139 = PairWithPosition.make(Lit327, LList.Empty, "/tmp/runtime9130887760156434227.scm", 3710992);
+    static final PairWithPosition Lit130 = PairWithPosition.make(Lit135, LList.Empty, "/tmp/runtime7968961605135708732.scm", 3571725);
+    static final PairWithPosition Lit131 = PairWithPosition.make(Lit339, LList.Empty, "/tmp/runtime7968961605135708732.scm", 3575815);
+    static final PairWithPosition Lit132 = PairWithPosition.make(Lit342, LList.Empty, "/tmp/runtime7968961605135708732.scm", 3575821);
+    static final PairWithPosition Lit133 = PairWithPosition.make(Lit338, LList.Empty, "/tmp/runtime7968961605135708732.scm", 3575827);
+    static final PairWithPosition Lit134 = PairWithPosition.make(Lit267, PairWithPosition.make(Lit342, LList.Empty, "/tmp/runtime7968961605135708732.scm", 3579928), "/tmp/runtime7968961605135708732.scm", 3579913);
+    static final SimpleSymbol Lit135;
+    static final SimpleSymbol Lit136 = ((SimpleSymbol) new SimpleSymbol("forrange").readResolve());
+    static final PairWithPosition Lit137 = PairWithPosition.make(Lit337, LList.Empty, "/tmp/runtime7968961605135708732.scm", 3649540);
+    static final PairWithPosition Lit138 = PairWithPosition.make(Lit338, LList.Empty, "/tmp/runtime7968961605135708732.scm", 3653637);
+    static final PairWithPosition Lit139 = PairWithPosition.make(Lit135, LList.Empty, "/tmp/runtime7968961605135708732.scm", 3653645);
     static final SimpleSymbol Lit14 = ((SimpleSymbol) new SimpleSymbol("Screen").readResolve());
-    static final PairWithPosition Lit140;
-    static final PairWithPosition Lit141 = PairWithPosition.make(Lit328, PairWithPosition.make(Lit330, PairWithPosition.make(LList.Empty, LList.Empty, "/tmp/runtime9130887760156434227.scm", 3715107), "/tmp/runtime9130887760156434227.scm", 3715095), "/tmp/runtime9130887760156434227.scm", 3715090);
-    static final PairWithPosition Lit142 = PairWithPosition.make(Lit324, LList.Empty, "/tmp/runtime9130887760156434227.scm", 3719188);
-    static final PairWithPosition Lit143 = PairWithPosition.make(Lit329, LList.Empty, "/tmp/runtime9130887760156434227.scm", 3723288);
-    static final PairWithPosition Lit144 = PairWithPosition.make(Lit329, LList.Empty, "/tmp/runtime9130887760156434227.scm", 3723295);
-    static final PairWithPosition Lit145 = PairWithPosition.make(PairWithPosition.make(Lit330, LList.Empty, "/tmp/runtime9130887760156434227.scm", 3727391), LList.Empty, "/tmp/runtime9130887760156434227.scm", 3727391);
-    static final PairWithPosition Lit146 = PairWithPosition.make(null, LList.Empty, "/tmp/runtime9130887760156434227.scm", 3731480);
-    static final PairWithPosition Lit147;
-    static final SimpleSymbol Lit148 = ((SimpleSymbol) new SimpleSymbol("foreach-with-break").readResolve());
-    static final SyntaxRules Lit149 = new SyntaxRules(new Object[]{Lit321}, new SyntaxRule[]{new SyntaxRule(new SyntaxPattern("\f\u0018\f\u0007\f\u000f\f\u0017\f\u001f\b", new Object[0], 4), "\u0001\u0001\u0001\u0001", "\u0011\u0018\u0004\b\u0011\u0018\f\u0011\b\u0003\b\u0011\u0018\u0014i\b\u0011\u0018\u001c\b\u0011\u0018\f\u0011\b\u000b\b\u0013\b\u0011\u0018$\u0011\u0018\u001c\b\u001b", new Object[]{Lit326, Lit327, Lit328, Lit331, Lit259}, 0)}, 4);
+    static final PairWithPosition Lit140 = PairWithPosition.make(Lit268, LList.Empty, "/tmp/runtime7968961605135708732.scm", 3657735);
+    static final PairWithPosition Lit141 = PairWithPosition.make(Lit338, LList.Empty, "/tmp/runtime7968961605135708732.scm", 3657751);
+    static final SimpleSymbol Lit142 = ((SimpleSymbol) new SimpleSymbol("while").readResolve());
+    static final PairWithPosition Lit143 = PairWithPosition.make(Lit339, LList.Empty, "/tmp/runtime7968961605135708732.scm", 3710980);
+    static final PairWithPosition Lit144 = PairWithPosition.make(Lit42, LList.Empty, "/tmp/runtime7968961605135708732.scm", 3710986);
+    static final PairWithPosition Lit145 = PairWithPosition.make(Lit338, LList.Empty, "/tmp/runtime7968961605135708732.scm", 3710992);
+    static final PairWithPosition Lit146;
+    static final PairWithPosition Lit147 = PairWithPosition.make(Lit339, PairWithPosition.make(Lit341, PairWithPosition.make(LList.Empty, LList.Empty, "/tmp/runtime7968961605135708732.scm", 3715107), "/tmp/runtime7968961605135708732.scm", 3715095), "/tmp/runtime7968961605135708732.scm", 3715090);
+    static final PairWithPosition Lit148 = PairWithPosition.make(Lit335, LList.Empty, "/tmp/runtime7968961605135708732.scm", 3719188);
+    static final PairWithPosition Lit149 = PairWithPosition.make(Lit340, LList.Empty, "/tmp/runtime7968961605135708732.scm", 3723288);
     static final SimpleSymbol Lit15;
-    static final SimpleSymbol Lit150 = ((SimpleSymbol) new SimpleSymbol("forrange-with-break").readResolve());
-    static final SyntaxRules Lit151 = new SyntaxRules(new Object[]{Lit321}, new SyntaxRule[]{new SyntaxRule(new SyntaxPattern("\f\u0018\f\u0007\f\u000f\f\u0017\f\u001f\f'\f/\b", new Object[0], 6), "\u0001\u0001\u0001\u0001\u0001\u0001", "\u0011\u0018\u0004\b\u0011\u0018\f\u0011\b\u0003\b\u0011\u0018\u0014A\u0011\u0018\f\u0011\b\u000b\b\u0013\t\u001b\t#\b+", new Object[]{Lit326, Lit327, Lit260}, 0)}, 6);
-    static final SimpleSymbol Lit152 = ((SimpleSymbol) new SimpleSymbol("while-with-break").readResolve());
-    static final SyntaxRules Lit153 = new SyntaxRules(new Object[]{Lit321}, new SyntaxRule[]{new SyntaxRule(new SyntaxPattern("\f\u0018\f\u0007\f\u000f\r\u0017\u0010\b\b", new Object[0], 3), "\u0001\u0001\u0003", "\u0011\u0018\u0004\b\u0011\u0018\f\u0011\b\u0003\b\u0011\u0018\u0014\u0011\u0018\u001c\t\u0010\b\u0011\u0018$\t\u000bA\u0011\u0018,\u0011\u0015\u0013\u00184\u0018<", new Object[]{Lit326, Lit327, Lit328, Lit325, Lit324, Lit329, PairWithPosition.make(PairWithPosition.make(Lit325, LList.Empty, "/tmp/runtime9130887760156434227.scm", 3915779), LList.Empty, "/tmp/runtime9130887760156434227.scm", 3915779), PairWithPosition.make(Lit435, LList.Empty, "/tmp/runtime9130887760156434227.scm", 3919880)}, 1)}, 3);
-    static final SimpleSymbol Lit154 = ((SimpleSymbol) new SimpleSymbol("call-component-method").readResolve());
-    static final SimpleSymbol Lit155 = ((SimpleSymbol) new SimpleSymbol("call-component-type-method").readResolve());
-    static final SimpleSymbol Lit156 = ((SimpleSymbol) new SimpleSymbol("call-yail-primitive").readResolve());
-    static final SimpleSymbol Lit157 = ((SimpleSymbol) new SimpleSymbol("sanitize-component-data").readResolve());
-    static final SimpleSymbol Lit158 = ((SimpleSymbol) new SimpleSymbol("java-collection->yail-list").readResolve());
-    static final SimpleSymbol Lit159 = ((SimpleSymbol) new SimpleSymbol("java-collection->kawa-list").readResolve());
+    static final PairWithPosition Lit150 = PairWithPosition.make(Lit340, LList.Empty, "/tmp/runtime7968961605135708732.scm", 3723295);
+    static final PairWithPosition Lit151 = PairWithPosition.make(PairWithPosition.make(Lit341, LList.Empty, "/tmp/runtime7968961605135708732.scm", 3727391), LList.Empty, "/tmp/runtime7968961605135708732.scm", 3727391);
+    static final PairWithPosition Lit152 = PairWithPosition.make(null, LList.Empty, "/tmp/runtime7968961605135708732.scm", 3731480);
+    static final PairWithPosition Lit153;
+    static final SimpleSymbol Lit154 = ((SimpleSymbol) new SimpleSymbol("foreach-with-break").readResolve());
+    static final SyntaxRules Lit155 = new SyntaxRules(new Object[]{Lit332}, new SyntaxRule[]{new SyntaxRule(new SyntaxPattern("\f\u0018\f\u0007\f\u000f\f\u0017\f\u001f\b", new Object[0], 4), "\u0001\u0001\u0001\u0001", "\u0011\u0018\u0004\b\u0011\u0018\f\u0011\b\u0003\b\u0011\u0018\u0014i\b\u0011\u0018\u001c\b\u0011\u0018\f\u0011\b\u000b\b\u0013\b\u0011\u0018$\u0011\u0018\u001c\b\u001b", new Object[]{Lit337, Lit338, Lit339, Lit342, Lit267}, 0)}, 4);
+    static final SimpleSymbol Lit156 = ((SimpleSymbol) new SimpleSymbol("forrange-with-break").readResolve());
+    static final SyntaxRules Lit157 = new SyntaxRules(new Object[]{Lit332}, new SyntaxRule[]{new SyntaxRule(new SyntaxPattern("\f\u0018\f\u0007\f\u000f\f\u0017\f\u001f\f'\f/\b", new Object[0], 6), "\u0001\u0001\u0001\u0001\u0001\u0001", "\u0011\u0018\u0004\b\u0011\u0018\f\u0011\b\u0003\b\u0011\u0018\u0014A\u0011\u0018\f\u0011\b\u000b\b\u0013\t\u001b\t#\b+", new Object[]{Lit337, Lit338, Lit268}, 0)}, 6);
+    static final SimpleSymbol Lit158 = ((SimpleSymbol) new SimpleSymbol("while-with-break").readResolve());
+    static final SyntaxRules Lit159 = new SyntaxRules(new Object[]{Lit332}, new SyntaxRule[]{new SyntaxRule(new SyntaxPattern("\f\u0018\f\u0007\f\u000f\r\u0017\u0010\b\b", new Object[0], 3), "\u0001\u0001\u0003", "\u0011\u0018\u0004\b\u0011\u0018\f\u0011\b\u0003\b\u0011\u0018\u0014\u0011\u0018\u001c\t\u0010\b\u0011\u0018$\t\u000bA\u0011\u0018,\u0011\u0015\u0013\u00184\u0018<", new Object[]{Lit337, Lit338, Lit339, Lit336, Lit335, Lit340, PairWithPosition.make(PairWithPosition.make(Lit336, LList.Empty, "/tmp/runtime7968961605135708732.scm", 3915779), LList.Empty, "/tmp/runtime7968961605135708732.scm", 3915779), PairWithPosition.make(Lit446, LList.Empty, "/tmp/runtime7968961605135708732.scm", 3919880)}, 1)}, 3);
     static final DFloNum Lit16 = DFloNum.make(Double.POSITIVE_INFINITY);
-    static final SimpleSymbol Lit160 = ((SimpleSymbol) new SimpleSymbol("java-map->yail-dictionary").readResolve());
-    static final SimpleSymbol Lit161 = ((SimpleSymbol) new SimpleSymbol("sanitize-atomic").readResolve());
-    static final SimpleSymbol Lit162 = ((SimpleSymbol) new SimpleSymbol("signal-runtime-error").readResolve());
-    static final SimpleSymbol Lit163 = ((SimpleSymbol) new SimpleSymbol("signal-runtime-form-error").readResolve());
-    static final SimpleSymbol Lit164 = ((SimpleSymbol) new SimpleSymbol("yail-not").readResolve());
-    static final SimpleSymbol Lit165 = ((SimpleSymbol) new SimpleSymbol("call-with-coerced-args").readResolve());
-    static final SimpleSymbol Lit166 = ((SimpleSymbol) new SimpleSymbol("%set-and-coerce-property!").readResolve());
-    static final SimpleSymbol Lit167 = ((SimpleSymbol) new SimpleSymbol("%set-subform-layout-property!").readResolve());
-    static final SimpleSymbol Lit168 = ((SimpleSymbol) new SimpleSymbol("generate-runtime-type-error").readResolve());
-    static final SimpleSymbol Lit169 = ((SimpleSymbol) new SimpleSymbol("show-arglist-no-parens").readResolve());
+    static final SimpleSymbol Lit160 = ((SimpleSymbol) new SimpleSymbol("call-component-method").readResolve());
+    static final SimpleSymbol Lit161 = ((SimpleSymbol) new SimpleSymbol("call-component-type-method").readResolve());
+    static final SimpleSymbol Lit162 = ((SimpleSymbol) new SimpleSymbol("call-yail-primitive").readResolve());
+    static final SimpleSymbol Lit163 = ((SimpleSymbol) new SimpleSymbol("sanitize-component-data").readResolve());
+    static final SimpleSymbol Lit164 = ((SimpleSymbol) new SimpleSymbol("java-collection->yail-list").readResolve());
+    static final SimpleSymbol Lit165 = ((SimpleSymbol) new SimpleSymbol("java-collection->kawa-list").readResolve());
+    static final SimpleSymbol Lit166 = ((SimpleSymbol) new SimpleSymbol("java-map->yail-dictionary").readResolve());
+    static final SimpleSymbol Lit167 = ((SimpleSymbol) new SimpleSymbol("sanitize-atomic").readResolve());
+    static final SimpleSymbol Lit168 = ((SimpleSymbol) new SimpleSymbol("signal-runtime-error").readResolve());
+    static final SimpleSymbol Lit169 = ((SimpleSymbol) new SimpleSymbol("signal-runtime-form-error").readResolve());
     static final DFloNum Lit17 = DFloNum.make(Double.NEGATIVE_INFINITY);
-    static final SimpleSymbol Lit170 = ((SimpleSymbol) new SimpleSymbol("coerce-args").readResolve());
-    static final SimpleSymbol Lit171 = ((SimpleSymbol) new SimpleSymbol("coerce-arg").readResolve());
-    static final SimpleSymbol Lit172 = ((SimpleSymbol) new SimpleSymbol("coerce-to-text").readResolve());
-    static final SimpleSymbol Lit173 = ((SimpleSymbol) new SimpleSymbol("coerce-to-instant").readResolve());
-    static final SimpleSymbol Lit174 = ((SimpleSymbol) new SimpleSymbol("coerce-to-component").readResolve());
-    static final SimpleSymbol Lit175 = ((SimpleSymbol) new SimpleSymbol("coerce-to-component-of-type").readResolve());
-    static final SimpleSymbol Lit176 = ((SimpleSymbol) new SimpleSymbol("type->class").readResolve());
-    static final SimpleSymbol Lit177 = ((SimpleSymbol) new SimpleSymbol("coerce-to-number").readResolve());
-    static final SimpleSymbol Lit178 = ((SimpleSymbol) new SimpleSymbol("coerce-to-key").readResolve());
-    static final SimpleSymbol Lit179 = ((SimpleSymbol) new SimpleSymbol("use-json-format").readResolve());
+    static final SimpleSymbol Lit170 = ((SimpleSymbol) new SimpleSymbol("yail-not").readResolve());
+    static final SimpleSymbol Lit171 = ((SimpleSymbol) new SimpleSymbol("call-with-coerced-args").readResolve());
+    static final SimpleSymbol Lit172 = ((SimpleSymbol) new SimpleSymbol("%set-and-coerce-property!").readResolve());
+    static final SimpleSymbol Lit173 = ((SimpleSymbol) new SimpleSymbol("%set-subform-layout-property!").readResolve());
+    static final SimpleSymbol Lit174 = ((SimpleSymbol) new SimpleSymbol("generate-runtime-type-error").readResolve());
+    static final SimpleSymbol Lit175 = ((SimpleSymbol) new SimpleSymbol("show-arglist-no-parens").readResolve());
+    static final SimpleSymbol Lit176 = ((SimpleSymbol) new SimpleSymbol("coerce-args").readResolve());
+    static final SimpleSymbol Lit177 = ((SimpleSymbol) new SimpleSymbol("coerce-arg").readResolve());
+    static final SimpleSymbol Lit178 = ((SimpleSymbol) new SimpleSymbol("coerce-to-text").readResolve());
+    static final SimpleSymbol Lit179 = ((SimpleSymbol) new SimpleSymbol("coerce-to-instant").readResolve());
     static final DFloNum Lit18 = DFloNum.make(Double.POSITIVE_INFINITY);
-    static final SyntaxRules Lit180;
-    static final SimpleSymbol Lit181 = ((SimpleSymbol) new SimpleSymbol("coerce-to-string").readResolve());
-    static final SimpleSymbol Lit182 = ((SimpleSymbol) new SimpleSymbol("get-display-representation").readResolve());
-    static final SimpleSymbol Lit183 = ((SimpleSymbol) new SimpleSymbol("join-strings").readResolve());
-    static final SimpleSymbol Lit184 = ((SimpleSymbol) new SimpleSymbol("string-replace").readResolve());
-    static final SimpleSymbol Lit185 = ((SimpleSymbol) new SimpleSymbol("coerce-to-yail-list").readResolve());
-    static final SimpleSymbol Lit186 = ((SimpleSymbol) new SimpleSymbol("coerce-to-pair").readResolve());
-    static final SimpleSymbol Lit187 = ((SimpleSymbol) new SimpleSymbol("coerce-to-dictionary").readResolve());
-    static final SimpleSymbol Lit188 = ((SimpleSymbol) new SimpleSymbol("coerce-to-boolean").readResolve());
-    static final SimpleSymbol Lit189 = ((SimpleSymbol) new SimpleSymbol("is-coercible?").readResolve());
+    static final SimpleSymbol Lit180 = ((SimpleSymbol) new SimpleSymbol("coerce-to-component").readResolve());
+    static final SimpleSymbol Lit181 = ((SimpleSymbol) new SimpleSymbol("coerce-to-component-of-type").readResolve());
+    static final SimpleSymbol Lit182 = ((SimpleSymbol) new SimpleSymbol("type->class").readResolve());
+    static final SimpleSymbol Lit183 = ((SimpleSymbol) new SimpleSymbol("coerce-to-number").readResolve());
+    static final SimpleSymbol Lit184 = ((SimpleSymbol) new SimpleSymbol("coerce-to-key").readResolve());
+    static final SimpleSymbol Lit185 = ((SimpleSymbol) new SimpleSymbol("use-json-format").readResolve());
+    static final SyntaxRules Lit186;
+    static final SimpleSymbol Lit187 = ((SimpleSymbol) new SimpleSymbol("coerce-to-string").readResolve());
+    static final SimpleSymbol Lit188 = ((SimpleSymbol) new SimpleSymbol("get-display-representation").readResolve());
+    static final SimpleSymbol Lit189 = ((SimpleSymbol) new SimpleSymbol("join-strings").readResolve());
     static final DFloNum Lit19 = DFloNum.make(Double.NEGATIVE_INFINITY);
-    static final SimpleSymbol Lit190 = ((SimpleSymbol) new SimpleSymbol("all-coercible?").readResolve());
-    static final SimpleSymbol Lit191 = ((SimpleSymbol) new SimpleSymbol("boolean->string").readResolve());
-    static final SimpleSymbol Lit192 = ((SimpleSymbol) new SimpleSymbol("padded-string->number").readResolve());
-    static final SimpleSymbol Lit193 = ((SimpleSymbol) new SimpleSymbol("*format-inexact*").readResolve());
-    static final SimpleSymbol Lit194 = ((SimpleSymbol) new SimpleSymbol("appinventor-number->string").readResolve());
-    static final SimpleSymbol Lit195 = ((SimpleSymbol) new SimpleSymbol("yail-equal?").readResolve());
-    static final SimpleSymbol Lit196 = ((SimpleSymbol) new SimpleSymbol("yail-atomic-equal?").readResolve());
-    static final SimpleSymbol Lit197 = ((SimpleSymbol) new SimpleSymbol("as-number").readResolve());
-    static final SimpleSymbol Lit198 = ((SimpleSymbol) new SimpleSymbol("yail-not-equal?").readResolve());
-    static final SimpleSymbol Lit199 = ((SimpleSymbol) new SimpleSymbol("process-and-delayed").readResolve());
-    static final PairWithPosition Lit2 = PairWithPosition.make((SimpleSymbol) new SimpleSymbol("non-coercible").readResolve(), LList.Empty, "/tmp/runtime9130887760156434227.scm", 4145184);
+    static final SimpleSymbol Lit190 = ((SimpleSymbol) new SimpleSymbol("string-replace").readResolve());
+    static final SimpleSymbol Lit191 = ((SimpleSymbol) new SimpleSymbol("coerce-to-yail-list").readResolve());
+    static final SimpleSymbol Lit192 = ((SimpleSymbol) new SimpleSymbol("coerce-to-pair").readResolve());
+    static final SimpleSymbol Lit193 = ((SimpleSymbol) new SimpleSymbol("coerce-to-dictionary").readResolve());
+    static final SimpleSymbol Lit194 = ((SimpleSymbol) new SimpleSymbol("coerce-to-boolean").readResolve());
+    static final SimpleSymbol Lit195 = ((SimpleSymbol) new SimpleSymbol("is-coercible?").readResolve());
+    static final SimpleSymbol Lit196 = ((SimpleSymbol) new SimpleSymbol("all-coercible?").readResolve());
+    static final SimpleSymbol Lit197 = ((SimpleSymbol) new SimpleSymbol("boolean->string").readResolve());
+    static final SimpleSymbol Lit198 = ((SimpleSymbol) new SimpleSymbol("padded-string->number").readResolve());
+    static final SimpleSymbol Lit199 = ((SimpleSymbol) new SimpleSymbol("*format-inexact*").readResolve());
+    static final PairWithPosition Lit2 = PairWithPosition.make((SimpleSymbol) new SimpleSymbol("non-coercible").readResolve(), LList.Empty, "/tmp/runtime7968961605135708732.scm", 4145184);
     static final SimpleSymbol Lit20 = ((SimpleSymbol) new SimpleSymbol("toYailDictionary").readResolve());
-    static final SimpleSymbol Lit200 = ((SimpleSymbol) new SimpleSymbol("process-or-delayed").readResolve());
-    static final SimpleSymbol Lit201 = ((SimpleSymbol) new SimpleSymbol("yail-floor").readResolve());
-    static final SimpleSymbol Lit202 = ((SimpleSymbol) new SimpleSymbol("yail-ceiling").readResolve());
-    static final SimpleSymbol Lit203 = ((SimpleSymbol) new SimpleSymbol("yail-round").readResolve());
-    static final SimpleSymbol Lit204 = ((SimpleSymbol) new SimpleSymbol("random-set-seed").readResolve());
-    static final SimpleSymbol Lit205 = ((SimpleSymbol) new SimpleSymbol("random-fraction").readResolve());
-    static final SimpleSymbol Lit206 = ((SimpleSymbol) new SimpleSymbol("random-integer").readResolve());
-    static final SimpleSymbol Lit207 = ((SimpleSymbol) new SimpleSymbol("yail-divide").readResolve());
-    static final SimpleSymbol Lit208 = ((SimpleSymbol) new SimpleSymbol("degrees->radians-internal").readResolve());
-    static final SimpleSymbol Lit209 = ((SimpleSymbol) new SimpleSymbol("radians->degrees-internal").readResolve());
+    static final SimpleSymbol Lit200 = ((SimpleSymbol) new SimpleSymbol("appinventor-number->string").readResolve());
+    static final SimpleSymbol Lit201 = ((SimpleSymbol) new SimpleSymbol("yail-equal?").readResolve());
+    static final SimpleSymbol Lit202 = ((SimpleSymbol) new SimpleSymbol("yail-atomic-equal?").readResolve());
+    static final SimpleSymbol Lit203 = ((SimpleSymbol) new SimpleSymbol("as-number").readResolve());
+    static final SimpleSymbol Lit204 = ((SimpleSymbol) new SimpleSymbol("yail-not-equal?").readResolve());
+    static final SimpleSymbol Lit205 = ((SimpleSymbol) new SimpleSymbol("process-and-delayed").readResolve());
+    static final SimpleSymbol Lit206 = ((SimpleSymbol) new SimpleSymbol("process-or-delayed").readResolve());
+    static final SimpleSymbol Lit207 = ((SimpleSymbol) new SimpleSymbol("yail-floor").readResolve());
+    static final SimpleSymbol Lit208 = ((SimpleSymbol) new SimpleSymbol("yail-ceiling").readResolve());
+    static final SimpleSymbol Lit209 = ((SimpleSymbol) new SimpleSymbol("yail-round").readResolve());
     static final IntNum Lit21 = IntNum.make(1);
-    static final SimpleSymbol Lit210 = ((SimpleSymbol) new SimpleSymbol("degrees->radians").readResolve());
-    static final SimpleSymbol Lit211 = ((SimpleSymbol) new SimpleSymbol("radians->degrees").readResolve());
-    static final SimpleSymbol Lit212 = ((SimpleSymbol) new SimpleSymbol("sin-degrees").readResolve());
-    static final SimpleSymbol Lit213 = ((SimpleSymbol) new SimpleSymbol("cos-degrees").readResolve());
-    static final SimpleSymbol Lit214 = ((SimpleSymbol) new SimpleSymbol("tan-degrees").readResolve());
-    static final SimpleSymbol Lit215 = ((SimpleSymbol) new SimpleSymbol("asin-degrees").readResolve());
-    static final SimpleSymbol Lit216 = ((SimpleSymbol) new SimpleSymbol("acos-degrees").readResolve());
-    static final SimpleSymbol Lit217 = ((SimpleSymbol) new SimpleSymbol("atan-degrees").readResolve());
-    static final SimpleSymbol Lit218 = ((SimpleSymbol) new SimpleSymbol("atan2-degrees").readResolve());
-    static final SimpleSymbol Lit219 = ((SimpleSymbol) new SimpleSymbol("string-to-upper-case").readResolve());
+    static final SimpleSymbol Lit210 = ((SimpleSymbol) new SimpleSymbol("random-set-seed").readResolve());
+    static final SimpleSymbol Lit211 = ((SimpleSymbol) new SimpleSymbol("random-fraction").readResolve());
+    static final SimpleSymbol Lit212 = ((SimpleSymbol) new SimpleSymbol("random-integer").readResolve());
+    static final SimpleSymbol Lit213 = ((SimpleSymbol) new SimpleSymbol("yail-divide").readResolve());
+    static final SimpleSymbol Lit214 = ((SimpleSymbol) new SimpleSymbol("degrees->radians-internal").readResolve());
+    static final SimpleSymbol Lit215 = ((SimpleSymbol) new SimpleSymbol("radians->degrees-internal").readResolve());
+    static final SimpleSymbol Lit216 = ((SimpleSymbol) new SimpleSymbol("degrees->radians").readResolve());
+    static final SimpleSymbol Lit217 = ((SimpleSymbol) new SimpleSymbol("radians->degrees").readResolve());
+    static final SimpleSymbol Lit218 = ((SimpleSymbol) new SimpleSymbol("sin-degrees").readResolve());
+    static final SimpleSymbol Lit219 = ((SimpleSymbol) new SimpleSymbol("cos-degrees").readResolve());
     static final IntNum Lit22;
-    static final SimpleSymbol Lit220 = ((SimpleSymbol) new SimpleSymbol("string-to-lower-case").readResolve());
-    static final SimpleSymbol Lit221 = ((SimpleSymbol) new SimpleSymbol("format-as-decimal").readResolve());
-    static final SimpleSymbol Lit222 = ((SimpleSymbol) new SimpleSymbol("is-number?").readResolve());
-    static final SimpleSymbol Lit223 = ((SimpleSymbol) new SimpleSymbol("is-base10?").readResolve());
-    static final SimpleSymbol Lit224 = ((SimpleSymbol) new SimpleSymbol("is-hexadecimal?").readResolve());
-    static final SimpleSymbol Lit225 = ((SimpleSymbol) new SimpleSymbol("is-binary?").readResolve());
-    static final SimpleSymbol Lit226 = ((SimpleSymbol) new SimpleSymbol("math-convert-dec-hex").readResolve());
-    static final SimpleSymbol Lit227 = ((SimpleSymbol) new SimpleSymbol("math-convert-hex-dec").readResolve());
-    static final SimpleSymbol Lit228 = ((SimpleSymbol) new SimpleSymbol("math-convert-bin-dec").readResolve());
-    static final SimpleSymbol Lit229 = ((SimpleSymbol) new SimpleSymbol("math-convert-dec-bin").readResolve());
+    static final SimpleSymbol Lit220 = ((SimpleSymbol) new SimpleSymbol("tan-degrees").readResolve());
+    static final SimpleSymbol Lit221 = ((SimpleSymbol) new SimpleSymbol("asin-degrees").readResolve());
+    static final SimpleSymbol Lit222 = ((SimpleSymbol) new SimpleSymbol("acos-degrees").readResolve());
+    static final SimpleSymbol Lit223 = ((SimpleSymbol) new SimpleSymbol("atan-degrees").readResolve());
+    static final SimpleSymbol Lit224 = ((SimpleSymbol) new SimpleSymbol("atan2-degrees").readResolve());
+    static final SimpleSymbol Lit225 = ((SimpleSymbol) new SimpleSymbol("string-to-upper-case").readResolve());
+    static final SimpleSymbol Lit226 = ((SimpleSymbol) new SimpleSymbol("string-to-lower-case").readResolve());
+    static final SimpleSymbol Lit227 = ((SimpleSymbol) new SimpleSymbol("unicode-string->list").readResolve());
+    static final SimpleSymbol Lit228 = ((SimpleSymbol) new SimpleSymbol("string-reverse").readResolve());
+    static final SimpleSymbol Lit229 = ((SimpleSymbol) new SimpleSymbol("format-as-decimal").readResolve());
     static final IntNum Lit23 = IntNum.make(2);
-    static final SimpleSymbol Lit230 = ((SimpleSymbol) new SimpleSymbol("patched-number->string-binary").readResolve());
-    static final SimpleSymbol Lit231 = ((SimpleSymbol) new SimpleSymbol("alternate-number->string-binary").readResolve());
-    static final SimpleSymbol Lit232 = ((SimpleSymbol) new SimpleSymbol("internal-binary-convert").readResolve());
-    static final SimpleSymbol Lit233 = ((SimpleSymbol) new SimpleSymbol("yail-list?").readResolve());
-    static final SimpleSymbol Lit234 = ((SimpleSymbol) new SimpleSymbol("yail-list-candidate?").readResolve());
-    static final SimpleSymbol Lit235 = ((SimpleSymbol) new SimpleSymbol("yail-list-contents").readResolve());
-    static final SimpleSymbol Lit236 = ((SimpleSymbol) new SimpleSymbol("set-yail-list-contents!").readResolve());
-    static final SimpleSymbol Lit237 = ((SimpleSymbol) new SimpleSymbol("insert-yail-list-header").readResolve());
-    static final SimpleSymbol Lit238 = ((SimpleSymbol) new SimpleSymbol("kawa-list->yail-list").readResolve());
-    static final SimpleSymbol Lit239 = ((SimpleSymbol) new SimpleSymbol("yail-list->kawa-list").readResolve());
+    static final SimpleSymbol Lit230 = ((SimpleSymbol) new SimpleSymbol("is-number?").readResolve());
+    static final SimpleSymbol Lit231 = ((SimpleSymbol) new SimpleSymbol("is-base10?").readResolve());
+    static final SimpleSymbol Lit232 = ((SimpleSymbol) new SimpleSymbol("is-hexadecimal?").readResolve());
+    static final SimpleSymbol Lit233 = ((SimpleSymbol) new SimpleSymbol("is-binary?").readResolve());
+    static final SimpleSymbol Lit234 = ((SimpleSymbol) new SimpleSymbol("math-convert-dec-hex").readResolve());
+    static final SimpleSymbol Lit235 = ((SimpleSymbol) new SimpleSymbol("math-convert-hex-dec").readResolve());
+    static final SimpleSymbol Lit236 = ((SimpleSymbol) new SimpleSymbol("math-convert-bin-dec").readResolve());
+    static final SimpleSymbol Lit237 = ((SimpleSymbol) new SimpleSymbol("math-convert-dec-bin").readResolve());
+    static final SimpleSymbol Lit238 = ((SimpleSymbol) new SimpleSymbol("patched-number->string-binary").readResolve());
+    static final SimpleSymbol Lit239 = ((SimpleSymbol) new SimpleSymbol("alternate-number->string-binary").readResolve());
     static final IntNum Lit24 = IntNum.make(30);
-    static final SimpleSymbol Lit240 = ((SimpleSymbol) new SimpleSymbol("yail-list-empty?").readResolve());
-    static final SimpleSymbol Lit241 = ((SimpleSymbol) new SimpleSymbol("make-yail-list").readResolve());
-    static final SimpleSymbol Lit242 = ((SimpleSymbol) new SimpleSymbol("yail-list-copy").readResolve());
-    static final SimpleSymbol Lit243 = ((SimpleSymbol) new SimpleSymbol("yail-list-reverse").readResolve());
-    static final SimpleSymbol Lit244 = ((SimpleSymbol) new SimpleSymbol("yail-list-to-csv-table").readResolve());
-    static final SimpleSymbol Lit245 = ((SimpleSymbol) new SimpleSymbol("yail-list-to-csv-row").readResolve());
-    static final SimpleSymbol Lit246 = ((SimpleSymbol) new SimpleSymbol("convert-to-strings-for-csv").readResolve());
-    static final SimpleSymbol Lit247 = ((SimpleSymbol) new SimpleSymbol("yail-list-from-csv-table").readResolve());
-    static final SimpleSymbol Lit248 = ((SimpleSymbol) new SimpleSymbol("yail-list-from-csv-row").readResolve());
-    static final SimpleSymbol Lit249 = ((SimpleSymbol) new SimpleSymbol("yail-list-length").readResolve());
+    static final SimpleSymbol Lit240 = ((SimpleSymbol) new SimpleSymbol("internal-binary-convert").readResolve());
+    static final SimpleSymbol Lit241 = ((SimpleSymbol) new SimpleSymbol("yail-list?").readResolve());
+    static final SimpleSymbol Lit242 = ((SimpleSymbol) new SimpleSymbol("yail-list-candidate?").readResolve());
+    static final SimpleSymbol Lit243 = ((SimpleSymbol) new SimpleSymbol("yail-list-contents").readResolve());
+    static final SimpleSymbol Lit244 = ((SimpleSymbol) new SimpleSymbol("set-yail-list-contents!").readResolve());
+    static final SimpleSymbol Lit245 = ((SimpleSymbol) new SimpleSymbol("insert-yail-list-header").readResolve());
+    static final SimpleSymbol Lit246 = ((SimpleSymbol) new SimpleSymbol("kawa-list->yail-list").readResolve());
+    static final SimpleSymbol Lit247 = ((SimpleSymbol) new SimpleSymbol("yail-list->kawa-list").readResolve());
+    static final SimpleSymbol Lit248 = ((SimpleSymbol) new SimpleSymbol("yail-list-empty?").readResolve());
+    static final SimpleSymbol Lit249 = ((SimpleSymbol) new SimpleSymbol("make-yail-list").readResolve());
     static final DFloNum Lit25 = DFloNum.make(3.14159265d);
-    static final SimpleSymbol Lit250 = ((SimpleSymbol) new SimpleSymbol("yail-list-index").readResolve());
-    static final SimpleSymbol Lit251 = ((SimpleSymbol) new SimpleSymbol("yail-list-get-item").readResolve());
-    static final SimpleSymbol Lit252 = ((SimpleSymbol) new SimpleSymbol("yail-list-set-item!").readResolve());
-    static final SimpleSymbol Lit253 = ((SimpleSymbol) new SimpleSymbol("yail-list-remove-item!").readResolve());
-    static final SimpleSymbol Lit254 = ((SimpleSymbol) new SimpleSymbol("yail-list-insert-item!").readResolve());
-    static final SimpleSymbol Lit255 = ((SimpleSymbol) new SimpleSymbol("yail-list-append!").readResolve());
-    static final SimpleSymbol Lit256 = ((SimpleSymbol) new SimpleSymbol("yail-list-add-to-list!").readResolve());
-    static final SimpleSymbol Lit257 = ((SimpleSymbol) new SimpleSymbol("yail-list-member?").readResolve());
-    static final SimpleSymbol Lit258 = ((SimpleSymbol) new SimpleSymbol("yail-list-pick-random").readResolve());
-    static final SimpleSymbol Lit259 = ((SimpleSymbol) new SimpleSymbol("yail-for-each").readResolve());
+    static final SimpleSymbol Lit250 = ((SimpleSymbol) new SimpleSymbol("yail-list-copy").readResolve());
+    static final SimpleSymbol Lit251 = ((SimpleSymbol) new SimpleSymbol("yail-list-reverse").readResolve());
+    static final SimpleSymbol Lit252 = ((SimpleSymbol) new SimpleSymbol("yail-list-to-csv-table").readResolve());
+    static final SimpleSymbol Lit253 = ((SimpleSymbol) new SimpleSymbol("yail-list-to-csv-row").readResolve());
+    static final SimpleSymbol Lit254 = ((SimpleSymbol) new SimpleSymbol("convert-to-strings-for-csv").readResolve());
+    static final SimpleSymbol Lit255 = ((SimpleSymbol) new SimpleSymbol("yail-list-from-csv-table").readResolve());
+    static final SimpleSymbol Lit256 = ((SimpleSymbol) new SimpleSymbol("yail-list-from-csv-row").readResolve());
+    static final SimpleSymbol Lit257 = ((SimpleSymbol) new SimpleSymbol("yail-list-length").readResolve());
+    static final SimpleSymbol Lit258 = ((SimpleSymbol) new SimpleSymbol("yail-list-index").readResolve());
+    static final SimpleSymbol Lit259 = ((SimpleSymbol) new SimpleSymbol("yail-list-get-item").readResolve());
     static final IntNum Lit26 = IntNum.make(180);
-    static final SimpleSymbol Lit260 = ((SimpleSymbol) new SimpleSymbol("yail-for-range").readResolve());
-    static final SimpleSymbol Lit261 = ((SimpleSymbol) new SimpleSymbol("yail-for-range-with-numeric-checked-args").readResolve());
-    static final SimpleSymbol Lit262 = ((SimpleSymbol) new SimpleSymbol("yail-number-range").readResolve());
-    static final SimpleSymbol Lit263 = ((SimpleSymbol) new SimpleSymbol("yail-alist-lookup").readResolve());
-    static final SimpleSymbol Lit264 = ((SimpleSymbol) new SimpleSymbol("pair-ok?").readResolve());
-    static final SimpleSymbol Lit265 = ((SimpleSymbol) new SimpleSymbol("yail-list-join-with-separator").readResolve());
-    static final SimpleSymbol Lit266 = ((SimpleSymbol) new SimpleSymbol("make-yail-dictionary").readResolve());
-    static final SimpleSymbol Lit267 = ((SimpleSymbol) new SimpleSymbol("make-dictionary-pair").readResolve());
-    static final SimpleSymbol Lit268 = ((SimpleSymbol) new SimpleSymbol("yail-dictionary-set-pair").readResolve());
-    static final SimpleSymbol Lit269 = ((SimpleSymbol) new SimpleSymbol("yail-dictionary-delete-pair").readResolve());
+    static final SimpleSymbol Lit260 = ((SimpleSymbol) new SimpleSymbol("yail-list-set-item!").readResolve());
+    static final SimpleSymbol Lit261 = ((SimpleSymbol) new SimpleSymbol("yail-list-remove-item!").readResolve());
+    static final SimpleSymbol Lit262 = ((SimpleSymbol) new SimpleSymbol("yail-list-insert-item!").readResolve());
+    static final SimpleSymbol Lit263 = ((SimpleSymbol) new SimpleSymbol("yail-list-append!").readResolve());
+    static final SimpleSymbol Lit264 = ((SimpleSymbol) new SimpleSymbol("yail-list-add-to-list!").readResolve());
+    static final SimpleSymbol Lit265 = ((SimpleSymbol) new SimpleSymbol("yail-list-member?").readResolve());
+    static final SimpleSymbol Lit266 = ((SimpleSymbol) new SimpleSymbol("yail-list-pick-random").readResolve());
+    static final SimpleSymbol Lit267 = ((SimpleSymbol) new SimpleSymbol("yail-for-each").readResolve());
+    static final SimpleSymbol Lit268 = ((SimpleSymbol) new SimpleSymbol("yail-for-range").readResolve());
+    static final SimpleSymbol Lit269 = ((SimpleSymbol) new SimpleSymbol("yail-for-range-with-numeric-checked-args").readResolve());
     static final DFloNum Lit27 = DFloNum.make(6.2831853d);
-    static final SimpleSymbol Lit270 = ((SimpleSymbol) new SimpleSymbol("yail-dictionary-lookup").readResolve());
-    static final SimpleSymbol Lit271 = ((SimpleSymbol) new SimpleSymbol("yail-dictionary-recursive-lookup").readResolve());
-    static final SimpleSymbol Lit272 = ((SimpleSymbol) new SimpleSymbol("yail-dictionary-walk").readResolve());
-    static final SimpleSymbol Lit273 = ((SimpleSymbol) new SimpleSymbol("yail-dictionary-recursive-set").readResolve());
-    static final SimpleSymbol Lit274 = ((SimpleSymbol) new SimpleSymbol("yail-dictionary-get-keys").readResolve());
-    static final SimpleSymbol Lit275 = ((SimpleSymbol) new SimpleSymbol("yail-dictionary-get-values").readResolve());
-    static final SimpleSymbol Lit276 = ((SimpleSymbol) new SimpleSymbol("yail-dictionary-is-key-in").readResolve());
-    static final SimpleSymbol Lit277 = ((SimpleSymbol) new SimpleSymbol("yail-dictionary-length").readResolve());
-    static final SimpleSymbol Lit278 = ((SimpleSymbol) new SimpleSymbol("yail-dictionary-alist-to-dict").readResolve());
-    static final SimpleSymbol Lit279 = ((SimpleSymbol) new SimpleSymbol("yail-dictionary-dict-to-alist").readResolve());
+    static final SimpleSymbol Lit270 = ((SimpleSymbol) new SimpleSymbol("yail-number-range").readResolve());
+    static final SimpleSymbol Lit271 = ((SimpleSymbol) new SimpleSymbol("yail-alist-lookup").readResolve());
+    static final SimpleSymbol Lit272 = ((SimpleSymbol) new SimpleSymbol("pair-ok?").readResolve());
+    static final SimpleSymbol Lit273 = ((SimpleSymbol) new SimpleSymbol("yail-list-join-with-separator").readResolve());
+    static final SimpleSymbol Lit274 = ((SimpleSymbol) new SimpleSymbol("make-yail-dictionary").readResolve());
+    static final SimpleSymbol Lit275 = ((SimpleSymbol) new SimpleSymbol("make-dictionary-pair").readResolve());
+    static final SimpleSymbol Lit276 = ((SimpleSymbol) new SimpleSymbol("yail-dictionary-set-pair").readResolve());
+    static final SimpleSymbol Lit277 = ((SimpleSymbol) new SimpleSymbol("yail-dictionary-delete-pair").readResolve());
+    static final SimpleSymbol Lit278 = ((SimpleSymbol) new SimpleSymbol("yail-dictionary-lookup").readResolve());
+    static final SimpleSymbol Lit279 = ((SimpleSymbol) new SimpleSymbol("yail-dictionary-recursive-lookup").readResolve());
     static final DFloNum Lit28 = DFloNum.make(6.2831853d);
-    static final SimpleSymbol Lit280 = ((SimpleSymbol) new SimpleSymbol("yail-dictionary-copy").readResolve());
-    static final SimpleSymbol Lit281 = ((SimpleSymbol) new SimpleSymbol("yail-dictionary-combine-dicts").readResolve());
-    static final SimpleSymbol Lit282 = ((SimpleSymbol) new SimpleSymbol("yail-dictionary?").readResolve());
-    static final SimpleSymbol Lit283 = ((SimpleSymbol) new SimpleSymbol("make-disjunct").readResolve());
-    static final SimpleSymbol Lit284 = ((SimpleSymbol) new SimpleSymbol("array->list").readResolve());
-    static final SimpleSymbol Lit285 = ((SimpleSymbol) new SimpleSymbol("string-starts-at").readResolve());
-    static final SimpleSymbol Lit286 = ((SimpleSymbol) new SimpleSymbol("string-contains").readResolve());
-    static final SimpleSymbol Lit287 = ((SimpleSymbol) new SimpleSymbol("string-split-at-first").readResolve());
-    static final SimpleSymbol Lit288 = ((SimpleSymbol) new SimpleSymbol("string-split-at-first-of-any").readResolve());
-    static final SimpleSymbol Lit289 = ((SimpleSymbol) new SimpleSymbol("string-split").readResolve());
+    static final SimpleSymbol Lit280 = ((SimpleSymbol) new SimpleSymbol("yail-dictionary-walk").readResolve());
+    static final SimpleSymbol Lit281 = ((SimpleSymbol) new SimpleSymbol("yail-dictionary-recursive-set").readResolve());
+    static final SimpleSymbol Lit282 = ((SimpleSymbol) new SimpleSymbol("yail-dictionary-get-keys").readResolve());
+    static final SimpleSymbol Lit283 = ((SimpleSymbol) new SimpleSymbol("yail-dictionary-get-values").readResolve());
+    static final SimpleSymbol Lit284 = ((SimpleSymbol) new SimpleSymbol("yail-dictionary-is-key-in").readResolve());
+    static final SimpleSymbol Lit285 = ((SimpleSymbol) new SimpleSymbol("yail-dictionary-length").readResolve());
+    static final SimpleSymbol Lit286 = ((SimpleSymbol) new SimpleSymbol("yail-dictionary-alist-to-dict").readResolve());
+    static final SimpleSymbol Lit287 = ((SimpleSymbol) new SimpleSymbol("yail-dictionary-dict-to-alist").readResolve());
+    static final SimpleSymbol Lit288 = ((SimpleSymbol) new SimpleSymbol("yail-dictionary-copy").readResolve());
+    static final SimpleSymbol Lit289 = ((SimpleSymbol) new SimpleSymbol("yail-dictionary-combine-dicts").readResolve());
     static final IntNum Lit29 = IntNum.make(360);
-    static final SimpleSymbol Lit290 = ((SimpleSymbol) new SimpleSymbol("string-split-at-any").readResolve());
-    static final SimpleSymbol Lit291 = ((SimpleSymbol) new SimpleSymbol("string-split-at-spaces").readResolve());
-    static final SimpleSymbol Lit292 = ((SimpleSymbol) new SimpleSymbol("string-substring").readResolve());
-    static final SimpleSymbol Lit293 = ((SimpleSymbol) new SimpleSymbol("string-trim").readResolve());
-    static final SimpleSymbol Lit294 = ((SimpleSymbol) new SimpleSymbol("string-replace-all").readResolve());
-    static final SimpleSymbol Lit295 = ((SimpleSymbol) new SimpleSymbol("string-empty?").readResolve());
-    static final SimpleSymbol Lit296 = ((SimpleSymbol) new SimpleSymbol("text-deobfuscate").readResolve());
-    static final SimpleSymbol Lit297 = ((SimpleSymbol) new SimpleSymbol("make-exact-yail-integer").readResolve());
-    static final SimpleSymbol Lit298 = ((SimpleSymbol) new SimpleSymbol("make-color").readResolve());
-    static final SimpleSymbol Lit299 = ((SimpleSymbol) new SimpleSymbol("split-color").readResolve());
+    static final SimpleSymbol Lit290 = ((SimpleSymbol) new SimpleSymbol("yail-dictionary?").readResolve());
+    static final SimpleSymbol Lit291 = ((SimpleSymbol) new SimpleSymbol("make-disjunct").readResolve());
+    static final SimpleSymbol Lit292 = ((SimpleSymbol) new SimpleSymbol("array->list").readResolve());
+    static final SimpleSymbol Lit293 = ((SimpleSymbol) new SimpleSymbol("string-starts-at").readResolve());
+    static final SimpleSymbol Lit294 = ((SimpleSymbol) new SimpleSymbol("string-contains").readResolve());
+    static final SimpleSymbol Lit295 = ((SimpleSymbol) new SimpleSymbol("string-split-at-first").readResolve());
+    static final SimpleSymbol Lit296 = ((SimpleSymbol) new SimpleSymbol("string-split-at-first-of-any").readResolve());
+    static final SimpleSymbol Lit297 = ((SimpleSymbol) new SimpleSymbol("string-split").readResolve());
+    static final SimpleSymbol Lit298 = ((SimpleSymbol) new SimpleSymbol("string-split-at-any").readResolve());
+    static final SimpleSymbol Lit299 = ((SimpleSymbol) new SimpleSymbol("string-split-at-spaces").readResolve());
     static final SimpleSymbol Lit3 = ((SimpleSymbol) new SimpleSymbol("remove").readResolve());
-    static final DFloNum Lit30 = DFloNum.make(1.0E18d);
-    static final SimpleSymbol Lit300 = ((SimpleSymbol) new SimpleSymbol("close-screen").readResolve());
-    static final SimpleSymbol Lit301 = ((SimpleSymbol) new SimpleSymbol("close-application").readResolve());
-    static final SimpleSymbol Lit302 = ((SimpleSymbol) new SimpleSymbol("open-another-screen").readResolve());
-    static final SimpleSymbol Lit303 = ((SimpleSymbol) new SimpleSymbol("open-another-screen-with-start-value").readResolve());
-    static final SimpleSymbol Lit304 = ((SimpleSymbol) new SimpleSymbol("get-start-value").readResolve());
-    static final SimpleSymbol Lit305 = ((SimpleSymbol) new SimpleSymbol("close-screen-with-value").readResolve());
-    static final SimpleSymbol Lit306 = ((SimpleSymbol) new SimpleSymbol("get-plain-start-text").readResolve());
-    static final SimpleSymbol Lit307 = ((SimpleSymbol) new SimpleSymbol("close-screen-with-plain-text").readResolve());
-    static final SimpleSymbol Lit308 = ((SimpleSymbol) new SimpleSymbol("get-server-address-from-wifi").readResolve());
-    static final SimpleSymbol Lit309 = ((SimpleSymbol) new SimpleSymbol("process-repl-input").readResolve());
-    static final SimpleSymbol Lit31 = ((SimpleSymbol) new SimpleSymbol("*list*").readResolve());
-    static final SyntaxRules Lit310 = new SyntaxRules(new Object[]{Lit321}, new SyntaxRule[]{new SyntaxRule(new SyntaxPattern("\f\u0018\f\u0007\f\u000f\b", new Object[0], 2), "\u0001\u0001", "\u0011\u0018\u0004\t\u0003\b\u0011\u0018\f\b\u000b", new Object[]{Lit311, Lit332}, 0)}, 2);
-    static final SimpleSymbol Lit311 = ((SimpleSymbol) new SimpleSymbol("in-ui").readResolve());
-    static final SimpleSymbol Lit312 = ((SimpleSymbol) new SimpleSymbol("send-to-block").readResolve());
-    static final SimpleSymbol Lit313 = ((SimpleSymbol) new SimpleSymbol("clear-current-form").readResolve());
-    static final SimpleSymbol Lit314 = ((SimpleSymbol) new SimpleSymbol("set-form-name").readResolve());
-    static final SimpleSymbol Lit315 = ((SimpleSymbol) new SimpleSymbol("remove-component").readResolve());
-    static final SimpleSymbol Lit316 = ((SimpleSymbol) new SimpleSymbol("rename-component").readResolve());
-    static final SimpleSymbol Lit317 = ((SimpleSymbol) new SimpleSymbol("init-runtime").readResolve());
-    static final SimpleSymbol Lit318 = ((SimpleSymbol) new SimpleSymbol("set-this-form").readResolve());
-    static final SimpleSymbol Lit319 = ((SimpleSymbol) new SimpleSymbol("clarify").readResolve());
-    static final SimpleSymbol Lit32;
-    static final SimpleSymbol Lit320 = ((SimpleSymbol) new SimpleSymbol("clarify1").readResolve());
-    static final SimpleSymbol Lit321 = ((SimpleSymbol) new SimpleSymbol("_").readResolve());
-    static final SimpleSymbol Lit322 = ((SimpleSymbol) new SimpleSymbol("$lookup$").readResolve());
-    static final SimpleSymbol Lit323 = ((SimpleSymbol) new SimpleSymbol(LispLanguage.quasiquote_sym).readResolve());
-    static final SimpleSymbol Lit324 = ((SimpleSymbol) new SimpleSymbol("if").readResolve());
-    static final SimpleSymbol Lit325 = ((SimpleSymbol) new SimpleSymbol("loop").readResolve());
-    static final SimpleSymbol Lit326 = ((SimpleSymbol) new SimpleSymbol("call-with-current-continuation").readResolve());
-    static final SimpleSymbol Lit327 = ((SimpleSymbol) new SimpleSymbol("lambda").readResolve());
-    static final SimpleSymbol Lit328 = ((SimpleSymbol) new SimpleSymbol("let").readResolve());
-    static final SimpleSymbol Lit329 = ((SimpleSymbol) new SimpleSymbol("begin").readResolve());
-    static final SimpleSymbol Lit33 = ((SimpleSymbol) new SimpleSymbol("setValueForKeyPath").readResolve());
-    static final SimpleSymbol Lit330 = ((SimpleSymbol) new SimpleSymbol("*yail-loop*").readResolve());
-    static final SimpleSymbol Lit331 = ((SimpleSymbol) new SimpleSymbol("proc").readResolve());
-    static final SimpleSymbol Lit332 = ((SimpleSymbol) new SimpleSymbol("delay").readResolve());
-    static final SimpleSymbol Lit333 = ((SimpleSymbol) new SimpleSymbol("*this-is-the-repl*").readResolve());
-    static final SimpleSymbol Lit334 = ((SimpleSymbol) new SimpleSymbol(LispLanguage.quote_sym).readResolve());
-    static final SimpleSymbol Lit335 = ((SimpleSymbol) new SimpleSymbol("add-to-global-vars").readResolve());
-    static final SimpleSymbol Lit336 = ((SimpleSymbol) new SimpleSymbol("define").readResolve());
-    static final SimpleSymbol Lit337 = ((SimpleSymbol) new SimpleSymbol("*").readResolve());
-    static final SimpleSymbol Lit338 = ((SimpleSymbol) new SimpleSymbol("object").readResolve());
-    static final SimpleSymbol Lit339 = ((SimpleSymbol) new SimpleSymbol("::").readResolve());
-    static final IntNum Lit34 = IntNum.make(255);
-    static final SimpleSymbol Lit340 = ((SimpleSymbol) new SimpleSymbol("onCreate").readResolve());
-    static final SimpleSymbol Lit341 = ((SimpleSymbol) new SimpleSymbol("icicle").readResolve());
-    static final SimpleSymbol Lit342 = ((SimpleSymbol) new SimpleSymbol("*debug-form*").readResolve());
-    static final SimpleSymbol Lit343 = ((SimpleSymbol) new SimpleSymbol("message").readResolve());
-    static final SimpleSymbol Lit344 = ((SimpleSymbol) new SimpleSymbol("gnu.mapping.Environment").readResolve());
-    static final SimpleSymbol Lit345 = ((SimpleSymbol) new SimpleSymbol("add-to-form-environment").readResolve());
-    static final SimpleSymbol Lit346 = ((SimpleSymbol) new SimpleSymbol("android-log-form").readResolve());
-    static final SimpleSymbol Lit347 = ((SimpleSymbol) new SimpleSymbol("name").readResolve());
-    static final SimpleSymbol Lit348 = ((SimpleSymbol) new SimpleSymbol("form-environment").readResolve());
-    static final SimpleSymbol Lit349 = ((SimpleSymbol) new SimpleSymbol("gnu.mapping.Symbol").readResolve());
-    static final IntNum Lit35 = IntNum.make(8);
-    static final SimpleSymbol Lit350 = ((SimpleSymbol) new SimpleSymbol("default-value").readResolve());
-    static final SimpleSymbol Lit351 = ((SimpleSymbol) new SimpleSymbol("isBound").readResolve());
-    static final SimpleSymbol Lit352 = ((SimpleSymbol) new SimpleSymbol("make").readResolve());
-    static final SimpleSymbol Lit353 = ((SimpleSymbol) new SimpleSymbol("format").readResolve());
-    static final SimpleSymbol Lit354 = ((SimpleSymbol) new SimpleSymbol("global-var-environment").readResolve());
-    static final SimpleSymbol Lit355 = ((SimpleSymbol) new SimpleSymbol("gnu.lists.LList").readResolve());
-    static final SimpleSymbol Lit356 = ((SimpleSymbol) new SimpleSymbol("add-to-events").readResolve());
-    static final SimpleSymbol Lit357 = ((SimpleSymbol) new SimpleSymbol("events-to-register").readResolve());
-    static final SimpleSymbol Lit358 = ((SimpleSymbol) new SimpleSymbol("cons").readResolve());
-    static final SimpleSymbol Lit359 = ((SimpleSymbol) new SimpleSymbol("component-name").readResolve());
-    static final SimpleSymbol Lit36;
-    static final SimpleSymbol Lit360 = ((SimpleSymbol) new SimpleSymbol("event-name").readResolve());
-    static final SimpleSymbol Lit361 = ((SimpleSymbol) new SimpleSymbol("set!").readResolve());
-    static final SimpleSymbol Lit362 = ((SimpleSymbol) new SimpleSymbol("components-to-create").readResolve());
-    static final SimpleSymbol Lit363 = ((SimpleSymbol) new SimpleSymbol("container-name").readResolve());
-    static final SimpleSymbol Lit364 = ((SimpleSymbol) new SimpleSymbol("component-type").readResolve());
-    static final SimpleSymbol Lit365 = ((SimpleSymbol) new SimpleSymbol("init-thunk").readResolve());
-    static final SimpleSymbol Lit366 = ((SimpleSymbol) new SimpleSymbol("global-vars-to-create").readResolve());
-    static final SimpleSymbol Lit367 = ((SimpleSymbol) new SimpleSymbol("var").readResolve());
-    static final SimpleSymbol Lit368 = ((SimpleSymbol) new SimpleSymbol("val-thunk").readResolve());
-    static final SimpleSymbol Lit369 = ((SimpleSymbol) new SimpleSymbol("add-to-form-do-after-creation").readResolve());
-    static final IntNum Lit37 = IntNum.make(24);
-    static final SimpleSymbol Lit370 = ((SimpleSymbol) new SimpleSymbol("form-do-after-creation").readResolve());
-    static final SimpleSymbol Lit371 = ((SimpleSymbol) new SimpleSymbol("thunk").readResolve());
-    static final SimpleSymbol Lit372 = ((SimpleSymbol) new SimpleSymbol("error").readResolve());
-    static final SimpleSymbol Lit373 = ((SimpleSymbol) new SimpleSymbol("when").readResolve());
-    static final SimpleSymbol Lit374 = ((SimpleSymbol) new SimpleSymbol("this").readResolve());
-    static final SimpleSymbol Lit375 = ((SimpleSymbol) new SimpleSymbol("ex").readResolve());
-    static final SimpleSymbol Lit376 = ((SimpleSymbol) new SimpleSymbol("send-error").readResolve());
-    static final SimpleSymbol Lit377 = ((SimpleSymbol) new SimpleSymbol("getMessage").readResolve());
-    static final SimpleSymbol Lit378 = ((SimpleSymbol) new SimpleSymbol(GetNamedPart.INSTANCEOF_METHOD_NAME).readResolve());
-    static final SimpleSymbol Lit379 = ((SimpleSymbol) new SimpleSymbol("YailRuntimeError").readResolve());
-    static final IntNum Lit38 = IntNum.make(16);
-    static final SimpleSymbol Lit380 = ((SimpleSymbol) new SimpleSymbol("as").readResolve());
-    static final SimpleSymbol Lit381 = ((SimpleSymbol) new SimpleSymbol("java.lang.String").readResolve());
-    static final SimpleSymbol Lit382 = ((SimpleSymbol) new SimpleSymbol("registeredComponentName").readResolve());
-    static final SimpleSymbol Lit383 = ((SimpleSymbol) new SimpleSymbol("is-bound-in-form-environment").readResolve());
-    static final SimpleSymbol Lit384 = ((SimpleSymbol) new SimpleSymbol("registeredObject").readResolve());
-    static final SimpleSymbol Lit385 = ((SimpleSymbol) new SimpleSymbol("eq?").readResolve());
-    static final SimpleSymbol Lit386 = ((SimpleSymbol) new SimpleSymbol("lookup-in-form-environment").readResolve());
-    static final SimpleSymbol Lit387 = ((SimpleSymbol) new SimpleSymbol("componentObject").readResolve());
-    static final SimpleSymbol Lit388 = ((SimpleSymbol) new SimpleSymbol("eventName").readResolve());
-    static final SimpleSymbol Lit389 = ((SimpleSymbol) new SimpleSymbol("handler").readResolve());
-    static final IntNum Lit39 = IntNum.make(3);
-    static final SimpleSymbol Lit390 = ((SimpleSymbol) new SimpleSymbol("args").readResolve());
-    static final SimpleSymbol Lit391 = ((SimpleSymbol) new SimpleSymbol("exception").readResolve());
-    static final SimpleSymbol Lit392 = ((SimpleSymbol) new SimpleSymbol("and").readResolve());
-    static final SimpleSymbol Lit393 = ((SimpleSymbol) new SimpleSymbol("process-exception").readResolve());
-    static final SimpleSymbol Lit394 = ((SimpleSymbol) new SimpleSymbol("printStackTrace").readResolve());
-    static final SimpleSymbol Lit395 = ((SimpleSymbol) new SimpleSymbol("com.google.appinventor.components.runtime.EventDispatcher").readResolve());
-    static final SimpleSymbol Lit396 = ((SimpleSymbol) new SimpleSymbol("com.google.appinventor.components.runtime.HandlesEventDispatching").readResolve());
-    static final SimpleSymbol Lit397 = ((SimpleSymbol) new SimpleSymbol("com.google.appinventor.components.runtime.Component").readResolve());
-    static final SimpleSymbol Lit398 = ((SimpleSymbol) new SimpleSymbol("java.lang.Object[]").readResolve());
-    static final SimpleSymbol Lit399 = ((SimpleSymbol) new SimpleSymbol("void").readResolve());
+    static final IntNum Lit30 = IntNum.make(90);
+    static final SimpleSymbol Lit300 = ((SimpleSymbol) new SimpleSymbol("string-substring").readResolve());
+    static final SimpleSymbol Lit301 = ((SimpleSymbol) new SimpleSymbol("string-trim").readResolve());
+    static final SimpleSymbol Lit302 = ((SimpleSymbol) new SimpleSymbol("string-replace-all").readResolve());
+    static final SimpleSymbol Lit303 = ((SimpleSymbol) new SimpleSymbol("string-empty?").readResolve());
+    static final SimpleSymbol Lit304 = ((SimpleSymbol) new SimpleSymbol("text-deobfuscate").readResolve());
+    static final SimpleSymbol Lit305 = ((SimpleSymbol) new SimpleSymbol("string-replace-mappings-dictionary").readResolve());
+    static final SimpleSymbol Lit306 = ((SimpleSymbol) new SimpleSymbol("string-replace-mappings-longest-string").readResolve());
+    static final SimpleSymbol Lit307 = ((SimpleSymbol) new SimpleSymbol("string-replace-mappings-earliest-occurrence").readResolve());
+    static final SimpleSymbol Lit308 = ((SimpleSymbol) new SimpleSymbol("make-exact-yail-integer").readResolve());
+    static final SimpleSymbol Lit309 = ((SimpleSymbol) new SimpleSymbol("make-color").readResolve());
+    static final IntNum Lit31 = IntNum.make(-1);
+    static final SimpleSymbol Lit310 = ((SimpleSymbol) new SimpleSymbol("split-color").readResolve());
+    static final SimpleSymbol Lit311 = ((SimpleSymbol) new SimpleSymbol("close-screen").readResolve());
+    static final SimpleSymbol Lit312 = ((SimpleSymbol) new SimpleSymbol("close-application").readResolve());
+    static final SimpleSymbol Lit313 = ((SimpleSymbol) new SimpleSymbol("open-another-screen").readResolve());
+    static final SimpleSymbol Lit314 = ((SimpleSymbol) new SimpleSymbol("open-another-screen-with-start-value").readResolve());
+    static final SimpleSymbol Lit315 = ((SimpleSymbol) new SimpleSymbol("get-start-value").readResolve());
+    static final SimpleSymbol Lit316 = ((SimpleSymbol) new SimpleSymbol("close-screen-with-value").readResolve());
+    static final SimpleSymbol Lit317 = ((SimpleSymbol) new SimpleSymbol("get-plain-start-text").readResolve());
+    static final SimpleSymbol Lit318 = ((SimpleSymbol) new SimpleSymbol("close-screen-with-plain-text").readResolve());
+    static final SimpleSymbol Lit319 = ((SimpleSymbol) new SimpleSymbol("get-server-address-from-wifi").readResolve());
+    static final IntNum Lit32 = IntNum.make(45);
+    static final SimpleSymbol Lit320 = ((SimpleSymbol) new SimpleSymbol("process-repl-input").readResolve());
+    static final SyntaxRules Lit321 = new SyntaxRules(new Object[]{Lit332}, new SyntaxRule[]{new SyntaxRule(new SyntaxPattern("\f\u0018\f\u0007\f\u000f\b", new Object[0], 2), "\u0001\u0001", "\u0011\u0018\u0004\t\u0003\b\u0011\u0018\f\b\u000b", new Object[]{Lit322, Lit343}, 0)}, 2);
+    static final SimpleSymbol Lit322 = ((SimpleSymbol) new SimpleSymbol("in-ui").readResolve());
+    static final SimpleSymbol Lit323 = ((SimpleSymbol) new SimpleSymbol("send-to-block").readResolve());
+    static final SimpleSymbol Lit324 = ((SimpleSymbol) new SimpleSymbol("clear-current-form").readResolve());
+    static final SimpleSymbol Lit325 = ((SimpleSymbol) new SimpleSymbol("set-form-name").readResolve());
+    static final SimpleSymbol Lit326 = ((SimpleSymbol) new SimpleSymbol("remove-component").readResolve());
+    static final SimpleSymbol Lit327 = ((SimpleSymbol) new SimpleSymbol("rename-component").readResolve());
+    static final SimpleSymbol Lit328 = ((SimpleSymbol) new SimpleSymbol("init-runtime").readResolve());
+    static final SimpleSymbol Lit329 = ((SimpleSymbol) new SimpleSymbol("set-this-form").readResolve());
+    static final Char Lit33 = Char.make(55296);
+    static final SimpleSymbol Lit330 = ((SimpleSymbol) new SimpleSymbol("clarify").readResolve());
+    static final SimpleSymbol Lit331 = ((SimpleSymbol) new SimpleSymbol("clarify1").readResolve());
+    static final SimpleSymbol Lit332 = ((SimpleSymbol) new SimpleSymbol("_").readResolve());
+    static final SimpleSymbol Lit333 = ((SimpleSymbol) new SimpleSymbol("$lookup$").readResolve());
+    static final SimpleSymbol Lit334 = ((SimpleSymbol) new SimpleSymbol(LispLanguage.quasiquote_sym).readResolve());
+    static final SimpleSymbol Lit335 = ((SimpleSymbol) new SimpleSymbol("if").readResolve());
+    static final SimpleSymbol Lit336 = ((SimpleSymbol) new SimpleSymbol("loop").readResolve());
+    static final SimpleSymbol Lit337 = ((SimpleSymbol) new SimpleSymbol("call-with-current-continuation").readResolve());
+    static final SimpleSymbol Lit338 = ((SimpleSymbol) new SimpleSymbol("lambda").readResolve());
+    static final SimpleSymbol Lit339 = ((SimpleSymbol) new SimpleSymbol("let").readResolve());
+    static final Char Lit34 = Char.make(57343);
+    static final SimpleSymbol Lit340 = ((SimpleSymbol) new SimpleSymbol("begin").readResolve());
+    static final SimpleSymbol Lit341 = ((SimpleSymbol) new SimpleSymbol("*yail-loop*").readResolve());
+    static final SimpleSymbol Lit342 = ((SimpleSymbol) new SimpleSymbol("proc").readResolve());
+    static final SimpleSymbol Lit343 = ((SimpleSymbol) new SimpleSymbol("delay").readResolve());
+    static final SimpleSymbol Lit344 = ((SimpleSymbol) new SimpleSymbol("*this-is-the-repl*").readResolve());
+    static final SimpleSymbol Lit345 = ((SimpleSymbol) new SimpleSymbol(LispLanguage.quote_sym).readResolve());
+    static final SimpleSymbol Lit346 = ((SimpleSymbol) new SimpleSymbol("add-to-global-vars").readResolve());
+    static final SimpleSymbol Lit347 = ((SimpleSymbol) new SimpleSymbol("define").readResolve());
+    static final SimpleSymbol Lit348 = ((SimpleSymbol) new SimpleSymbol("*").readResolve());
+    static final SimpleSymbol Lit349 = ((SimpleSymbol) new SimpleSymbol("object").readResolve());
+    static final Char Lit35 = Char.make(55296);
+    static final SimpleSymbol Lit350 = ((SimpleSymbol) new SimpleSymbol("::").readResolve());
+    static final SimpleSymbol Lit351 = ((SimpleSymbol) new SimpleSymbol("onCreate").readResolve());
+    static final SimpleSymbol Lit352 = ((SimpleSymbol) new SimpleSymbol("icicle").readResolve());
+    static final SimpleSymbol Lit353 = ((SimpleSymbol) new SimpleSymbol("*debug-form*").readResolve());
+    static final SimpleSymbol Lit354 = ((SimpleSymbol) new SimpleSymbol("message").readResolve());
+    static final SimpleSymbol Lit355 = ((SimpleSymbol) new SimpleSymbol("gnu.mapping.Environment").readResolve());
+    static final SimpleSymbol Lit356 = ((SimpleSymbol) new SimpleSymbol("add-to-form-environment").readResolve());
+    static final SimpleSymbol Lit357 = ((SimpleSymbol) new SimpleSymbol("android-log-form").readResolve());
+    static final SimpleSymbol Lit358 = ((SimpleSymbol) new SimpleSymbol("name").readResolve());
+    static final SimpleSymbol Lit359 = ((SimpleSymbol) new SimpleSymbol("form-environment").readResolve());
+    static final DFloNum Lit36 = DFloNum.make(1.0E18d);
+    static final SimpleSymbol Lit360 = ((SimpleSymbol) new SimpleSymbol("gnu.mapping.Symbol").readResolve());
+    static final SimpleSymbol Lit361 = ((SimpleSymbol) new SimpleSymbol("default-value").readResolve());
+    static final SimpleSymbol Lit362 = ((SimpleSymbol) new SimpleSymbol("isBound").readResolve());
+    static final SimpleSymbol Lit363 = ((SimpleSymbol) new SimpleSymbol("make").readResolve());
+    static final SimpleSymbol Lit364 = ((SimpleSymbol) new SimpleSymbol("format").readResolve());
+    static final SimpleSymbol Lit365 = ((SimpleSymbol) new SimpleSymbol("global-var-environment").readResolve());
+    static final SimpleSymbol Lit366 = ((SimpleSymbol) new SimpleSymbol("gnu.lists.LList").readResolve());
+    static final SimpleSymbol Lit367 = ((SimpleSymbol) new SimpleSymbol("add-to-events").readResolve());
+    static final SimpleSymbol Lit368 = ((SimpleSymbol) new SimpleSymbol("events-to-register").readResolve());
+    static final SimpleSymbol Lit369 = ((SimpleSymbol) new SimpleSymbol("cons").readResolve());
+    static final SimpleSymbol Lit37 = ((SimpleSymbol) new SimpleSymbol("*list*").readResolve());
+    static final SimpleSymbol Lit370 = ((SimpleSymbol) new SimpleSymbol("component-name").readResolve());
+    static final SimpleSymbol Lit371 = ((SimpleSymbol) new SimpleSymbol("event-name").readResolve());
+    static final SimpleSymbol Lit372 = ((SimpleSymbol) new SimpleSymbol("set!").readResolve());
+    static final SimpleSymbol Lit373 = ((SimpleSymbol) new SimpleSymbol("components-to-create").readResolve());
+    static final SimpleSymbol Lit374 = ((SimpleSymbol) new SimpleSymbol("container-name").readResolve());
+    static final SimpleSymbol Lit375 = ((SimpleSymbol) new SimpleSymbol("component-type").readResolve());
+    static final SimpleSymbol Lit376 = ((SimpleSymbol) new SimpleSymbol("init-thunk").readResolve());
+    static final SimpleSymbol Lit377 = ((SimpleSymbol) new SimpleSymbol("global-vars-to-create").readResolve());
+    static final SimpleSymbol Lit378 = ((SimpleSymbol) new SimpleSymbol("var").readResolve());
+    static final SimpleSymbol Lit379 = ((SimpleSymbol) new SimpleSymbol("val-thunk").readResolve());
+    static final SimpleSymbol Lit38;
+    static final SimpleSymbol Lit380 = ((SimpleSymbol) new SimpleSymbol("add-to-form-do-after-creation").readResolve());
+    static final SimpleSymbol Lit381 = ((SimpleSymbol) new SimpleSymbol("form-do-after-creation").readResolve());
+    static final SimpleSymbol Lit382 = ((SimpleSymbol) new SimpleSymbol("thunk").readResolve());
+    static final SimpleSymbol Lit383 = ((SimpleSymbol) new SimpleSymbol("error").readResolve());
+    static final SimpleSymbol Lit384 = ((SimpleSymbol) new SimpleSymbol("when").readResolve());
+    static final SimpleSymbol Lit385 = ((SimpleSymbol) new SimpleSymbol("this").readResolve());
+    static final SimpleSymbol Lit386 = ((SimpleSymbol) new SimpleSymbol("ex").readResolve());
+    static final SimpleSymbol Lit387 = ((SimpleSymbol) new SimpleSymbol("send-error").readResolve());
+    static final SimpleSymbol Lit388 = ((SimpleSymbol) new SimpleSymbol("getMessage").readResolve());
+    static final SimpleSymbol Lit389 = ((SimpleSymbol) new SimpleSymbol(GetNamedPart.INSTANCEOF_METHOD_NAME).readResolve());
+    static final SimpleSymbol Lit39 = ((SimpleSymbol) new SimpleSymbol("setValueForKeyPath").readResolve());
+    static final SimpleSymbol Lit390 = ((SimpleSymbol) new SimpleSymbol("YailRuntimeError").readResolve());
+    static final SimpleSymbol Lit391 = ((SimpleSymbol) new SimpleSymbol("as").readResolve());
+    static final SimpleSymbol Lit392 = ((SimpleSymbol) new SimpleSymbol("java.lang.String").readResolve());
+    static final SimpleSymbol Lit393 = ((SimpleSymbol) new SimpleSymbol("registeredComponentName").readResolve());
+    static final SimpleSymbol Lit394 = ((SimpleSymbol) new SimpleSymbol("is-bound-in-form-environment").readResolve());
+    static final SimpleSymbol Lit395 = ((SimpleSymbol) new SimpleSymbol("registeredObject").readResolve());
+    static final SimpleSymbol Lit396 = ((SimpleSymbol) new SimpleSymbol("eq?").readResolve());
+    static final SimpleSymbol Lit397 = ((SimpleSymbol) new SimpleSymbol("lookup-in-form-environment").readResolve());
+    static final SimpleSymbol Lit398 = ((SimpleSymbol) new SimpleSymbol("componentObject").readResolve());
+    static final SimpleSymbol Lit399 = ((SimpleSymbol) new SimpleSymbol("eventName").readResolve());
     static final SimpleSymbol Lit4 = ((SimpleSymbol) new SimpleSymbol("number").readResolve());
-    static final IntNum Lit40 = IntNum.make(4);
-    static final SimpleSymbol Lit400 = ((SimpleSymbol) new SimpleSymbol("string->symbol").readResolve());
-    static final SimpleSymbol Lit401 = ((SimpleSymbol) new SimpleSymbol("string-append").readResolve());
-    static final SimpleSymbol Lit402 = ((SimpleSymbol) new SimpleSymbol("get-simple-name").readResolve());
-    static final SimpleSymbol Lit403 = ((SimpleSymbol) new SimpleSymbol("handler-symbol").readResolve());
-    static final SimpleSymbol Lit404 = ((SimpleSymbol) new SimpleSymbol("try-catch").readResolve());
-    static final SimpleSymbol Lit405 = ((SimpleSymbol) new SimpleSymbol("apply").readResolve());
-    static final SimpleSymbol Lit406 = ((SimpleSymbol) new SimpleSymbol("notAlreadyHandled").readResolve());
-    static final SimpleSymbol Lit407 = ((SimpleSymbol) new SimpleSymbol("com.google.appinventor.components.runtime.errors.PermissionException").readResolve());
-    static final SimpleSymbol Lit408 = ((SimpleSymbol) new SimpleSymbol("equal?").readResolve());
-    static final SimpleSymbol Lit409 = ((SimpleSymbol) new SimpleSymbol("PermissionDenied").readResolve());
-    static final IntNum Lit41 = IntNum.make(9999);
-    static final SimpleSymbol Lit410 = ((SimpleSymbol) new SimpleSymbol("getPermissionNeeded").readResolve());
-    static final SimpleSymbol Lit411 = ((SimpleSymbol) new SimpleSymbol("java.lang.Throwable").readResolve());
-    static final SimpleSymbol Lit412 = ((SimpleSymbol) new SimpleSymbol("lookup-handler").readResolve());
-    static final SimpleSymbol Lit413 = ((SimpleSymbol) new SimpleSymbol("componentName").readResolve());
-    static final SimpleSymbol Lit414 = ((SimpleSymbol) new SimpleSymbol("define-alias").readResolve());
-    static final SimpleSymbol Lit415 = ((SimpleSymbol) new SimpleSymbol("SimpleEventDispatcher").readResolve());
-    static final SimpleSymbol Lit416 = ((SimpleSymbol) new SimpleSymbol("registerEventForDelegation").readResolve());
-    static final SimpleSymbol Lit417 = ((SimpleSymbol) new SimpleSymbol("event-info").readResolve());
-    static final SimpleSymbol Lit418 = ((SimpleSymbol) new SimpleSymbol("events").readResolve());
-    static final SimpleSymbol Lit419 = ((SimpleSymbol) new SimpleSymbol("for-each").readResolve());
-    static final SimpleSymbol Lit42 = ((SimpleSymbol) new SimpleSymbol("getDhcpInfo").readResolve());
-    static final SimpleSymbol Lit420 = ((SimpleSymbol) new SimpleSymbol("car").readResolve());
-    static final SimpleSymbol Lit421 = ((SimpleSymbol) new SimpleSymbol("var-val").readResolve());
-    static final SimpleSymbol Lit422 = ((SimpleSymbol) new SimpleSymbol("add-to-global-var-environment").readResolve());
-    static final SimpleSymbol Lit423 = ((SimpleSymbol) new SimpleSymbol("var-val-pairs").readResolve());
-    static final SimpleSymbol Lit424 = ((SimpleSymbol) new SimpleSymbol("component-info").readResolve());
-    static final SimpleSymbol Lit425 = ((SimpleSymbol) new SimpleSymbol("cadr").readResolve());
-    static final SimpleSymbol Lit426 = ((SimpleSymbol) new SimpleSymbol("component-container").readResolve());
-    static final SimpleSymbol Lit427 = ((SimpleSymbol) new SimpleSymbol("component-object").readResolve());
-    static final SimpleSymbol Lit428 = ((SimpleSymbol) new SimpleSymbol("component-descriptors").readResolve());
-    static final SimpleSymbol Lit429 = ((SimpleSymbol) new SimpleSymbol("caddr").readResolve());
-    static final SimpleSymbol Lit43 = ((SimpleSymbol) new SimpleSymbol("post").readResolve());
-    static final SimpleSymbol Lit430 = ((SimpleSymbol) new SimpleSymbol("cadddr").readResolve());
-    static final SimpleSymbol Lit431 = ((SimpleSymbol) new SimpleSymbol("field").readResolve());
-    static final SimpleSymbol Lit432 = ((SimpleSymbol) new SimpleSymbol("symbol->string").readResolve());
-    static final SimpleSymbol Lit433 = ((SimpleSymbol) new SimpleSymbol("symbols").readResolve());
-    static final SimpleSymbol Lit434 = ((SimpleSymbol) new SimpleSymbol("register-events").readResolve());
-    static final SimpleSymbol Lit435 = ((SimpleSymbol) new SimpleSymbol("*the-null-value*").readResolve());
-    static final SimpleSymbol Lit436 = ((SimpleSymbol) new SimpleSymbol("reverse").readResolve());
-    static final SimpleSymbol Lit437 = ((SimpleSymbol) new SimpleSymbol("create-components").readResolve());
-    static final SimpleSymbol Lit438 = ((SimpleSymbol) new SimpleSymbol("components").readResolve());
-    static final SimpleSymbol Lit439 = ((SimpleSymbol) new SimpleSymbol("init-global-variables").readResolve());
-    static final SimpleSymbol Lit44 = ((SimpleSymbol) new SimpleSymbol("android-log").readResolve());
-    static final SimpleSymbol Lit440 = ((SimpleSymbol) new SimpleSymbol("init-components").readResolve());
-    static final SimpleSymbol Lit441 = ((SimpleSymbol) new SimpleSymbol("add-to-components").readResolve());
-    static final SimpleSymbol Lit45;
-    static final SyntaxPattern Lit46 = new SyntaxPattern("\f\u0007\f\u000f\b", new Object[0], 2);
-    static final SyntaxTemplate Lit47 = new SyntaxTemplate("\u0001\u0001", "\u000b", new Object[0], 0);
-    static final SimpleSymbol Lit48 = ((SimpleSymbol) new SimpleSymbol("add-component").readResolve());
-    static final SyntaxRules Lit49;
+    static final IntNum Lit40 = IntNum.make(255);
+    static final SimpleSymbol Lit400 = ((SimpleSymbol) new SimpleSymbol("handler").readResolve());
+    static final SimpleSymbol Lit401 = ((SimpleSymbol) new SimpleSymbol("args").readResolve());
+    static final SimpleSymbol Lit402 = ((SimpleSymbol) new SimpleSymbol("exception").readResolve());
+    static final SimpleSymbol Lit403 = ((SimpleSymbol) new SimpleSymbol("and").readResolve());
+    static final SimpleSymbol Lit404 = ((SimpleSymbol) new SimpleSymbol("process-exception").readResolve());
+    static final SimpleSymbol Lit405 = ((SimpleSymbol) new SimpleSymbol("printStackTrace").readResolve());
+    static final SimpleSymbol Lit406 = ((SimpleSymbol) new SimpleSymbol("com.google.appinventor.components.runtime.EventDispatcher").readResolve());
+    static final SimpleSymbol Lit407 = ((SimpleSymbol) new SimpleSymbol("com.google.appinventor.components.runtime.HandlesEventDispatching").readResolve());
+    static final SimpleSymbol Lit408 = ((SimpleSymbol) new SimpleSymbol("com.google.appinventor.components.runtime.Component").readResolve());
+    static final SimpleSymbol Lit409 = ((SimpleSymbol) new SimpleSymbol("java.lang.Object[]").readResolve());
+    static final IntNum Lit41 = IntNum.make(8);
+    static final SimpleSymbol Lit410 = ((SimpleSymbol) new SimpleSymbol("void").readResolve());
+    static final SimpleSymbol Lit411 = ((SimpleSymbol) new SimpleSymbol("string->symbol").readResolve());
+    static final SimpleSymbol Lit412 = ((SimpleSymbol) new SimpleSymbol("string-append").readResolve());
+    static final SimpleSymbol Lit413 = ((SimpleSymbol) new SimpleSymbol("get-simple-name").readResolve());
+    static final SimpleSymbol Lit414 = ((SimpleSymbol) new SimpleSymbol("handler-symbol").readResolve());
+    static final SimpleSymbol Lit415 = ((SimpleSymbol) new SimpleSymbol("try-catch").readResolve());
+    static final SimpleSymbol Lit416 = ((SimpleSymbol) new SimpleSymbol("apply").readResolve());
+    static final SimpleSymbol Lit417 = ((SimpleSymbol) new SimpleSymbol("notAlreadyHandled").readResolve());
+    static final SimpleSymbol Lit418 = ((SimpleSymbol) new SimpleSymbol("com.google.appinventor.components.runtime.errors.PermissionException").readResolve());
+    static final SimpleSymbol Lit419 = ((SimpleSymbol) new SimpleSymbol("equal?").readResolve());
+    static final SimpleSymbol Lit42;
+    static final SimpleSymbol Lit420 = ((SimpleSymbol) new SimpleSymbol("PermissionDenied").readResolve());
+    static final SimpleSymbol Lit421 = ((SimpleSymbol) new SimpleSymbol("getPermissionNeeded").readResolve());
+    static final SimpleSymbol Lit422 = ((SimpleSymbol) new SimpleSymbol("java.lang.Throwable").readResolve());
+    static final SimpleSymbol Lit423 = ((SimpleSymbol) new SimpleSymbol("lookup-handler").readResolve());
+    static final SimpleSymbol Lit424 = ((SimpleSymbol) new SimpleSymbol("componentName").readResolve());
+    static final SimpleSymbol Lit425 = ((SimpleSymbol) new SimpleSymbol("define-alias").readResolve());
+    static final SimpleSymbol Lit426 = ((SimpleSymbol) new SimpleSymbol("SimpleEventDispatcher").readResolve());
+    static final SimpleSymbol Lit427 = ((SimpleSymbol) new SimpleSymbol("registerEventForDelegation").readResolve());
+    static final SimpleSymbol Lit428 = ((SimpleSymbol) new SimpleSymbol("event-info").readResolve());
+    static final SimpleSymbol Lit429 = ((SimpleSymbol) new SimpleSymbol("events").readResolve());
+    static final IntNum Lit43 = IntNum.make(24);
+    static final SimpleSymbol Lit430 = ((SimpleSymbol) new SimpleSymbol("for-each").readResolve());
+    static final SimpleSymbol Lit431 = ((SimpleSymbol) new SimpleSymbol("car").readResolve());
+    static final SimpleSymbol Lit432 = ((SimpleSymbol) new SimpleSymbol("var-val").readResolve());
+    static final SimpleSymbol Lit433 = ((SimpleSymbol) new SimpleSymbol("add-to-global-var-environment").readResolve());
+    static final SimpleSymbol Lit434 = ((SimpleSymbol) new SimpleSymbol("var-val-pairs").readResolve());
+    static final SimpleSymbol Lit435 = ((SimpleSymbol) new SimpleSymbol("component-info").readResolve());
+    static final SimpleSymbol Lit436 = ((SimpleSymbol) new SimpleSymbol("cadr").readResolve());
+    static final SimpleSymbol Lit437 = ((SimpleSymbol) new SimpleSymbol("component-container").readResolve());
+    static final SimpleSymbol Lit438 = ((SimpleSymbol) new SimpleSymbol("component-object").readResolve());
+    static final SimpleSymbol Lit439 = ((SimpleSymbol) new SimpleSymbol("component-descriptors").readResolve());
+    static final IntNum Lit44 = IntNum.make(16);
+    static final SimpleSymbol Lit440 = ((SimpleSymbol) new SimpleSymbol("caddr").readResolve());
+    static final SimpleSymbol Lit441 = ((SimpleSymbol) new SimpleSymbol("cadddr").readResolve());
+    static final SimpleSymbol Lit442 = ((SimpleSymbol) new SimpleSymbol("field").readResolve());
+    static final SimpleSymbol Lit443 = ((SimpleSymbol) new SimpleSymbol("symbol->string").readResolve());
+    static final SimpleSymbol Lit444 = ((SimpleSymbol) new SimpleSymbol("symbols").readResolve());
+    static final SimpleSymbol Lit445 = ((SimpleSymbol) new SimpleSymbol("register-events").readResolve());
+    static final SimpleSymbol Lit446 = ((SimpleSymbol) new SimpleSymbol("*the-null-value*").readResolve());
+    static final SimpleSymbol Lit447 = ((SimpleSymbol) new SimpleSymbol("reverse").readResolve());
+    static final SimpleSymbol Lit448 = ((SimpleSymbol) new SimpleSymbol("create-components").readResolve());
+    static final SimpleSymbol Lit449 = ((SimpleSymbol) new SimpleSymbol("components").readResolve());
+    static final IntNum Lit45 = IntNum.make(3);
+    static final SimpleSymbol Lit450 = ((SimpleSymbol) new SimpleSymbol("init-global-variables").readResolve());
+    static final SimpleSymbol Lit451 = ((SimpleSymbol) new SimpleSymbol("init-components").readResolve());
+    static final SimpleSymbol Lit452 = ((SimpleSymbol) new SimpleSymbol("add-to-components").readResolve());
+    static final IntNum Lit46 = IntNum.make(4);
+    static final IntNum Lit47 = IntNum.make(9999);
+    static final SimpleSymbol Lit48 = ((SimpleSymbol) new SimpleSymbol("getDhcpInfo").readResolve());
+    static final SimpleSymbol Lit49 = ((SimpleSymbol) new SimpleSymbol("post").readResolve());
     static final SimpleSymbol Lit5 = ((SimpleSymbol) new SimpleSymbol(PropertyTypeConstants.PROPERTY_TYPE_TEXT).readResolve());
-    static final SimpleSymbol Lit50 = ((SimpleSymbol) new SimpleSymbol("add-component-within-repl").readResolve());
-    static final SimpleSymbol Lit51 = ((SimpleSymbol) new SimpleSymbol("call-Initialize-of-components").readResolve());
-    static final SimpleSymbol Lit52 = ((SimpleSymbol) new SimpleSymbol("add-init-thunk").readResolve());
-    static final SimpleSymbol Lit53 = ((SimpleSymbol) new SimpleSymbol("get-init-thunk").readResolve());
-    static final SimpleSymbol Lit54 = ((SimpleSymbol) new SimpleSymbol("clear-init-thunks").readResolve());
-    static final SimpleSymbol Lit55 = ((SimpleSymbol) new SimpleSymbol("get-component").readResolve());
-    static final SyntaxRules Lit56 = new SyntaxRules(new Object[]{Lit321}, new SyntaxRule[]{new SyntaxRule(new SyntaxPattern("\f\u0018\f\u0007\b", new Object[0], 1), "\u0001", "\u0011\u0018\u0004\b\u0011\u0018\f\b\u0003", new Object[]{Lit115, Lit334}, 0)}, 1);
-    static final SimpleSymbol Lit57 = ((SimpleSymbol) new SimpleSymbol("lookup-component").readResolve());
-    static final SimpleSymbol Lit58 = ((SimpleSymbol) new SimpleSymbol("set-and-coerce-property!").readResolve());
-    static final SimpleSymbol Lit59 = ((SimpleSymbol) new SimpleSymbol("get-property").readResolve());
+    static final SimpleSymbol Lit50 = ((SimpleSymbol) new SimpleSymbol("android-log").readResolve());
+    static final SimpleSymbol Lit51;
+    static final SyntaxPattern Lit52 = new SyntaxPattern("\f\u0007\f\u000f\b", new Object[0], 2);
+    static final SyntaxTemplate Lit53 = new SyntaxTemplate("\u0001\u0001", "\u000b", new Object[0], 0);
+    static final SimpleSymbol Lit54 = ((SimpleSymbol) new SimpleSymbol("add-component").readResolve());
+    static final SyntaxRules Lit55;
+    static final SimpleSymbol Lit56 = ((SimpleSymbol) new SimpleSymbol("add-component-within-repl").readResolve());
+    static final SimpleSymbol Lit57 = ((SimpleSymbol) new SimpleSymbol("call-Initialize-of-components").readResolve());
+    static final SimpleSymbol Lit58 = ((SimpleSymbol) new SimpleSymbol("add-init-thunk").readResolve());
+    static final SimpleSymbol Lit59 = ((SimpleSymbol) new SimpleSymbol("get-init-thunk").readResolve());
     static final SimpleSymbol Lit6;
-    static final SimpleSymbol Lit60 = ((SimpleSymbol) new SimpleSymbol("coerce-to-component-and-verify").readResolve());
-    static final SimpleSymbol Lit61 = ((SimpleSymbol) new SimpleSymbol("get-property-and-check").readResolve());
-    static final SimpleSymbol Lit62 = ((SimpleSymbol) new SimpleSymbol("set-and-coerce-property-and-check!").readResolve());
-    static final SimpleSymbol Lit63 = ((SimpleSymbol) new SimpleSymbol("get-var").readResolve());
-    static final SyntaxRules Lit64 = new SyntaxRules(new Object[]{Lit321}, new SyntaxRule[]{new SyntaxRule(new SyntaxPattern("\f\u0018\f\u0007\b", new Object[0], 1), "\u0001", "\u0011\u0018\u0004)\u0011\u0018\f\b\u0003\u0018\u0014", new Object[]{Lit119, Lit334, PairWithPosition.make(Lit435, LList.Empty, "/tmp/runtime9130887760156434227.scm", 983103)}, 0)}, 1);
-    static final SimpleSymbol Lit65 = ((SimpleSymbol) new SimpleSymbol("set-var!").readResolve());
-    static final SyntaxRules Lit66 = new SyntaxRules(new Object[]{Lit321}, new SyntaxRule[]{new SyntaxRule(new SyntaxPattern("\f\u0018\f\u0007\f\u000f\b", new Object[0], 2), "\u0001\u0001", "\u0011\u0018\u0004)\u0011\u0018\f\b\u0003\b\u000b", new Object[]{Lit118, Lit334}, 0)}, 2);
-    static final SimpleSymbol Lit67 = ((SimpleSymbol) new SimpleSymbol("lexical-value").readResolve());
-    static final SyntaxRules Lit68 = new SyntaxRules(new Object[]{Lit321}, new SyntaxRule[]{new SyntaxRule(new SyntaxPattern("\f\u0018\f\u0007\b", new Object[0], 1), "\u0001", "\u0011\u0018\u00049\u0011\u0018\f\t\u0003\u0018\u0014Á\u0011\u0018\u001c\u0011\u0018$\u0011\u0018,I\u0011\u00184\b\u0011\u0018<\b\u0003\u0018D\u0018L\b\u0003", new Object[]{Lit324, Lit378, PairWithPosition.make((SimpleSymbol) new SimpleSymbol("<java.lang.Package>").readResolve(), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1048606), Lit162, Lit401, "The variable ", Lit182, Lit323, PairWithPosition.make(" is not bound in the current context", LList.Empty, "/tmp/runtime9130887760156434227.scm", 1060890), PairWithPosition.make("Unbound Variable", LList.Empty, "/tmp/runtime9130887760156434227.scm", 1064971)}, 0)}, 1);
-    static final SimpleSymbol Lit69 = ((SimpleSymbol) new SimpleSymbol("set-lexical!").readResolve());
+    static final SimpleSymbol Lit60 = ((SimpleSymbol) new SimpleSymbol("clear-init-thunks").readResolve());
+    static final SimpleSymbol Lit61 = ((SimpleSymbol) new SimpleSymbol("get-component").readResolve());
+    static final SyntaxRules Lit62 = new SyntaxRules(new Object[]{Lit332}, new SyntaxRule[]{new SyntaxRule(new SyntaxPattern("\f\u0018\f\u0007\b", new Object[0], 1), "\u0001", "\u0011\u0018\u0004\b\u0011\u0018\f\b\u0003", new Object[]{Lit121, Lit345}, 0)}, 1);
+    static final SimpleSymbol Lit63 = ((SimpleSymbol) new SimpleSymbol("lookup-component").readResolve());
+    static final SimpleSymbol Lit64 = ((SimpleSymbol) new SimpleSymbol("set-and-coerce-property!").readResolve());
+    static final SimpleSymbol Lit65 = ((SimpleSymbol) new SimpleSymbol("get-property").readResolve());
+    static final SimpleSymbol Lit66 = ((SimpleSymbol) new SimpleSymbol("coerce-to-component-and-verify").readResolve());
+    static final SimpleSymbol Lit67 = ((SimpleSymbol) new SimpleSymbol("get-property-and-check").readResolve());
+    static final SimpleSymbol Lit68 = ((SimpleSymbol) new SimpleSymbol("set-and-coerce-property-and-check!").readResolve());
+    static final SimpleSymbol Lit69 = ((SimpleSymbol) new SimpleSymbol("get-var").readResolve());
     static final SimpleSymbol Lit7;
-    static final SyntaxRules Lit70 = new SyntaxRules(new Object[]{Lit321}, new SyntaxRule[]{new SyntaxRule(new SyntaxPattern("\f\u0018\f\u0007\f\u000f\b", new Object[0], 2), "\u0001\u0001", "\u0011\u0018\u0004\t\u0003\b\u000b", new Object[]{Lit361}, 0)}, 2);
-    static final SimpleSymbol Lit71 = ((SimpleSymbol) new SimpleSymbol("and-delayed").readResolve());
-    static final SyntaxRules Lit72 = new SyntaxRules(new Object[]{Lit321}, new SyntaxRule[]{new SyntaxRule(new SyntaxPattern("\f\u0018\r\u0007\u0000\b\b", new Object[0], 1), "\u0003", "\u0011\u0018\u0004\b\u0005\u0011\u0018\f\t\u0010\b\u0003", new Object[]{Lit199, Lit327}, 1)}, 1);
-    static final SimpleSymbol Lit73 = ((SimpleSymbol) new SimpleSymbol("or-delayed").readResolve());
-    static final SyntaxRules Lit74 = new SyntaxRules(new Object[]{Lit321}, new SyntaxRule[]{new SyntaxRule(new SyntaxPattern("\f\u0018\r\u0007\u0000\b\b", new Object[0], 1), "\u0003", "\u0011\u0018\u0004\b\u0005\u0011\u0018\f\t\u0010\b\u0003", new Object[]{Lit200, Lit327}, 1)}, 1);
-    static final SimpleSymbol Lit75 = ((SimpleSymbol) new SimpleSymbol("define-form").readResolve());
-    static final SyntaxRules Lit76;
-    static final SimpleSymbol Lit77 = ((SimpleSymbol) new SimpleSymbol("define-repl-form").readResolve());
-    static final SyntaxRules Lit78 = new SyntaxRules(new Object[]{Lit321}, new SyntaxRule[]{new SyntaxRule(new SyntaxPattern("\f\u0018\f\u0007\f\u000f\b", new Object[0], 2), "\u0001\u0001", "\u0011\u0018\u0004\t\u0003\t\u000b\u0018\f", new Object[]{Lit79, PairWithPosition.make(PairWithPosition.make(Lit334, PairWithPosition.make((SimpleSymbol) new SimpleSymbol("com.google.appinventor.components.runtime.ReplForm").readResolve(), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1224754), "/tmp/runtime9130887760156434227.scm", 1224754), PairWithPosition.make(Boolean.TRUE, PairWithPosition.make(Boolean.FALSE, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1224808), "/tmp/runtime9130887760156434227.scm", 1224805), "/tmp/runtime9130887760156434227.scm", 1224753)}, 0)}, 2);
-    static final SimpleSymbol Lit79 = ((SimpleSymbol) new SimpleSymbol("define-form-internal").readResolve());
+    static final SyntaxRules Lit70 = new SyntaxRules(new Object[]{Lit332}, new SyntaxRule[]{new SyntaxRule(new SyntaxPattern("\f\u0018\f\u0007\b", new Object[0], 1), "\u0001", "\u0011\u0018\u0004)\u0011\u0018\f\b\u0003\u0018\u0014", new Object[]{Lit125, Lit345, PairWithPosition.make(Lit446, LList.Empty, "/tmp/runtime7968961605135708732.scm", 983103)}, 0)}, 1);
+    static final SimpleSymbol Lit71 = ((SimpleSymbol) new SimpleSymbol("set-var!").readResolve());
+    static final SyntaxRules Lit72 = new SyntaxRules(new Object[]{Lit332}, new SyntaxRule[]{new SyntaxRule(new SyntaxPattern("\f\u0018\f\u0007\f\u000f\b", new Object[0], 2), "\u0001\u0001", "\u0011\u0018\u0004)\u0011\u0018\f\b\u0003\b\u000b", new Object[]{Lit124, Lit345}, 0)}, 2);
+    static final SimpleSymbol Lit73 = ((SimpleSymbol) new SimpleSymbol("lexical-value").readResolve());
+    static final SyntaxRules Lit74 = new SyntaxRules(new Object[]{Lit332}, new SyntaxRule[]{new SyntaxRule(new SyntaxPattern("\f\u0018\f\u0007\b", new Object[0], 1), "\u0001", "\u0011\u0018\u00049\u0011\u0018\f\t\u0003\u0018\u0014Á\u0011\u0018\u001c\u0011\u0018$\u0011\u0018,I\u0011\u00184\b\u0011\u0018<\b\u0003\u0018D\u0018L\b\u0003", new Object[]{Lit335, Lit389, PairWithPosition.make((SimpleSymbol) new SimpleSymbol("<java.lang.Package>").readResolve(), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1048606), Lit168, Lit412, "The variable ", Lit188, Lit334, PairWithPosition.make(" is not bound in the current context", LList.Empty, "/tmp/runtime7968961605135708732.scm", 1060890), PairWithPosition.make("Unbound Variable", LList.Empty, "/tmp/runtime7968961605135708732.scm", 1064971)}, 0)}, 1);
+    static final SimpleSymbol Lit75 = ((SimpleSymbol) new SimpleSymbol("set-lexical!").readResolve());
+    static final SyntaxRules Lit76 = new SyntaxRules(new Object[]{Lit332}, new SyntaxRule[]{new SyntaxRule(new SyntaxPattern("\f\u0018\f\u0007\f\u000f\b", new Object[0], 2), "\u0001\u0001", "\u0011\u0018\u0004\t\u0003\b\u000b", new Object[]{Lit372}, 0)}, 2);
+    static final SimpleSymbol Lit77 = ((SimpleSymbol) new SimpleSymbol("and-delayed").readResolve());
+    static final SyntaxRules Lit78 = new SyntaxRules(new Object[]{Lit332}, new SyntaxRule[]{new SyntaxRule(new SyntaxPattern("\f\u0018\r\u0007\u0000\b\b", new Object[0], 1), "\u0003", "\u0011\u0018\u0004\b\u0005\u0011\u0018\f\t\u0010\b\u0003", new Object[]{Lit205, Lit338}, 1)}, 1);
+    static final SimpleSymbol Lit79 = ((SimpleSymbol) new SimpleSymbol("or-delayed").readResolve());
     static final SimpleSymbol Lit8 = ((SimpleSymbol) new SimpleSymbol("InstantInTime").readResolve());
-    static final SyntaxRules Lit80;
-    static final SimpleSymbol Lit81;
-    static final SimpleSymbol Lit82 = ((SimpleSymbol) new SimpleSymbol("gen-event-name").readResolve());
-    static final SyntaxPattern Lit83 = new SyntaxPattern("\f\u0007\f\u000f\f\u0017\b", new Object[0], 3);
-    static final SyntaxTemplate Lit84 = new SyntaxTemplate("\u0001\u0001\u0001", "\u0011\u0018\u0004\t\u000b\u0011\u0018\f\b\u0013", new Object[]{Lit81, PairWithPosition.make(Lit334, PairWithPosition.make(Lit97, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2703427), "/tmp/runtime9130887760156434227.scm", 2703427)}, 0);
-    static final SimpleSymbol Lit85 = ((SimpleSymbol) new SimpleSymbol("gen-generic-event-name").readResolve());
-    static final SyntaxPattern Lit86 = new SyntaxPattern("\f\u0007\f\u000f\f\u0017\b", new Object[0], 3);
-    static final SyntaxTemplate Lit87;
-    static final SimpleSymbol Lit88;
-    static final SyntaxRules Lit89 = new SyntaxRules(new Object[]{Lit321}, new SyntaxRule[]{new SyntaxRule(new SyntaxPattern("\f\u0018\f\u0007,\r\u000f\b\b\b,\r\u0017\u0010\b\b\b", new Object[0], 3), "\u0001\u0003\u0003", "\u0011\u0018\u0004Ù\u0011\u0018\f)\t\u0003\b\r\u000b\b\u0011\u0018\u0014Q\b\r\t\u000b\b\u0011\u0018\u001c\b\u000b\b\u0015\u0013\b\u0011\u0018$\u0011\u0018,Y\u0011\u00184)\u0011\u0018<\b\u0003\b\u0003\b\u0011\u0018D)\u0011\u0018<\b\u0003\b\u0003", new Object[]{Lit329, Lit336, Lit328, Lit157, Lit324, Lit333, Lit114, Lit334, Lit345}, 1)}, 3);
+    static final SyntaxRules Lit80 = new SyntaxRules(new Object[]{Lit332}, new SyntaxRule[]{new SyntaxRule(new SyntaxPattern("\f\u0018\r\u0007\u0000\b\b", new Object[0], 1), "\u0003", "\u0011\u0018\u0004\b\u0005\u0011\u0018\f\t\u0010\b\u0003", new Object[]{Lit206, Lit338}, 1)}, 1);
+    static final SimpleSymbol Lit81 = ((SimpleSymbol) new SimpleSymbol("define-form").readResolve());
+    static final SyntaxRules Lit82;
+    static final SimpleSymbol Lit83 = ((SimpleSymbol) new SimpleSymbol("define-repl-form").readResolve());
+    static final SyntaxRules Lit84 = new SyntaxRules(new Object[]{Lit332}, new SyntaxRule[]{new SyntaxRule(new SyntaxPattern("\f\u0018\f\u0007\f\u000f\b", new Object[0], 2), "\u0001\u0001", "\u0011\u0018\u0004\t\u0003\t\u000b\u0018\f", new Object[]{Lit85, PairWithPosition.make(PairWithPosition.make(Lit345, PairWithPosition.make((SimpleSymbol) new SimpleSymbol("com.google.appinventor.components.runtime.ReplForm").readResolve(), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1224754), "/tmp/runtime7968961605135708732.scm", 1224754), PairWithPosition.make(Boolean.TRUE, PairWithPosition.make(Boolean.FALSE, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1224808), "/tmp/runtime7968961605135708732.scm", 1224805), "/tmp/runtime7968961605135708732.scm", 1224753)}, 0)}, 2);
+    static final SimpleSymbol Lit85 = ((SimpleSymbol) new SimpleSymbol("define-form-internal").readResolve());
+    static final SyntaxRules Lit86;
+    static final SimpleSymbol Lit87;
+    static final SimpleSymbol Lit88 = ((SimpleSymbol) new SimpleSymbol("gen-event-name").readResolve());
+    static final SyntaxPattern Lit89 = new SyntaxPattern("\f\u0007\f\u000f\f\u0017\b", new Object[0], 3);
     static final SimpleSymbol Lit9 = ((SimpleSymbol) new SimpleSymbol("component").readResolve());
-    static final SimpleSymbol Lit90 = ((SimpleSymbol) new SimpleSymbol("*list-for-runtime*").readResolve());
-    static final SyntaxRules Lit91;
-    static final SimpleSymbol Lit92 = ((SimpleSymbol) new SimpleSymbol("define-event").readResolve());
-    static final SyntaxPattern Lit93 = new SyntaxPattern("\f\u0007\f\u000f\f\u0017\f\u001f#", new Object[0], 5);
-    static final SyntaxTemplate Lit94 = new SyntaxTemplate("\u0001\u0001\u0001\u0001\u0000", "\u0018\u0004", new Object[]{PairWithPosition.make(Lit329, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2965514)}, 0);
-    static final SyntaxTemplate Lit95 = new SyntaxTemplate("\u0001\u0001\u0001\u0001\u0000", "\u0018\u0004", new Object[]{PairWithPosition.make(Lit88, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2969612)}, 0);
-    static final SyntaxTemplate Lit96 = new SyntaxTemplate("\u0001\u0001\u0001\u0001\u0000", "\u000b", new Object[0], 0);
-    static final SimpleSymbol Lit97 = ((SimpleSymbol) new SimpleSymbol("$").readResolve());
-    static final SyntaxTemplate Lit98 = new SyntaxTemplate("\u0001\u0001\u0001\u0001\u0000", "\u0013", new Object[0], 0);
-    static final SyntaxTemplate Lit99 = new SyntaxTemplate("\u0001\u0001\u0001\u0001\u0000", "\t\u001b\b\"", new Object[0], 0);
+    static final SyntaxTemplate Lit90 = new SyntaxTemplate("\u0001\u0001\u0001", "\u0011\u0018\u0004\t\u000b\u0011\u0018\f\b\u0013", new Object[]{Lit87, PairWithPosition.make(Lit345, PairWithPosition.make(Lit103, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2703427), "/tmp/runtime7968961605135708732.scm", 2703427)}, 0);
+    static final SimpleSymbol Lit91 = ((SimpleSymbol) new SimpleSymbol("gen-generic-event-name").readResolve());
+    static final SyntaxPattern Lit92 = new SyntaxPattern("\f\u0007\f\u000f\f\u0017\b", new Object[0], 3);
+    static final SyntaxTemplate Lit93;
+    static final SimpleSymbol Lit94;
+    static final SyntaxRules Lit95 = new SyntaxRules(new Object[]{Lit332}, new SyntaxRule[]{new SyntaxRule(new SyntaxPattern("\f\u0018\f\u0007,\r\u000f\b\b\b,\r\u0017\u0010\b\b\b", new Object[0], 3), "\u0001\u0003\u0003", "\u0011\u0018\u0004Ù\u0011\u0018\f)\t\u0003\b\r\u000b\b\u0011\u0018\u0014Q\b\r\t\u000b\b\u0011\u0018\u001c\b\u000b\b\u0015\u0013\b\u0011\u0018$\u0011\u0018,Y\u0011\u00184)\u0011\u0018<\b\u0003\b\u0003\b\u0011\u0018D)\u0011\u0018<\b\u0003\b\u0003", new Object[]{Lit340, Lit347, Lit339, Lit163, Lit335, Lit344, Lit120, Lit345, Lit356}, 1)}, 3);
+    static final SimpleSymbol Lit96 = ((SimpleSymbol) new SimpleSymbol("*list-for-runtime*").readResolve());
+    static final SyntaxRules Lit97;
+    static final SimpleSymbol Lit98 = ((SimpleSymbol) new SimpleSymbol("define-event").readResolve());
+    static final SyntaxPattern Lit99 = new SyntaxPattern("\f\u0007\f\u000f\f\u0017\f\u001f#", new Object[0], 5);
     public static final Class Long = Long.class;
     public static final Class Pattern = Pattern.class;
     public static final Class PermissionException = PermissionException.class;
@@ -588,14 +599,14 @@ public class runtime extends ModuleBody implements Runnable {
     public static final Class YailNumberToString = YailNumberToString.class;
     public static final Class YailRuntimeError = YailRuntimeError.class;
     public static final ModuleMethod acos$Mndegrees;
-    public static final Macro add$Mncomponent = Macro.make(Lit48, Lit49, $instance);
+    public static final Macro add$Mncomponent = Macro.make(Lit54, Lit55, $instance);
     public static final ModuleMethod add$Mncomponent$Mnwithin$Mnrepl;
     public static final ModuleMethod add$Mnglobal$Mnvar$Mnto$Mncurrent$Mnform$Mnenvironment;
     public static final ModuleMethod add$Mninit$Mnthunk;
     public static final ModuleMethod add$Mnto$Mncurrent$Mnform$Mnenvironment;
     public static final ModuleMethod all$Mncoercible$Qu;
     public static final ModuleMethod alternate$Mnnumber$Mn$Grstring$Mnbinary;
-    public static final Macro and$Mndelayed = Macro.make(Lit71, Lit72, $instance);
+    public static final Macro and$Mndelayed = Macro.make(Lit77, Lit78, $instance);
     public static final ModuleMethod android$Mnlog;
     public static final ModuleMethod appinventor$Mnnumber$Mn$Grstring;
     public static final ModuleMethod array$Mn$Grlist;
@@ -634,28 +645,28 @@ public class runtime extends ModuleBody implements Runnable {
     public static final ModuleMethod coerce$Mnto$Mnyail$Mnlist;
     public static final ModuleMethod convert$Mnto$Mnstrings$Mnfor$Mncsv;
     public static final ModuleMethod cos$Mndegrees;
-    public static final Macro def = Macro.make(Lit110, Lit111, $instance);
+    public static final Macro def = Macro.make(Lit116, Lit117, $instance);
     public static final Macro define$Mnevent;
-    public static final Macro define$Mnevent$Mnhelper = Macro.make(Lit88, Lit89, $instance);
-    public static final Macro define$Mnform = Macro.make(Lit75, Lit76, $instance);
-    public static final Macro define$Mnform$Mninternal = Macro.make(Lit79, Lit80, $instance);
+    public static final Macro define$Mnevent$Mnhelper = Macro.make(Lit94, Lit95, $instance);
+    public static final Macro define$Mnform = Macro.make(Lit81, Lit82, $instance);
+    public static final Macro define$Mnform$Mninternal = Macro.make(Lit85, Lit86, $instance);
     public static final Macro define$Mngeneric$Mnevent;
-    public static final Macro define$Mnrepl$Mnform = Macro.make(Lit77, Lit78, $instance);
+    public static final Macro define$Mnrepl$Mnform = Macro.make(Lit83, Lit84, $instance);
     public static final ModuleMethod degrees$Mn$Grradians;
     public static final ModuleMethod degrees$Mn$Grradians$Mninternal;
     public static final ModuleMethod delete$Mnfrom$Mncurrent$Mnform$Mnenvironment;
-    public static final Macro do$Mnafter$Mnform$Mncreation = Macro.make(Lit112, Lit113, $instance);
+    public static final Macro do$Mnafter$Mnform$Mncreation = Macro.make(Lit118, Lit119, $instance);
     public static final Class errorMessages = ErrorMessages.class;
     public static final Macro foreach;
-    public static final Macro foreach$Mnwith$Mnbreak = Macro.make(Lit148, Lit149, $instance);
+    public static final Macro foreach$Mnwith$Mnbreak = Macro.make(Lit154, Lit155, $instance);
     public static final ModuleMethod format$Mnas$Mndecimal;
     public static final Macro forrange;
-    public static final Macro forrange$Mnwith$Mnbreak = Macro.make(Lit150, Lit151, $instance);
+    public static final Macro forrange$Mnwith$Mnbreak = Macro.make(Lit156, Lit157, $instance);
     public static final Macro gen$Mnevent$Mnname;
     public static final Macro gen$Mngeneric$Mnevent$Mnname;
     public static final Macro gen$Mnsimple$Mncomponent$Mntype;
     public static final ModuleMethod generate$Mnruntime$Mntype$Mnerror;
-    public static final Macro get$Mncomponent = Macro.make(Lit55, Lit56, $instance);
+    public static final Macro get$Mncomponent = Macro.make(Lit61, Lit62, $instance);
     public static final ModuleMethod get$Mndisplay$Mnrepresentation;
     public static final ModuleMethod get$Mninit$Mnthunk;
     public static Object get$Mnjson$Mndisplay$Mnrepresentation;
@@ -665,7 +676,7 @@ public class runtime extends ModuleBody implements Runnable {
     public static final ModuleMethod get$Mnproperty$Mnand$Mncheck;
     public static final ModuleMethod get$Mnserver$Mnaddress$Mnfrom$Mnwifi;
     public static final ModuleMethod get$Mnstart$Mnvalue;
-    public static final Macro get$Mnvar = Macro.make(Lit63, Lit64, $instance);
+    public static final Macro get$Mnvar = Macro.make(Lit69, Lit70, $instance);
     static Numeric highest;
     public static final ModuleMethod in$Mnui;
     public static final ModuleMethod init$Mnruntime;
@@ -684,7 +695,7 @@ public class runtime extends ModuleBody implements Runnable {
     static final ModuleMethod lambda$Fn11;
     static final ModuleMethod lambda$Fn4;
     static final ModuleMethod lambda$Fn7;
-    public static final Macro lexical$Mnvalue = Macro.make(Lit67, Lit68, $instance);
+    public static final Macro lexical$Mnvalue = Macro.make(Lit73, Lit74, $instance);
     public static final ModuleMethod lookup$Mncomponent;
     public static final ModuleMethod lookup$Mnglobal$Mnvar$Mnin$Mncurrent$Mnform$Mnenvironment;
     public static final ModuleMethod lookup$Mnin$Mncurrent$Mnform$Mnenvironment;
@@ -701,13 +712,13 @@ public class runtime extends ModuleBody implements Runnable {
     public static final ModuleMethod math$Mnconvert$Mnhex$Mndec;
     public static final ModuleMethod open$Mnanother$Mnscreen;
     public static final ModuleMethod open$Mnanother$Mnscreen$Mnwith$Mnstart$Mnvalue;
-    public static final Macro or$Mndelayed = Macro.make(Lit73, Lit74, $instance);
+    public static final Macro or$Mndelayed = Macro.make(Lit79, Lit80, $instance);
     public static final ModuleMethod padded$Mnstring$Mn$Grnumber;
     public static final ModuleMethod pair$Mnok$Qu;
     public static final ModuleMethod patched$Mnnumber$Mn$Grstring$Mnbinary;
     public static final ModuleMethod process$Mnand$Mndelayed;
     public static final ModuleMethod process$Mnor$Mndelayed;
-    public static final Macro process$Mnrepl$Mninput = Macro.make(Lit309, Lit310, $instance);
+    public static final Macro process$Mnrepl$Mninput = Macro.make(Lit320, Lit321, $instance);
     public static final ModuleMethod radians$Mn$Grdegrees;
     public static final ModuleMethod radians$Mn$Grdegrees$Mninternal;
     public static final ModuleMethod random$Mnfraction;
@@ -723,9 +734,9 @@ public class runtime extends ModuleBody implements Runnable {
     public static final ModuleMethod set$Mnand$Mncoerce$Mnproperty$Ex;
     public static final ModuleMethod set$Mnand$Mncoerce$Mnproperty$Mnand$Mncheck$Ex;
     public static final ModuleMethod set$Mnform$Mnname;
-    public static final Macro set$Mnlexical$Ex = Macro.make(Lit69, Lit70, $instance);
+    public static final Macro set$Mnlexical$Ex = Macro.make(Lit75, Lit76, $instance);
     public static final ModuleMethod set$Mnthis$Mnform;
-    public static final Macro set$Mnvar$Ex = Macro.make(Lit65, Lit66, $instance);
+    public static final Macro set$Mnvar$Ex = Macro.make(Lit71, Lit72, $instance);
     public static final ModuleMethod set$Mnyail$Mnlist$Mncontents$Ex;
     public static final ModuleMethod show$Mnarglist$Mnno$Mnparens;
     public static final ModuleMethod signal$Mnruntime$Mnerror;
@@ -737,6 +748,10 @@ public class runtime extends ModuleBody implements Runnable {
     public static final ModuleMethod string$Mnempty$Qu;
     public static final ModuleMethod string$Mnreplace;
     public static final ModuleMethod string$Mnreplace$Mnall;
+    public static final ModuleMethod string$Mnreplace$Mnmappings$Mndictionary;
+    public static final ModuleMethod string$Mnreplace$Mnmappings$Mnearliest$Mnoccurrence;
+    public static final ModuleMethod string$Mnreplace$Mnmappings$Mnlongest$Mnstring;
+    public static final ModuleMethod string$Mnreverse;
     public static final ModuleMethod string$Mnsplit;
     public static final ModuleMethod string$Mnsplit$Mnat$Mnany;
     public static final ModuleMethod string$Mnsplit$Mnat$Mnfirst;
@@ -751,11 +766,12 @@ public class runtime extends ModuleBody implements Runnable {
     public static final ModuleMethod tan$Mndegrees;
     public static final ModuleMethod text$Mndeobfuscate;
     public static final ModuleMethod type$Mn$Grclass;
-    public static final Macro use$Mnjson$Mnformat = Macro.make(Lit179, Lit180, $instance);
+    public static final ModuleMethod unicode$Mnstring$Mn$Grlist;
+    public static final Macro use$Mnjson$Mnformat = Macro.make(Lit185, Lit186, $instance);
 
     /* renamed from: while reason: not valid java name */
     public static final Macro f1while;
-    public static final Macro while$Mnwith$Mnbreak = Macro.make(Lit152, Lit153, $instance);
+    public static final Macro while$Mnwith$Mnbreak = Macro.make(Lit158, Lit159, $instance);
     public static final ModuleMethod yail$Mnalist$Mnlookup;
     public static final ModuleMethod yail$Mnatomic$Mnequal$Qu;
     public static final ModuleMethod yail$Mnceiling;
@@ -807,7 +823,7 @@ public class runtime extends ModuleBody implements Runnable {
     public static final ModuleMethod yail$Mnnumber$Mnrange;
     public static final ModuleMethod yail$Mnround;
 
-    /* compiled from: runtime9130887760156434227.scm */
+    /* compiled from: runtime7968961605135708732.scm */
     public class frame extends ModuleBody {
         Object component$Mnname;
         Object component$Mnto$Mnadd;
@@ -817,7 +833,7 @@ public class runtime extends ModuleBody implements Runnable {
 
         public frame() {
             ModuleMethod moduleMethod = new ModuleMethod(this, 1, null, 0);
-            moduleMethod.setProperty("source-location", "/tmp/runtime9130887760156434227.scm:99");
+            moduleMethod.setProperty("source-location", "/tmp/runtime7968961605135708732.scm:99");
             this.lambda$Fn1 = moduleMethod;
         }
 
@@ -858,7 +874,7 @@ public class runtime extends ModuleBody implements Runnable {
         }
     }
 
-    /* compiled from: runtime9130887760156434227.scm */
+    /* compiled from: runtime7968961605135708732.scm */
     public class frame0 extends ModuleBody {
         Object arg;
         final ModuleMethod lambda$Fn2;
@@ -867,10 +883,10 @@ public class runtime extends ModuleBody implements Runnable {
 
         public frame0() {
             ModuleMethod moduleMethod = new ModuleMethod(this, 2, null, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-            moduleMethod.setProperty("source-location", "/tmp/runtime9130887760156434227.scm:1434");
+            moduleMethod.setProperty("source-location", "/tmp/runtime7968961605135708732.scm:1434");
             this.lambda$Fn2 = moduleMethod;
             ModuleMethod moduleMethod2 = new ModuleMethod(this, 3, null, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-            moduleMethod2.setProperty("source-location", "/tmp/runtime9130887760156434227.scm:1435");
+            moduleMethod2.setProperty("source-location", "/tmp/runtime7968961605135708732.scm:1435");
             this.lambda$Fn3 = moduleMethod2;
         }
 
@@ -915,7 +931,7 @@ public class runtime extends ModuleBody implements Runnable {
         }
     }
 
-    /* compiled from: runtime9130887760156434227.scm */
+    /* compiled from: runtime7968961605135708732.scm */
     public class frame1 extends ModuleBody {
         Object arg;
         final ModuleMethod lambda$Fn5;
@@ -924,10 +940,10 @@ public class runtime extends ModuleBody implements Runnable {
 
         public frame1() {
             ModuleMethod moduleMethod = new ModuleMethod(this, 4, null, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-            moduleMethod.setProperty("source-location", "/tmp/runtime9130887760156434227.scm:1469");
+            moduleMethod.setProperty("source-location", "/tmp/runtime7968961605135708732.scm:1469");
             this.lambda$Fn5 = moduleMethod;
             ModuleMethod moduleMethod2 = new ModuleMethod(this, 5, null, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-            moduleMethod2.setProperty("source-location", "/tmp/runtime9130887760156434227.scm:1470");
+            moduleMethod2.setProperty("source-location", "/tmp/runtime7968961605135708732.scm:1470");
             this.lambda$Fn6 = moduleMethod2;
         }
 
@@ -972,14 +988,14 @@ public class runtime extends ModuleBody implements Runnable {
         }
     }
 
-    /* compiled from: runtime9130887760156434227.scm */
+    /* compiled from: runtime7968961605135708732.scm */
     public class frame2 extends ModuleBody {
         Object arg;
         final ModuleMethod lambda$Fn8;
 
         public frame2() {
             ModuleMethod moduleMethod = new ModuleMethod(this, 6, null, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-            moduleMethod.setProperty("source-location", "/tmp/runtime9130887760156434227.scm:1490");
+            moduleMethod.setProperty("source-location", "/tmp/runtime7968961605135708732.scm:1490");
             this.lambda$Fn8 = moduleMethod;
         }
 
@@ -1007,7 +1023,7 @@ public class runtime extends ModuleBody implements Runnable {
         }
     }
 
-    /* compiled from: runtime9130887760156434227.scm */
+    /* compiled from: runtime7968961605135708732.scm */
     public class frame3 extends ModuleBody {
         final ModuleMethod lambda$Fn10;
         final ModuleMethod lambda$Fn9;
@@ -1015,10 +1031,10 @@ public class runtime extends ModuleBody implements Runnable {
 
         public frame3() {
             ModuleMethod moduleMethod = new ModuleMethod(this, 7, null, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-            moduleMethod.setProperty("source-location", "/tmp/runtime9130887760156434227.scm:1615");
+            moduleMethod.setProperty("source-location", "/tmp/runtime7968961605135708732.scm:1615");
             this.lambda$Fn9 = moduleMethod;
             ModuleMethod moduleMethod2 = new ModuleMethod(this, 8, null, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-            moduleMethod2.setProperty("source-location", "/tmp/runtime9130887760156434227.scm:1623");
+            moduleMethod2.setProperty("source-location", "/tmp/runtime7968961605135708732.scm:1623");
             this.lambda$Fn10 = moduleMethod2;
         }
 
@@ -1068,9 +1084,9 @@ public class runtime extends ModuleBody implements Runnable {
         }
     }
 
-    /* compiled from: runtime9130887760156434227.scm */
+    /* compiled from: runtime7968961605135708732.scm */
     public class frame4 extends ModuleBody {
-        final ModuleMethod cont$Fn12 = new ModuleMethod(this, 9, runtime.Lit36, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        final ModuleMethod cont$Fn12 = new ModuleMethod(this, 9, runtime.Lit42, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         Object lc;
         Object text;
 
@@ -1109,7 +1125,7 @@ public class runtime extends ModuleBody implements Runnable {
         }
     }
 
-    /* compiled from: runtime9130887760156434227.scm */
+    /* compiled from: runtime7968961605135708732.scm */
     public class frame5 extends ModuleBody {
         Object blockid;
         final ModuleMethod lambda$Fn13;
@@ -1117,7 +1133,7 @@ public class runtime extends ModuleBody implements Runnable {
 
         public frame5() {
             ModuleMethod moduleMethod = new ModuleMethod(this, 10, null, 0);
-            moduleMethod.setProperty("source-location", "/tmp/runtime9130887760156434227.scm:2874");
+            moduleMethod.setProperty("source-location", "/tmp/runtime7968961605135708732.scm:2920");
             this.lambda$Fn13 = moduleMethod;
         }
 
@@ -1199,17 +1215,17 @@ public class runtime extends ModuleBody implements Runnable {
                 clip$Mnto$Mnjava$Mnint$Mnrange = lambda$Fn11;
                 ERROR_DIVISION_BY_ZERO = Integer.valueOf(ErrorMessages.ERROR_DIVISION_BY_ZERO);
                 $Stpi$St = Lit25;
-                $Styail$Mnlist$St = Lit31;
-                $Stmax$Mncolor$Mncomponent$St = numbers.exact(Lit34);
-                $Stcolor$Mnalpha$Mnposition$St = numbers.exact(Lit37);
-                $Stcolor$Mnred$Mnposition$St = numbers.exact(Lit38);
-                $Stcolor$Mngreen$Mnposition$St = numbers.exact(Lit35);
+                $Styail$Mnlist$St = Lit37;
+                $Stmax$Mncolor$Mncomponent$St = numbers.exact(Lit40);
+                $Stcolor$Mnalpha$Mnposition$St = numbers.exact(Lit43);
+                $Stcolor$Mnred$Mnposition$St = numbers.exact(Lit44);
+                $Stcolor$Mngreen$Mnposition$St = numbers.exact(Lit41);
                 $Stcolor$Mnblue$Mnposition$St = numbers.exact(Lit22);
-                $Stalpha$Mnopaque$St = numbers.exact(Lit34);
+                $Stalpha$Mnopaque$St = numbers.exact(Lit40);
                 $Strun$Mntelnet$Mnrepl$St = Boolean.TRUE;
                 $Stnum$Mnconnections$St = Lit21;
                 $Strepl$Mnserver$Mnaddress$St = "NONE";
-                $Strepl$Mnport$St = Lit41;
+                $Strepl$Mnport$St = Lit47;
                 $Stui$Mnhandler$St = null;
                 $Stthis$Mnform$St = null;
             } catch (ClassCastException e) {
@@ -1533,12 +1549,15 @@ public class runtime extends ModuleBody implements Runnable {
                 callContext.proc = moduleMethod;
                 callContext.pc = 1;
                 return 0;
-            case 111:
+            case 110:
+                if (!(obj instanceof CharSequence)) {
+                    return -786431;
+                }
                 callContext.value1 = obj;
                 callContext.proc = moduleMethod;
                 callContext.pc = 1;
                 return 0;
-            case 112:
+            case 111:
                 callContext.value1 = obj;
                 callContext.proc = moduleMethod;
                 callContext.pc = 1;
@@ -1603,12 +1622,12 @@ public class runtime extends ModuleBody implements Runnable {
                 callContext.proc = moduleMethod;
                 callContext.pc = 1;
                 return 0;
-            case 126:
+            case 125:
                 callContext.value1 = obj;
                 callContext.proc = moduleMethod;
                 callContext.pc = 1;
                 return 0;
-            case 127:
+            case 126:
                 callContext.value1 = obj;
                 callContext.proc = moduleMethod;
                 callContext.pc = 1;
@@ -1623,12 +1642,12 @@ public class runtime extends ModuleBody implements Runnable {
                 callContext.proc = moduleMethod;
                 callContext.pc = 1;
                 return 0;
-            case 131:
+            case 130:
                 callContext.value1 = obj;
                 callContext.proc = moduleMethod;
                 callContext.pc = 1;
                 return 0;
-            case 132:
+            case 131:
                 callContext.value1 = obj;
                 callContext.proc = moduleMethod;
                 callContext.pc = 1;
@@ -1663,32 +1682,32 @@ public class runtime extends ModuleBody implements Runnable {
                 callContext.proc = moduleMethod;
                 callContext.pc = 1;
                 return 0;
-            case 147:
+            case 139:
                 callContext.value1 = obj;
                 callContext.proc = moduleMethod;
                 callContext.pc = 1;
                 return 0;
-            case 153:
+            case 140:
                 callContext.value1 = obj;
                 callContext.proc = moduleMethod;
                 callContext.pc = 1;
                 return 0;
-            case 163:
+            case 149:
                 callContext.value1 = obj;
                 callContext.proc = moduleMethod;
                 callContext.pc = 1;
                 return 0;
-            case 164:
+            case 155:
+                callContext.value1 = obj;
+                callContext.proc = moduleMethod;
+                callContext.pc = 1;
+                return 0;
+            case 165:
                 callContext.value1 = obj;
                 callContext.proc = moduleMethod;
                 callContext.pc = 1;
                 return 0;
             case 166:
-                callContext.value1 = obj;
-                callContext.proc = moduleMethod;
-                callContext.pc = 1;
-                return 0;
-            case 167:
                 callContext.value1 = obj;
                 callContext.proc = moduleMethod;
                 callContext.pc = 1;
@@ -1703,12 +1722,12 @@ public class runtime extends ModuleBody implements Runnable {
                 callContext.proc = moduleMethod;
                 callContext.pc = 1;
                 return 0;
-            case 171:
+            case 170:
                 callContext.value1 = obj;
                 callContext.proc = moduleMethod;
                 callContext.pc = 1;
                 return 0;
-            case 172:
+            case 171:
                 callContext.value1 = obj;
                 callContext.proc = moduleMethod;
                 callContext.pc = 1;
@@ -1718,7 +1737,12 @@ public class runtime extends ModuleBody implements Runnable {
                 callContext.proc = moduleMethod;
                 callContext.pc = 1;
                 return 0;
-            case 180:
+            case 174:
+                callContext.value1 = obj;
+                callContext.proc = moduleMethod;
+                callContext.pc = 1;
+                return 0;
+            case 175:
                 callContext.value1 = obj;
                 callContext.proc = moduleMethod;
                 callContext.pc = 1;
@@ -1738,22 +1762,17 @@ public class runtime extends ModuleBody implements Runnable {
                 callContext.proc = moduleMethod;
                 callContext.pc = 1;
                 return 0;
-            case 187:
-                callContext.value1 = obj;
-                callContext.proc = moduleMethod;
-                callContext.pc = 1;
-                return 0;
-            case 188:
-                callContext.value1 = obj;
-                callContext.proc = moduleMethod;
-                callContext.pc = 1;
-                return 0;
             case FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_PLAY /*191*/:
                 callContext.value1 = obj;
                 callContext.proc = moduleMethod;
                 callContext.pc = 1;
                 return 0;
-            case FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_SOURCE /*194*/:
+            case FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_PAUSE /*192*/:
+                callContext.value1 = obj;
+                callContext.proc = moduleMethod;
+                callContext.pc = 1;
+                return 0;
+            case FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_STOP /*193*/:
                 callContext.value1 = obj;
                 callContext.proc = moduleMethod;
                 callContext.pc = 1;
@@ -1763,22 +1782,32 @@ public class runtime extends ModuleBody implements Runnable {
                 callContext.proc = moduleMethod;
                 callContext.pc = 1;
                 return 0;
+            case 199:
+                callContext.value1 = obj;
+                callContext.proc = moduleMethod;
+                callContext.pc = 1;
+                return 0;
             case ErrorMessages.ERROR_CAMERA_NO_IMAGE_RETURNED /*201*/:
                 callContext.value1 = obj;
                 callContext.proc = moduleMethod;
                 callContext.pc = 1;
                 return 0;
-            case ErrorMessages.ERROR_NO_CAMERA_PERMISSION /*202*/:
-                callContext.value1 = obj;
-                callContext.proc = moduleMethod;
-                callContext.pc = 1;
-                return 0;
-            case 206:
+            case YaVersion.YOUNG_ANDROID_VERSION /*206*/:
                 callContext.value1 = obj;
                 callContext.proc = moduleMethod;
                 callContext.pc = 1;
                 return 0;
             case 207:
+                callContext.value1 = obj;
+                callContext.proc = moduleMethod;
+                callContext.pc = 1;
+                return 0;
+            case 211:
+                callContext.value1 = obj;
+                callContext.proc = moduleMethod;
+                callContext.pc = 1;
+                return 0;
+            case 212:
                 callContext.value1 = obj;
                 callContext.proc = moduleMethod;
                 callContext.pc = 1;
@@ -1789,96 +1818,96 @@ public class runtime extends ModuleBody implements Runnable {
     }
 
     static {
-        Object[] objArr = {Lit321};
-        SimpleSymbol simpleSymbol = Lit324;
+        Object[] objArr = {Lit332};
+        SimpleSymbol simpleSymbol = Lit335;
         SimpleSymbol simpleSymbol2 = (SimpleSymbol) new SimpleSymbol("*testing*").readResolve();
         Boolean bool = Boolean.TRUE;
-        PairWithPosition make = PairWithPosition.make(Lit322, Pair.make(Lit337, Pair.make(Pair.make(Lit323, Pair.make((SimpleSymbol) new SimpleSymbol("ShowListsAsJson").readResolve(), LList.Empty)), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 5820427);
-        SimpleSymbol simpleSymbol3 = Lit322;
+        PairWithPosition make = PairWithPosition.make(Lit333, Pair.make(Lit348, Pair.make(Pair.make(Lit334, Pair.make((SimpleSymbol) new SimpleSymbol("ShowListsAsJson").readResolve(), LList.Empty)), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 5820427);
+        SimpleSymbol simpleSymbol3 = Lit333;
         SimpleSymbol simpleSymbol4 = simpleSymbol3;
         PairWithPosition pairWithPosition = make;
         Boolean bool2 = bool;
         SimpleSymbol simpleSymbol5 = simpleSymbol;
-        Lit180 = new SyntaxRules(objArr, new SyntaxRule[]{new SyntaxRule(new SyntaxPattern("\f\u0018\b", new Object[0], 0), "", "\u0018\u0004", new Object[]{PairWithPosition.make(simpleSymbol5, PairWithPosition.make(simpleSymbol2, PairWithPosition.make(bool2, PairWithPosition.make(PairWithPosition.make(pairWithPosition, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(simpleSymbol4, Pair.make((SimpleSymbol) new SimpleSymbol("SimpleForm").readResolve(), Pair.make(Pair.make(Lit323, Pair.make((SimpleSymbol) new SimpleSymbol("getActiveForm").readResolve(), LList.Empty)), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 5820446), LList.Empty, "/tmp/runtime9130887760156434227.scm", 5820445), LList.Empty, "/tmp/runtime9130887760156434227.scm", 5820445), "/tmp/runtime9130887760156434227.scm", 5820426), LList.Empty, "/tmp/runtime9130887760156434227.scm", 5820426), "/tmp/runtime9130887760156434227.scm", 5816340), "/tmp/runtime9130887760156434227.scm", 5816330), "/tmp/runtime9130887760156434227.scm", 5816326)}, 0)}, 0);
-        SimpleSymbol simpleSymbol6 = Lit326;
+        Lit186 = new SyntaxRules(objArr, new SyntaxRule[]{new SyntaxRule(new SyntaxPattern("\f\u0018\b", new Object[0], 0), "", "\u0018\u0004", new Object[]{PairWithPosition.make(simpleSymbol5, PairWithPosition.make(simpleSymbol2, PairWithPosition.make(bool2, PairWithPosition.make(PairWithPosition.make(pairWithPosition, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(simpleSymbol4, Pair.make((SimpleSymbol) new SimpleSymbol("SimpleForm").readResolve(), Pair.make(Pair.make(Lit334, Pair.make((SimpleSymbol) new SimpleSymbol("getActiveForm").readResolve(), LList.Empty)), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 5820446), LList.Empty, "/tmp/runtime7968961605135708732.scm", 5820445), LList.Empty, "/tmp/runtime7968961605135708732.scm", 5820445), "/tmp/runtime7968961605135708732.scm", 5820426), LList.Empty, "/tmp/runtime7968961605135708732.scm", 5820426), "/tmp/runtime7968961605135708732.scm", 5816340), "/tmp/runtime7968961605135708732.scm", 5816330), "/tmp/runtime7968961605135708732.scm", 5816326)}, 0)}, 0);
+        SimpleSymbol simpleSymbol6 = Lit337;
         SimpleSymbol simpleSymbol7 = (SimpleSymbol) new SimpleSymbol("cont").readResolve();
-        Lit36 = simpleSymbol7;
-        Lit147 = PairWithPosition.make(PairWithPosition.make(simpleSymbol6, PairWithPosition.make(simpleSymbol7, LList.Empty, "/tmp/runtime9130887760156434227.scm", 3735590), "/tmp/runtime9130887760156434227.scm", 3735558), LList.Empty, "/tmp/runtime9130887760156434227.scm", 3735558);
+        Lit42 = simpleSymbol7;
+        Lit153 = PairWithPosition.make(PairWithPosition.make(simpleSymbol6, PairWithPosition.make(simpleSymbol7, LList.Empty, "/tmp/runtime7968961605135708732.scm", 3735590), "/tmp/runtime7968961605135708732.scm", 3735558), LList.Empty, "/tmp/runtime7968961605135708732.scm", 3735558);
         SimpleSymbol simpleSymbol8 = (SimpleSymbol) new SimpleSymbol("*yail-break*").readResolve();
-        Lit129 = simpleSymbol8;
-        Lit140 = PairWithPosition.make(simpleSymbol8, LList.Empty, "/tmp/runtime9130887760156434227.scm", 3711000);
+        Lit135 = simpleSymbol8;
+        Lit146 = PairWithPosition.make(simpleSymbol8, LList.Empty, "/tmp/runtime7968961605135708732.scm", 3711000);
         SimpleSymbol simpleSymbol9 = (SimpleSymbol) new SimpleSymbol("define-event-helper").readResolve();
-        Lit88 = simpleSymbol9;
-        Lit104 = new SyntaxTemplate("\u0001\u0001\u0001\u0001\u0000", "\u0018\u0004", new Object[]{PairWithPosition.make(simpleSymbol9, LList.Empty, "/tmp/runtime9130887760156434227.scm", 3043340)}, 0);
-        Object[] objArr2 = {Lit321};
+        Lit94 = simpleSymbol9;
+        Lit110 = new SyntaxTemplate("\u0001\u0001\u0001\u0001\u0000", "\u0018\u0004", new Object[]{PairWithPosition.make(simpleSymbol9, LList.Empty, "/tmp/runtime7968961605135708732.scm", 3043340)}, 0);
+        Object[] objArr2 = {Lit332};
         SimpleSymbol simpleSymbol10 = (SimpleSymbol) new SimpleSymbol("list").readResolve();
         Lit7 = simpleSymbol10;
-        Lit91 = new SyntaxRules(objArr2, new SyntaxRule[]{new SyntaxRule(new SyntaxPattern("\f\u0018\r\u0007\u0000\b\b", new Object[0], 1), "\u0003", "\u0011\u0018\u0004\b\u0005\u0003", new Object[]{simpleSymbol10}, 1)}, 1);
+        Lit97 = new SyntaxRules(objArr2, new SyntaxRule[]{new SyntaxRule(new SyntaxPattern("\f\u0018\r\u0007\u0000\b\b", new Object[0], 1), "\u0003", "\u0011\u0018\u0004\b\u0005\u0003", new Object[]{simpleSymbol10}, 1)}, 1);
         SimpleSymbol simpleSymbol11 = (SimpleSymbol) new SimpleSymbol("symbol-append").readResolve();
-        Lit81 = simpleSymbol11;
-        Lit87 = new SyntaxTemplate("\u0001\u0001\u0001", "\u0011\u0018\u0004\u0011\u0018\f\t\u000b\u0011\u0018\u0014\b\u0013", new Object[]{simpleSymbol11, PairWithPosition.make(Lit334, PairWithPosition.make(Lit105, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2736180), "/tmp/runtime9130887760156434227.scm", 2736180), PairWithPosition.make(Lit334, PairWithPosition.make(Lit97, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2736201), "/tmp/runtime9130887760156434227.scm", 2736201)}, 0);
-        Object[] objArr3 = {Lit321};
-        SimpleSymbol simpleSymbol12 = Lit336;
-        PairWithPosition make2 = PairWithPosition.make(Lit402, PairWithPosition.make(Lit338, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1269793), "/tmp/runtime9130887760156434227.scm", 1269776);
-        PairWithPosition make3 = PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit322, Pair.make(Lit337, Pair.make(Pair.make(Lit323, Pair.make((SimpleSymbol) new SimpleSymbol("getSimpleName").readResolve(), LList.Empty)), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 1273867), PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit322, Pair.make(Lit337, Pair.make(Pair.make(Lit323, Pair.make((SimpleSymbol) new SimpleSymbol("getClass").readResolve(), LList.Empty)), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 1273884), PairWithPosition.make(Lit338, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1273895), "/tmp/runtime9130887760156434227.scm", 1273883), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1273883), "/tmp/runtime9130887760156434227.scm", 1273866), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1273866);
-        SimpleSymbol simpleSymbol13 = Lit340;
-        SimpleSymbol simpleSymbol14 = Lit341;
-        PairWithPosition make4 = PairWithPosition.make(Lit339, PairWithPosition.make((SimpleSymbol) new SimpleSymbol("android.os.Bundle").readResolve(), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1282084), "/tmp/runtime9130887760156434227.scm", 1282081);
-        SimpleSymbol simpleSymbol15 = Lit322;
+        Lit87 = simpleSymbol11;
+        Lit93 = new SyntaxTemplate("\u0001\u0001\u0001", "\u0011\u0018\u0004\u0011\u0018\f\t\u000b\u0011\u0018\u0014\b\u0013", new Object[]{simpleSymbol11, PairWithPosition.make(Lit345, PairWithPosition.make(Lit111, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2736180), "/tmp/runtime7968961605135708732.scm", 2736180), PairWithPosition.make(Lit345, PairWithPosition.make(Lit103, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2736201), "/tmp/runtime7968961605135708732.scm", 2736201)}, 0);
+        Object[] objArr3 = {Lit332};
+        SimpleSymbol simpleSymbol12 = Lit347;
+        PairWithPosition make2 = PairWithPosition.make(Lit413, PairWithPosition.make(Lit349, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1269793), "/tmp/runtime7968961605135708732.scm", 1269776);
+        PairWithPosition make3 = PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit333, Pair.make(Lit348, Pair.make(Pair.make(Lit334, Pair.make((SimpleSymbol) new SimpleSymbol("getSimpleName").readResolve(), LList.Empty)), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 1273867), PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit333, Pair.make(Lit348, Pair.make(Pair.make(Lit334, Pair.make((SimpleSymbol) new SimpleSymbol("getClass").readResolve(), LList.Empty)), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 1273884), PairWithPosition.make(Lit349, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1273895), "/tmp/runtime7968961605135708732.scm", 1273883), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1273883), "/tmp/runtime7968961605135708732.scm", 1273866), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1273866);
+        SimpleSymbol simpleSymbol13 = Lit351;
+        SimpleSymbol simpleSymbol14 = Lit352;
+        PairWithPosition make4 = PairWithPosition.make(Lit350, PairWithPosition.make((SimpleSymbol) new SimpleSymbol("android.os.Bundle").readResolve(), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1282084), "/tmp/runtime7968961605135708732.scm", 1282081);
+        SimpleSymbol simpleSymbol15 = Lit333;
         SimpleSymbol simpleSymbol16 = (SimpleSymbol) new SimpleSymbol("com.google.appinventor.components.runtime.AppInventorCompatActivity").readResolve();
-        SimpleSymbol simpleSymbol17 = Lit323;
+        SimpleSymbol simpleSymbol17 = Lit334;
         Pair make5 = Pair.make((SimpleSymbol) new SimpleSymbol("setClassicModeFromYail").readResolve(), LList.Empty);
         SimpleSymbol simpleSymbol18 = simpleSymbol15;
-        SimpleSymbol simpleSymbol19 = Lit336;
-        PairWithPosition make6 = PairWithPosition.make(Lit346, PairWithPosition.make(Lit343, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1310754), "/tmp/runtime9130887760156434227.scm", 1310736);
-        SimpleSymbol simpleSymbol20 = Lit373;
-        SimpleSymbol simpleSymbol21 = Lit342;
-        SimpleSymbol simpleSymbol22 = Lit322;
+        SimpleSymbol simpleSymbol19 = Lit347;
+        PairWithPosition make6 = PairWithPosition.make(Lit357, PairWithPosition.make(Lit354, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1310754), "/tmp/runtime7968961605135708732.scm", 1310736);
+        SimpleSymbol simpleSymbol20 = Lit384;
+        SimpleSymbol simpleSymbol21 = Lit353;
+        SimpleSymbol simpleSymbol22 = Lit333;
         SimpleSymbol simpleSymbol23 = simpleSymbol22;
-        PairWithPosition make7 = PairWithPosition.make(simpleSymbol23, Pair.make((SimpleSymbol) new SimpleSymbol("android.util.Log").readResolve(), Pair.make(Pair.make(Lit323, Pair.make((SimpleSymbol) new SimpleSymbol("i").readResolve(), LList.Empty)), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 1314846);
-        PairWithPosition make8 = PairWithPosition.make(Lit343, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1314872);
+        PairWithPosition make7 = PairWithPosition.make(simpleSymbol23, Pair.make((SimpleSymbol) new SimpleSymbol("android.util.Log").readResolve(), Pair.make(Pair.make(Lit334, Pair.make((SimpleSymbol) new SimpleSymbol("i").readResolve(), LList.Empty)), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 1314846);
+        PairWithPosition make8 = PairWithPosition.make(Lit354, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1314872);
         SimpleSymbol simpleSymbol24 = simpleSymbol21;
         SimpleSymbol simpleSymbol25 = simpleSymbol20;
         PairWithPosition pairWithPosition2 = make6;
         SimpleSymbol simpleSymbol26 = simpleSymbol19;
-        SimpleSymbol simpleSymbol27 = Lit336;
-        PairWithPosition make9 = PairWithPosition.make(Lit345, PairWithPosition.make(Lit347, PairWithPosition.make(Lit339, PairWithPosition.make(Lit349, PairWithPosition.make(Lit338, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1347652), "/tmp/runtime9130887760156434227.scm", 1347633), "/tmp/runtime9130887760156434227.scm", 1347630), "/tmp/runtime9130887760156434227.scm", 1347625), "/tmp/runtime9130887760156434227.scm", 1347600);
-        PairWithPosition make10 = PairWithPosition.make(Lit346, PairWithPosition.make(PairWithPosition.make(Lit353, PairWithPosition.make(Boolean.FALSE, PairWithPosition.make("Adding ~A to env ~A with value ~A", PairWithPosition.make(Lit347, PairWithPosition.make(Lit348, PairWithPosition.make(Lit338, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1351777), "/tmp/runtime9130887760156434227.scm", 1351760), "/tmp/runtime9130887760156434227.scm", 1351755), "/tmp/runtime9130887760156434227.scm", 1351719), "/tmp/runtime9130887760156434227.scm", 1351716), "/tmp/runtime9130887760156434227.scm", 1351708), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1351708), "/tmp/runtime9130887760156434227.scm", 1351690);
-        SimpleSymbol simpleSymbol28 = Lit322;
-        SimpleSymbol simpleSymbol29 = Lit344;
-        SimpleSymbol simpleSymbol30 = Lit323;
+        SimpleSymbol simpleSymbol27 = Lit347;
+        PairWithPosition make9 = PairWithPosition.make(Lit356, PairWithPosition.make(Lit358, PairWithPosition.make(Lit350, PairWithPosition.make(Lit360, PairWithPosition.make(Lit349, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1347652), "/tmp/runtime7968961605135708732.scm", 1347633), "/tmp/runtime7968961605135708732.scm", 1347630), "/tmp/runtime7968961605135708732.scm", 1347625), "/tmp/runtime7968961605135708732.scm", 1347600);
+        PairWithPosition make10 = PairWithPosition.make(Lit357, PairWithPosition.make(PairWithPosition.make(Lit364, PairWithPosition.make(Boolean.FALSE, PairWithPosition.make("Adding ~A to env ~A with value ~A", PairWithPosition.make(Lit358, PairWithPosition.make(Lit359, PairWithPosition.make(Lit349, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1351777), "/tmp/runtime7968961605135708732.scm", 1351760), "/tmp/runtime7968961605135708732.scm", 1351755), "/tmp/runtime7968961605135708732.scm", 1351719), "/tmp/runtime7968961605135708732.scm", 1351716), "/tmp/runtime7968961605135708732.scm", 1351708), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1351708), "/tmp/runtime7968961605135708732.scm", 1351690);
+        SimpleSymbol simpleSymbol28 = Lit333;
+        SimpleSymbol simpleSymbol29 = Lit355;
+        SimpleSymbol simpleSymbol30 = Lit334;
         SimpleSymbol simpleSymbol31 = (SimpleSymbol) new SimpleSymbol("put").readResolve();
         Lit0 = simpleSymbol31;
-        PairWithPosition make11 = PairWithPosition.make(make10, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(simpleSymbol28, Pair.make(simpleSymbol29, Pair.make(Pair.make(simpleSymbol30, Pair.make(simpleSymbol31, LList.Empty)), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 1355787), PairWithPosition.make(Lit348, PairWithPosition.make(Lit347, PairWithPosition.make(Lit338, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1355837), "/tmp/runtime9130887760156434227.scm", 1355832), "/tmp/runtime9130887760156434227.scm", 1355815), "/tmp/runtime9130887760156434227.scm", 1355786), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1355786), "/tmp/runtime9130887760156434227.scm", 1351690);
-        SimpleSymbol simpleSymbol32 = Lit336;
-        PairWithPosition make12 = PairWithPosition.make(Lit386, PairWithPosition.make(Lit347, PairWithPosition.make(Lit339, PairWithPosition.make(Lit349, PairWithPosition.make(Special.optional, PairWithPosition.make(PairWithPosition.make(Lit350, PairWithPosition.make(Boolean.FALSE, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1364065), "/tmp/runtime9130887760156434227.scm", 1364050), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1364050), "/tmp/runtime9130887760156434227.scm", 1364039), "/tmp/runtime9130887760156434227.scm", 1364020), "/tmp/runtime9130887760156434227.scm", 1364017), "/tmp/runtime9130887760156434227.scm", 1364012), "/tmp/runtime9130887760156434227.scm", 1363984);
-        SimpleSymbol simpleSymbol33 = Lit324;
-        PairWithPosition make13 = PairWithPosition.make(Lit392, PairWithPosition.make(PairWithPosition.make((SimpleSymbol) new SimpleSymbol("not").readResolve(), PairWithPosition.make(PairWithPosition.make(Lit385, PairWithPosition.make(Lit348, PairWithPosition.make(null, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1368110), "/tmp/runtime9130887760156434227.scm", 1368093), "/tmp/runtime9130887760156434227.scm", 1368088), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1368088), "/tmp/runtime9130887760156434227.scm", 1368083), PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit322, Pair.make(Lit344, Pair.make(Pair.make(Lit323, Pair.make(Lit351, LList.Empty)), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 1372180), PairWithPosition.make(Lit348, PairWithPosition.make(Lit347, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1372229), "/tmp/runtime9130887760156434227.scm", 1372212), "/tmp/runtime9130887760156434227.scm", 1372179), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1372179), "/tmp/runtime9130887760156434227.scm", 1368083), "/tmp/runtime9130887760156434227.scm", 1368078);
-        SimpleSymbol simpleSymbol34 = Lit322;
-        SimpleSymbol simpleSymbol35 = Lit344;
-        SimpleSymbol simpleSymbol36 = Lit323;
+        PairWithPosition make11 = PairWithPosition.make(make10, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(simpleSymbol28, Pair.make(simpleSymbol29, Pair.make(Pair.make(simpleSymbol30, Pair.make(simpleSymbol31, LList.Empty)), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 1355787), PairWithPosition.make(Lit359, PairWithPosition.make(Lit358, PairWithPosition.make(Lit349, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1355837), "/tmp/runtime7968961605135708732.scm", 1355832), "/tmp/runtime7968961605135708732.scm", 1355815), "/tmp/runtime7968961605135708732.scm", 1355786), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1355786), "/tmp/runtime7968961605135708732.scm", 1351690);
+        SimpleSymbol simpleSymbol32 = Lit347;
+        PairWithPosition make12 = PairWithPosition.make(Lit397, PairWithPosition.make(Lit358, PairWithPosition.make(Lit350, PairWithPosition.make(Lit360, PairWithPosition.make(Special.optional, PairWithPosition.make(PairWithPosition.make(Lit361, PairWithPosition.make(Boolean.FALSE, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1364065), "/tmp/runtime7968961605135708732.scm", 1364050), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1364050), "/tmp/runtime7968961605135708732.scm", 1364039), "/tmp/runtime7968961605135708732.scm", 1364020), "/tmp/runtime7968961605135708732.scm", 1364017), "/tmp/runtime7968961605135708732.scm", 1364012), "/tmp/runtime7968961605135708732.scm", 1363984);
+        SimpleSymbol simpleSymbol33 = Lit335;
+        PairWithPosition make13 = PairWithPosition.make(Lit403, PairWithPosition.make(PairWithPosition.make((SimpleSymbol) new SimpleSymbol("not").readResolve(), PairWithPosition.make(PairWithPosition.make(Lit396, PairWithPosition.make(Lit359, PairWithPosition.make(null, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1368110), "/tmp/runtime7968961605135708732.scm", 1368093), "/tmp/runtime7968961605135708732.scm", 1368088), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1368088), "/tmp/runtime7968961605135708732.scm", 1368083), PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit333, Pair.make(Lit355, Pair.make(Pair.make(Lit334, Pair.make(Lit362, LList.Empty)), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 1372180), PairWithPosition.make(Lit359, PairWithPosition.make(Lit358, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1372229), "/tmp/runtime7968961605135708732.scm", 1372212), "/tmp/runtime7968961605135708732.scm", 1372179), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1372179), "/tmp/runtime7968961605135708732.scm", 1368083), "/tmp/runtime7968961605135708732.scm", 1368078);
+        SimpleSymbol simpleSymbol34 = Lit333;
+        SimpleSymbol simpleSymbol35 = Lit355;
+        SimpleSymbol simpleSymbol36 = Lit334;
         SimpleSymbol simpleSymbol37 = (SimpleSymbol) new SimpleSymbol("get").readResolve();
         Lit1 = simpleSymbol37;
-        PairWithPosition make14 = PairWithPosition.make(PairWithPosition.make(simpleSymbol33, PairWithPosition.make(make13, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(simpleSymbol34, Pair.make(simpleSymbol35, Pair.make(Pair.make(simpleSymbol36, Pair.make(simpleSymbol37, LList.Empty)), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 1376271), PairWithPosition.make(Lit348, PairWithPosition.make(Lit347, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1376316), "/tmp/runtime9130887760156434227.scm", 1376299), "/tmp/runtime9130887760156434227.scm", 1376270), PairWithPosition.make(Lit350, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1380366), "/tmp/runtime9130887760156434227.scm", 1376270), "/tmp/runtime9130887760156434227.scm", 1368078), "/tmp/runtime9130887760156434227.scm", 1368074), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1368074);
-        SimpleSymbol simpleSymbol38 = Lit336;
-        PairWithPosition make15 = PairWithPosition.make(Lit376, PairWithPosition.make(Lit372, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1634332), "/tmp/runtime9130887760156434227.scm", 1634320);
-        SimpleSymbol simpleSymbol39 = Lit322;
+        PairWithPosition make14 = PairWithPosition.make(PairWithPosition.make(simpleSymbol33, PairWithPosition.make(make13, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(simpleSymbol34, Pair.make(simpleSymbol35, Pair.make(Pair.make(simpleSymbol36, Pair.make(simpleSymbol37, LList.Empty)), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 1376271), PairWithPosition.make(Lit359, PairWithPosition.make(Lit358, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1376316), "/tmp/runtime7968961605135708732.scm", 1376299), "/tmp/runtime7968961605135708732.scm", 1376270), PairWithPosition.make(Lit361, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1380366), "/tmp/runtime7968961605135708732.scm", 1376270), "/tmp/runtime7968961605135708732.scm", 1368078), "/tmp/runtime7968961605135708732.scm", 1368074), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1368074);
+        SimpleSymbol simpleSymbol38 = Lit347;
+        PairWithPosition make15 = PairWithPosition.make(Lit387, PairWithPosition.make(Lit383, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1634332), "/tmp/runtime7968961605135708732.scm", 1634320);
+        SimpleSymbol simpleSymbol39 = Lit333;
         SimpleSymbol simpleSymbol40 = (SimpleSymbol) new SimpleSymbol("com.google.appinventor.components.runtime.util.RetValManager").readResolve();
-        SimpleSymbol simpleSymbol41 = Lit323;
+        SimpleSymbol simpleSymbol41 = Lit334;
         Pair make16 = Pair.make((SimpleSymbol) new SimpleSymbol("sendError").readResolve(), LList.Empty);
         SimpleSymbol simpleSymbol42 = simpleSymbol39;
         PairWithPosition pairWithPosition3 = make15;
         SimpleSymbol simpleSymbol43 = simpleSymbol38;
-        SimpleSymbol simpleSymbol44 = Lit414;
-        SimpleSymbol simpleSymbol45 = Lit379;
-        PairWithPosition make17 = PairWithPosition.make((SimpleSymbol) new SimpleSymbol("<com.google.appinventor.components.runtime.errors.YailRuntimeError>").readResolve(), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1650729);
-        SimpleSymbol simpleSymbol46 = Lit373;
-        PairWithPosition make18 = PairWithPosition.make(PairWithPosition.make(Lit322, Pair.make(PairWithPosition.make(Lit374, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1671189), Pair.make(Pair.make(Lit323, Pair.make((SimpleSymbol) new SimpleSymbol("toastAllowed").readResolve(), LList.Empty)), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 1671189), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1671188);
-        SimpleSymbol simpleSymbol47 = Lit328;
-        PairWithPosition make19 = PairWithPosition.make(PairWithPosition.make(Lit343, PairWithPosition.make(PairWithPosition.make(Lit324, PairWithPosition.make(PairWithPosition.make(Lit378, PairWithPosition.make(Lit375, PairWithPosition.make((SimpleSymbol) new SimpleSymbol("java.lang.Error").readResolve(), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1675317), "/tmp/runtime9130887760156434227.scm", 1675314), "/tmp/runtime9130887760156434227.scm", 1675303), PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit322, Pair.make(Lit375, Pair.make(Pair.make(Lit323, Pair.make((SimpleSymbol) new SimpleSymbol("toString").readResolve(), LList.Empty)), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 1675335), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1675334), PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit322, Pair.make(Lit375, Pair.make(Pair.make(Lit323, Pair.make(Lit377, LList.Empty)), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 1675349), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1675348), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1675348), "/tmp/runtime9130887760156434227.scm", 1675334), "/tmp/runtime9130887760156434227.scm", 1675303), "/tmp/runtime9130887760156434227.scm", 1675299), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1675299), "/tmp/runtime9130887760156434227.scm", 1675290), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1675289);
-        PairWithPosition make20 = PairWithPosition.make(Lit376, PairWithPosition.make(Lit343, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1679394), "/tmp/runtime9130887760156434227.scm", 1679382);
-        SimpleSymbol simpleSymbol48 = Lit322;
-        SimpleSymbol simpleSymbol49 = Lit322;
+        SimpleSymbol simpleSymbol44 = Lit425;
+        SimpleSymbol simpleSymbol45 = Lit390;
+        PairWithPosition make17 = PairWithPosition.make((SimpleSymbol) new SimpleSymbol("<com.google.appinventor.components.runtime.errors.YailRuntimeError>").readResolve(), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1650729);
+        SimpleSymbol simpleSymbol46 = Lit384;
+        PairWithPosition make18 = PairWithPosition.make(PairWithPosition.make(Lit333, Pair.make(PairWithPosition.make(Lit385, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1671189), Pair.make(Pair.make(Lit334, Pair.make((SimpleSymbol) new SimpleSymbol("toastAllowed").readResolve(), LList.Empty)), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 1671189), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1671188);
+        SimpleSymbol simpleSymbol47 = Lit339;
+        PairWithPosition make19 = PairWithPosition.make(PairWithPosition.make(Lit354, PairWithPosition.make(PairWithPosition.make(Lit335, PairWithPosition.make(PairWithPosition.make(Lit389, PairWithPosition.make(Lit386, PairWithPosition.make((SimpleSymbol) new SimpleSymbol("java.lang.Error").readResolve(), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1675317), "/tmp/runtime7968961605135708732.scm", 1675314), "/tmp/runtime7968961605135708732.scm", 1675303), PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit333, Pair.make(Lit386, Pair.make(Pair.make(Lit334, Pair.make((SimpleSymbol) new SimpleSymbol("toString").readResolve(), LList.Empty)), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 1675335), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1675334), PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit333, Pair.make(Lit386, Pair.make(Pair.make(Lit334, Pair.make(Lit388, LList.Empty)), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 1675349), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1675348), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1675348), "/tmp/runtime7968961605135708732.scm", 1675334), "/tmp/runtime7968961605135708732.scm", 1675303), "/tmp/runtime7968961605135708732.scm", 1675299), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1675299), "/tmp/runtime7968961605135708732.scm", 1675290), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1675289);
+        PairWithPosition make20 = PairWithPosition.make(Lit387, PairWithPosition.make(Lit354, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1679394), "/tmp/runtime7968961605135708732.scm", 1679382);
+        SimpleSymbol simpleSymbol48 = Lit333;
+        SimpleSymbol simpleSymbol49 = Lit333;
         SimpleSymbol simpleSymbol50 = simpleSymbol49;
         SimpleSymbol simpleSymbol51 = simpleSymbol48;
         PairWithPosition pairWithPosition4 = make20;
@@ -1886,309 +1915,314 @@ public class runtime extends ModuleBody implements Runnable {
         SimpleSymbol simpleSymbol52 = simpleSymbol47;
         PairWithPosition pairWithPosition6 = make18;
         SimpleSymbol simpleSymbol53 = simpleSymbol46;
-        PairWithPosition make21 = PairWithPosition.make(simpleSymbol53, PairWithPosition.make(pairWithPosition6, PairWithPosition.make(PairWithPosition.make(simpleSymbol52, PairWithPosition.make(pairWithPosition5, PairWithPosition.make(pairWithPosition4, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(simpleSymbol51, Pair.make(PairWithPosition.make(PairWithPosition.make(simpleSymbol50, Pair.make((SimpleSymbol) new SimpleSymbol("android.widget.Toast").readResolve(), Pair.make(Pair.make(Lit323, Pair.make((SimpleSymbol) new SimpleSymbol("makeText").readResolve(), LList.Empty)), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 1683480), PairWithPosition.make(PairWithPosition.make(Lit374, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1683510), PairWithPosition.make(Lit343, PairWithPosition.make(IntNum.make(5), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1683525), "/tmp/runtime9130887760156434227.scm", 1683517), "/tmp/runtime9130887760156434227.scm", 1683510), "/tmp/runtime9130887760156434227.scm", 1683479), Pair.make(Pair.make(Lit323, Pair.make((SimpleSymbol) new SimpleSymbol("show").readResolve(), LList.Empty)), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 1683479), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1683478), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1683478), "/tmp/runtime9130887760156434227.scm", 1679382), "/tmp/runtime9130887760156434227.scm", 1675289), "/tmp/runtime9130887760156434227.scm", 1675284), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1675284), "/tmp/runtime9130887760156434227.scm", 1671188), "/tmp/runtime9130887760156434227.scm", 1671182);
-        SimpleSymbol simpleSymbol54 = Lit322;
+        PairWithPosition make21 = PairWithPosition.make(simpleSymbol53, PairWithPosition.make(pairWithPosition6, PairWithPosition.make(PairWithPosition.make(simpleSymbol52, PairWithPosition.make(pairWithPosition5, PairWithPosition.make(pairWithPosition4, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(simpleSymbol51, Pair.make(PairWithPosition.make(PairWithPosition.make(simpleSymbol50, Pair.make((SimpleSymbol) new SimpleSymbol("android.widget.Toast").readResolve(), Pair.make(Pair.make(Lit334, Pair.make((SimpleSymbol) new SimpleSymbol("makeText").readResolve(), LList.Empty)), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 1683480), PairWithPosition.make(PairWithPosition.make(Lit385, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1683510), PairWithPosition.make(Lit354, PairWithPosition.make(IntNum.make(5), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1683525), "/tmp/runtime7968961605135708732.scm", 1683517), "/tmp/runtime7968961605135708732.scm", 1683510), "/tmp/runtime7968961605135708732.scm", 1683479), Pair.make(Pair.make(Lit334, Pair.make((SimpleSymbol) new SimpleSymbol("show").readResolve(), LList.Empty)), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 1683479), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1683478), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1683478), "/tmp/runtime7968961605135708732.scm", 1679382), "/tmp/runtime7968961605135708732.scm", 1675289), "/tmp/runtime7968961605135708732.scm", 1675284), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1675284), "/tmp/runtime7968961605135708732.scm", 1671188), "/tmp/runtime7968961605135708732.scm", 1671182);
+        SimpleSymbol simpleSymbol54 = Lit333;
         SimpleSymbol simpleSymbol55 = simpleSymbol54;
-        PairWithPosition make22 = PairWithPosition.make(simpleSymbol55, Pair.make((SimpleSymbol) new SimpleSymbol("com.google.appinventor.components.runtime.util.RuntimeErrorAlert").readResolve(), Pair.make(Pair.make(Lit323, Pair.make((SimpleSymbol) new SimpleSymbol("alert").readResolve(), LList.Empty)), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 1691663);
-        PairWithPosition make23 = PairWithPosition.make(Lit374, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1695759);
-        PairWithPosition make24 = PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit322, Pair.make(Lit375, Pair.make(Pair.make(Lit323, Pair.make(Lit377, LList.Empty)), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 1699856), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1699855), PairWithPosition.make(PairWithPosition.make(Lit324, PairWithPosition.make(PairWithPosition.make(Lit378, PairWithPosition.make(Lit375, PairWithPosition.make(Lit379, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1703969), "/tmp/runtime9130887760156434227.scm", 1703966), "/tmp/runtime9130887760156434227.scm", 1703955), PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit322, Pair.make(PairWithPosition.make(Lit380, PairWithPosition.make(Lit379, PairWithPosition.make(Lit375, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1704009), "/tmp/runtime9130887760156434227.scm", 1703992), "/tmp/runtime9130887760156434227.scm", 1703988), Pair.make(Pair.make(Lit323, Pair.make((SimpleSymbol) new SimpleSymbol("getErrorType").readResolve(), LList.Empty)), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 1703988), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1703987), PairWithPosition.make("Runtime Error", LList.Empty, "/tmp/runtime9130887760156434227.scm", 1704027), "/tmp/runtime9130887760156434227.scm", 1703987), "/tmp/runtime9130887760156434227.scm", 1703955), "/tmp/runtime9130887760156434227.scm", 1703951), PairWithPosition.make("End Application", LList.Empty, "/tmp/runtime9130887760156434227.scm", 1708047), "/tmp/runtime9130887760156434227.scm", 1703951), "/tmp/runtime9130887760156434227.scm", 1699855);
+        PairWithPosition make22 = PairWithPosition.make(simpleSymbol55, Pair.make((SimpleSymbol) new SimpleSymbol("com.google.appinventor.components.runtime.util.RuntimeErrorAlert").readResolve(), Pair.make(Pair.make(Lit334, Pair.make((SimpleSymbol) new SimpleSymbol("alert").readResolve(), LList.Empty)), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 1691663);
+        PairWithPosition make23 = PairWithPosition.make(Lit385, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1695759);
+        PairWithPosition make24 = PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit333, Pair.make(Lit386, Pair.make(Pair.make(Lit334, Pair.make(Lit388, LList.Empty)), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 1699856), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1699855), PairWithPosition.make(PairWithPosition.make(Lit335, PairWithPosition.make(PairWithPosition.make(Lit389, PairWithPosition.make(Lit386, PairWithPosition.make(Lit390, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1703969), "/tmp/runtime7968961605135708732.scm", 1703966), "/tmp/runtime7968961605135708732.scm", 1703955), PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit333, Pair.make(PairWithPosition.make(Lit391, PairWithPosition.make(Lit390, PairWithPosition.make(Lit386, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1704009), "/tmp/runtime7968961605135708732.scm", 1703992), "/tmp/runtime7968961605135708732.scm", 1703988), Pair.make(Pair.make(Lit334, Pair.make((SimpleSymbol) new SimpleSymbol("getErrorType").readResolve(), LList.Empty)), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 1703988), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1703987), PairWithPosition.make("Runtime Error", LList.Empty, "/tmp/runtime7968961605135708732.scm", 1704027), "/tmp/runtime7968961605135708732.scm", 1703987), "/tmp/runtime7968961605135708732.scm", 1703955), "/tmp/runtime7968961605135708732.scm", 1703951), PairWithPosition.make("End Application", LList.Empty, "/tmp/runtime7968961605135708732.scm", 1708047), "/tmp/runtime7968961605135708732.scm", 1703951), "/tmp/runtime7968961605135708732.scm", 1699855);
         PairWithPosition pairWithPosition7 = make21;
-        SimpleSymbol simpleSymbol56 = Lit336;
-        PairWithPosition make25 = PairWithPosition.make((SimpleSymbol) new SimpleSymbol("dispatchEvent").readResolve(), PairWithPosition.make(Lit387, PairWithPosition.make(Lit339, PairWithPosition.make(Lit397, PairWithPosition.make(Lit382, PairWithPosition.make(Lit339, PairWithPosition.make(Lit381, PairWithPosition.make(Lit388, PairWithPosition.make(Lit339, PairWithPosition.make(Lit381, PairWithPosition.make(Lit390, PairWithPosition.make(Lit339, PairWithPosition.make(Lit398, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1736743), "/tmp/runtime9130887760156434227.scm", 1736740), "/tmp/runtime9130887760156434227.scm", 1736735), "/tmp/runtime9130887760156434227.scm", 1732652), "/tmp/runtime9130887760156434227.scm", 1732649), "/tmp/runtime9130887760156434227.scm", 1732639), "/tmp/runtime9130887760156434227.scm", 1728570), "/tmp/runtime9130887760156434227.scm", 1728567), "/tmp/runtime9130887760156434227.scm", 1728543), "/tmp/runtime9130887760156434227.scm", 1724466), "/tmp/runtime9130887760156434227.scm", 1724463), "/tmp/runtime9130887760156434227.scm", 1724447), "/tmp/runtime9130887760156434227.scm", 1724432);
-        SimpleSymbol simpleSymbol57 = Lit339;
+        SimpleSymbol simpleSymbol56 = Lit347;
+        PairWithPosition make25 = PairWithPosition.make((SimpleSymbol) new SimpleSymbol("dispatchEvent").readResolve(), PairWithPosition.make(Lit398, PairWithPosition.make(Lit350, PairWithPosition.make(Lit408, PairWithPosition.make(Lit393, PairWithPosition.make(Lit350, PairWithPosition.make(Lit392, PairWithPosition.make(Lit399, PairWithPosition.make(Lit350, PairWithPosition.make(Lit392, PairWithPosition.make(Lit401, PairWithPosition.make(Lit350, PairWithPosition.make(Lit409, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1736743), "/tmp/runtime7968961605135708732.scm", 1736740), "/tmp/runtime7968961605135708732.scm", 1736735), "/tmp/runtime7968961605135708732.scm", 1732652), "/tmp/runtime7968961605135708732.scm", 1732649), "/tmp/runtime7968961605135708732.scm", 1732639), "/tmp/runtime7968961605135708732.scm", 1728570), "/tmp/runtime7968961605135708732.scm", 1728567), "/tmp/runtime7968961605135708732.scm", 1728543), "/tmp/runtime7968961605135708732.scm", 1724466), "/tmp/runtime7968961605135708732.scm", 1724463), "/tmp/runtime7968961605135708732.scm", 1724447), "/tmp/runtime7968961605135708732.scm", 1724432);
+        SimpleSymbol simpleSymbol57 = Lit350;
         SimpleSymbol simpleSymbol58 = (SimpleSymbol) new SimpleSymbol(PropertyTypeConstants.PROPERTY_TYPE_BOOLEAN).readResolve();
         Lit6 = simpleSymbol58;
-        SimpleSymbol simpleSymbol59 = Lit328;
-        PairWithPosition make26 = PairWithPosition.make(PairWithPosition.make(Lit384, PairWithPosition.make(PairWithPosition.make(Lit400, PairWithPosition.make(Lit382, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1761332), "/tmp/runtime9130887760156434227.scm", 1761316), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1761316), "/tmp/runtime9130887760156434227.scm", 1761298), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1761297);
-        SimpleSymbol simpleSymbol60 = Lit324;
-        PairWithPosition make27 = PairWithPosition.make(Lit383, PairWithPosition.make(Lit384, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1765428), "/tmp/runtime9130887760156434227.scm", 1765398);
-        SimpleSymbol simpleSymbol61 = Lit324;
-        PairWithPosition make28 = PairWithPosition.make(Lit385, PairWithPosition.make(PairWithPosition.make(Lit386, PairWithPosition.make(Lit384, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1769531), "/tmp/runtime9130887760156434227.scm", 1769503), PairWithPosition.make(Lit387, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1769549), "/tmp/runtime9130887760156434227.scm", 1769503), "/tmp/runtime9130887760156434227.scm", 1769498);
-        SimpleSymbol simpleSymbol62 = Lit328;
-        PairWithPosition make29 = PairWithPosition.make(PairWithPosition.make(Lit389, PairWithPosition.make(PairWithPosition.make(Lit412, PairWithPosition.make(Lit382, PairWithPosition.make(Lit388, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1773648), "/tmp/runtime9130887760156434227.scm", 1773624), "/tmp/runtime9130887760156434227.scm", 1773608), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1773608), "/tmp/runtime9130887760156434227.scm", 1773599), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1773598);
-        SimpleSymbol simpleSymbol63 = Lit404;
-        SimpleSymbol simpleSymbol64 = Lit329;
-        SimpleSymbol simpleSymbol65 = Lit405;
-        SimpleSymbol simpleSymbol66 = Lit389;
-        SimpleSymbol simpleSymbol67 = Lit322;
-        SimpleSymbol simpleSymbol68 = Lit355;
-        SimpleSymbol simpleSymbol69 = Lit323;
+        SimpleSymbol simpleSymbol59 = Lit339;
+        PairWithPosition make26 = PairWithPosition.make(PairWithPosition.make(Lit395, PairWithPosition.make(PairWithPosition.make(Lit411, PairWithPosition.make(Lit393, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1761332), "/tmp/runtime7968961605135708732.scm", 1761316), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1761316), "/tmp/runtime7968961605135708732.scm", 1761298), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1761297);
+        SimpleSymbol simpleSymbol60 = Lit335;
+        PairWithPosition make27 = PairWithPosition.make(Lit394, PairWithPosition.make(Lit395, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1765428), "/tmp/runtime7968961605135708732.scm", 1765398);
+        SimpleSymbol simpleSymbol61 = Lit335;
+        PairWithPosition make28 = PairWithPosition.make(Lit396, PairWithPosition.make(PairWithPosition.make(Lit397, PairWithPosition.make(Lit395, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1769531), "/tmp/runtime7968961605135708732.scm", 1769503), PairWithPosition.make(Lit398, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1769549), "/tmp/runtime7968961605135708732.scm", 1769503), "/tmp/runtime7968961605135708732.scm", 1769498);
+        SimpleSymbol simpleSymbol62 = Lit339;
+        PairWithPosition make29 = PairWithPosition.make(PairWithPosition.make(Lit400, PairWithPosition.make(PairWithPosition.make(Lit423, PairWithPosition.make(Lit393, PairWithPosition.make(Lit399, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1773648), "/tmp/runtime7968961605135708732.scm", 1773624), "/tmp/runtime7968961605135708732.scm", 1773608), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1773608), "/tmp/runtime7968961605135708732.scm", 1773599), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1773598);
+        SimpleSymbol simpleSymbol63 = Lit415;
+        SimpleSymbol simpleSymbol64 = Lit340;
+        SimpleSymbol simpleSymbol65 = Lit416;
+        SimpleSymbol simpleSymbol66 = Lit400;
+        SimpleSymbol simpleSymbol67 = Lit333;
+        SimpleSymbol simpleSymbol68 = Lit366;
+        SimpleSymbol simpleSymbol69 = Lit334;
         SimpleSymbol simpleSymbol70 = (SimpleSymbol) new SimpleSymbol("makeList").readResolve();
-        Lit32 = simpleSymbol70;
-        PairWithPosition make30 = PairWithPosition.make(simpleSymbol67, Pair.make(simpleSymbol68, Pair.make(Pair.make(simpleSymbol69, Pair.make(simpleSymbol70, LList.Empty)), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 1810484);
-        SimpleSymbol simpleSymbol71 = Lit390;
+        Lit38 = simpleSymbol70;
+        PairWithPosition make30 = PairWithPosition.make(simpleSymbol67, Pair.make(simpleSymbol68, Pair.make(Pair.make(simpleSymbol69, Pair.make(simpleSymbol70, LList.Empty)), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 1810484);
+        SimpleSymbol simpleSymbol71 = Lit401;
         IntNum make31 = IntNum.make(0);
         Lit22 = make31;
-        PairWithPosition make32 = PairWithPosition.make(make26, PairWithPosition.make(PairWithPosition.make(simpleSymbol60, PairWithPosition.make(make27, PairWithPosition.make(PairWithPosition.make(simpleSymbol61, PairWithPosition.make(make28, PairWithPosition.make(PairWithPosition.make(simpleSymbol62, PairWithPosition.make(make29, PairWithPosition.make(PairWithPosition.make(simpleSymbol63, PairWithPosition.make(PairWithPosition.make(simpleSymbol64, PairWithPosition.make(PairWithPosition.make(simpleSymbol65, PairWithPosition.make(simpleSymbol66, PairWithPosition.make(PairWithPosition.make(make30, PairWithPosition.make(simpleSymbol71, PairWithPosition.make(make31, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1810514), "/tmp/runtime9130887760156434227.scm", 1810509), "/tmp/runtime9130887760156434227.scm", 1810483), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1810483), "/tmp/runtime9130887760156434227.scm", 1810475), "/tmp/runtime9130887760156434227.scm", 1810468), PairWithPosition.make(Boolean.TRUE, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1814564), "/tmp/runtime9130887760156434227.scm", 1810468), "/tmp/runtime9130887760156434227.scm", 1806370), PairWithPosition.make(PairWithPosition.make(Lit391, PairWithPosition.make(Lit407, PairWithPosition.make(PairWithPosition.make(Lit329, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit322, Pair.make(Lit391, Pair.make(Pair.make(Lit323, Pair.make(Lit394, LList.Empty)), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 1851430), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1851429), PairWithPosition.make(PairWithPosition.make(Lit324, PairWithPosition.make(PairWithPosition.make(Lit392, PairWithPosition.make(PairWithPosition.make(Lit385, PairWithPosition.make(PairWithPosition.make(Lit374, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1867827), PairWithPosition.make(Lit387, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1867834), "/tmp/runtime9130887760156434227.scm", 1867827), "/tmp/runtime9130887760156434227.scm", 1867822), PairWithPosition.make(PairWithPosition.make(Lit408, PairWithPosition.make(Lit388, PairWithPosition.make("PermissionNeeded", LList.Empty, "/tmp/runtime9130887760156434227.scm", 1871936), "/tmp/runtime9130887760156434227.scm", 1871926), "/tmp/runtime9130887760156434227.scm", 1871918), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1871918), "/tmp/runtime9130887760156434227.scm", 1867822), "/tmp/runtime9130887760156434227.scm", 1867817), PairWithPosition.make(PairWithPosition.make(Lit393, PairWithPosition.make(Lit391, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1888316), "/tmp/runtime9130887760156434227.scm", 1888297), PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit322, Pair.make(PairWithPosition.make(Lit374, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1892394), Pair.make(Pair.make(Lit323, Pair.make(Lit409, LList.Empty)), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 1892394), PairWithPosition.make(Lit387, PairWithPosition.make(Lit388, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit322, Pair.make(Lit391, Pair.make(Pair.make(Lit323, Pair.make(Lit410, LList.Empty)), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 1896515), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1896514), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1896514), "/tmp/runtime9130887760156434227.scm", 1892434), "/tmp/runtime9130887760156434227.scm", 1892418), "/tmp/runtime9130887760156434227.scm", 1892393), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1892393), "/tmp/runtime9130887760156434227.scm", 1888297), "/tmp/runtime9130887760156434227.scm", 1867817), "/tmp/runtime9130887760156434227.scm", 1867813), PairWithPosition.make(Boolean.FALSE, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1900581), "/tmp/runtime9130887760156434227.scm", 1867813), "/tmp/runtime9130887760156434227.scm", 1851429), "/tmp/runtime9130887760156434227.scm", 1847331), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1847331), "/tmp/runtime9130887760156434227.scm", 1843245), "/tmp/runtime9130887760156434227.scm", 1843234), PairWithPosition.make(PairWithPosition.make(Lit391, PairWithPosition.make(Lit411, PairWithPosition.make(PairWithPosition.make(Lit329, PairWithPosition.make(PairWithPosition.make(Lit346, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit322, Pair.make(Lit391, Pair.make(Pair.make(Lit323, Pair.make(Lit377, LList.Empty)), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 1912888), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1912887), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1912887), "/tmp/runtime9130887760156434227.scm", 1912869), PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit322, Pair.make(Lit391, Pair.make(Pair.make(Lit323, Pair.make(Lit394, LList.Empty)), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 1921062), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1921061), PairWithPosition.make(PairWithPosition.make(Lit393, PairWithPosition.make(Lit391, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1925176), "/tmp/runtime9130887760156434227.scm", 1925157), PairWithPosition.make(Boolean.FALSE, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1929253), "/tmp/runtime9130887760156434227.scm", 1925157), "/tmp/runtime9130887760156434227.scm", 1921061), "/tmp/runtime9130887760156434227.scm", 1912869), "/tmp/runtime9130887760156434227.scm", 1908771), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1908771), "/tmp/runtime9130887760156434227.scm", 1904685), "/tmp/runtime9130887760156434227.scm", 1904674), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1904674), "/tmp/runtime9130887760156434227.scm", 1843234), "/tmp/runtime9130887760156434227.scm", 1806370), "/tmp/runtime9130887760156434227.scm", 1802273), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1802273), "/tmp/runtime9130887760156434227.scm", 1773598), "/tmp/runtime9130887760156434227.scm", 1773593), PairWithPosition.make(Boolean.FALSE, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1933337), "/tmp/runtime9130887760156434227.scm", 1773593), "/tmp/runtime9130887760156434227.scm", 1769498), "/tmp/runtime9130887760156434227.scm", 1769494), PairWithPosition.make(PairWithPosition.make(Lit329, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit322, Pair.make(Lit395, Pair.make(Pair.make(Lit323, Pair.make((SimpleSymbol) new SimpleSymbol("unregisterEventForDelegation").readResolve(), LList.Empty)), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 1945625), PairWithPosition.make(PairWithPosition.make(Lit380, PairWithPosition.make(Lit396, PairWithPosition.make(PairWithPosition.make(Lit374, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1949792), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1949792), "/tmp/runtime9130887760156434227.scm", 1949726), "/tmp/runtime9130887760156434227.scm", 1949722), PairWithPosition.make(Lit382, PairWithPosition.make(Lit388, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1953842), "/tmp/runtime9130887760156434227.scm", 1953818), "/tmp/runtime9130887760156434227.scm", 1949722), "/tmp/runtime9130887760156434227.scm", 1945624), PairWithPosition.make(Boolean.FALSE, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1957912), "/tmp/runtime9130887760156434227.scm", 1945624), "/tmp/runtime9130887760156434227.scm", 1941526), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1941526), "/tmp/runtime9130887760156434227.scm", 1769494), "/tmp/runtime9130887760156434227.scm", 1765398), "/tmp/runtime9130887760156434227.scm", 1765394), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1765394), "/tmp/runtime9130887760156434227.scm", 1761297);
+        PairWithPosition make32 = PairWithPosition.make(make26, PairWithPosition.make(PairWithPosition.make(simpleSymbol60, PairWithPosition.make(make27, PairWithPosition.make(PairWithPosition.make(simpleSymbol61, PairWithPosition.make(make28, PairWithPosition.make(PairWithPosition.make(simpleSymbol62, PairWithPosition.make(make29, PairWithPosition.make(PairWithPosition.make(simpleSymbol63, PairWithPosition.make(PairWithPosition.make(simpleSymbol64, PairWithPosition.make(PairWithPosition.make(simpleSymbol65, PairWithPosition.make(simpleSymbol66, PairWithPosition.make(PairWithPosition.make(make30, PairWithPosition.make(simpleSymbol71, PairWithPosition.make(make31, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1810514), "/tmp/runtime7968961605135708732.scm", 1810509), "/tmp/runtime7968961605135708732.scm", 1810483), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1810483), "/tmp/runtime7968961605135708732.scm", 1810475), "/tmp/runtime7968961605135708732.scm", 1810468), PairWithPosition.make(Boolean.TRUE, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1814564), "/tmp/runtime7968961605135708732.scm", 1810468), "/tmp/runtime7968961605135708732.scm", 1806370), PairWithPosition.make(PairWithPosition.make(Lit402, PairWithPosition.make(Lit418, PairWithPosition.make(PairWithPosition.make(Lit340, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit333, Pair.make(Lit402, Pair.make(Pair.make(Lit334, Pair.make(Lit405, LList.Empty)), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 1851430), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1851429), PairWithPosition.make(PairWithPosition.make(Lit335, PairWithPosition.make(PairWithPosition.make(Lit403, PairWithPosition.make(PairWithPosition.make(Lit396, PairWithPosition.make(PairWithPosition.make(Lit385, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1867827), PairWithPosition.make(Lit398, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1867834), "/tmp/runtime7968961605135708732.scm", 1867827), "/tmp/runtime7968961605135708732.scm", 1867822), PairWithPosition.make(PairWithPosition.make(Lit419, PairWithPosition.make(Lit399, PairWithPosition.make("PermissionNeeded", LList.Empty, "/tmp/runtime7968961605135708732.scm", 1871936), "/tmp/runtime7968961605135708732.scm", 1871926), "/tmp/runtime7968961605135708732.scm", 1871918), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1871918), "/tmp/runtime7968961605135708732.scm", 1867822), "/tmp/runtime7968961605135708732.scm", 1867817), PairWithPosition.make(PairWithPosition.make(Lit404, PairWithPosition.make(Lit402, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1888316), "/tmp/runtime7968961605135708732.scm", 1888297), PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit333, Pair.make(PairWithPosition.make(Lit385, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1892394), Pair.make(Pair.make(Lit334, Pair.make(Lit420, LList.Empty)), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 1892394), PairWithPosition.make(Lit398, PairWithPosition.make(Lit399, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit333, Pair.make(Lit402, Pair.make(Pair.make(Lit334, Pair.make(Lit421, LList.Empty)), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 1896515), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1896514), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1896514), "/tmp/runtime7968961605135708732.scm", 1892434), "/tmp/runtime7968961605135708732.scm", 1892418), "/tmp/runtime7968961605135708732.scm", 1892393), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1892393), "/tmp/runtime7968961605135708732.scm", 1888297), "/tmp/runtime7968961605135708732.scm", 1867817), "/tmp/runtime7968961605135708732.scm", 1867813), PairWithPosition.make(Boolean.FALSE, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1900581), "/tmp/runtime7968961605135708732.scm", 1867813), "/tmp/runtime7968961605135708732.scm", 1851429), "/tmp/runtime7968961605135708732.scm", 1847331), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1847331), "/tmp/runtime7968961605135708732.scm", 1843245), "/tmp/runtime7968961605135708732.scm", 1843234), PairWithPosition.make(PairWithPosition.make(Lit402, PairWithPosition.make(Lit422, PairWithPosition.make(PairWithPosition.make(Lit340, PairWithPosition.make(PairWithPosition.make(Lit357, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit333, Pair.make(Lit402, Pair.make(Pair.make(Lit334, Pair.make(Lit388, LList.Empty)), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 1912888), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1912887), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1912887), "/tmp/runtime7968961605135708732.scm", 1912869), PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit333, Pair.make(Lit402, Pair.make(Pair.make(Lit334, Pair.make(Lit405, LList.Empty)), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 1921062), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1921061), PairWithPosition.make(PairWithPosition.make(Lit404, PairWithPosition.make(Lit402, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1925176), "/tmp/runtime7968961605135708732.scm", 1925157), PairWithPosition.make(Boolean.FALSE, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1929253), "/tmp/runtime7968961605135708732.scm", 1925157), "/tmp/runtime7968961605135708732.scm", 1921061), "/tmp/runtime7968961605135708732.scm", 1912869), "/tmp/runtime7968961605135708732.scm", 1908771), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1908771), "/tmp/runtime7968961605135708732.scm", 1904685), "/tmp/runtime7968961605135708732.scm", 1904674), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1904674), "/tmp/runtime7968961605135708732.scm", 1843234), "/tmp/runtime7968961605135708732.scm", 1806370), "/tmp/runtime7968961605135708732.scm", 1802273), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1802273), "/tmp/runtime7968961605135708732.scm", 1773598), "/tmp/runtime7968961605135708732.scm", 1773593), PairWithPosition.make(Boolean.FALSE, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1933337), "/tmp/runtime7968961605135708732.scm", 1773593), "/tmp/runtime7968961605135708732.scm", 1769498), "/tmp/runtime7968961605135708732.scm", 1769494), PairWithPosition.make(PairWithPosition.make(Lit340, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit333, Pair.make(Lit406, Pair.make(Pair.make(Lit334, Pair.make((SimpleSymbol) new SimpleSymbol("unregisterEventForDelegation").readResolve(), LList.Empty)), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 1945625), PairWithPosition.make(PairWithPosition.make(Lit391, PairWithPosition.make(Lit407, PairWithPosition.make(PairWithPosition.make(Lit385, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1949792), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1949792), "/tmp/runtime7968961605135708732.scm", 1949726), "/tmp/runtime7968961605135708732.scm", 1949722), PairWithPosition.make(Lit393, PairWithPosition.make(Lit399, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1953842), "/tmp/runtime7968961605135708732.scm", 1953818), "/tmp/runtime7968961605135708732.scm", 1949722), "/tmp/runtime7968961605135708732.scm", 1945624), PairWithPosition.make(Boolean.FALSE, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1957912), "/tmp/runtime7968961605135708732.scm", 1945624), "/tmp/runtime7968961605135708732.scm", 1941526), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1941526), "/tmp/runtime7968961605135708732.scm", 1769494), "/tmp/runtime7968961605135708732.scm", 1765398), "/tmp/runtime7968961605135708732.scm", 1765394), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1765394), "/tmp/runtime7968961605135708732.scm", 1761297);
         SimpleSymbol simpleSymbol72 = simpleSymbol57;
         PairWithPosition pairWithPosition8 = make25;
         SimpleSymbol simpleSymbol73 = simpleSymbol56;
-        SimpleSymbol simpleSymbol74 = Lit336;
-        PairWithPosition make33 = PairWithPosition.make((SimpleSymbol) new SimpleSymbol("dispatchGenericEvent").readResolve(), PairWithPosition.make(Lit387, PairWithPosition.make(Lit339, PairWithPosition.make(Lit397, PairWithPosition.make(Lit388, PairWithPosition.make(Lit339, PairWithPosition.make(Lit381, PairWithPosition.make(Lit406, PairWithPosition.make(Lit339, PairWithPosition.make(Lit6, PairWithPosition.make(Lit390, PairWithPosition.make(Lit339, PairWithPosition.make(Lit398, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1978414), "/tmp/runtime9130887760156434227.scm", 1978411), "/tmp/runtime9130887760156434227.scm", 1978406), "/tmp/runtime9130887760156434227.scm", 1974331), "/tmp/runtime9130887760156434227.scm", 1974328), "/tmp/runtime9130887760156434227.scm", 1974310), "/tmp/runtime9130887760156434227.scm", 1970227), "/tmp/runtime9130887760156434227.scm", 1970224), "/tmp/runtime9130887760156434227.scm", 1970214), "/tmp/runtime9130887760156434227.scm", 1966137), "/tmp/runtime9130887760156434227.scm", 1966134), "/tmp/runtime9130887760156434227.scm", 1966118), "/tmp/runtime9130887760156434227.scm", 1966096);
-        PairWithPosition make34 = PairWithPosition.make(Lit339, PairWithPosition.make(Lit399, PairWithPosition.make(PairWithPosition.make((SimpleSymbol) new SimpleSymbol("let*").readResolve(), PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit403, PairWithPosition.make(PairWithPosition.make(Lit400, PairWithPosition.make(PairWithPosition.make(Lit401, PairWithPosition.make("any$", PairWithPosition.make(PairWithPosition.make(Lit402, PairWithPosition.make(Lit387, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2015320), "/tmp/runtime9130887760156434227.scm", 2015303), PairWithPosition.make("$", PairWithPosition.make(Lit388, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2015341), "/tmp/runtime9130887760156434227.scm", 2015337), "/tmp/runtime9130887760156434227.scm", 2015303), "/tmp/runtime9130887760156434227.scm", 2015296), "/tmp/runtime9130887760156434227.scm", 2015281), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2015281), "/tmp/runtime9130887760156434227.scm", 2015265), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2015265), "/tmp/runtime9130887760156434227.scm", 2015249), PairWithPosition.make(PairWithPosition.make(Lit389, PairWithPosition.make(PairWithPosition.make(Lit386, PairWithPosition.make(Lit403, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2019382), "/tmp/runtime9130887760156434227.scm", 2019354), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2019354), "/tmp/runtime9130887760156434227.scm", 2019345), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2019345), "/tmp/runtime9130887760156434227.scm", 2015248), PairWithPosition.make(PairWithPosition.make(Lit324, PairWithPosition.make(Lit389, PairWithPosition.make(PairWithPosition.make(Lit404, PairWithPosition.make(PairWithPosition.make(Lit329, PairWithPosition.make(PairWithPosition.make(Lit405, PairWithPosition.make(Lit389, PairWithPosition.make(PairWithPosition.make(Lit358, PairWithPosition.make(Lit387, PairWithPosition.make(PairWithPosition.make(Lit358, PairWithPosition.make(Lit406, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit322, Pair.make(Lit355, Pair.make(Pair.make(Lit323, Pair.make(Lit32, LList.Empty)), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 2035793), PairWithPosition.make(Lit390, PairWithPosition.make(Lit22, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2035823), "/tmp/runtime9130887760156434227.scm", 2035818), "/tmp/runtime9130887760156434227.scm", 2035792), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2035792), "/tmp/runtime9130887760156434227.scm", 2035774), "/tmp/runtime9130887760156434227.scm", 2035768), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2035768), "/tmp/runtime9130887760156434227.scm", 2035752), "/tmp/runtime9130887760156434227.scm", 2035746), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2035746), "/tmp/runtime9130887760156434227.scm", 2035738), "/tmp/runtime9130887760156434227.scm", 2035731), PairWithPosition.make(Boolean.TRUE, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2039827), "/tmp/runtime9130887760156434227.scm", 2035731), "/tmp/runtime9130887760156434227.scm", 2031633), PairWithPosition.make(PairWithPosition.make(Lit391, PairWithPosition.make(Lit407, PairWithPosition.make(PairWithPosition.make(Lit329, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit322, Pair.make(Lit391, Pair.make(Pair.make(Lit323, Pair.make(Lit394, LList.Empty)), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 2052117), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2052116), PairWithPosition.make(PairWithPosition.make(Lit324, PairWithPosition.make(PairWithPosition.make(Lit392, PairWithPosition.make(PairWithPosition.make(Lit385, PairWithPosition.make(PairWithPosition.make(Lit374, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2068514), PairWithPosition.make(Lit387, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2068521), "/tmp/runtime9130887760156434227.scm", 2068514), "/tmp/runtime9130887760156434227.scm", 2068509), PairWithPosition.make(PairWithPosition.make(Lit408, PairWithPosition.make(Lit388, PairWithPosition.make("PermissionNeeded", LList.Empty, "/tmp/runtime9130887760156434227.scm", 2072623), "/tmp/runtime9130887760156434227.scm", 2072613), "/tmp/runtime9130887760156434227.scm", 2072605), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2072605), "/tmp/runtime9130887760156434227.scm", 2068509), "/tmp/runtime9130887760156434227.scm", 2068504), PairWithPosition.make(PairWithPosition.make(Lit393, PairWithPosition.make(Lit391, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2089003), "/tmp/runtime9130887760156434227.scm", 2088984), PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit322, Pair.make(PairWithPosition.make(Lit374, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2093081), Pair.make(Pair.make(Lit323, Pair.make(Lit409, LList.Empty)), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 2093081), PairWithPosition.make(Lit387, PairWithPosition.make(Lit388, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit322, Pair.make(Lit391, Pair.make(Pair.make(Lit323, Pair.make(Lit410, LList.Empty)), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 2097178), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2097177), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2097177), "/tmp/runtime9130887760156434227.scm", 2093121), "/tmp/runtime9130887760156434227.scm", 2093105), "/tmp/runtime9130887760156434227.scm", 2093080), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2093080), "/tmp/runtime9130887760156434227.scm", 2088984), "/tmp/runtime9130887760156434227.scm", 2068504), "/tmp/runtime9130887760156434227.scm", 2068500), PairWithPosition.make(Boolean.FALSE, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2101268), "/tmp/runtime9130887760156434227.scm", 2068500), "/tmp/runtime9130887760156434227.scm", 2052116), "/tmp/runtime9130887760156434227.scm", 2048018), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2048018), "/tmp/runtime9130887760156434227.scm", 2043932), "/tmp/runtime9130887760156434227.scm", 2043921), PairWithPosition.make(PairWithPosition.make(Lit391, PairWithPosition.make(Lit411, PairWithPosition.make(PairWithPosition.make(Lit329, PairWithPosition.make(PairWithPosition.make(Lit346, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit322, Pair.make(Lit391, Pair.make(Pair.make(Lit323, Pair.make(Lit377, LList.Empty)), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 2113575), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2113574), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2113574), "/tmp/runtime9130887760156434227.scm", 2113556), PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit322, Pair.make(Lit391, Pair.make(Pair.make(Lit323, Pair.make(Lit394, LList.Empty)), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 2121749), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2121748), PairWithPosition.make(PairWithPosition.make(Lit393, PairWithPosition.make(Lit391, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2125863), "/tmp/runtime9130887760156434227.scm", 2125844), PairWithPosition.make(Boolean.FALSE, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2129940), "/tmp/runtime9130887760156434227.scm", 2125844), "/tmp/runtime9130887760156434227.scm", 2121748), "/tmp/runtime9130887760156434227.scm", 2113556), "/tmp/runtime9130887760156434227.scm", 2109458), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2109458), "/tmp/runtime9130887760156434227.scm", 2105372), "/tmp/runtime9130887760156434227.scm", 2105361), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2105361), "/tmp/runtime9130887760156434227.scm", 2043921), "/tmp/runtime9130887760156434227.scm", 2031633), "/tmp/runtime9130887760156434227.scm", 2027536), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2027536), "/tmp/runtime9130887760156434227.scm", 2023440), "/tmp/runtime9130887760156434227.scm", 2023436), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2023436), "/tmp/runtime9130887760156434227.scm", 2015248), "/tmp/runtime9130887760156434227.scm", 2015242), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2015242), "/tmp/runtime9130887760156434227.scm", 1978437), "/tmp/runtime9130887760156434227.scm", 1978434);
-        SimpleSymbol simpleSymbol75 = Lit336;
-        PairWithPosition make35 = PairWithPosition.make(Lit412, PairWithPosition.make(Lit413, PairWithPosition.make(Lit388, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2138158), "/tmp/runtime9130887760156434227.scm", 2138144), "/tmp/runtime9130887760156434227.scm", 2138128);
-        PairWithPosition make36 = PairWithPosition.make(PairWithPosition.make(Lit386, PairWithPosition.make(PairWithPosition.make(Lit400, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit322, Pair.make(Lit395, Pair.make(Pair.make(Lit323, Pair.make((SimpleSymbol) new SimpleSymbol("makeFullEventName").readResolve(), LList.Empty)), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 2150413), PairWithPosition.make(Lit413, PairWithPosition.make(Lit388, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2154523), "/tmp/runtime9130887760156434227.scm", 2154509), "/tmp/runtime9130887760156434227.scm", 2150412), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2150412), "/tmp/runtime9130887760156434227.scm", 2146315), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2146315), "/tmp/runtime9130887760156434227.scm", 2142218), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2142218);
-        SimpleSymbol simpleSymbol76 = Lit336;
-        PairWithPosition make37 = PairWithPosition.make(Lit434, PairWithPosition.make(Lit418, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2183203), "/tmp/runtime9130887760156434227.scm", 2183186);
-        PairWithPosition make38 = PairWithPosition.make(PairWithPosition.make(Lit414, PairWithPosition.make(Lit415, PairWithPosition.make((SimpleSymbol) new SimpleSymbol("<com.google.appinventor.components.runtime.EventDispatcher>").readResolve(), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2191374), "/tmp/runtime9130887760156434227.scm", 2187290), "/tmp/runtime9130887760156434227.scm", 2187276), PairWithPosition.make(PairWithPosition.make(Lit419, PairWithPosition.make(PairWithPosition.make(Lit327, PairWithPosition.make(PairWithPosition.make(Lit417, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2195486), PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit322, Pair.make(Lit415, Pair.make(Pair.make(Lit323, Pair.make(Lit416, LList.Empty)), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 2203673), PairWithPosition.make(PairWithPosition.make(Lit380, PairWithPosition.make(Lit396, PairWithPosition.make(PairWithPosition.make(Lit374, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2207839), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2207839), "/tmp/runtime9130887760156434227.scm", 2207773), "/tmp/runtime9130887760156434227.scm", 2207769), PairWithPosition.make(PairWithPosition.make(Lit420, PairWithPosition.make(Lit417, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2211870), "/tmp/runtime9130887760156434227.scm", 2211865), PairWithPosition.make(PairWithPosition.make((SimpleSymbol) new SimpleSymbol("cdr").readResolve(), PairWithPosition.make(Lit417, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2215966), "/tmp/runtime9130887760156434227.scm", 2215961), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2215961), "/tmp/runtime9130887760156434227.scm", 2211865), "/tmp/runtime9130887760156434227.scm", 2207769), "/tmp/runtime9130887760156434227.scm", 2203672), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2203672), "/tmp/runtime9130887760156434227.scm", 2195486), "/tmp/runtime9130887760156434227.scm", 2195478), PairWithPosition.make(Lit418, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2220054), "/tmp/runtime9130887760156434227.scm", 2195478), "/tmp/runtime9130887760156434227.scm", 2195468), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2195468), "/tmp/runtime9130887760156434227.scm", 2187276);
-        SimpleSymbol simpleSymbol77 = Lit336;
-        PairWithPosition make39 = PairWithPosition.make(Lit440, PairWithPosition.make(Lit428, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2342947), "/tmp/runtime9130887760156434227.scm", 2342930);
-        PairWithPosition make40 = PairWithPosition.make(PairWithPosition.make(Lit419, PairWithPosition.make(PairWithPosition.make(Lit327, PairWithPosition.make(PairWithPosition.make(Lit424, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2351134), PairWithPosition.make(PairWithPosition.make(Lit328, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit359, PairWithPosition.make(PairWithPosition.make(Lit429, PairWithPosition.make(Lit424, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2355253), "/tmp/runtime9130887760156434227.scm", 2355246), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2355246), "/tmp/runtime9130887760156434227.scm", 2355230), PairWithPosition.make(PairWithPosition.make(Lit365, PairWithPosition.make(PairWithPosition.make(Lit430, PairWithPosition.make(Lit424, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2359346), "/tmp/runtime9130887760156434227.scm", 2359338), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2359338), "/tmp/runtime9130887760156434227.scm", 2359326), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2359326), "/tmp/runtime9130887760156434227.scm", 2355229), PairWithPosition.make(PairWithPosition.make(Lit373, PairWithPosition.make(Lit365, PairWithPosition.make(PairWithPosition.make(Lit365, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2367531), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2367531), "/tmp/runtime9130887760156434227.scm", 2367520), "/tmp/runtime9130887760156434227.scm", 2367514), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2367514), "/tmp/runtime9130887760156434227.scm", 2355229), "/tmp/runtime9130887760156434227.scm", 2355224), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2355224), "/tmp/runtime9130887760156434227.scm", 2351134), "/tmp/runtime9130887760156434227.scm", 2351126), PairWithPosition.make(Lit428, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2371606), "/tmp/runtime9130887760156434227.scm", 2351126), "/tmp/runtime9130887760156434227.scm", 2351116), PairWithPosition.make(PairWithPosition.make(Lit419, PairWithPosition.make(PairWithPosition.make(Lit327, PairWithPosition.make(PairWithPosition.make(Lit424, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2379806), PairWithPosition.make(PairWithPosition.make(Lit328, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit359, PairWithPosition.make(PairWithPosition.make(Lit429, PairWithPosition.make(Lit424, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2383925), "/tmp/runtime9130887760156434227.scm", 2383918), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2383918), "/tmp/runtime9130887760156434227.scm", 2383902), PairWithPosition.make(PairWithPosition.make(Lit365, PairWithPosition.make(PairWithPosition.make(Lit430, PairWithPosition.make(Lit424, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2388018), "/tmp/runtime9130887760156434227.scm", 2388010), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2388010), "/tmp/runtime9130887760156434227.scm", 2387998), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2387998), "/tmp/runtime9130887760156434227.scm", 2383901), PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit322, Pair.make(PairWithPosition.make(Lit374, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2396187), Pair.make(Pair.make(Lit323, Pair.make((SimpleSymbol) new SimpleSymbol("callInitialize").readResolve(), LList.Empty)), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 2396187), PairWithPosition.make(PairWithPosition.make(Lit431, PairWithPosition.make(PairWithPosition.make(Lit374, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2396216), PairWithPosition.make(Lit359, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2396223), "/tmp/runtime9130887760156434227.scm", 2396216), "/tmp/runtime9130887760156434227.scm", 2396209), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2396209), "/tmp/runtime9130887760156434227.scm", 2396186), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2396186), "/tmp/runtime9130887760156434227.scm", 2383901), "/tmp/runtime9130887760156434227.scm", 2383896), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2383896), "/tmp/runtime9130887760156434227.scm", 2379806), "/tmp/runtime9130887760156434227.scm", 2379798), PairWithPosition.make(Lit428, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2400278), "/tmp/runtime9130887760156434227.scm", 2379798), "/tmp/runtime9130887760156434227.scm", 2379788), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2379788), "/tmp/runtime9130887760156434227.scm", 2351116);
-        SimpleSymbol simpleSymbol78 = Lit336;
-        PairWithPosition make41 = PairWithPosition.make(Lit81, Lit433, "/tmp/runtime9130887760156434227.scm", 2412562);
-        PairWithPosition make42 = PairWithPosition.make(PairWithPosition.make(Lit400, PairWithPosition.make(PairWithPosition.make(Lit405, PairWithPosition.make(Lit401, PairWithPosition.make(PairWithPosition.make((SimpleSymbol) new SimpleSymbol("map").readResolve(), PairWithPosition.make(Lit432, PairWithPosition.make(Lit433, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2424872), "/tmp/runtime9130887760156434227.scm", 2424857), "/tmp/runtime9130887760156434227.scm", 2424852), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2424852), "/tmp/runtime9130887760156434227.scm", 2420756), "/tmp/runtime9130887760156434227.scm", 2420749), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2420749), "/tmp/runtime9130887760156434227.scm", 2416652), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2416652);
-        SimpleSymbol simpleSymbol79 = Lit322;
+        SimpleSymbol simpleSymbol74 = Lit347;
+        PairWithPosition make33 = PairWithPosition.make((SimpleSymbol) new SimpleSymbol("dispatchGenericEvent").readResolve(), PairWithPosition.make(Lit398, PairWithPosition.make(Lit350, PairWithPosition.make(Lit408, PairWithPosition.make(Lit399, PairWithPosition.make(Lit350, PairWithPosition.make(Lit392, PairWithPosition.make(Lit417, PairWithPosition.make(Lit350, PairWithPosition.make(Lit6, PairWithPosition.make(Lit401, PairWithPosition.make(Lit350, PairWithPosition.make(Lit409, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1978414), "/tmp/runtime7968961605135708732.scm", 1978411), "/tmp/runtime7968961605135708732.scm", 1978406), "/tmp/runtime7968961605135708732.scm", 1974331), "/tmp/runtime7968961605135708732.scm", 1974328), "/tmp/runtime7968961605135708732.scm", 1974310), "/tmp/runtime7968961605135708732.scm", 1970227), "/tmp/runtime7968961605135708732.scm", 1970224), "/tmp/runtime7968961605135708732.scm", 1970214), "/tmp/runtime7968961605135708732.scm", 1966137), "/tmp/runtime7968961605135708732.scm", 1966134), "/tmp/runtime7968961605135708732.scm", 1966118), "/tmp/runtime7968961605135708732.scm", 1966096);
+        PairWithPosition make34 = PairWithPosition.make(Lit350, PairWithPosition.make(Lit410, PairWithPosition.make(PairWithPosition.make((SimpleSymbol) new SimpleSymbol("let*").readResolve(), PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit414, PairWithPosition.make(PairWithPosition.make(Lit411, PairWithPosition.make(PairWithPosition.make(Lit412, PairWithPosition.make("any$", PairWithPosition.make(PairWithPosition.make(Lit413, PairWithPosition.make(Lit398, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2015320), "/tmp/runtime7968961605135708732.scm", 2015303), PairWithPosition.make("$", PairWithPosition.make(Lit399, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2015341), "/tmp/runtime7968961605135708732.scm", 2015337), "/tmp/runtime7968961605135708732.scm", 2015303), "/tmp/runtime7968961605135708732.scm", 2015296), "/tmp/runtime7968961605135708732.scm", 2015281), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2015281), "/tmp/runtime7968961605135708732.scm", 2015265), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2015265), "/tmp/runtime7968961605135708732.scm", 2015249), PairWithPosition.make(PairWithPosition.make(Lit400, PairWithPosition.make(PairWithPosition.make(Lit397, PairWithPosition.make(Lit414, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2019382), "/tmp/runtime7968961605135708732.scm", 2019354), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2019354), "/tmp/runtime7968961605135708732.scm", 2019345), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2019345), "/tmp/runtime7968961605135708732.scm", 2015248), PairWithPosition.make(PairWithPosition.make(Lit335, PairWithPosition.make(Lit400, PairWithPosition.make(PairWithPosition.make(Lit415, PairWithPosition.make(PairWithPosition.make(Lit340, PairWithPosition.make(PairWithPosition.make(Lit416, PairWithPosition.make(Lit400, PairWithPosition.make(PairWithPosition.make(Lit369, PairWithPosition.make(Lit398, PairWithPosition.make(PairWithPosition.make(Lit369, PairWithPosition.make(Lit417, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit333, Pair.make(Lit366, Pair.make(Pair.make(Lit334, Pair.make(Lit38, LList.Empty)), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 2035793), PairWithPosition.make(Lit401, PairWithPosition.make(Lit22, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2035823), "/tmp/runtime7968961605135708732.scm", 2035818), "/tmp/runtime7968961605135708732.scm", 2035792), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2035792), "/tmp/runtime7968961605135708732.scm", 2035774), "/tmp/runtime7968961605135708732.scm", 2035768), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2035768), "/tmp/runtime7968961605135708732.scm", 2035752), "/tmp/runtime7968961605135708732.scm", 2035746), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2035746), "/tmp/runtime7968961605135708732.scm", 2035738), "/tmp/runtime7968961605135708732.scm", 2035731), PairWithPosition.make(Boolean.TRUE, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2039827), "/tmp/runtime7968961605135708732.scm", 2035731), "/tmp/runtime7968961605135708732.scm", 2031633), PairWithPosition.make(PairWithPosition.make(Lit402, PairWithPosition.make(Lit418, PairWithPosition.make(PairWithPosition.make(Lit340, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit333, Pair.make(Lit402, Pair.make(Pair.make(Lit334, Pair.make(Lit405, LList.Empty)), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 2052117), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2052116), PairWithPosition.make(PairWithPosition.make(Lit335, PairWithPosition.make(PairWithPosition.make(Lit403, PairWithPosition.make(PairWithPosition.make(Lit396, PairWithPosition.make(PairWithPosition.make(Lit385, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2068514), PairWithPosition.make(Lit398, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2068521), "/tmp/runtime7968961605135708732.scm", 2068514), "/tmp/runtime7968961605135708732.scm", 2068509), PairWithPosition.make(PairWithPosition.make(Lit419, PairWithPosition.make(Lit399, PairWithPosition.make("PermissionNeeded", LList.Empty, "/tmp/runtime7968961605135708732.scm", 2072623), "/tmp/runtime7968961605135708732.scm", 2072613), "/tmp/runtime7968961605135708732.scm", 2072605), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2072605), "/tmp/runtime7968961605135708732.scm", 2068509), "/tmp/runtime7968961605135708732.scm", 2068504), PairWithPosition.make(PairWithPosition.make(Lit404, PairWithPosition.make(Lit402, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2089003), "/tmp/runtime7968961605135708732.scm", 2088984), PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit333, Pair.make(PairWithPosition.make(Lit385, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2093081), Pair.make(Pair.make(Lit334, Pair.make(Lit420, LList.Empty)), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 2093081), PairWithPosition.make(Lit398, PairWithPosition.make(Lit399, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit333, Pair.make(Lit402, Pair.make(Pair.make(Lit334, Pair.make(Lit421, LList.Empty)), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 2097178), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2097177), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2097177), "/tmp/runtime7968961605135708732.scm", 2093121), "/tmp/runtime7968961605135708732.scm", 2093105), "/tmp/runtime7968961605135708732.scm", 2093080), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2093080), "/tmp/runtime7968961605135708732.scm", 2088984), "/tmp/runtime7968961605135708732.scm", 2068504), "/tmp/runtime7968961605135708732.scm", 2068500), PairWithPosition.make(Boolean.FALSE, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2101268), "/tmp/runtime7968961605135708732.scm", 2068500), "/tmp/runtime7968961605135708732.scm", 2052116), "/tmp/runtime7968961605135708732.scm", 2048018), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2048018), "/tmp/runtime7968961605135708732.scm", 2043932), "/tmp/runtime7968961605135708732.scm", 2043921), PairWithPosition.make(PairWithPosition.make(Lit402, PairWithPosition.make(Lit422, PairWithPosition.make(PairWithPosition.make(Lit340, PairWithPosition.make(PairWithPosition.make(Lit357, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit333, Pair.make(Lit402, Pair.make(Pair.make(Lit334, Pair.make(Lit388, LList.Empty)), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 2113575), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2113574), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2113574), "/tmp/runtime7968961605135708732.scm", 2113556), PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit333, Pair.make(Lit402, Pair.make(Pair.make(Lit334, Pair.make(Lit405, LList.Empty)), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 2121749), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2121748), PairWithPosition.make(PairWithPosition.make(Lit404, PairWithPosition.make(Lit402, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2125863), "/tmp/runtime7968961605135708732.scm", 2125844), PairWithPosition.make(Boolean.FALSE, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2129940), "/tmp/runtime7968961605135708732.scm", 2125844), "/tmp/runtime7968961605135708732.scm", 2121748), "/tmp/runtime7968961605135708732.scm", 2113556), "/tmp/runtime7968961605135708732.scm", 2109458), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2109458), "/tmp/runtime7968961605135708732.scm", 2105372), "/tmp/runtime7968961605135708732.scm", 2105361), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2105361), "/tmp/runtime7968961605135708732.scm", 2043921), "/tmp/runtime7968961605135708732.scm", 2031633), "/tmp/runtime7968961605135708732.scm", 2027536), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2027536), "/tmp/runtime7968961605135708732.scm", 2023440), "/tmp/runtime7968961605135708732.scm", 2023436), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2023436), "/tmp/runtime7968961605135708732.scm", 2015248), "/tmp/runtime7968961605135708732.scm", 2015242), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2015242), "/tmp/runtime7968961605135708732.scm", 1978437), "/tmp/runtime7968961605135708732.scm", 1978434);
+        SimpleSymbol simpleSymbol75 = Lit347;
+        PairWithPosition make35 = PairWithPosition.make(Lit423, PairWithPosition.make(Lit424, PairWithPosition.make(Lit399, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2138158), "/tmp/runtime7968961605135708732.scm", 2138144), "/tmp/runtime7968961605135708732.scm", 2138128);
+        PairWithPosition make36 = PairWithPosition.make(PairWithPosition.make(Lit397, PairWithPosition.make(PairWithPosition.make(Lit411, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit333, Pair.make(Lit406, Pair.make(Pair.make(Lit334, Pair.make((SimpleSymbol) new SimpleSymbol("makeFullEventName").readResolve(), LList.Empty)), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 2150413), PairWithPosition.make(Lit424, PairWithPosition.make(Lit399, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2154523), "/tmp/runtime7968961605135708732.scm", 2154509), "/tmp/runtime7968961605135708732.scm", 2150412), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2150412), "/tmp/runtime7968961605135708732.scm", 2146315), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2146315), "/tmp/runtime7968961605135708732.scm", 2142218), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2142218);
+        SimpleSymbol simpleSymbol76 = Lit347;
+        PairWithPosition make37 = PairWithPosition.make(Lit445, PairWithPosition.make(Lit429, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2183203), "/tmp/runtime7968961605135708732.scm", 2183186);
+        PairWithPosition make38 = PairWithPosition.make(PairWithPosition.make(Lit425, PairWithPosition.make(Lit426, PairWithPosition.make((SimpleSymbol) new SimpleSymbol("<com.google.appinventor.components.runtime.EventDispatcher>").readResolve(), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2191374), "/tmp/runtime7968961605135708732.scm", 2187290), "/tmp/runtime7968961605135708732.scm", 2187276), PairWithPosition.make(PairWithPosition.make(Lit430, PairWithPosition.make(PairWithPosition.make(Lit338, PairWithPosition.make(PairWithPosition.make(Lit428, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2195486), PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit333, Pair.make(Lit426, Pair.make(Pair.make(Lit334, Pair.make(Lit427, LList.Empty)), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 2203673), PairWithPosition.make(PairWithPosition.make(Lit391, PairWithPosition.make(Lit407, PairWithPosition.make(PairWithPosition.make(Lit385, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2207839), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2207839), "/tmp/runtime7968961605135708732.scm", 2207773), "/tmp/runtime7968961605135708732.scm", 2207769), PairWithPosition.make(PairWithPosition.make(Lit431, PairWithPosition.make(Lit428, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2211870), "/tmp/runtime7968961605135708732.scm", 2211865), PairWithPosition.make(PairWithPosition.make((SimpleSymbol) new SimpleSymbol("cdr").readResolve(), PairWithPosition.make(Lit428, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2215966), "/tmp/runtime7968961605135708732.scm", 2215961), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2215961), "/tmp/runtime7968961605135708732.scm", 2211865), "/tmp/runtime7968961605135708732.scm", 2207769), "/tmp/runtime7968961605135708732.scm", 2203672), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2203672), "/tmp/runtime7968961605135708732.scm", 2195486), "/tmp/runtime7968961605135708732.scm", 2195478), PairWithPosition.make(Lit429, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2220054), "/tmp/runtime7968961605135708732.scm", 2195478), "/tmp/runtime7968961605135708732.scm", 2195468), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2195468), "/tmp/runtime7968961605135708732.scm", 2187276);
+        SimpleSymbol simpleSymbol77 = Lit347;
+        PairWithPosition make39 = PairWithPosition.make(Lit451, PairWithPosition.make(Lit439, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2342947), "/tmp/runtime7968961605135708732.scm", 2342930);
+        PairWithPosition make40 = PairWithPosition.make(PairWithPosition.make(Lit430, PairWithPosition.make(PairWithPosition.make(Lit338, PairWithPosition.make(PairWithPosition.make(Lit435, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2351134), PairWithPosition.make(PairWithPosition.make(Lit339, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit370, PairWithPosition.make(PairWithPosition.make(Lit440, PairWithPosition.make(Lit435, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2355253), "/tmp/runtime7968961605135708732.scm", 2355246), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2355246), "/tmp/runtime7968961605135708732.scm", 2355230), PairWithPosition.make(PairWithPosition.make(Lit376, PairWithPosition.make(PairWithPosition.make(Lit441, PairWithPosition.make(Lit435, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2359346), "/tmp/runtime7968961605135708732.scm", 2359338), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2359338), "/tmp/runtime7968961605135708732.scm", 2359326), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2359326), "/tmp/runtime7968961605135708732.scm", 2355229), PairWithPosition.make(PairWithPosition.make(Lit384, PairWithPosition.make(Lit376, PairWithPosition.make(PairWithPosition.make(Lit376, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2367531), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2367531), "/tmp/runtime7968961605135708732.scm", 2367520), "/tmp/runtime7968961605135708732.scm", 2367514), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2367514), "/tmp/runtime7968961605135708732.scm", 2355229), "/tmp/runtime7968961605135708732.scm", 2355224), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2355224), "/tmp/runtime7968961605135708732.scm", 2351134), "/tmp/runtime7968961605135708732.scm", 2351126), PairWithPosition.make(Lit439, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2371606), "/tmp/runtime7968961605135708732.scm", 2351126), "/tmp/runtime7968961605135708732.scm", 2351116), PairWithPosition.make(PairWithPosition.make(Lit430, PairWithPosition.make(PairWithPosition.make(Lit338, PairWithPosition.make(PairWithPosition.make(Lit435, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2379806), PairWithPosition.make(PairWithPosition.make(Lit339, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit370, PairWithPosition.make(PairWithPosition.make(Lit440, PairWithPosition.make(Lit435, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2383925), "/tmp/runtime7968961605135708732.scm", 2383918), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2383918), "/tmp/runtime7968961605135708732.scm", 2383902), PairWithPosition.make(PairWithPosition.make(Lit376, PairWithPosition.make(PairWithPosition.make(Lit441, PairWithPosition.make(Lit435, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2388018), "/tmp/runtime7968961605135708732.scm", 2388010), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2388010), "/tmp/runtime7968961605135708732.scm", 2387998), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2387998), "/tmp/runtime7968961605135708732.scm", 2383901), PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit333, Pair.make(PairWithPosition.make(Lit385, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2396187), Pair.make(Pair.make(Lit334, Pair.make((SimpleSymbol) new SimpleSymbol("callInitialize").readResolve(), LList.Empty)), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 2396187), PairWithPosition.make(PairWithPosition.make(Lit442, PairWithPosition.make(PairWithPosition.make(Lit385, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2396216), PairWithPosition.make(Lit370, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2396223), "/tmp/runtime7968961605135708732.scm", 2396216), "/tmp/runtime7968961605135708732.scm", 2396209), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2396209), "/tmp/runtime7968961605135708732.scm", 2396186), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2396186), "/tmp/runtime7968961605135708732.scm", 2383901), "/tmp/runtime7968961605135708732.scm", 2383896), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2383896), "/tmp/runtime7968961605135708732.scm", 2379806), "/tmp/runtime7968961605135708732.scm", 2379798), PairWithPosition.make(Lit439, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2400278), "/tmp/runtime7968961605135708732.scm", 2379798), "/tmp/runtime7968961605135708732.scm", 2379788), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2379788), "/tmp/runtime7968961605135708732.scm", 2351116);
+        SimpleSymbol simpleSymbol78 = Lit347;
+        PairWithPosition make41 = PairWithPosition.make(Lit87, Lit444, "/tmp/runtime7968961605135708732.scm", 2412562);
+        PairWithPosition make42 = PairWithPosition.make(PairWithPosition.make(Lit411, PairWithPosition.make(PairWithPosition.make(Lit416, PairWithPosition.make(Lit412, PairWithPosition.make(PairWithPosition.make((SimpleSymbol) new SimpleSymbol("map").readResolve(), PairWithPosition.make(Lit443, PairWithPosition.make(Lit444, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2424872), "/tmp/runtime7968961605135708732.scm", 2424857), "/tmp/runtime7968961605135708732.scm", 2424852), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2424852), "/tmp/runtime7968961605135708732.scm", 2420756), "/tmp/runtime7968961605135708732.scm", 2420749), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2420749), "/tmp/runtime7968961605135708732.scm", 2416652), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2416652);
+        SimpleSymbol simpleSymbol79 = Lit333;
         SimpleSymbol simpleSymbol80 = simpleSymbol79;
-        PairWithPosition make43 = PairWithPosition.make(simpleSymbol80, Pair.make((SimpleSymbol) new SimpleSymbol("gnu.expr.Language").readResolve(), Pair.make(Pair.make(Lit323, Pair.make((SimpleSymbol) new SimpleSymbol("setDefaults").readResolve(), LList.Empty)), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 2445323);
-        SimpleSymbol simpleSymbol81 = Lit322;
+        PairWithPosition make43 = PairWithPosition.make(simpleSymbol80, Pair.make((SimpleSymbol) new SimpleSymbol("gnu.expr.Language").readResolve(), Pair.make(Pair.make(Lit334, Pair.make((SimpleSymbol) new SimpleSymbol("setDefaults").readResolve(), LList.Empty)), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 2445323);
+        SimpleSymbol simpleSymbol81 = Lit333;
         SimpleSymbol simpleSymbol82 = (SimpleSymbol) new SimpleSymbol("kawa.standard.Scheme").readResolve();
-        SimpleSymbol simpleSymbol83 = Lit323;
+        SimpleSymbol simpleSymbol83 = Lit334;
         Pair make44 = Pair.make((SimpleSymbol) new SimpleSymbol("getInstance").readResolve(), LList.Empty);
         SimpleSymbol simpleSymbol84 = simpleSymbol81;
         PairWithPosition pairWithPosition9 = make43;
-        SimpleSymbol simpleSymbol85 = Lit404;
+        SimpleSymbol simpleSymbol85 = Lit415;
         SimpleSymbol simpleSymbol86 = simpleSymbol85;
-        Lit80 = new SyntaxRules(objArr3, new SyntaxRule[]{new SyntaxRule(new SyntaxPattern("\f\u0018\f\u0007\f\u000f\f\u0017\f\u001f\f'\b", new Object[0], 5), "\u0001\u0001\u0001\u0001\u0001", "\u0011\u0018\u0004)\u0011\u0018\f\b\u0013)\u0011\u0018\u0014\b\u0003)\u0011\u0018\u001c\b\u000b\u0011\u0018$\u0011\u0018,Ñ\u0011\u00184\u0011\u0018<\u0011\u0018D\u0011\u0018L)\u0011\u0018T\b#\b\u0011\u0018\\\t\u0013\u0018d\u0011\u0018l\u0011\u0018tÑ\u0011\u00184\u0011\u0018|\u0011\u0018D\u0011\u0018\b\u0011\u0018\b\u0011\u0018\b\u0011\u0018\b\u000b\u0011\u0018¤\u0011\u0018¬\u0011\u0018´ā\u0011\u00184\u0011\u0018¼\u0011\u0018D\u0011\u0018\b\u0011\u0018Ä\b\u0011\u0018ÌI\u0011\u0018\b\u0011\u0018\b\u000b\u0018Ô\u0011\u0018Üa\u0011\u00184\t\u000b\u0011\u0018D\t\u0003\u0018ä\u0011\u00184\u0011\u0018ì\u0011\u0018D\u0011\u0018ô\b\u0011\u0018\b\u000b\u0011\u0018ü\u0011\u0018Ą\u0011\u0018Č\u0011\u0018Ĕ\u0011\u0018Ĝ\u0011\u0018Ĥ\u0011\u0018Ĭ\u0011\u0018Ĵ\u0011\u0018ļ\u0011\u00184\u0011\u0018ń\u0011\u0018Ō\b\u0011\u0018Ŕ\t\u001b\u0018Ŝ\u0011\u0018Ť\u0011\u0018Ŭ\u0011\u0018Ŵ\b\u0011\u00184\u0011\u0018ż\u0011\u0018D\u0011\u0018L\u0011\u0018Ƅ\u0011\u0018ƌ\u0011\u0018Ɣ\u0011\u0018Ɯ\u0011\u0018Ƥ\u0011\u0018Ƭ\u0011\u0018ƴ9\u0011\u0018Ƽ\t\u000b\u0018ǄY\u0011\u0018ǌ)\u0011\u0018\b\u000b\u0018ǔ\u0018ǜ", new Object[]{Lit329, (SimpleSymbol) new SimpleSymbol("module-extends").readResolve(), (SimpleSymbol) new SimpleSymbol("module-name").readResolve(), (SimpleSymbol) new SimpleSymbol("module-static").readResolve(), PairWithPosition.make((SimpleSymbol) new SimpleSymbol("require").readResolve(), PairWithPosition.make((SimpleSymbol) new SimpleSymbol("<com.google.youngandroid.runtime>").readResolve(), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1261585), "/tmp/runtime9130887760156434227.scm", 1261576), PairWithPosition.make(simpleSymbol12, PairWithPosition.make(make2, make3, "/tmp/runtime9130887760156434227.scm", 1269776), "/tmp/runtime9130887760156434227.scm", 1269768), Lit336, PairWithPosition.make(simpleSymbol13, PairWithPosition.make(simpleSymbol14, make4, "/tmp/runtime9130887760156434227.scm", 1282074), "/tmp/runtime9130887760156434227.scm", 1282064), Lit339, Lit399, PairWithPosition.make(simpleSymbol18, Pair.make(simpleSymbol16, Pair.make(Pair.make(simpleSymbol17, make5), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 1290251), (SimpleSymbol) new SimpleSymbol("invoke-special").readResolve(), PairWithPosition.make(PairWithPosition.make(Lit374, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1294376), PairWithPosition.make(PairWithPosition.make(Lit334, PairWithPosition.make(Lit340, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1294384), "/tmp/runtime9130887760156434227.scm", 1294384), PairWithPosition.make(Lit341, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1294393), "/tmp/runtime9130887760156434227.scm", 1294383), "/tmp/runtime9130887760156434227.scm", 1294376), PairWithPosition.make(Lit336, PairWithPosition.make(Lit342, PairWithPosition.make(Boolean.FALSE, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1302557), "/tmp/runtime9130887760156434227.scm", 1302544), "/tmp/runtime9130887760156434227.scm", 1302536), PairWithPosition.make(simpleSymbol26, PairWithPosition.make(pairWithPosition2, PairWithPosition.make(PairWithPosition.make(simpleSymbol25, PairWithPosition.make(simpleSymbol24, PairWithPosition.make(PairWithPosition.make(make7, PairWithPosition.make("YAIL", make8, "/tmp/runtime9130887760156434227.scm", 1314865), "/tmp/runtime9130887760156434227.scm", 1314845), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1314845), "/tmp/runtime9130887760156434227.scm", 1314832), "/tmp/runtime9130887760156434227.scm", 1314826), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1314826), "/tmp/runtime9130887760156434227.scm", 1310736), "/tmp/runtime9130887760156434227.scm", 1310728), Lit348, Lit344, PairWithPosition.make(Lit322, Pair.make(Lit344, Pair.make(Pair.make(Lit323, Pair.make(Lit352, LList.Empty)), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 1339403), Lit432, Lit334, PairWithPosition.make(simpleSymbol27, PairWithPosition.make(make9, make11, "/tmp/runtime9130887760156434227.scm", 1347600), "/tmp/runtime9130887760156434227.scm", 1347592), PairWithPosition.make(simpleSymbol32, PairWithPosition.make(make12, make14, "/tmp/runtime9130887760156434227.scm", 1363984), "/tmp/runtime9130887760156434227.scm", 1363976), PairWithPosition.make(Lit336, PairWithPosition.make(PairWithPosition.make(Lit383, PairWithPosition.make(Lit347, PairWithPosition.make(Lit339, PairWithPosition.make(Lit349, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1388598), "/tmp/runtime9130887760156434227.scm", 1388595), "/tmp/runtime9130887760156434227.scm", 1388590), "/tmp/runtime9130887760156434227.scm", 1388560), PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit322, Pair.make(Lit344, Pair.make(Pair.make(Lit323, Pair.make(Lit351, LList.Empty)), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 1392651), PairWithPosition.make(Lit348, PairWithPosition.make(Lit347, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1392700), "/tmp/runtime9130887760156434227.scm", 1392683), "/tmp/runtime9130887760156434227.scm", 1392650), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1392650), "/tmp/runtime9130887760156434227.scm", 1388560), "/tmp/runtime9130887760156434227.scm", 1388552), Lit354, PairWithPosition.make(Lit322, Pair.make(Lit344, Pair.make(Pair.make(Lit323, Pair.make(Lit352, LList.Empty)), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 1404939), Lit401, PairWithPosition.make("-global-vars", LList.Empty, "/tmp/runtime9130887760156434227.scm", 1413161), PairWithPosition.make(Lit336, PairWithPosition.make(PairWithPosition.make(Lit422, PairWithPosition.make(Lit347, PairWithPosition.make(Lit339, PairWithPosition.make(Lit349, PairWithPosition.make(Lit338, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1421386), "/tmp/runtime9130887760156434227.scm", 1421367), "/tmp/runtime9130887760156434227.scm", 1421364), "/tmp/runtime9130887760156434227.scm", 1421359), "/tmp/runtime9130887760156434227.scm", 1421328), PairWithPosition.make(PairWithPosition.make(Lit346, PairWithPosition.make(PairWithPosition.make(Lit353, PairWithPosition.make(Boolean.FALSE, PairWithPosition.make("Adding ~A to env ~A with value ~A", PairWithPosition.make(Lit347, PairWithPosition.make(Lit354, PairWithPosition.make(Lit338, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1425511), "/tmp/runtime9130887760156434227.scm", 1425488), "/tmp/runtime9130887760156434227.scm", 1425483), "/tmp/runtime9130887760156434227.scm", 1425447), "/tmp/runtime9130887760156434227.scm", 1425444), "/tmp/runtime9130887760156434227.scm", 1425436), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1425436), "/tmp/runtime9130887760156434227.scm", 1425418), PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit322, Pair.make(Lit344, Pair.make(Pair.make(Lit323, Pair.make(Lit0, LList.Empty)), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 1429515), PairWithPosition.make(Lit354, PairWithPosition.make(Lit347, PairWithPosition.make(Lit338, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1429571), "/tmp/runtime9130887760156434227.scm", 1429566), "/tmp/runtime9130887760156434227.scm", 1429543), "/tmp/runtime9130887760156434227.scm", 1429514), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1429514), "/tmp/runtime9130887760156434227.scm", 1425418), "/tmp/runtime9130887760156434227.scm", 1421328), "/tmp/runtime9130887760156434227.scm", 1421320), PairWithPosition.make(null, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1445928), (SimpleSymbol) new SimpleSymbol("form-name-symbol").readResolve(), Lit349, PairWithPosition.make(Lit336, PairWithPosition.make(Lit357, PairWithPosition.make(Lit339, PairWithPosition.make(Lit355, PairWithPosition.make(PairWithPosition.make(Lit334, PairWithPosition.make(LList.Empty, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1470520), "/tmp/runtime9130887760156434227.scm", 1470520), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1470519), "/tmp/runtime9130887760156434227.scm", 1470503), "/tmp/runtime9130887760156434227.scm", 1470500), "/tmp/runtime9130887760156434227.scm", 1470480), "/tmp/runtime9130887760156434227.scm", 1470472), PairWithPosition.make(Lit336, PairWithPosition.make(Lit362, PairWithPosition.make(Lit339, PairWithPosition.make(Lit355, PairWithPosition.make(PairWithPosition.make(Lit334, PairWithPosition.make(LList.Empty, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1491002), "/tmp/runtime9130887760156434227.scm", 1491002), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1491001), "/tmp/runtime9130887760156434227.scm", 1490985), "/tmp/runtime9130887760156434227.scm", 1490982), "/tmp/runtime9130887760156434227.scm", 1490960), "/tmp/runtime9130887760156434227.scm", 1490952), PairWithPosition.make(Lit336, PairWithPosition.make(PairWithPosition.make(Lit356, PairWithPosition.make(Lit359, PairWithPosition.make(Lit360, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1507374), "/tmp/runtime9130887760156434227.scm", 1507359), "/tmp/runtime9130887760156434227.scm", 1507344), PairWithPosition.make(PairWithPosition.make(Lit361, PairWithPosition.make(Lit357, PairWithPosition.make(PairWithPosition.make(Lit358, PairWithPosition.make(PairWithPosition.make(Lit358, PairWithPosition.make(Lit359, PairWithPosition.make(Lit360, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1515563), "/tmp/runtime9130887760156434227.scm", 1515548), "/tmp/runtime9130887760156434227.scm", 1515542), PairWithPosition.make(Lit357, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1519638), "/tmp/runtime9130887760156434227.scm", 1515542), "/tmp/runtime9130887760156434227.scm", 1515536), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1515536), "/tmp/runtime9130887760156434227.scm", 1511440), "/tmp/runtime9130887760156434227.scm", 1511434), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1511434), "/tmp/runtime9130887760156434227.scm", 1507344), "/tmp/runtime9130887760156434227.scm", 1507336), PairWithPosition.make(Lit336, PairWithPosition.make(PairWithPosition.make(Lit441, PairWithPosition.make(Lit363, PairWithPosition.make(Lit364, PairWithPosition.make(Lit359, PairWithPosition.make(Lit365, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1536080), "/tmp/runtime9130887760156434227.scm", 1536065), "/tmp/runtime9130887760156434227.scm", 1536050), "/tmp/runtime9130887760156434227.scm", 1536035), "/tmp/runtime9130887760156434227.scm", 1536016), PairWithPosition.make(PairWithPosition.make(Lit361, PairWithPosition.make(Lit362, PairWithPosition.make(PairWithPosition.make(Lit358, PairWithPosition.make(PairWithPosition.make(Lit7, PairWithPosition.make(Lit363, PairWithPosition.make(Lit364, PairWithPosition.make(Lit359, PairWithPosition.make(Lit365, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1544265), "/tmp/runtime9130887760156434227.scm", 1544250), "/tmp/runtime9130887760156434227.scm", 1544235), "/tmp/runtime9130887760156434227.scm", 1544220), "/tmp/runtime9130887760156434227.scm", 1544214), PairWithPosition.make(Lit362, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1548310), "/tmp/runtime9130887760156434227.scm", 1544214), "/tmp/runtime9130887760156434227.scm", 1544208), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1544208), "/tmp/runtime9130887760156434227.scm", 1540112), "/tmp/runtime9130887760156434227.scm", 1540106), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1540106), "/tmp/runtime9130887760156434227.scm", 1536016), "/tmp/runtime9130887760156434227.scm", 1536008), PairWithPosition.make(Lit336, PairWithPosition.make(Lit366, PairWithPosition.make(Lit339, PairWithPosition.make(Lit355, PairWithPosition.make(PairWithPosition.make(Lit334, PairWithPosition.make(LList.Empty, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1560635), "/tmp/runtime9130887760156434227.scm", 1560635), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1560634), "/tmp/runtime9130887760156434227.scm", 1560618), "/tmp/runtime9130887760156434227.scm", 1560615), "/tmp/runtime9130887760156434227.scm", 1560592), "/tmp/runtime9130887760156434227.scm", 1560584), PairWithPosition.make(Lit336, PairWithPosition.make(PairWithPosition.make(Lit335, PairWithPosition.make(Lit367, PairWithPosition.make(Lit368, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1572904), "/tmp/runtime9130887760156434227.scm", 1572900), "/tmp/runtime9130887760156434227.scm", 1572880), PairWithPosition.make(PairWithPosition.make(Lit361, PairWithPosition.make(Lit366, PairWithPosition.make(PairWithPosition.make(Lit358, PairWithPosition.make(PairWithPosition.make(Lit7, PairWithPosition.make(Lit367, PairWithPosition.make(Lit368, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1581088), "/tmp/runtime9130887760156434227.scm", 1581084), "/tmp/runtime9130887760156434227.scm", 1581078), PairWithPosition.make(Lit366, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1585174), "/tmp/runtime9130887760156434227.scm", 1581078), "/tmp/runtime9130887760156434227.scm", 1581072), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1581072), "/tmp/runtime9130887760156434227.scm", 1576976), "/tmp/runtime9130887760156434227.scm", 1576970), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1576970), "/tmp/runtime9130887760156434227.scm", 1572880), "/tmp/runtime9130887760156434227.scm", 1572872), PairWithPosition.make(Lit336, PairWithPosition.make(Lit370, PairWithPosition.make(Lit339, PairWithPosition.make(Lit355, PairWithPosition.make(PairWithPosition.make(Lit334, PairWithPosition.make(LList.Empty, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1605692), "/tmp/runtime9130887760156434227.scm", 1605692), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1605691), "/tmp/runtime9130887760156434227.scm", 1605675), "/tmp/runtime9130887760156434227.scm", 1605672), "/tmp/runtime9130887760156434227.scm", 1605648), "/tmp/runtime9130887760156434227.scm", 1605640), PairWithPosition.make(Lit336, PairWithPosition.make(PairWithPosition.make(Lit369, PairWithPosition.make(Lit371, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1613871), "/tmp/runtime9130887760156434227.scm", 1613840), PairWithPosition.make(PairWithPosition.make(Lit361, PairWithPosition.make(Lit370, PairWithPosition.make(PairWithPosition.make(Lit358, PairWithPosition.make(Lit371, PairWithPosition.make(Lit370, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1626134), "/tmp/runtime9130887760156434227.scm", 1622038), "/tmp/runtime9130887760156434227.scm", 1622032), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1622032), "/tmp/runtime9130887760156434227.scm", 1617936), "/tmp/runtime9130887760156434227.scm", 1617930), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1617930), "/tmp/runtime9130887760156434227.scm", 1613840), "/tmp/runtime9130887760156434227.scm", 1613832), PairWithPosition.make(simpleSymbol43, PairWithPosition.make(pairWithPosition3, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(simpleSymbol42, Pair.make(simpleSymbol40, Pair.make(Pair.make(simpleSymbol41, make16), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 1638411), PairWithPosition.make(Lit372, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1638482), "/tmp/runtime9130887760156434227.scm", 1638410), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1638410), "/tmp/runtime9130887760156434227.scm", 1634320), "/tmp/runtime9130887760156434227.scm", 1634312), PairWithPosition.make(Lit393, PairWithPosition.make(Lit375, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1646627), "/tmp/runtime9130887760156434227.scm", 1646608), PairWithPosition.make(simpleSymbol44, PairWithPosition.make(simpleSymbol45, make17, "/tmp/runtime9130887760156434227.scm", 1650712), "/tmp/runtime9130887760156434227.scm", 1650698), Lit324, PairWithPosition.make(pairWithPosition7, PairWithPosition.make(PairWithPosition.make(make22, PairWithPosition.make(make23, make24, "/tmp/runtime9130887760156434227.scm", 1695759), "/tmp/runtime9130887760156434227.scm", 1691662), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1691662), "/tmp/runtime9130887760156434227.scm", 1671182), PairWithPosition.make(simpleSymbol73, PairWithPosition.make(pairWithPosition8, PairWithPosition.make(simpleSymbol72, PairWithPosition.make(simpleSymbol58, PairWithPosition.make(PairWithPosition.make(simpleSymbol59, make32, "/tmp/runtime9130887760156434227.scm", 1761292), LList.Empty, "/tmp/runtime9130887760156434227.scm", 1761292), "/tmp/runtime9130887760156434227.scm", 1736766), "/tmp/runtime9130887760156434227.scm", 1736763), "/tmp/runtime9130887760156434227.scm", 1724432), "/tmp/runtime9130887760156434227.scm", 1724424), PairWithPosition.make(simpleSymbol74, PairWithPosition.make(make33, make34, "/tmp/runtime9130887760156434227.scm", 1966096), "/tmp/runtime9130887760156434227.scm", 1966088), PairWithPosition.make(simpleSymbol75, PairWithPosition.make(make35, make36, "/tmp/runtime9130887760156434227.scm", 2138128), "/tmp/runtime9130887760156434227.scm", 2138120), PairWithPosition.make((SimpleSymbol) new SimpleSymbol("$define").readResolve(), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2170896), PairWithPosition.make(simpleSymbol76, PairWithPosition.make(make37, make38, "/tmp/runtime9130887760156434227.scm", 2183186), "/tmp/runtime9130887760156434227.scm", 2183178), PairWithPosition.make(Lit336, PairWithPosition.make(PairWithPosition.make(Lit439, PairWithPosition.make(Lit423, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2232361), "/tmp/runtime9130887760156434227.scm", 2232338), PairWithPosition.make(PairWithPosition.make(Lit419, PairWithPosition.make(PairWithPosition.make(Lit327, PairWithPosition.make(PairWithPosition.make(Lit421, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2240542), PairWithPosition.make(PairWithPosition.make(Lit328, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit367, PairWithPosition.make(PairWithPosition.make(Lit420, PairWithPosition.make(Lit421, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2244648), "/tmp/runtime9130887760156434227.scm", 2244643), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2244643), "/tmp/runtime9130887760156434227.scm", 2244638), PairWithPosition.make(PairWithPosition.make(Lit368, PairWithPosition.make(PairWithPosition.make(Lit425, PairWithPosition.make(Lit421, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2248751), "/tmp/runtime9130887760156434227.scm", 2248745), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2248745), "/tmp/runtime9130887760156434227.scm", 2248734), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2248734), "/tmp/runtime9130887760156434227.scm", 2244637), PairWithPosition.make(PairWithPosition.make(Lit422, PairWithPosition.make(Lit367, PairWithPosition.make(PairWithPosition.make(Lit368, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2252861), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2252861), "/tmp/runtime9130887760156434227.scm", 2252857), "/tmp/runtime9130887760156434227.scm", 2252826), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2252826), "/tmp/runtime9130887760156434227.scm", 2244637), "/tmp/runtime9130887760156434227.scm", 2244632), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2244632), "/tmp/runtime9130887760156434227.scm", 2240542), "/tmp/runtime9130887760156434227.scm", 2240534), PairWithPosition.make(Lit423, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2256918), "/tmp/runtime9130887760156434227.scm", 2240534), "/tmp/runtime9130887760156434227.scm", 2240524), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2240524), "/tmp/runtime9130887760156434227.scm", 2232338), "/tmp/runtime9130887760156434227.scm", 2232330), PairWithPosition.make(Lit336, PairWithPosition.make(PairWithPosition.make(Lit437, PairWithPosition.make(Lit428, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2269221), "/tmp/runtime9130887760156434227.scm", 2269202), PairWithPosition.make(PairWithPosition.make(Lit419, PairWithPosition.make(PairWithPosition.make(Lit327, PairWithPosition.make(PairWithPosition.make(Lit424, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2273310), PairWithPosition.make(PairWithPosition.make(Lit328, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit359, PairWithPosition.make(PairWithPosition.make(Lit429, PairWithPosition.make(Lit424, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2277429), "/tmp/runtime9130887760156434227.scm", 2277422), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2277422), "/tmp/runtime9130887760156434227.scm", 2277406), PairWithPosition.make(PairWithPosition.make(Lit365, PairWithPosition.make(PairWithPosition.make(Lit430, PairWithPosition.make(Lit424, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2281522), "/tmp/runtime9130887760156434227.scm", 2281514), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2281514), "/tmp/runtime9130887760156434227.scm", 2281502), PairWithPosition.make(PairWithPosition.make(Lit364, PairWithPosition.make(PairWithPosition.make(Lit425, PairWithPosition.make(Lit424, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2285620), "/tmp/runtime9130887760156434227.scm", 2285614), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2285614), "/tmp/runtime9130887760156434227.scm", 2285598), PairWithPosition.make(PairWithPosition.make(Lit426, PairWithPosition.make(PairWithPosition.make(Lit386, PairWithPosition.make(PairWithPosition.make(Lit420, PairWithPosition.make(Lit424, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2289748), "/tmp/runtime9130887760156434227.scm", 2289743), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2289743), "/tmp/runtime9130887760156434227.scm", 2289715), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2289715), "/tmp/runtime9130887760156434227.scm", 2289694), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2289694), "/tmp/runtime9130887760156434227.scm", 2285598), "/tmp/runtime9130887760156434227.scm", 2281502), "/tmp/runtime9130887760156434227.scm", 2277405), PairWithPosition.make(PairWithPosition.make(Lit328, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit427, PairWithPosition.make(PairWithPosition.make(Lit352, PairWithPosition.make(Lit364, PairWithPosition.make(Lit426, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2306119), "/tmp/runtime9130887760156434227.scm", 2306104), "/tmp/runtime9130887760156434227.scm", 2306098), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2306098), "/tmp/runtime9130887760156434227.scm", 2306080), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2306079), PairWithPosition.make(PairWithPosition.make(Lit361, PairWithPosition.make(PairWithPosition.make(Lit431, PairWithPosition.make(PairWithPosition.make(Lit374, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2314281), PairWithPosition.make(Lit359, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2314288), "/tmp/runtime9130887760156434227.scm", 2314281), "/tmp/runtime9130887760156434227.scm", 2314274), PairWithPosition.make(Lit427, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2314304), "/tmp/runtime9130887760156434227.scm", 2314274), "/tmp/runtime9130887760156434227.scm", 2314268), PairWithPosition.make(PairWithPosition.make(Lit345, PairWithPosition.make(Lit359, PairWithPosition.make(Lit427, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2326596), "/tmp/runtime9130887760156434227.scm", 2326581), "/tmp/runtime9130887760156434227.scm", 2326556), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2326556), "/tmp/runtime9130887760156434227.scm", 2314268), "/tmp/runtime9130887760156434227.scm", 2306079), "/tmp/runtime9130887760156434227.scm", 2306074), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2306074), "/tmp/runtime9130887760156434227.scm", 2277405), "/tmp/runtime9130887760156434227.scm", 2277400), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2277400), "/tmp/runtime9130887760156434227.scm", 2273310), "/tmp/runtime9130887760156434227.scm", 2273302), PairWithPosition.make(Lit428, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2330646), "/tmp/runtime9130887760156434227.scm", 2273302), "/tmp/runtime9130887760156434227.scm", 2273292), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2273292), "/tmp/runtime9130887760156434227.scm", 2269202), "/tmp/runtime9130887760156434227.scm", 2269194), PairWithPosition.make(simpleSymbol77, PairWithPosition.make(make39, make40, "/tmp/runtime9130887760156434227.scm", 2342930), "/tmp/runtime9130887760156434227.scm", 2342922), PairWithPosition.make(simpleSymbol78, PairWithPosition.make(make41, make42, "/tmp/runtime9130887760156434227.scm", 2412562), "/tmp/runtime9130887760156434227.scm", 2412554), PairWithPosition.make(pairWithPosition9, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(simpleSymbol84, Pair.make(simpleSymbol82, Pair.make(Pair.make(simpleSymbol83, make44), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 2445354), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2445353), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2445353), "/tmp/runtime9130887760156434227.scm", 2445322), PairWithPosition.make(simpleSymbol86, PairWithPosition.make(PairWithPosition.make((SimpleSymbol) new SimpleSymbol("invoke").readResolve(), PairWithPosition.make(PairWithPosition.make(Lit374, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2482195), PairWithPosition.make(PairWithPosition.make(Lit334, PairWithPosition.make((SimpleSymbol) new SimpleSymbol("run").readResolve(), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2482203), "/tmp/runtime9130887760156434227.scm", 2482203), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2482202), "/tmp/runtime9130887760156434227.scm", 2482195), "/tmp/runtime9130887760156434227.scm", 2482187), PairWithPosition.make(PairWithPosition.make(Lit391, PairWithPosition.make((SimpleSymbol) new SimpleSymbol("java.lang.Exception").readResolve(), PairWithPosition.make(PairWithPosition.make(Lit346, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit322, Pair.make(Lit391, Pair.make(Pair.make(Lit323, Pair.make(Lit377, LList.Empty)), LList.Empty)), "/tmp/runtime9130887760156434227.scm", 2490399), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2490398), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2490398), "/tmp/runtime9130887760156434227.scm", 2490380), PairWithPosition.make(PairWithPosition.make(Lit393, PairWithPosition.make(Lit391, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2494495), "/tmp/runtime9130887760156434227.scm", 2494476), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2494476), "/tmp/runtime9130887760156434227.scm", 2490380), "/tmp/runtime9130887760156434227.scm", 2486294), "/tmp/runtime9130887760156434227.scm", 2486283), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2486283), "/tmp/runtime9130887760156434227.scm", 2482187), "/tmp/runtime9130887760156434227.scm", 2478090), Lit361, PairWithPosition.make(PairWithPosition.make(Lit374, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2498586), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2498586), Lit345, PairWithPosition.make(PairWithPosition.make(Lit374, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2506798), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2506798), PairWithPosition.make(PairWithPosition.make(Lit434, PairWithPosition.make(Lit357, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2514971), "/tmp/runtime9130887760156434227.scm", 2514954), PairWithPosition.make(PairWithPosition.make(Lit404, PairWithPosition.make(PairWithPosition.make(Lit328, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit438, PairWithPosition.make(PairWithPosition.make(Lit436, PairWithPosition.make(Lit362, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2527270), "/tmp/runtime9130887760156434227.scm", 2527261), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2527261), "/tmp/runtime9130887760156434227.scm", 2527249), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2527248), PairWithPosition.make(PairWithPosition.make(Lit335, PairWithPosition.make(PairWithPosition.make(Lit334, PairWithPosition.make(Lit435, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2547746), "/tmp/runtime9130887760156434227.scm", 2547746), PairWithPosition.make(PairWithPosition.make(Lit327, PairWithPosition.make(LList.Empty, PairWithPosition.make(null, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2547774), "/tmp/runtime9130887760156434227.scm", 2547771), "/tmp/runtime9130887760156434227.scm", 2547763), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2547763), "/tmp/runtime9130887760156434227.scm", 2547745), "/tmp/runtime9130887760156434227.scm", 2547725), PairWithPosition.make(PairWithPosition.make(Lit419, PairWithPosition.make((SimpleSymbol) new SimpleSymbol("force").readResolve(), PairWithPosition.make(PairWithPosition.make(Lit436, PairWithPosition.make(Lit370, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2564134), "/tmp/runtime9130887760156434227.scm", 2564125), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2564125), "/tmp/runtime9130887760156434227.scm", 2564119), "/tmp/runtime9130887760156434227.scm", 2564109), PairWithPosition.make(PairWithPosition.make(Lit437, PairWithPosition.make(Lit438, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2568224), "/tmp/runtime9130887760156434227.scm", 2568205), PairWithPosition.make(PairWithPosition.make(Lit439, PairWithPosition.make(PairWithPosition.make(Lit436, PairWithPosition.make(Lit366, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2592813), "/tmp/runtime9130887760156434227.scm", 2592804), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2592804), "/tmp/runtime9130887760156434227.scm", 2592781), PairWithPosition.make(PairWithPosition.make(Lit440, PairWithPosition.make(Lit438, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2621470), "/tmp/runtime9130887760156434227.scm", 2621453), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2621453), "/tmp/runtime9130887760156434227.scm", 2592781), "/tmp/runtime9130887760156434227.scm", 2568205), "/tmp/runtime9130887760156434227.scm", 2564109), "/tmp/runtime9130887760156434227.scm", 2547725), "/tmp/runtime9130887760156434227.scm", 2527248), "/tmp/runtime9130887760156434227.scm", 2527243), PairWithPosition.make(PairWithPosition.make(Lit391, PairWithPosition.make((SimpleSymbol) new SimpleSymbol("com.google.appinventor.components.runtime.errors.YailRuntimeError").readResolve(), PairWithPosition.make(PairWithPosition.make(Lit393, PairWithPosition.make(Lit391, LList.Empty, "/tmp/runtime9130887760156434227.scm", 2633769), "/tmp/runtime9130887760156434227.scm", 2633750), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2633750), "/tmp/runtime9130887760156434227.scm", 2625558), "/tmp/runtime9130887760156434227.scm", 2625547), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2625547), "/tmp/runtime9130887760156434227.scm", 2527243), "/tmp/runtime9130887760156434227.scm", 2523146), LList.Empty, "/tmp/runtime9130887760156434227.scm", 2523146), "/tmp/runtime9130887760156434227.scm", 2514954)}, 0)}, 5);
-        Object[] objArr4 = {Lit321};
-        SimpleSymbol simpleSymbol87 = Lit334;
+        Lit86 = new SyntaxRules(objArr3, new SyntaxRule[]{new SyntaxRule(new SyntaxPattern("\f\u0018\f\u0007\f\u000f\f\u0017\f\u001f\f'\b", new Object[0], 5), "\u0001\u0001\u0001\u0001\u0001", "\u0011\u0018\u0004)\u0011\u0018\f\b\u0013)\u0011\u0018\u0014\b\u0003)\u0011\u0018\u001c\b\u000b\u0011\u0018$\u0011\u0018,Ñ\u0011\u00184\u0011\u0018<\u0011\u0018D\u0011\u0018L)\u0011\u0018T\b#\b\u0011\u0018\\\t\u0013\u0018d\u0011\u0018l\u0011\u0018tÑ\u0011\u00184\u0011\u0018|\u0011\u0018D\u0011\u0018\b\u0011\u0018\b\u0011\u0018\b\u0011\u0018\b\u000b\u0011\u0018¤\u0011\u0018¬\u0011\u0018´ā\u0011\u00184\u0011\u0018¼\u0011\u0018D\u0011\u0018\b\u0011\u0018Ä\b\u0011\u0018ÌI\u0011\u0018\b\u0011\u0018\b\u000b\u0018Ô\u0011\u0018Üa\u0011\u00184\t\u000b\u0011\u0018D\t\u0003\u0018ä\u0011\u00184\u0011\u0018ì\u0011\u0018D\u0011\u0018ô\b\u0011\u0018\b\u000b\u0011\u0018ü\u0011\u0018Ą\u0011\u0018Č\u0011\u0018Ĕ\u0011\u0018Ĝ\u0011\u0018Ĥ\u0011\u0018Ĭ\u0011\u0018Ĵ\u0011\u0018ļ\u0011\u00184\u0011\u0018ń\u0011\u0018Ō\b\u0011\u0018Ŕ\t\u001b\u0018Ŝ\u0011\u0018Ť\u0011\u0018Ŭ\u0011\u0018Ŵ\b\u0011\u00184\u0011\u0018ż\u0011\u0018D\u0011\u0018L\u0011\u0018Ƅ\u0011\u0018ƌ\u0011\u0018Ɣ\u0011\u0018Ɯ\u0011\u0018Ƥ\u0011\u0018Ƭ\u0011\u0018ƴ9\u0011\u0018Ƽ\t\u000b\u0018ǄY\u0011\u0018ǌ)\u0011\u0018\b\u000b\u0018ǔ\u0018ǜ", new Object[]{Lit340, (SimpleSymbol) new SimpleSymbol("module-extends").readResolve(), (SimpleSymbol) new SimpleSymbol("module-name").readResolve(), (SimpleSymbol) new SimpleSymbol("module-static").readResolve(), PairWithPosition.make((SimpleSymbol) new SimpleSymbol("require").readResolve(), PairWithPosition.make((SimpleSymbol) new SimpleSymbol("<com.google.youngandroid.runtime>").readResolve(), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1261585), "/tmp/runtime7968961605135708732.scm", 1261576), PairWithPosition.make(simpleSymbol12, PairWithPosition.make(make2, make3, "/tmp/runtime7968961605135708732.scm", 1269776), "/tmp/runtime7968961605135708732.scm", 1269768), Lit347, PairWithPosition.make(simpleSymbol13, PairWithPosition.make(simpleSymbol14, make4, "/tmp/runtime7968961605135708732.scm", 1282074), "/tmp/runtime7968961605135708732.scm", 1282064), Lit350, Lit410, PairWithPosition.make(simpleSymbol18, Pair.make(simpleSymbol16, Pair.make(Pair.make(simpleSymbol17, make5), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 1290251), (SimpleSymbol) new SimpleSymbol("invoke-special").readResolve(), PairWithPosition.make(PairWithPosition.make(Lit385, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1294376), PairWithPosition.make(PairWithPosition.make(Lit345, PairWithPosition.make(Lit351, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1294384), "/tmp/runtime7968961605135708732.scm", 1294384), PairWithPosition.make(Lit352, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1294393), "/tmp/runtime7968961605135708732.scm", 1294383), "/tmp/runtime7968961605135708732.scm", 1294376), PairWithPosition.make(Lit347, PairWithPosition.make(Lit353, PairWithPosition.make(Boolean.FALSE, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1302557), "/tmp/runtime7968961605135708732.scm", 1302544), "/tmp/runtime7968961605135708732.scm", 1302536), PairWithPosition.make(simpleSymbol26, PairWithPosition.make(pairWithPosition2, PairWithPosition.make(PairWithPosition.make(simpleSymbol25, PairWithPosition.make(simpleSymbol24, PairWithPosition.make(PairWithPosition.make(make7, PairWithPosition.make("YAIL", make8, "/tmp/runtime7968961605135708732.scm", 1314865), "/tmp/runtime7968961605135708732.scm", 1314845), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1314845), "/tmp/runtime7968961605135708732.scm", 1314832), "/tmp/runtime7968961605135708732.scm", 1314826), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1314826), "/tmp/runtime7968961605135708732.scm", 1310736), "/tmp/runtime7968961605135708732.scm", 1310728), Lit359, Lit355, PairWithPosition.make(Lit333, Pair.make(Lit355, Pair.make(Pair.make(Lit334, Pair.make(Lit363, LList.Empty)), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 1339403), Lit443, Lit345, PairWithPosition.make(simpleSymbol27, PairWithPosition.make(make9, make11, "/tmp/runtime7968961605135708732.scm", 1347600), "/tmp/runtime7968961605135708732.scm", 1347592), PairWithPosition.make(simpleSymbol32, PairWithPosition.make(make12, make14, "/tmp/runtime7968961605135708732.scm", 1363984), "/tmp/runtime7968961605135708732.scm", 1363976), PairWithPosition.make(Lit347, PairWithPosition.make(PairWithPosition.make(Lit394, PairWithPosition.make(Lit358, PairWithPosition.make(Lit350, PairWithPosition.make(Lit360, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1388598), "/tmp/runtime7968961605135708732.scm", 1388595), "/tmp/runtime7968961605135708732.scm", 1388590), "/tmp/runtime7968961605135708732.scm", 1388560), PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit333, Pair.make(Lit355, Pair.make(Pair.make(Lit334, Pair.make(Lit362, LList.Empty)), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 1392651), PairWithPosition.make(Lit359, PairWithPosition.make(Lit358, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1392700), "/tmp/runtime7968961605135708732.scm", 1392683), "/tmp/runtime7968961605135708732.scm", 1392650), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1392650), "/tmp/runtime7968961605135708732.scm", 1388560), "/tmp/runtime7968961605135708732.scm", 1388552), Lit365, PairWithPosition.make(Lit333, Pair.make(Lit355, Pair.make(Pair.make(Lit334, Pair.make(Lit363, LList.Empty)), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 1404939), Lit412, PairWithPosition.make("-global-vars", LList.Empty, "/tmp/runtime7968961605135708732.scm", 1413161), PairWithPosition.make(Lit347, PairWithPosition.make(PairWithPosition.make(Lit433, PairWithPosition.make(Lit358, PairWithPosition.make(Lit350, PairWithPosition.make(Lit360, PairWithPosition.make(Lit349, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1421386), "/tmp/runtime7968961605135708732.scm", 1421367), "/tmp/runtime7968961605135708732.scm", 1421364), "/tmp/runtime7968961605135708732.scm", 1421359), "/tmp/runtime7968961605135708732.scm", 1421328), PairWithPosition.make(PairWithPosition.make(Lit357, PairWithPosition.make(PairWithPosition.make(Lit364, PairWithPosition.make(Boolean.FALSE, PairWithPosition.make("Adding ~A to env ~A with value ~A", PairWithPosition.make(Lit358, PairWithPosition.make(Lit365, PairWithPosition.make(Lit349, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1425511), "/tmp/runtime7968961605135708732.scm", 1425488), "/tmp/runtime7968961605135708732.scm", 1425483), "/tmp/runtime7968961605135708732.scm", 1425447), "/tmp/runtime7968961605135708732.scm", 1425444), "/tmp/runtime7968961605135708732.scm", 1425436), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1425436), "/tmp/runtime7968961605135708732.scm", 1425418), PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit333, Pair.make(Lit355, Pair.make(Pair.make(Lit334, Pair.make(Lit0, LList.Empty)), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 1429515), PairWithPosition.make(Lit365, PairWithPosition.make(Lit358, PairWithPosition.make(Lit349, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1429571), "/tmp/runtime7968961605135708732.scm", 1429566), "/tmp/runtime7968961605135708732.scm", 1429543), "/tmp/runtime7968961605135708732.scm", 1429514), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1429514), "/tmp/runtime7968961605135708732.scm", 1425418), "/tmp/runtime7968961605135708732.scm", 1421328), "/tmp/runtime7968961605135708732.scm", 1421320), PairWithPosition.make(null, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1445928), (SimpleSymbol) new SimpleSymbol("form-name-symbol").readResolve(), Lit360, PairWithPosition.make(Lit347, PairWithPosition.make(Lit368, PairWithPosition.make(Lit350, PairWithPosition.make(Lit366, PairWithPosition.make(PairWithPosition.make(Lit345, PairWithPosition.make(LList.Empty, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1470520), "/tmp/runtime7968961605135708732.scm", 1470520), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1470519), "/tmp/runtime7968961605135708732.scm", 1470503), "/tmp/runtime7968961605135708732.scm", 1470500), "/tmp/runtime7968961605135708732.scm", 1470480), "/tmp/runtime7968961605135708732.scm", 1470472), PairWithPosition.make(Lit347, PairWithPosition.make(Lit373, PairWithPosition.make(Lit350, PairWithPosition.make(Lit366, PairWithPosition.make(PairWithPosition.make(Lit345, PairWithPosition.make(LList.Empty, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1491002), "/tmp/runtime7968961605135708732.scm", 1491002), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1491001), "/tmp/runtime7968961605135708732.scm", 1490985), "/tmp/runtime7968961605135708732.scm", 1490982), "/tmp/runtime7968961605135708732.scm", 1490960), "/tmp/runtime7968961605135708732.scm", 1490952), PairWithPosition.make(Lit347, PairWithPosition.make(PairWithPosition.make(Lit367, PairWithPosition.make(Lit370, PairWithPosition.make(Lit371, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1507374), "/tmp/runtime7968961605135708732.scm", 1507359), "/tmp/runtime7968961605135708732.scm", 1507344), PairWithPosition.make(PairWithPosition.make(Lit372, PairWithPosition.make(Lit368, PairWithPosition.make(PairWithPosition.make(Lit369, PairWithPosition.make(PairWithPosition.make(Lit369, PairWithPosition.make(Lit370, PairWithPosition.make(Lit371, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1515563), "/tmp/runtime7968961605135708732.scm", 1515548), "/tmp/runtime7968961605135708732.scm", 1515542), PairWithPosition.make(Lit368, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1519638), "/tmp/runtime7968961605135708732.scm", 1515542), "/tmp/runtime7968961605135708732.scm", 1515536), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1515536), "/tmp/runtime7968961605135708732.scm", 1511440), "/tmp/runtime7968961605135708732.scm", 1511434), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1511434), "/tmp/runtime7968961605135708732.scm", 1507344), "/tmp/runtime7968961605135708732.scm", 1507336), PairWithPosition.make(Lit347, PairWithPosition.make(PairWithPosition.make(Lit452, PairWithPosition.make(Lit374, PairWithPosition.make(Lit375, PairWithPosition.make(Lit370, PairWithPosition.make(Lit376, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1536080), "/tmp/runtime7968961605135708732.scm", 1536065), "/tmp/runtime7968961605135708732.scm", 1536050), "/tmp/runtime7968961605135708732.scm", 1536035), "/tmp/runtime7968961605135708732.scm", 1536016), PairWithPosition.make(PairWithPosition.make(Lit372, PairWithPosition.make(Lit373, PairWithPosition.make(PairWithPosition.make(Lit369, PairWithPosition.make(PairWithPosition.make(Lit7, PairWithPosition.make(Lit374, PairWithPosition.make(Lit375, PairWithPosition.make(Lit370, PairWithPosition.make(Lit376, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1544265), "/tmp/runtime7968961605135708732.scm", 1544250), "/tmp/runtime7968961605135708732.scm", 1544235), "/tmp/runtime7968961605135708732.scm", 1544220), "/tmp/runtime7968961605135708732.scm", 1544214), PairWithPosition.make(Lit373, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1548310), "/tmp/runtime7968961605135708732.scm", 1544214), "/tmp/runtime7968961605135708732.scm", 1544208), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1544208), "/tmp/runtime7968961605135708732.scm", 1540112), "/tmp/runtime7968961605135708732.scm", 1540106), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1540106), "/tmp/runtime7968961605135708732.scm", 1536016), "/tmp/runtime7968961605135708732.scm", 1536008), PairWithPosition.make(Lit347, PairWithPosition.make(Lit377, PairWithPosition.make(Lit350, PairWithPosition.make(Lit366, PairWithPosition.make(PairWithPosition.make(Lit345, PairWithPosition.make(LList.Empty, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1560635), "/tmp/runtime7968961605135708732.scm", 1560635), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1560634), "/tmp/runtime7968961605135708732.scm", 1560618), "/tmp/runtime7968961605135708732.scm", 1560615), "/tmp/runtime7968961605135708732.scm", 1560592), "/tmp/runtime7968961605135708732.scm", 1560584), PairWithPosition.make(Lit347, PairWithPosition.make(PairWithPosition.make(Lit346, PairWithPosition.make(Lit378, PairWithPosition.make(Lit379, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1572904), "/tmp/runtime7968961605135708732.scm", 1572900), "/tmp/runtime7968961605135708732.scm", 1572880), PairWithPosition.make(PairWithPosition.make(Lit372, PairWithPosition.make(Lit377, PairWithPosition.make(PairWithPosition.make(Lit369, PairWithPosition.make(PairWithPosition.make(Lit7, PairWithPosition.make(Lit378, PairWithPosition.make(Lit379, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1581088), "/tmp/runtime7968961605135708732.scm", 1581084), "/tmp/runtime7968961605135708732.scm", 1581078), PairWithPosition.make(Lit377, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1585174), "/tmp/runtime7968961605135708732.scm", 1581078), "/tmp/runtime7968961605135708732.scm", 1581072), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1581072), "/tmp/runtime7968961605135708732.scm", 1576976), "/tmp/runtime7968961605135708732.scm", 1576970), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1576970), "/tmp/runtime7968961605135708732.scm", 1572880), "/tmp/runtime7968961605135708732.scm", 1572872), PairWithPosition.make(Lit347, PairWithPosition.make(Lit381, PairWithPosition.make(Lit350, PairWithPosition.make(Lit366, PairWithPosition.make(PairWithPosition.make(Lit345, PairWithPosition.make(LList.Empty, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1605692), "/tmp/runtime7968961605135708732.scm", 1605692), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1605691), "/tmp/runtime7968961605135708732.scm", 1605675), "/tmp/runtime7968961605135708732.scm", 1605672), "/tmp/runtime7968961605135708732.scm", 1605648), "/tmp/runtime7968961605135708732.scm", 1605640), PairWithPosition.make(Lit347, PairWithPosition.make(PairWithPosition.make(Lit380, PairWithPosition.make(Lit382, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1613871), "/tmp/runtime7968961605135708732.scm", 1613840), PairWithPosition.make(PairWithPosition.make(Lit372, PairWithPosition.make(Lit381, PairWithPosition.make(PairWithPosition.make(Lit369, PairWithPosition.make(Lit382, PairWithPosition.make(Lit381, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1626134), "/tmp/runtime7968961605135708732.scm", 1622038), "/tmp/runtime7968961605135708732.scm", 1622032), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1622032), "/tmp/runtime7968961605135708732.scm", 1617936), "/tmp/runtime7968961605135708732.scm", 1617930), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1617930), "/tmp/runtime7968961605135708732.scm", 1613840), "/tmp/runtime7968961605135708732.scm", 1613832), PairWithPosition.make(simpleSymbol43, PairWithPosition.make(pairWithPosition3, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(simpleSymbol42, Pair.make(simpleSymbol40, Pair.make(Pair.make(simpleSymbol41, make16), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 1638411), PairWithPosition.make(Lit383, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1638482), "/tmp/runtime7968961605135708732.scm", 1638410), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1638410), "/tmp/runtime7968961605135708732.scm", 1634320), "/tmp/runtime7968961605135708732.scm", 1634312), PairWithPosition.make(Lit404, PairWithPosition.make(Lit386, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1646627), "/tmp/runtime7968961605135708732.scm", 1646608), PairWithPosition.make(simpleSymbol44, PairWithPosition.make(simpleSymbol45, make17, "/tmp/runtime7968961605135708732.scm", 1650712), "/tmp/runtime7968961605135708732.scm", 1650698), Lit335, PairWithPosition.make(pairWithPosition7, PairWithPosition.make(PairWithPosition.make(make22, PairWithPosition.make(make23, make24, "/tmp/runtime7968961605135708732.scm", 1695759), "/tmp/runtime7968961605135708732.scm", 1691662), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1691662), "/tmp/runtime7968961605135708732.scm", 1671182), PairWithPosition.make(simpleSymbol73, PairWithPosition.make(pairWithPosition8, PairWithPosition.make(simpleSymbol72, PairWithPosition.make(simpleSymbol58, PairWithPosition.make(PairWithPosition.make(simpleSymbol59, make32, "/tmp/runtime7968961605135708732.scm", 1761292), LList.Empty, "/tmp/runtime7968961605135708732.scm", 1761292), "/tmp/runtime7968961605135708732.scm", 1736766), "/tmp/runtime7968961605135708732.scm", 1736763), "/tmp/runtime7968961605135708732.scm", 1724432), "/tmp/runtime7968961605135708732.scm", 1724424), PairWithPosition.make(simpleSymbol74, PairWithPosition.make(make33, make34, "/tmp/runtime7968961605135708732.scm", 1966096), "/tmp/runtime7968961605135708732.scm", 1966088), PairWithPosition.make(simpleSymbol75, PairWithPosition.make(make35, make36, "/tmp/runtime7968961605135708732.scm", 2138128), "/tmp/runtime7968961605135708732.scm", 2138120), PairWithPosition.make((SimpleSymbol) new SimpleSymbol("$define").readResolve(), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2170896), PairWithPosition.make(simpleSymbol76, PairWithPosition.make(make37, make38, "/tmp/runtime7968961605135708732.scm", 2183186), "/tmp/runtime7968961605135708732.scm", 2183178), PairWithPosition.make(Lit347, PairWithPosition.make(PairWithPosition.make(Lit450, PairWithPosition.make(Lit434, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2232361), "/tmp/runtime7968961605135708732.scm", 2232338), PairWithPosition.make(PairWithPosition.make(Lit430, PairWithPosition.make(PairWithPosition.make(Lit338, PairWithPosition.make(PairWithPosition.make(Lit432, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2240542), PairWithPosition.make(PairWithPosition.make(Lit339, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit378, PairWithPosition.make(PairWithPosition.make(Lit431, PairWithPosition.make(Lit432, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2244648), "/tmp/runtime7968961605135708732.scm", 2244643), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2244643), "/tmp/runtime7968961605135708732.scm", 2244638), PairWithPosition.make(PairWithPosition.make(Lit379, PairWithPosition.make(PairWithPosition.make(Lit436, PairWithPosition.make(Lit432, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2248751), "/tmp/runtime7968961605135708732.scm", 2248745), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2248745), "/tmp/runtime7968961605135708732.scm", 2248734), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2248734), "/tmp/runtime7968961605135708732.scm", 2244637), PairWithPosition.make(PairWithPosition.make(Lit433, PairWithPosition.make(Lit378, PairWithPosition.make(PairWithPosition.make(Lit379, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2252861), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2252861), "/tmp/runtime7968961605135708732.scm", 2252857), "/tmp/runtime7968961605135708732.scm", 2252826), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2252826), "/tmp/runtime7968961605135708732.scm", 2244637), "/tmp/runtime7968961605135708732.scm", 2244632), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2244632), "/tmp/runtime7968961605135708732.scm", 2240542), "/tmp/runtime7968961605135708732.scm", 2240534), PairWithPosition.make(Lit434, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2256918), "/tmp/runtime7968961605135708732.scm", 2240534), "/tmp/runtime7968961605135708732.scm", 2240524), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2240524), "/tmp/runtime7968961605135708732.scm", 2232338), "/tmp/runtime7968961605135708732.scm", 2232330), PairWithPosition.make(Lit347, PairWithPosition.make(PairWithPosition.make(Lit448, PairWithPosition.make(Lit439, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2269221), "/tmp/runtime7968961605135708732.scm", 2269202), PairWithPosition.make(PairWithPosition.make(Lit430, PairWithPosition.make(PairWithPosition.make(Lit338, PairWithPosition.make(PairWithPosition.make(Lit435, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2273310), PairWithPosition.make(PairWithPosition.make(Lit339, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit370, PairWithPosition.make(PairWithPosition.make(Lit440, PairWithPosition.make(Lit435, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2277429), "/tmp/runtime7968961605135708732.scm", 2277422), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2277422), "/tmp/runtime7968961605135708732.scm", 2277406), PairWithPosition.make(PairWithPosition.make(Lit376, PairWithPosition.make(PairWithPosition.make(Lit441, PairWithPosition.make(Lit435, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2281522), "/tmp/runtime7968961605135708732.scm", 2281514), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2281514), "/tmp/runtime7968961605135708732.scm", 2281502), PairWithPosition.make(PairWithPosition.make(Lit375, PairWithPosition.make(PairWithPosition.make(Lit436, PairWithPosition.make(Lit435, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2285620), "/tmp/runtime7968961605135708732.scm", 2285614), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2285614), "/tmp/runtime7968961605135708732.scm", 2285598), PairWithPosition.make(PairWithPosition.make(Lit437, PairWithPosition.make(PairWithPosition.make(Lit397, PairWithPosition.make(PairWithPosition.make(Lit431, PairWithPosition.make(Lit435, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2289748), "/tmp/runtime7968961605135708732.scm", 2289743), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2289743), "/tmp/runtime7968961605135708732.scm", 2289715), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2289715), "/tmp/runtime7968961605135708732.scm", 2289694), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2289694), "/tmp/runtime7968961605135708732.scm", 2285598), "/tmp/runtime7968961605135708732.scm", 2281502), "/tmp/runtime7968961605135708732.scm", 2277405), PairWithPosition.make(PairWithPosition.make(Lit339, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit438, PairWithPosition.make(PairWithPosition.make(Lit363, PairWithPosition.make(Lit375, PairWithPosition.make(Lit437, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2306119), "/tmp/runtime7968961605135708732.scm", 2306104), "/tmp/runtime7968961605135708732.scm", 2306098), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2306098), "/tmp/runtime7968961605135708732.scm", 2306080), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2306079), PairWithPosition.make(PairWithPosition.make(Lit372, PairWithPosition.make(PairWithPosition.make(Lit442, PairWithPosition.make(PairWithPosition.make(Lit385, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2314281), PairWithPosition.make(Lit370, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2314288), "/tmp/runtime7968961605135708732.scm", 2314281), "/tmp/runtime7968961605135708732.scm", 2314274), PairWithPosition.make(Lit438, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2314304), "/tmp/runtime7968961605135708732.scm", 2314274), "/tmp/runtime7968961605135708732.scm", 2314268), PairWithPosition.make(PairWithPosition.make(Lit356, PairWithPosition.make(Lit370, PairWithPosition.make(Lit438, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2326596), "/tmp/runtime7968961605135708732.scm", 2326581), "/tmp/runtime7968961605135708732.scm", 2326556), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2326556), "/tmp/runtime7968961605135708732.scm", 2314268), "/tmp/runtime7968961605135708732.scm", 2306079), "/tmp/runtime7968961605135708732.scm", 2306074), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2306074), "/tmp/runtime7968961605135708732.scm", 2277405), "/tmp/runtime7968961605135708732.scm", 2277400), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2277400), "/tmp/runtime7968961605135708732.scm", 2273310), "/tmp/runtime7968961605135708732.scm", 2273302), PairWithPosition.make(Lit439, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2330646), "/tmp/runtime7968961605135708732.scm", 2273302), "/tmp/runtime7968961605135708732.scm", 2273292), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2273292), "/tmp/runtime7968961605135708732.scm", 2269202), "/tmp/runtime7968961605135708732.scm", 2269194), PairWithPosition.make(simpleSymbol77, PairWithPosition.make(make39, make40, "/tmp/runtime7968961605135708732.scm", 2342930), "/tmp/runtime7968961605135708732.scm", 2342922), PairWithPosition.make(simpleSymbol78, PairWithPosition.make(make41, make42, "/tmp/runtime7968961605135708732.scm", 2412562), "/tmp/runtime7968961605135708732.scm", 2412554), PairWithPosition.make(pairWithPosition9, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(simpleSymbol84, Pair.make(simpleSymbol82, Pair.make(Pair.make(simpleSymbol83, make44), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 2445354), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2445353), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2445353), "/tmp/runtime7968961605135708732.scm", 2445322), PairWithPosition.make(simpleSymbol86, PairWithPosition.make(PairWithPosition.make((SimpleSymbol) new SimpleSymbol("invoke").readResolve(), PairWithPosition.make(PairWithPosition.make(Lit385, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2482195), PairWithPosition.make(PairWithPosition.make(Lit345, PairWithPosition.make((SimpleSymbol) new SimpleSymbol("run").readResolve(), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2482203), "/tmp/runtime7968961605135708732.scm", 2482203), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2482202), "/tmp/runtime7968961605135708732.scm", 2482195), "/tmp/runtime7968961605135708732.scm", 2482187), PairWithPosition.make(PairWithPosition.make(Lit402, PairWithPosition.make((SimpleSymbol) new SimpleSymbol("java.lang.Exception").readResolve(), PairWithPosition.make(PairWithPosition.make(Lit357, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit333, Pair.make(Lit402, Pair.make(Pair.make(Lit334, Pair.make(Lit388, LList.Empty)), LList.Empty)), "/tmp/runtime7968961605135708732.scm", 2490399), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2490398), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2490398), "/tmp/runtime7968961605135708732.scm", 2490380), PairWithPosition.make(PairWithPosition.make(Lit404, PairWithPosition.make(Lit402, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2494495), "/tmp/runtime7968961605135708732.scm", 2494476), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2494476), "/tmp/runtime7968961605135708732.scm", 2490380), "/tmp/runtime7968961605135708732.scm", 2486294), "/tmp/runtime7968961605135708732.scm", 2486283), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2486283), "/tmp/runtime7968961605135708732.scm", 2482187), "/tmp/runtime7968961605135708732.scm", 2478090), Lit372, PairWithPosition.make(PairWithPosition.make(Lit385, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2498586), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2498586), Lit356, PairWithPosition.make(PairWithPosition.make(Lit385, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2506798), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2506798), PairWithPosition.make(PairWithPosition.make(Lit445, PairWithPosition.make(Lit368, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2514971), "/tmp/runtime7968961605135708732.scm", 2514954), PairWithPosition.make(PairWithPosition.make(Lit415, PairWithPosition.make(PairWithPosition.make(Lit339, PairWithPosition.make(PairWithPosition.make(PairWithPosition.make(Lit449, PairWithPosition.make(PairWithPosition.make(Lit447, PairWithPosition.make(Lit373, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2527270), "/tmp/runtime7968961605135708732.scm", 2527261), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2527261), "/tmp/runtime7968961605135708732.scm", 2527249), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2527248), PairWithPosition.make(PairWithPosition.make(Lit346, PairWithPosition.make(PairWithPosition.make(Lit345, PairWithPosition.make(Lit446, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2547746), "/tmp/runtime7968961605135708732.scm", 2547746), PairWithPosition.make(PairWithPosition.make(Lit338, PairWithPosition.make(LList.Empty, PairWithPosition.make(null, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2547774), "/tmp/runtime7968961605135708732.scm", 2547771), "/tmp/runtime7968961605135708732.scm", 2547763), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2547763), "/tmp/runtime7968961605135708732.scm", 2547745), "/tmp/runtime7968961605135708732.scm", 2547725), PairWithPosition.make(PairWithPosition.make(Lit430, PairWithPosition.make((SimpleSymbol) new SimpleSymbol("force").readResolve(), PairWithPosition.make(PairWithPosition.make(Lit447, PairWithPosition.make(Lit381, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2564134), "/tmp/runtime7968961605135708732.scm", 2564125), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2564125), "/tmp/runtime7968961605135708732.scm", 2564119), "/tmp/runtime7968961605135708732.scm", 2564109), PairWithPosition.make(PairWithPosition.make(Lit448, PairWithPosition.make(Lit449, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2568224), "/tmp/runtime7968961605135708732.scm", 2568205), PairWithPosition.make(PairWithPosition.make(Lit450, PairWithPosition.make(PairWithPosition.make(Lit447, PairWithPosition.make(Lit377, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2592813), "/tmp/runtime7968961605135708732.scm", 2592804), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2592804), "/tmp/runtime7968961605135708732.scm", 2592781), PairWithPosition.make(PairWithPosition.make(Lit451, PairWithPosition.make(Lit449, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2621470), "/tmp/runtime7968961605135708732.scm", 2621453), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2621453), "/tmp/runtime7968961605135708732.scm", 2592781), "/tmp/runtime7968961605135708732.scm", 2568205), "/tmp/runtime7968961605135708732.scm", 2564109), "/tmp/runtime7968961605135708732.scm", 2547725), "/tmp/runtime7968961605135708732.scm", 2527248), "/tmp/runtime7968961605135708732.scm", 2527243), PairWithPosition.make(PairWithPosition.make(Lit402, PairWithPosition.make((SimpleSymbol) new SimpleSymbol("com.google.appinventor.components.runtime.errors.YailRuntimeError").readResolve(), PairWithPosition.make(PairWithPosition.make(Lit404, PairWithPosition.make(Lit402, LList.Empty, "/tmp/runtime7968961605135708732.scm", 2633769), "/tmp/runtime7968961605135708732.scm", 2633750), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2633750), "/tmp/runtime7968961605135708732.scm", 2625558), "/tmp/runtime7968961605135708732.scm", 2625547), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2625547), "/tmp/runtime7968961605135708732.scm", 2527243), "/tmp/runtime7968961605135708732.scm", 2523146), LList.Empty, "/tmp/runtime7968961605135708732.scm", 2523146), "/tmp/runtime7968961605135708732.scm", 2514954)}, 0)}, 5);
+        Object[] objArr4 = {Lit332};
+        SimpleSymbol simpleSymbol87 = Lit345;
         SimpleSymbol simpleSymbol88 = (SimpleSymbol) new SimpleSymbol("com.google.appinventor.components.runtime.Form").readResolve();
         Lit15 = simpleSymbol88;
-        Lit76 = new SyntaxRules(objArr4, new SyntaxRule[]{new SyntaxRule(new SyntaxPattern("\f\u0018\f\u0007\f\u000f\b", new Object[0], 2), "\u0001\u0001", "\u0011\u0018\u0004\t\u0003\t\u000b\u0018\f", new Object[]{Lit79, PairWithPosition.make(PairWithPosition.make(simpleSymbol87, PairWithPosition.make(simpleSymbol88, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1196082), "/tmp/runtime9130887760156434227.scm", 1196082), PairWithPosition.make(Boolean.FALSE, PairWithPosition.make(Boolean.TRUE, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1196132), "/tmp/runtime9130887760156434227.scm", 1196129), "/tmp/runtime9130887760156434227.scm", 1196081)}, 0), new SyntaxRule(new SyntaxPattern("\f\u0018\f\u0007\f\u000f\f\u0017\b", new Object[0], 3), "\u0001\u0001\u0001", "\u0011\u0018\u0004\t\u0003\t\u000b\u0011\u0018\f\u0011\u0018\u0014\b\u0013", new Object[]{Lit79, PairWithPosition.make(Lit334, PairWithPosition.make(Lit15, LList.Empty, "/tmp/runtime9130887760156434227.scm", 1204274), "/tmp/runtime9130887760156434227.scm", 1204274), Boolean.FALSE}, 0)}, 3);
-        Object[] objArr5 = {Lit321};
+        Lit82 = new SyntaxRules(objArr4, new SyntaxRule[]{new SyntaxRule(new SyntaxPattern("\f\u0018\f\u0007\f\u000f\b", new Object[0], 2), "\u0001\u0001", "\u0011\u0018\u0004\t\u0003\t\u000b\u0018\f", new Object[]{Lit85, PairWithPosition.make(PairWithPosition.make(simpleSymbol87, PairWithPosition.make(simpleSymbol88, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1196082), "/tmp/runtime7968961605135708732.scm", 1196082), PairWithPosition.make(Boolean.FALSE, PairWithPosition.make(Boolean.TRUE, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1196132), "/tmp/runtime7968961605135708732.scm", 1196129), "/tmp/runtime7968961605135708732.scm", 1196081)}, 0), new SyntaxRule(new SyntaxPattern("\f\u0018\f\u0007\f\u000f\f\u0017\b", new Object[0], 3), "\u0001\u0001\u0001", "\u0011\u0018\u0004\t\u0003\t\u000b\u0011\u0018\f\u0011\u0018\u0014\b\u0013", new Object[]{Lit85, PairWithPosition.make(Lit345, PairWithPosition.make(Lit15, LList.Empty, "/tmp/runtime7968961605135708732.scm", 1204274), "/tmp/runtime7968961605135708732.scm", 1204274), Boolean.FALSE}, 0)}, 3);
+        Object[] objArr5 = {Lit332};
         SimpleSymbol simpleSymbol89 = (SimpleSymbol) new SimpleSymbol("gen-simple-component-type").readResolve();
-        Lit45 = simpleSymbol89;
-        Lit49 = new SyntaxRules(objArr5, new SyntaxRule[]{new SyntaxRule(new SyntaxPattern("\f\u0018\f\u0007\f\u000f\f\u0017\b", new Object[0], 3), "\u0001\u0001\u0001", "\u0011\u0018\u0004\u0011\u0018\f\t\u0013\u0011\u0018\u0014)\u0011\u0018\u001c\b\u000b\u0018$\b\u0011\u0018,\u0011\u00184¹\u0011\u0018<)\u0011\u0018D\b\u0003)\u0011\u0018\u001c\b\u000b)\u0011\u0018D\b\u0013\u0018L\b\u0011\u0018T)\u0011\u0018D\b\u0003)\u0011\u0018\u001c\b\u000b)\u0011\u0018D\b\u0013\u0018\\", new Object[]{Lit329, Lit336, Lit339, simpleSymbol89, PairWithPosition.make(null, LList.Empty, "/tmp/runtime9130887760156434227.scm", 241741), Lit324, Lit333, Lit50, Lit334, PairWithPosition.make(Boolean.FALSE, LList.Empty, "/tmp/runtime9130887760156434227.scm", 262183), Lit441, PairWithPosition.make(Boolean.FALSE, LList.Empty, "/tmp/runtime9130887760156434227.scm", 278559)}, 0), new SyntaxRule(new SyntaxPattern("\f\u0018\f\u0007\f\u000f\f\u0017\r\u001f\u0018\b\b", new Object[0], 4), "\u0001\u0001\u0001\u0003", "\u0011\u0018\u0004\u0011\u0018\f\t\u0013\u0011\u0018\u0014)\u0011\u0018\u001c\b\u000b\u0018$\b\u0011\u0018,\u0011\u00184ñ\u0011\u0018<)\u0011\u0018D\b\u0003)\u0011\u0018\u001c\b\u000b)\u0011\u0018D\b\u0013\b\u0011\u0018L\t\u0010\b\u001d\u001b\b\u0011\u0018T)\u0011\u0018D\b\u0003)\u0011\u0018\u001c\b\u000b)\u0011\u0018D\b\u0013\b\u0011\u0018L\t\u0010\b\u001d\u001b", new Object[]{Lit329, Lit336, Lit339, Lit45, PairWithPosition.make(null, LList.Empty, "/tmp/runtime9130887760156434227.scm", 290893), Lit324, Lit333, Lit50, Lit334, Lit327, Lit441}, 1)}, 4);
+        Lit51 = simpleSymbol89;
+        Lit55 = new SyntaxRules(objArr5, new SyntaxRule[]{new SyntaxRule(new SyntaxPattern("\f\u0018\f\u0007\f\u000f\f\u0017\b", new Object[0], 3), "\u0001\u0001\u0001", "\u0011\u0018\u0004\u0011\u0018\f\t\u0013\u0011\u0018\u0014)\u0011\u0018\u001c\b\u000b\u0018$\b\u0011\u0018,\u0011\u00184¹\u0011\u0018<)\u0011\u0018D\b\u0003)\u0011\u0018\u001c\b\u000b)\u0011\u0018D\b\u0013\u0018L\b\u0011\u0018T)\u0011\u0018D\b\u0003)\u0011\u0018\u001c\b\u000b)\u0011\u0018D\b\u0013\u0018\\", new Object[]{Lit340, Lit347, Lit350, simpleSymbol89, PairWithPosition.make(null, LList.Empty, "/tmp/runtime7968961605135708732.scm", 241741), Lit335, Lit344, Lit56, Lit345, PairWithPosition.make(Boolean.FALSE, LList.Empty, "/tmp/runtime7968961605135708732.scm", 262183), Lit452, PairWithPosition.make(Boolean.FALSE, LList.Empty, "/tmp/runtime7968961605135708732.scm", 278559)}, 0), new SyntaxRule(new SyntaxPattern("\f\u0018\f\u0007\f\u000f\f\u0017\r\u001f\u0018\b\b", new Object[0], 4), "\u0001\u0001\u0001\u0003", "\u0011\u0018\u0004\u0011\u0018\f\t\u0013\u0011\u0018\u0014)\u0011\u0018\u001c\b\u000b\u0018$\b\u0011\u0018,\u0011\u00184ñ\u0011\u0018<)\u0011\u0018D\b\u0003)\u0011\u0018\u001c\b\u000b)\u0011\u0018D\b\u0013\b\u0011\u0018L\t\u0010\b\u001d\u001b\b\u0011\u0018T)\u0011\u0018D\b\u0003)\u0011\u0018\u001c\b\u000b)\u0011\u0018D\b\u0013\b\u0011\u0018L\t\u0010\b\u001d\u001b", new Object[]{Lit340, Lit347, Lit350, Lit51, PairWithPosition.make(null, LList.Empty, "/tmp/runtime7968961605135708732.scm", 290893), Lit335, Lit344, Lit56, Lit345, Lit338, Lit452}, 1)}, 4);
         runtime runtime = $instance;
-        android$Mnlog = new ModuleMethod(runtime, 11, Lit44, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        SimpleSymbol simpleSymbol90 = Lit45;
+        android$Mnlog = new ModuleMethod(runtime, 11, Lit50, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        SimpleSymbol simpleSymbol90 = Lit51;
         ModuleMethod moduleMethod = new ModuleMethod(runtime, 12, null, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        moduleMethod.setProperty("source-location", "/tmp/runtime9130887760156434227.scm:40");
+        moduleMethod.setProperty("source-location", "/tmp/runtime7968961605135708732.scm:40");
         gen$Mnsimple$Mncomponent$Mntype = Macro.make(simpleSymbol90, moduleMethod, $instance);
-        add$Mncomponent$Mnwithin$Mnrepl = new ModuleMethod(runtime, 13, Lit50, 16388);
-        call$MnInitialize$Mnof$Mncomponents = new ModuleMethod(runtime, 14, Lit51, -4096);
-        add$Mninit$Mnthunk = new ModuleMethod(runtime, 15, Lit52, 8194);
-        get$Mninit$Mnthunk = new ModuleMethod(runtime, 16, Lit53, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        clear$Mninit$Mnthunks = new ModuleMethod(runtime, 17, Lit54, 0);
-        lookup$Mncomponent = new ModuleMethod(runtime, 18, Lit57, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        set$Mnand$Mncoerce$Mnproperty$Ex = new ModuleMethod(runtime, 19, Lit58, 16388);
-        get$Mnproperty = new ModuleMethod(runtime, 20, Lit59, 8194);
-        coerce$Mnto$Mncomponent$Mnand$Mnverify = new ModuleMethod(runtime, 21, Lit60, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        get$Mnproperty$Mnand$Mncheck = new ModuleMethod(runtime, 22, Lit61, 12291);
-        set$Mnand$Mncoerce$Mnproperty$Mnand$Mncheck$Ex = new ModuleMethod(runtime, 23, Lit62, 20485);
-        symbol$Mnappend = new ModuleMethod(runtime, 24, Lit81, -4096);
-        SimpleSymbol simpleSymbol91 = Lit82;
+        add$Mncomponent$Mnwithin$Mnrepl = new ModuleMethod(runtime, 13, Lit56, 16388);
+        call$MnInitialize$Mnof$Mncomponents = new ModuleMethod(runtime, 14, Lit57, -4096);
+        add$Mninit$Mnthunk = new ModuleMethod(runtime, 15, Lit58, 8194);
+        get$Mninit$Mnthunk = new ModuleMethod(runtime, 16, Lit59, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        clear$Mninit$Mnthunks = new ModuleMethod(runtime, 17, Lit60, 0);
+        lookup$Mncomponent = new ModuleMethod(runtime, 18, Lit63, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        set$Mnand$Mncoerce$Mnproperty$Ex = new ModuleMethod(runtime, 19, Lit64, 16388);
+        get$Mnproperty = new ModuleMethod(runtime, 20, Lit65, 8194);
+        coerce$Mnto$Mncomponent$Mnand$Mnverify = new ModuleMethod(runtime, 21, Lit66, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        get$Mnproperty$Mnand$Mncheck = new ModuleMethod(runtime, 22, Lit67, 12291);
+        set$Mnand$Mncoerce$Mnproperty$Mnand$Mncheck$Ex = new ModuleMethod(runtime, 23, Lit68, 20485);
+        symbol$Mnappend = new ModuleMethod(runtime, 24, Lit87, -4096);
+        SimpleSymbol simpleSymbol91 = Lit88;
         ModuleMethod moduleMethod2 = new ModuleMethod(runtime, 25, null, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        moduleMethod2.setProperty("source-location", "/tmp/runtime9130887760156434227.scm:657");
+        moduleMethod2.setProperty("source-location", "/tmp/runtime7968961605135708732.scm:657");
         gen$Mnevent$Mnname = Macro.make(simpleSymbol91, moduleMethod2, $instance);
-        SimpleSymbol simpleSymbol92 = Lit85;
+        SimpleSymbol simpleSymbol92 = Lit91;
         ModuleMethod moduleMethod3 = new ModuleMethod(runtime, 26, null, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        moduleMethod3.setProperty("source-location", "/tmp/runtime9130887760156434227.scm:665");
+        moduleMethod3.setProperty("source-location", "/tmp/runtime7968961605135708732.scm:665");
         gen$Mngeneric$Mnevent$Mnname = Macro.make(simpleSymbol92, moduleMethod3, $instance);
-        SimpleSymbol simpleSymbol93 = Lit92;
+        SimpleSymbol simpleSymbol93 = Lit98;
         ModuleMethod moduleMethod4 = new ModuleMethod(runtime, 27, null, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        moduleMethod4.setProperty("source-location", "/tmp/runtime9130887760156434227.scm:721");
+        moduleMethod4.setProperty("source-location", "/tmp/runtime7968961605135708732.scm:721");
         define$Mnevent = Macro.make(simpleSymbol93, moduleMethod4, $instance);
-        SimpleSymbol simpleSymbol94 = Lit101;
+        SimpleSymbol simpleSymbol94 = Lit107;
         ModuleMethod moduleMethod5 = new ModuleMethod(runtime, 28, null, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        moduleMethod5.setProperty("source-location", "/tmp/runtime9130887760156434227.scm:739");
+        moduleMethod5.setProperty("source-location", "/tmp/runtime7968961605135708732.scm:739");
         define$Mngeneric$Mnevent = Macro.make(simpleSymbol94, moduleMethod5, $instance);
-        add$Mnto$Mncurrent$Mnform$Mnenvironment = new ModuleMethod(runtime, 29, Lit114, 8194);
-        lookup$Mnin$Mncurrent$Mnform$Mnenvironment = new ModuleMethod(runtime, 30, Lit115, 8193);
-        delete$Mnfrom$Mncurrent$Mnform$Mnenvironment = new ModuleMethod(runtime, 32, Lit116, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        rename$Mnin$Mncurrent$Mnform$Mnenvironment = new ModuleMethod(runtime, 33, Lit117, 8194);
-        add$Mnglobal$Mnvar$Mnto$Mncurrent$Mnform$Mnenvironment = new ModuleMethod(runtime, 34, Lit118, 8194);
-        lookup$Mnglobal$Mnvar$Mnin$Mncurrent$Mnform$Mnenvironment = new ModuleMethod(runtime, 35, Lit119, 8193);
-        reset$Mncurrent$Mnform$Mnenvironment = new ModuleMethod(runtime, 37, Lit120, 0);
-        foreach = Macro.makeNonHygienic(Lit121, new ModuleMethod(runtime, 38, null, 12291), $instance);
-        $Styail$Mnbreak$St = new ModuleMethod(runtime, 39, Lit129, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        forrange = Macro.makeNonHygienic(Lit130, new ModuleMethod(runtime, 40, null, 20485), $instance);
-        f1while = Macro.makeNonHygienic(Lit136, new ModuleMethod(runtime, 41, null, -4094), $instance);
-        call$Mncomponent$Mnmethod = new ModuleMethod(runtime, 42, Lit154, 16388);
-        call$Mncomponent$Mntype$Mnmethod = new ModuleMethod(runtime, 43, Lit155, 20485);
-        call$Mnyail$Mnprimitive = new ModuleMethod(runtime, 44, Lit156, 16388);
-        sanitize$Mncomponent$Mndata = new ModuleMethod(runtime, 45, Lit157, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        java$Mncollection$Mn$Gryail$Mnlist = new ModuleMethod(runtime, 46, Lit158, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        java$Mncollection$Mn$Grkawa$Mnlist = new ModuleMethod(runtime, 47, Lit159, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        java$Mnmap$Mn$Gryail$Mndictionary = new ModuleMethod(runtime, 48, Lit160, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        sanitize$Mnatomic = new ModuleMethod(runtime, 49, Lit161, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        signal$Mnruntime$Mnerror = new ModuleMethod(runtime, 50, Lit162, 8194);
-        signal$Mnruntime$Mnform$Mnerror = new ModuleMethod(runtime, 51, Lit163, 12291);
-        yail$Mnnot = new ModuleMethod(runtime, 52, Lit164, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        call$Mnwith$Mncoerced$Mnargs = new ModuleMethod(runtime, 53, Lit165, 16388);
-        $Pcset$Mnand$Mncoerce$Mnproperty$Ex = new ModuleMethod(runtime, 54, Lit166, 16388);
-        $Pcset$Mnsubform$Mnlayout$Mnproperty$Ex = new ModuleMethod(runtime, 55, Lit167, 12291);
-        generate$Mnruntime$Mntype$Mnerror = new ModuleMethod(runtime, 56, Lit168, 8194);
-        show$Mnarglist$Mnno$Mnparens = new ModuleMethod(runtime, 57, Lit169, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        coerce$Mnargs = new ModuleMethod(runtime, 58, Lit170, 12291);
-        coerce$Mnarg = new ModuleMethod(runtime, 59, Lit171, 8194);
-        coerce$Mnto$Mntext = new ModuleMethod(runtime, 60, Lit172, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        coerce$Mnto$Mninstant = new ModuleMethod(runtime, 61, Lit173, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        coerce$Mnto$Mncomponent = new ModuleMethod(runtime, 62, Lit174, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        coerce$Mnto$Mncomponent$Mnof$Mntype = new ModuleMethod(runtime, 63, Lit175, 8194);
-        type$Mn$Grclass = new ModuleMethod(runtime, 64, Lit176, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        coerce$Mnto$Mnnumber = new ModuleMethod(runtime, 65, Lit177, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        coerce$Mnto$Mnkey = new ModuleMethod(runtime, 66, Lit178, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        coerce$Mnto$Mnstring = new ModuleMethod(runtime, 67, Lit181, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        ModuleMethod moduleMethod6 = new ModuleMethod(runtime, 68, Lit182, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        moduleMethod6.setProperty("source-location", "/tmp/runtime9130887760156434227.scm:1444");
+        add$Mnto$Mncurrent$Mnform$Mnenvironment = new ModuleMethod(runtime, 29, Lit120, 8194);
+        lookup$Mnin$Mncurrent$Mnform$Mnenvironment = new ModuleMethod(runtime, 30, Lit121, 8193);
+        delete$Mnfrom$Mncurrent$Mnform$Mnenvironment = new ModuleMethod(runtime, 32, Lit122, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        rename$Mnin$Mncurrent$Mnform$Mnenvironment = new ModuleMethod(runtime, 33, Lit123, 8194);
+        add$Mnglobal$Mnvar$Mnto$Mncurrent$Mnform$Mnenvironment = new ModuleMethod(runtime, 34, Lit124, 8194);
+        lookup$Mnglobal$Mnvar$Mnin$Mncurrent$Mnform$Mnenvironment = new ModuleMethod(runtime, 35, Lit125, 8193);
+        reset$Mncurrent$Mnform$Mnenvironment = new ModuleMethod(runtime, 37, Lit126, 0);
+        foreach = Macro.makeNonHygienic(Lit127, new ModuleMethod(runtime, 38, null, 12291), $instance);
+        $Styail$Mnbreak$St = new ModuleMethod(runtime, 39, Lit135, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        forrange = Macro.makeNonHygienic(Lit136, new ModuleMethod(runtime, 40, null, 20485), $instance);
+        f1while = Macro.makeNonHygienic(Lit142, new ModuleMethod(runtime, 41, null, -4094), $instance);
+        call$Mncomponent$Mnmethod = new ModuleMethod(runtime, 42, Lit160, 16388);
+        call$Mncomponent$Mntype$Mnmethod = new ModuleMethod(runtime, 43, Lit161, 20485);
+        call$Mnyail$Mnprimitive = new ModuleMethod(runtime, 44, Lit162, 16388);
+        sanitize$Mncomponent$Mndata = new ModuleMethod(runtime, 45, Lit163, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        java$Mncollection$Mn$Gryail$Mnlist = new ModuleMethod(runtime, 46, Lit164, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        java$Mncollection$Mn$Grkawa$Mnlist = new ModuleMethod(runtime, 47, Lit165, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        java$Mnmap$Mn$Gryail$Mndictionary = new ModuleMethod(runtime, 48, Lit166, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        sanitize$Mnatomic = new ModuleMethod(runtime, 49, Lit167, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        signal$Mnruntime$Mnerror = new ModuleMethod(runtime, 50, Lit168, 8194);
+        signal$Mnruntime$Mnform$Mnerror = new ModuleMethod(runtime, 51, Lit169, 12291);
+        yail$Mnnot = new ModuleMethod(runtime, 52, Lit170, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        call$Mnwith$Mncoerced$Mnargs = new ModuleMethod(runtime, 53, Lit171, 16388);
+        $Pcset$Mnand$Mncoerce$Mnproperty$Ex = new ModuleMethod(runtime, 54, Lit172, 16388);
+        $Pcset$Mnsubform$Mnlayout$Mnproperty$Ex = new ModuleMethod(runtime, 55, Lit173, 12291);
+        generate$Mnruntime$Mntype$Mnerror = new ModuleMethod(runtime, 56, Lit174, 8194);
+        show$Mnarglist$Mnno$Mnparens = new ModuleMethod(runtime, 57, Lit175, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        coerce$Mnargs = new ModuleMethod(runtime, 58, Lit176, 12291);
+        coerce$Mnarg = new ModuleMethod(runtime, 59, Lit177, 8194);
+        coerce$Mnto$Mntext = new ModuleMethod(runtime, 60, Lit178, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        coerce$Mnto$Mninstant = new ModuleMethod(runtime, 61, Lit179, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        coerce$Mnto$Mncomponent = new ModuleMethod(runtime, 62, Lit180, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        coerce$Mnto$Mncomponent$Mnof$Mntype = new ModuleMethod(runtime, 63, Lit181, 8194);
+        type$Mn$Grclass = new ModuleMethod(runtime, 64, Lit182, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        coerce$Mnto$Mnnumber = new ModuleMethod(runtime, 65, Lit183, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        coerce$Mnto$Mnkey = new ModuleMethod(runtime, 66, Lit184, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        coerce$Mnto$Mnstring = new ModuleMethod(runtime, 67, Lit187, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        ModuleMethod moduleMethod6 = new ModuleMethod(runtime, 68, Lit188, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        moduleMethod6.setProperty("source-location", "/tmp/runtime7968961605135708732.scm:1444");
         get$Mndisplay$Mnrepresentation = moduleMethod6;
         ModuleMethod moduleMethod7 = new ModuleMethod(runtime, 69, null, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        moduleMethod7.setProperty("source-location", "/tmp/runtime9130887760156434227.scm:1454");
+        moduleMethod7.setProperty("source-location", "/tmp/runtime7968961605135708732.scm:1454");
         lambda$Fn4 = moduleMethod7;
         ModuleMethod moduleMethod8 = new ModuleMethod(runtime, 70, null, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        moduleMethod8.setProperty("source-location", "/tmp/runtime9130887760156434227.scm:1477");
+        moduleMethod8.setProperty("source-location", "/tmp/runtime7968961605135708732.scm:1477");
         lambda$Fn7 = moduleMethod8;
-        join$Mnstrings = new ModuleMethod(runtime, 71, Lit183, 8194);
-        string$Mnreplace = new ModuleMethod(runtime, 72, Lit184, 8194);
-        coerce$Mnto$Mnyail$Mnlist = new ModuleMethod(runtime, 73, Lit185, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        coerce$Mnto$Mnpair = new ModuleMethod(runtime, 74, Lit186, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        coerce$Mnto$Mndictionary = new ModuleMethod(runtime, 75, Lit187, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        coerce$Mnto$Mnboolean = new ModuleMethod(runtime, 76, Lit188, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        is$Mncoercible$Qu = new ModuleMethod(runtime, 77, Lit189, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        all$Mncoercible$Qu = new ModuleMethod(runtime, 78, Lit190, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        boolean$Mn$Grstring = new ModuleMethod(runtime, 79, Lit191, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        padded$Mnstring$Mn$Grnumber = new ModuleMethod(runtime, 80, Lit192, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        $Stformat$Mninexact$St = new ModuleMethod(runtime, 81, Lit193, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        appinventor$Mnnumber$Mn$Grstring = new ModuleMethod(runtime, 82, Lit194, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        yail$Mnequal$Qu = new ModuleMethod(runtime, 83, Lit195, 8194);
-        yail$Mnatomic$Mnequal$Qu = new ModuleMethod(runtime, 84, Lit196, 8194);
-        as$Mnnumber = new ModuleMethod(runtime, 85, Lit197, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        yail$Mnnot$Mnequal$Qu = new ModuleMethod(runtime, 86, Lit198, 8194);
-        process$Mnand$Mndelayed = new ModuleMethod(runtime, 87, Lit199, -4096);
-        process$Mnor$Mndelayed = new ModuleMethod(runtime, 88, Lit200, -4096);
-        yail$Mnfloor = new ModuleMethod(runtime, 89, Lit201, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        yail$Mnceiling = new ModuleMethod(runtime, 90, Lit202, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        yail$Mnround = new ModuleMethod(runtime, 91, Lit203, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        random$Mnset$Mnseed = new ModuleMethod(runtime, 92, Lit204, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        random$Mnfraction = new ModuleMethod(runtime, 93, Lit205, 0);
-        random$Mninteger = new ModuleMethod(runtime, 94, Lit206, 8194);
+        join$Mnstrings = new ModuleMethod(runtime, 71, Lit189, 8194);
+        string$Mnreplace = new ModuleMethod(runtime, 72, Lit190, 8194);
+        coerce$Mnto$Mnyail$Mnlist = new ModuleMethod(runtime, 73, Lit191, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        coerce$Mnto$Mnpair = new ModuleMethod(runtime, 74, Lit192, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        coerce$Mnto$Mndictionary = new ModuleMethod(runtime, 75, Lit193, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        coerce$Mnto$Mnboolean = new ModuleMethod(runtime, 76, Lit194, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        is$Mncoercible$Qu = new ModuleMethod(runtime, 77, Lit195, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        all$Mncoercible$Qu = new ModuleMethod(runtime, 78, Lit196, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        boolean$Mn$Grstring = new ModuleMethod(runtime, 79, Lit197, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        padded$Mnstring$Mn$Grnumber = new ModuleMethod(runtime, 80, Lit198, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        $Stformat$Mninexact$St = new ModuleMethod(runtime, 81, Lit199, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        appinventor$Mnnumber$Mn$Grstring = new ModuleMethod(runtime, 82, Lit200, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        yail$Mnequal$Qu = new ModuleMethod(runtime, 83, Lit201, 8194);
+        yail$Mnatomic$Mnequal$Qu = new ModuleMethod(runtime, 84, Lit202, 8194);
+        as$Mnnumber = new ModuleMethod(runtime, 85, Lit203, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        yail$Mnnot$Mnequal$Qu = new ModuleMethod(runtime, 86, Lit204, 8194);
+        process$Mnand$Mndelayed = new ModuleMethod(runtime, 87, Lit205, -4096);
+        process$Mnor$Mndelayed = new ModuleMethod(runtime, 88, Lit206, -4096);
+        yail$Mnfloor = new ModuleMethod(runtime, 89, Lit207, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        yail$Mnceiling = new ModuleMethod(runtime, 90, Lit208, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        yail$Mnround = new ModuleMethod(runtime, 91, Lit209, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        random$Mnset$Mnseed = new ModuleMethod(runtime, 92, Lit210, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        random$Mnfraction = new ModuleMethod(runtime, 93, Lit211, 0);
+        random$Mninteger = new ModuleMethod(runtime, 94, Lit212, 8194);
         ModuleMethod moduleMethod9 = new ModuleMethod(runtime, 95, null, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        moduleMethod9.setProperty("source-location", "/tmp/runtime9130887760156434227.scm:1779");
+        moduleMethod9.setProperty("source-location", "/tmp/runtime7968961605135708732.scm:1779");
         lambda$Fn11 = moduleMethod9;
-        yail$Mndivide = new ModuleMethod(runtime, 96, Lit207, 8194);
-        degrees$Mn$Grradians$Mninternal = new ModuleMethod(runtime, 97, Lit208, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        radians$Mn$Grdegrees$Mninternal = new ModuleMethod(runtime, 98, Lit209, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        degrees$Mn$Grradians = new ModuleMethod(runtime, 99, Lit210, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        radians$Mn$Grdegrees = new ModuleMethod(runtime, 100, Lit211, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        sin$Mndegrees = new ModuleMethod(runtime, 101, Lit212, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        cos$Mndegrees = new ModuleMethod(runtime, 102, Lit213, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        tan$Mndegrees = new ModuleMethod(runtime, 103, Lit214, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        asin$Mndegrees = new ModuleMethod(runtime, 104, Lit215, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        acos$Mndegrees = new ModuleMethod(runtime, 105, Lit216, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        atan$Mndegrees = new ModuleMethod(runtime, 106, Lit217, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        atan2$Mndegrees = new ModuleMethod(runtime, 107, Lit218, 8194);
-        string$Mnto$Mnupper$Mncase = new ModuleMethod(runtime, 108, Lit219, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        string$Mnto$Mnlower$Mncase = new ModuleMethod(runtime, 109, Lit220, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        format$Mnas$Mndecimal = new ModuleMethod(runtime, 110, Lit221, 8194);
-        is$Mnnumber$Qu = new ModuleMethod(runtime, 111, Lit222, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        is$Mnbase10$Qu = new ModuleMethod(runtime, 112, Lit223, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        is$Mnhexadecimal$Qu = new ModuleMethod(runtime, 113, Lit224, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        is$Mnbinary$Qu = new ModuleMethod(runtime, 114, Lit225, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        math$Mnconvert$Mndec$Mnhex = new ModuleMethod(runtime, 115, Lit226, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        math$Mnconvert$Mnhex$Mndec = new ModuleMethod(runtime, 116, Lit227, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        math$Mnconvert$Mnbin$Mndec = new ModuleMethod(runtime, 117, Lit228, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        math$Mnconvert$Mndec$Mnbin = new ModuleMethod(runtime, 118, Lit229, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        patched$Mnnumber$Mn$Grstring$Mnbinary = new ModuleMethod(runtime, 119, Lit230, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        alternate$Mnnumber$Mn$Grstring$Mnbinary = new ModuleMethod(runtime, 120, Lit231, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        internal$Mnbinary$Mnconvert = new ModuleMethod(runtime, 121, Lit232, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        yail$Mnlist$Qu = new ModuleMethod(runtime, 122, Lit233, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        yail$Mnlist$Mncandidate$Qu = new ModuleMethod(runtime, 123, Lit234, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        yail$Mnlist$Mncontents = new ModuleMethod(runtime, 124, Lit235, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        set$Mnyail$Mnlist$Mncontents$Ex = new ModuleMethod(runtime, 125, Lit236, 8194);
-        insert$Mnyail$Mnlist$Mnheader = new ModuleMethod(runtime, 126, Lit237, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        kawa$Mnlist$Mn$Gryail$Mnlist = new ModuleMethod(runtime, 127, Lit238, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        yail$Mnlist$Mn$Grkawa$Mnlist = new ModuleMethod(runtime, 128, Lit239, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        yail$Mnlist$Mnempty$Qu = new ModuleMethod(runtime, 129, Lit240, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        make$Mnyail$Mnlist = new ModuleMethod(runtime, 130, Lit241, -4096);
-        yail$Mnlist$Mncopy = new ModuleMethod(runtime, 131, Lit242, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        yail$Mnlist$Mnreverse = new ModuleMethod(runtime, 132, Lit243, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        yail$Mnlist$Mnto$Mncsv$Mntable = new ModuleMethod(runtime, 133, Lit244, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        yail$Mnlist$Mnto$Mncsv$Mnrow = new ModuleMethod(runtime, 134, Lit245, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        convert$Mnto$Mnstrings$Mnfor$Mncsv = new ModuleMethod(runtime, 135, Lit246, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        yail$Mnlist$Mnfrom$Mncsv$Mntable = new ModuleMethod(runtime, 136, Lit247, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        yail$Mnlist$Mnfrom$Mncsv$Mnrow = new ModuleMethod(runtime, 137, Lit248, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        yail$Mnlist$Mnlength = new ModuleMethod(runtime, 138, Lit249, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        yail$Mnlist$Mnindex = new ModuleMethod(runtime, 139, Lit250, 8194);
-        yail$Mnlist$Mnget$Mnitem = new ModuleMethod(runtime, 140, Lit251, 8194);
-        yail$Mnlist$Mnset$Mnitem$Ex = new ModuleMethod(runtime, 141, Lit252, 12291);
-        yail$Mnlist$Mnremove$Mnitem$Ex = new ModuleMethod(runtime, 142, Lit253, 8194);
-        yail$Mnlist$Mninsert$Mnitem$Ex = new ModuleMethod(runtime, 143, Lit254, 12291);
-        yail$Mnlist$Mnappend$Ex = new ModuleMethod(runtime, 144, Lit255, 8194);
-        yail$Mnlist$Mnadd$Mnto$Mnlist$Ex = new ModuleMethod(runtime, 145, Lit256, -4095);
-        yail$Mnlist$Mnmember$Qu = new ModuleMethod(runtime, 146, Lit257, 8194);
-        yail$Mnlist$Mnpick$Mnrandom = new ModuleMethod(runtime, 147, Lit258, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        yail$Mnfor$Mneach = new ModuleMethod(runtime, 148, Lit259, 8194);
-        yail$Mnfor$Mnrange = new ModuleMethod(runtime, 149, Lit260, 16388);
-        yail$Mnfor$Mnrange$Mnwith$Mnnumeric$Mnchecked$Mnargs = new ModuleMethod(runtime, 150, Lit261, 16388);
-        yail$Mnnumber$Mnrange = new ModuleMethod(runtime, 151, Lit262, 8194);
-        yail$Mnalist$Mnlookup = new ModuleMethod(runtime, 152, Lit263, 12291);
-        pair$Mnok$Qu = new ModuleMethod(runtime, 153, Lit264, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        yail$Mnlist$Mnjoin$Mnwith$Mnseparator = new ModuleMethod(runtime, 154, Lit265, 8194);
-        make$Mnyail$Mndictionary = new ModuleMethod(runtime, 155, Lit266, -4096);
-        make$Mndictionary$Mnpair = new ModuleMethod(runtime, 156, Lit267, 8194);
-        yail$Mndictionary$Mnset$Mnpair = new ModuleMethod(runtime, 157, Lit268, 12291);
-        yail$Mndictionary$Mndelete$Mnpair = new ModuleMethod(runtime, 158, Lit269, 8194);
-        yail$Mndictionary$Mnlookup = new ModuleMethod(runtime, 159, Lit270, 12291);
-        yail$Mndictionary$Mnrecursive$Mnlookup = new ModuleMethod(runtime, ComponentConstants.TEXTBOX_PREFERRED_WIDTH, Lit271, 12291);
-        yail$Mndictionary$Mnwalk = new ModuleMethod(runtime, 161, Lit272, 8194);
-        yail$Mndictionary$Mnrecursive$Mnset = new ModuleMethod(runtime, 162, Lit273, 12291);
-        yail$Mndictionary$Mnget$Mnkeys = new ModuleMethod(runtime, 163, Lit274, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        yail$Mndictionary$Mnget$Mnvalues = new ModuleMethod(runtime, 164, Lit275, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        yail$Mndictionary$Mnis$Mnkey$Mnin = new ModuleMethod(runtime, 165, Lit276, 8194);
-        yail$Mndictionary$Mnlength = new ModuleMethod(runtime, 166, Lit277, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        yail$Mndictionary$Mnalist$Mnto$Mndict = new ModuleMethod(runtime, 167, Lit278, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        yail$Mndictionary$Mndict$Mnto$Mnalist = new ModuleMethod(runtime, 168, Lit279, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        yail$Mndictionary$Mncopy = new ModuleMethod(runtime, 169, Lit280, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        yail$Mndictionary$Mncombine$Mndicts = new ModuleMethod(runtime, 170, Lit281, 8194);
-        yail$Mndictionary$Qu = new ModuleMethod(runtime, 171, Lit282, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        make$Mndisjunct = new ModuleMethod(runtime, 172, Lit283, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        array$Mn$Grlist = new ModuleMethod(runtime, 173, Lit284, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        string$Mnstarts$Mnat = new ModuleMethod(runtime, 174, Lit285, 8194);
-        string$Mncontains = new ModuleMethod(runtime, 175, Lit286, 8194);
-        string$Mnsplit$Mnat$Mnfirst = new ModuleMethod(runtime, 176, Lit287, 8194);
-        string$Mnsplit$Mnat$Mnfirst$Mnof$Mnany = new ModuleMethod(runtime, 177, Lit288, 8194);
-        string$Mnsplit = new ModuleMethod(runtime, 178, Lit289, 8194);
-        string$Mnsplit$Mnat$Mnany = new ModuleMethod(runtime, 179, Lit290, 8194);
-        string$Mnsplit$Mnat$Mnspaces = new ModuleMethod(runtime, 180, Lit291, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        string$Mnsubstring = new ModuleMethod(runtime, 181, Lit292, 12291);
-        string$Mntrim = new ModuleMethod(runtime, 182, Lit293, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        string$Mnreplace$Mnall = new ModuleMethod(runtime, 183, Lit294, 12291);
-        string$Mnempty$Qu = new ModuleMethod(runtime, 184, Lit295, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        text$Mndeobfuscate = new ModuleMethod(runtime, 185, Lit296, 8194);
-        make$Mnexact$Mnyail$Mninteger = new ModuleMethod(runtime, 186, Lit297, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        make$Mncolor = new ModuleMethod(runtime, 187, Lit298, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        split$Mncolor = new ModuleMethod(runtime, 188, Lit299, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        close$Mnscreen = new ModuleMethod(runtime, FullScreenVideoUtil.FULLSCREEN_VIDEO_DIALOG_FLAG, Lit300, 0);
-        close$Mnapplication = new ModuleMethod(runtime, FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_SEEK, Lit301, 0);
-        open$Mnanother$Mnscreen = new ModuleMethod(runtime, FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_PLAY, Lit302, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        open$Mnanother$Mnscreen$Mnwith$Mnstart$Mnvalue = new ModuleMethod(runtime, FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_PAUSE, Lit303, 8194);
-        get$Mnstart$Mnvalue = new ModuleMethod(runtime, FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_STOP, Lit304, 0);
-        close$Mnscreen$Mnwith$Mnvalue = new ModuleMethod(runtime, FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_SOURCE, Lit305, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        get$Mnplain$Mnstart$Mntext = new ModuleMethod(runtime, FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_FULLSCREEN, Lit306, 0);
-        close$Mnscreen$Mnwith$Mnplain$Mntext = new ModuleMethod(runtime, FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_DURATION, Lit307, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        get$Mnserver$Mnaddress$Mnfrom$Mnwifi = new ModuleMethod(runtime, YaVersion.YOUNG_ANDROID_VERSION, Lit308, 0);
-        in$Mnui = new ModuleMethod(runtime, 198, Lit311, 8194);
-        send$Mnto$Mnblock = new ModuleMethod(runtime, 199, Lit312, 8194);
-        clear$Mncurrent$Mnform = new ModuleMethod(runtime, HttpRequestContext.HTTP_OK, Lit313, 0);
-        set$Mnform$Mnname = new ModuleMethod(runtime, ErrorMessages.ERROR_CAMERA_NO_IMAGE_RETURNED, Lit314, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        remove$Mncomponent = new ModuleMethod(runtime, ErrorMessages.ERROR_NO_CAMERA_PERMISSION, Lit315, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        rename$Mncomponent = new ModuleMethod(runtime, 203, Lit316, 8194);
-        init$Mnruntime = new ModuleMethod(runtime, 204, Lit317, 0);
-        set$Mnthis$Mnform = new ModuleMethod(runtime, 205, Lit318, 0);
-        clarify = new ModuleMethod(runtime, 206, Lit319, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        clarify1 = new ModuleMethod(runtime, 207, Lit320, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        yail$Mndivide = new ModuleMethod(runtime, 96, Lit213, 8194);
+        degrees$Mn$Grradians$Mninternal = new ModuleMethod(runtime, 97, Lit214, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        radians$Mn$Grdegrees$Mninternal = new ModuleMethod(runtime, 98, Lit215, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        degrees$Mn$Grradians = new ModuleMethod(runtime, 99, Lit216, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        radians$Mn$Grdegrees = new ModuleMethod(runtime, 100, Lit217, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        sin$Mndegrees = new ModuleMethod(runtime, 101, Lit218, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        cos$Mndegrees = new ModuleMethod(runtime, 102, Lit219, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        tan$Mndegrees = new ModuleMethod(runtime, 103, Lit220, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        asin$Mndegrees = new ModuleMethod(runtime, 104, Lit221, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        acos$Mndegrees = new ModuleMethod(runtime, 105, Lit222, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        atan$Mndegrees = new ModuleMethod(runtime, 106, Lit223, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        atan2$Mndegrees = new ModuleMethod(runtime, 107, Lit224, 8194);
+        string$Mnto$Mnupper$Mncase = new ModuleMethod(runtime, 108, Lit225, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        string$Mnto$Mnlower$Mncase = new ModuleMethod(runtime, 109, Lit226, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        unicode$Mnstring$Mn$Grlist = new ModuleMethod(runtime, 110, Lit227, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        string$Mnreverse = new ModuleMethod(runtime, 111, Lit228, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        format$Mnas$Mndecimal = new ModuleMethod(runtime, 112, Lit229, 8194);
+        is$Mnnumber$Qu = new ModuleMethod(runtime, 113, Lit230, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        is$Mnbase10$Qu = new ModuleMethod(runtime, 114, Lit231, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        is$Mnhexadecimal$Qu = new ModuleMethod(runtime, 115, Lit232, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        is$Mnbinary$Qu = new ModuleMethod(runtime, 116, Lit233, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        math$Mnconvert$Mndec$Mnhex = new ModuleMethod(runtime, 117, Lit234, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        math$Mnconvert$Mnhex$Mndec = new ModuleMethod(runtime, 118, Lit235, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        math$Mnconvert$Mnbin$Mndec = new ModuleMethod(runtime, 119, Lit236, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        math$Mnconvert$Mndec$Mnbin = new ModuleMethod(runtime, 120, Lit237, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        patched$Mnnumber$Mn$Grstring$Mnbinary = new ModuleMethod(runtime, 121, Lit238, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        alternate$Mnnumber$Mn$Grstring$Mnbinary = new ModuleMethod(runtime, 122, Lit239, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        internal$Mnbinary$Mnconvert = new ModuleMethod(runtime, 123, Lit240, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        yail$Mnlist$Qu = new ModuleMethod(runtime, 124, Lit241, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        yail$Mnlist$Mncandidate$Qu = new ModuleMethod(runtime, 125, Lit242, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        yail$Mnlist$Mncontents = new ModuleMethod(runtime, 126, Lit243, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        set$Mnyail$Mnlist$Mncontents$Ex = new ModuleMethod(runtime, 127, Lit244, 8194);
+        insert$Mnyail$Mnlist$Mnheader = new ModuleMethod(runtime, 128, Lit245, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        kawa$Mnlist$Mn$Gryail$Mnlist = new ModuleMethod(runtime, 129, Lit246, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        yail$Mnlist$Mn$Grkawa$Mnlist = new ModuleMethod(runtime, 130, Lit247, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        yail$Mnlist$Mnempty$Qu = new ModuleMethod(runtime, 131, Lit248, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        make$Mnyail$Mnlist = new ModuleMethod(runtime, 132, Lit249, -4096);
+        yail$Mnlist$Mncopy = new ModuleMethod(runtime, 133, Lit250, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        yail$Mnlist$Mnreverse = new ModuleMethod(runtime, 134, Lit251, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        yail$Mnlist$Mnto$Mncsv$Mntable = new ModuleMethod(runtime, 135, Lit252, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        yail$Mnlist$Mnto$Mncsv$Mnrow = new ModuleMethod(runtime, 136, Lit253, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        convert$Mnto$Mnstrings$Mnfor$Mncsv = new ModuleMethod(runtime, 137, Lit254, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        yail$Mnlist$Mnfrom$Mncsv$Mntable = new ModuleMethod(runtime, 138, Lit255, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        yail$Mnlist$Mnfrom$Mncsv$Mnrow = new ModuleMethod(runtime, 139, Lit256, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        yail$Mnlist$Mnlength = new ModuleMethod(runtime, 140, Lit257, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        yail$Mnlist$Mnindex = new ModuleMethod(runtime, 141, Lit258, 8194);
+        yail$Mnlist$Mnget$Mnitem = new ModuleMethod(runtime, 142, Lit259, 8194);
+        yail$Mnlist$Mnset$Mnitem$Ex = new ModuleMethod(runtime, 143, Lit260, 12291);
+        yail$Mnlist$Mnremove$Mnitem$Ex = new ModuleMethod(runtime, 144, Lit261, 8194);
+        yail$Mnlist$Mninsert$Mnitem$Ex = new ModuleMethod(runtime, 145, Lit262, 12291);
+        yail$Mnlist$Mnappend$Ex = new ModuleMethod(runtime, 146, Lit263, 8194);
+        yail$Mnlist$Mnadd$Mnto$Mnlist$Ex = new ModuleMethod(runtime, 147, Lit264, -4095);
+        yail$Mnlist$Mnmember$Qu = new ModuleMethod(runtime, 148, Lit265, 8194);
+        yail$Mnlist$Mnpick$Mnrandom = new ModuleMethod(runtime, 149, Lit266, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        yail$Mnfor$Mneach = new ModuleMethod(runtime, 150, Lit267, 8194);
+        yail$Mnfor$Mnrange = new ModuleMethod(runtime, 151, Lit268, 16388);
+        yail$Mnfor$Mnrange$Mnwith$Mnnumeric$Mnchecked$Mnargs = new ModuleMethod(runtime, 152, Lit269, 16388);
+        yail$Mnnumber$Mnrange = new ModuleMethod(runtime, 153, Lit270, 8194);
+        yail$Mnalist$Mnlookup = new ModuleMethod(runtime, 154, Lit271, 12291);
+        pair$Mnok$Qu = new ModuleMethod(runtime, 155, Lit272, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        yail$Mnlist$Mnjoin$Mnwith$Mnseparator = new ModuleMethod(runtime, 156, Lit273, 8194);
+        make$Mnyail$Mndictionary = new ModuleMethod(runtime, 157, Lit274, -4096);
+        make$Mndictionary$Mnpair = new ModuleMethod(runtime, 158, Lit275, 8194);
+        yail$Mndictionary$Mnset$Mnpair = new ModuleMethod(runtime, 159, Lit276, 12291);
+        yail$Mndictionary$Mndelete$Mnpair = new ModuleMethod(runtime, ComponentConstants.TEXTBOX_PREFERRED_WIDTH, Lit277, 8194);
+        yail$Mndictionary$Mnlookup = new ModuleMethod(runtime, 161, Lit278, 12291);
+        yail$Mndictionary$Mnrecursive$Mnlookup = new ModuleMethod(runtime, 162, Lit279, 12291);
+        yail$Mndictionary$Mnwalk = new ModuleMethod(runtime, 163, Lit280, 8194);
+        yail$Mndictionary$Mnrecursive$Mnset = new ModuleMethod(runtime, 164, Lit281, 12291);
+        yail$Mndictionary$Mnget$Mnkeys = new ModuleMethod(runtime, 165, Lit282, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        yail$Mndictionary$Mnget$Mnvalues = new ModuleMethod(runtime, 166, Lit283, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        yail$Mndictionary$Mnis$Mnkey$Mnin = new ModuleMethod(runtime, 167, Lit284, 8194);
+        yail$Mndictionary$Mnlength = new ModuleMethod(runtime, 168, Lit285, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        yail$Mndictionary$Mnalist$Mnto$Mndict = new ModuleMethod(runtime, 169, Lit286, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        yail$Mndictionary$Mndict$Mnto$Mnalist = new ModuleMethod(runtime, 170, Lit287, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        yail$Mndictionary$Mncopy = new ModuleMethod(runtime, 171, Lit288, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        yail$Mndictionary$Mncombine$Mndicts = new ModuleMethod(runtime, 172, Lit289, 8194);
+        yail$Mndictionary$Qu = new ModuleMethod(runtime, 173, Lit290, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        make$Mndisjunct = new ModuleMethod(runtime, 174, Lit291, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        array$Mn$Grlist = new ModuleMethod(runtime, 175, Lit292, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        string$Mnstarts$Mnat = new ModuleMethod(runtime, 176, Lit293, 8194);
+        string$Mncontains = new ModuleMethod(runtime, 177, Lit294, 8194);
+        string$Mnsplit$Mnat$Mnfirst = new ModuleMethod(runtime, 178, Lit295, 8194);
+        string$Mnsplit$Mnat$Mnfirst$Mnof$Mnany = new ModuleMethod(runtime, 179, Lit296, 8194);
+        string$Mnsplit = new ModuleMethod(runtime, 180, Lit297, 8194);
+        string$Mnsplit$Mnat$Mnany = new ModuleMethod(runtime, 181, Lit298, 8194);
+        string$Mnsplit$Mnat$Mnspaces = new ModuleMethod(runtime, 182, Lit299, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        string$Mnsubstring = new ModuleMethod(runtime, 183, Lit300, 12291);
+        string$Mntrim = new ModuleMethod(runtime, 184, Lit301, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        string$Mnreplace$Mnall = new ModuleMethod(runtime, 185, Lit302, 12291);
+        string$Mnempty$Qu = new ModuleMethod(runtime, 186, Lit303, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        text$Mndeobfuscate = new ModuleMethod(runtime, 187, Lit304, 8194);
+        string$Mnreplace$Mnmappings$Mndictionary = new ModuleMethod(runtime, 188, Lit305, 8194);
+        string$Mnreplace$Mnmappings$Mnlongest$Mnstring = new ModuleMethod(runtime, FullScreenVideoUtil.FULLSCREEN_VIDEO_DIALOG_FLAG, Lit306, 8194);
+        string$Mnreplace$Mnmappings$Mnearliest$Mnoccurrence = new ModuleMethod(runtime, FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_SEEK, Lit307, 8194);
+        make$Mnexact$Mnyail$Mninteger = new ModuleMethod(runtime, FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_PLAY, Lit308, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        make$Mncolor = new ModuleMethod(runtime, FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_PAUSE, Lit309, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        split$Mncolor = new ModuleMethod(runtime, FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_STOP, Lit310, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        close$Mnscreen = new ModuleMethod(runtime, FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_SOURCE, Lit311, 0);
+        close$Mnapplication = new ModuleMethod(runtime, FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_FULLSCREEN, Lit312, 0);
+        open$Mnanother$Mnscreen = new ModuleMethod(runtime, FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_DURATION, Lit313, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        open$Mnanother$Mnscreen$Mnwith$Mnstart$Mnvalue = new ModuleMethod(runtime, 197, Lit314, 8194);
+        get$Mnstart$Mnvalue = new ModuleMethod(runtime, 198, Lit315, 0);
+        close$Mnscreen$Mnwith$Mnvalue = new ModuleMethod(runtime, 199, Lit316, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        get$Mnplain$Mnstart$Mntext = new ModuleMethod(runtime, HttpRequestContext.HTTP_OK, Lit317, 0);
+        close$Mnscreen$Mnwith$Mnplain$Mntext = new ModuleMethod(runtime, ErrorMessages.ERROR_CAMERA_NO_IMAGE_RETURNED, Lit318, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        get$Mnserver$Mnaddress$Mnfrom$Mnwifi = new ModuleMethod(runtime, ErrorMessages.ERROR_NO_CAMERA_PERMISSION, Lit319, 0);
+        in$Mnui = new ModuleMethod(runtime, 203, Lit322, 8194);
+        send$Mnto$Mnblock = new ModuleMethod(runtime, 204, Lit323, 8194);
+        clear$Mncurrent$Mnform = new ModuleMethod(runtime, 205, Lit324, 0);
+        set$Mnform$Mnname = new ModuleMethod(runtime, YaVersion.YOUNG_ANDROID_VERSION, Lit325, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        remove$Mncomponent = new ModuleMethod(runtime, 207, Lit326, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        rename$Mncomponent = new ModuleMethod(runtime, 208, Lit327, 8194);
+        init$Mnruntime = new ModuleMethod(runtime, 209, Lit328, 0);
+        set$Mnthis$Mnform = new ModuleMethod(runtime, 210, Lit329, 0);
+        clarify = new ModuleMethod(runtime, 211, Lit330, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        clarify1 = new ModuleMethod(runtime, 212, Lit331, FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
     }
 
     static Object lambda16(Object stx) {
         Object[] allocVars = SyntaxPattern.allocVars(2, null);
-        if (!Lit46.match(stx, allocVars, 0)) {
+        if (!Lit52.match(stx, allocVars, 0)) {
             return syntax_case.error("syntax-case", stx);
         }
         Object[] objArr = new Object[3];
         objArr[0] = "";
         objArr[1] = "";
-        Object execute = Lit47.execute(allocVars, TemplateScope.make());
+        Object execute = Lit53.execute(allocVars, TemplateScope.make());
         try {
             objArr[2] = misc.symbol$To$String((Symbol) execute);
             return std_syntax.datum$To$SyntaxObject(stx, strings.stringAppend(objArr));
@@ -2277,7 +2311,7 @@ public class runtime extends ModuleBody implements Runnable {
                 callContext.proc = moduleMethod;
                 callContext.pc = 4;
                 return 0;
-            case 149:
+            case 151:
                 callContext.value1 = obj;
                 callContext.value2 = obj2;
                 callContext.value3 = obj3;
@@ -2285,7 +2319,7 @@ public class runtime extends ModuleBody implements Runnable {
                 callContext.proc = moduleMethod;
                 callContext.pc = 4;
                 return 0;
-            case 150:
+            case 152:
                 callContext.value1 = obj;
                 callContext.value2 = obj2;
                 callContext.value3 = obj3;
@@ -2373,17 +2407,17 @@ public class runtime extends ModuleBody implements Runnable {
                 callContext.proc = moduleMethod;
                 callContext.pc = 5;
                 return 0;
-            case 130:
+            case 132:
                 callContext.values = objArr;
                 callContext.proc = moduleMethod;
                 callContext.pc = 5;
                 return 0;
-            case 145:
+            case 147:
                 callContext.values = objArr;
                 callContext.proc = moduleMethod;
                 callContext.pc = 5;
                 return 0;
-            case 155:
+            case 157:
                 callContext.values = objArr;
                 callContext.proc = moduleMethod;
                 callContext.pc = 5;
@@ -2531,25 +2565,19 @@ public class runtime extends ModuleBody implements Runnable {
                 callContext.proc = moduleMethod;
                 callContext.pc = 2;
                 return 0;
-            case 110:
+            case 112:
                 callContext.value1 = obj;
                 callContext.value2 = obj2;
                 callContext.proc = moduleMethod;
                 callContext.pc = 2;
                 return 0;
-            case 125:
+            case 127:
                 callContext.value1 = obj;
                 callContext.value2 = obj2;
                 callContext.proc = moduleMethod;
                 callContext.pc = 2;
                 return 0;
-            case 139:
-                callContext.value1 = obj;
-                callContext.value2 = obj2;
-                callContext.proc = moduleMethod;
-                callContext.pc = 2;
-                return 0;
-            case 140:
+            case 141:
                 callContext.value1 = obj;
                 callContext.value2 = obj2;
                 callContext.proc = moduleMethod;
@@ -2579,13 +2607,13 @@ public class runtime extends ModuleBody implements Runnable {
                 callContext.proc = moduleMethod;
                 callContext.pc = 2;
                 return 0;
-            case 151:
+            case 150:
                 callContext.value1 = obj;
                 callContext.value2 = obj2;
                 callContext.proc = moduleMethod;
                 callContext.pc = 2;
                 return 0;
-            case 154:
+            case 153:
                 callContext.value1 = obj;
                 callContext.value2 = obj2;
                 callContext.proc = moduleMethod;
@@ -2603,31 +2631,25 @@ public class runtime extends ModuleBody implements Runnable {
                 callContext.proc = moduleMethod;
                 callContext.pc = 2;
                 return 0;
-            case 161:
+            case ComponentConstants.TEXTBOX_PREFERRED_WIDTH /*160*/:
                 callContext.value1 = obj;
                 callContext.value2 = obj2;
                 callContext.proc = moduleMethod;
                 callContext.pc = 2;
                 return 0;
-            case 165:
+            case 163:
                 callContext.value1 = obj;
                 callContext.value2 = obj2;
                 callContext.proc = moduleMethod;
                 callContext.pc = 2;
                 return 0;
-            case 170:
+            case 167:
                 callContext.value1 = obj;
                 callContext.value2 = obj2;
                 callContext.proc = moduleMethod;
                 callContext.pc = 2;
                 return 0;
-            case 174:
-                callContext.value1 = obj;
-                callContext.value2 = obj2;
-                callContext.proc = moduleMethod;
-                callContext.pc = 2;
-                return 0;
-            case 175:
+            case 172:
                 callContext.value1 = obj;
                 callContext.value2 = obj2;
                 callContext.proc = moduleMethod;
@@ -2657,31 +2679,61 @@ public class runtime extends ModuleBody implements Runnable {
                 callContext.proc = moduleMethod;
                 callContext.pc = 2;
                 return 0;
-            case 185:
+            case 180:
                 callContext.value1 = obj;
                 callContext.value2 = obj2;
                 callContext.proc = moduleMethod;
                 callContext.pc = 2;
                 return 0;
-            case FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_PAUSE /*192*/:
+            case 181:
                 callContext.value1 = obj;
                 callContext.value2 = obj2;
                 callContext.proc = moduleMethod;
                 callContext.pc = 2;
                 return 0;
-            case 198:
+            case 187:
                 callContext.value1 = obj;
                 callContext.value2 = obj2;
                 callContext.proc = moduleMethod;
                 callContext.pc = 2;
                 return 0;
-            case 199:
+            case 188:
+                callContext.value1 = obj;
+                callContext.value2 = obj2;
+                callContext.proc = moduleMethod;
+                callContext.pc = 2;
+                return 0;
+            case FullScreenVideoUtil.FULLSCREEN_VIDEO_DIALOG_FLAG /*189*/:
+                callContext.value1 = obj;
+                callContext.value2 = obj2;
+                callContext.proc = moduleMethod;
+                callContext.pc = 2;
+                return 0;
+            case FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_SEEK /*190*/:
+                callContext.value1 = obj;
+                callContext.value2 = obj2;
+                callContext.proc = moduleMethod;
+                callContext.pc = 2;
+                return 0;
+            case 197:
                 callContext.value1 = obj;
                 callContext.value2 = obj2;
                 callContext.proc = moduleMethod;
                 callContext.pc = 2;
                 return 0;
             case 203:
+                callContext.value1 = obj;
+                callContext.value2 = obj2;
+                callContext.proc = moduleMethod;
+                callContext.pc = 2;
+                return 0;
+            case 204:
+                callContext.value1 = obj;
+                callContext.value2 = obj2;
+                callContext.proc = moduleMethod;
+                callContext.pc = 2;
+                return 0;
+            case 208:
                 callContext.value1 = obj;
                 callContext.value2 = obj2;
                 callContext.proc = moduleMethod;
@@ -2727,15 +2779,7 @@ public class runtime extends ModuleBody implements Runnable {
                 callContext.proc = moduleMethod;
                 callContext.pc = 0;
                 return 0;
-            case FullScreenVideoUtil.FULLSCREEN_VIDEO_DIALOG_FLAG /*189*/:
-                callContext.proc = moduleMethod;
-                callContext.pc = 0;
-                return 0;
-            case FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_SEEK /*190*/:
-                callContext.proc = moduleMethod;
-                callContext.pc = 0;
-                return 0;
-            case FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_STOP /*193*/:
+            case FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_SOURCE /*194*/:
                 callContext.proc = moduleMethod;
                 callContext.pc = 0;
                 return 0;
@@ -2743,7 +2787,7 @@ public class runtime extends ModuleBody implements Runnable {
                 callContext.proc = moduleMethod;
                 callContext.pc = 0;
                 return 0;
-            case YaVersion.YOUNG_ANDROID_VERSION /*197*/:
+            case 198:
                 callContext.proc = moduleMethod;
                 callContext.pc = 0;
                 return 0;
@@ -2751,11 +2795,19 @@ public class runtime extends ModuleBody implements Runnable {
                 callContext.proc = moduleMethod;
                 callContext.pc = 0;
                 return 0;
-            case 204:
+            case ErrorMessages.ERROR_NO_CAMERA_PERMISSION /*202*/:
                 callContext.proc = moduleMethod;
                 callContext.pc = 0;
                 return 0;
             case 205:
+                callContext.proc = moduleMethod;
+                callContext.pc = 0;
+                return 0;
+            case 209:
+                callContext.proc = moduleMethod;
+                callContext.pc = 0;
+                return 0;
+            case 210:
                 callContext.proc = moduleMethod;
                 callContext.pc = 0;
                 return 0;
@@ -2834,13 +2886,6 @@ public class runtime extends ModuleBody implements Runnable {
                 callContext.proc = moduleMethod;
                 callContext.pc = 3;
                 return 0;
-            case 141:
-                callContext.value1 = obj;
-                callContext.value2 = obj2;
-                callContext.value3 = obj3;
-                callContext.proc = moduleMethod;
-                callContext.pc = 3;
-                return 0;
             case 143:
                 callContext.value1 = obj;
                 callContext.value2 = obj2;
@@ -2848,14 +2893,14 @@ public class runtime extends ModuleBody implements Runnable {
                 callContext.proc = moduleMethod;
                 callContext.pc = 3;
                 return 0;
-            case 152:
+            case 145:
                 callContext.value1 = obj;
                 callContext.value2 = obj2;
                 callContext.value3 = obj3;
                 callContext.proc = moduleMethod;
                 callContext.pc = 3;
                 return 0;
-            case 157:
+            case 154:
                 callContext.value1 = obj;
                 callContext.value2 = obj2;
                 callContext.value3 = obj3;
@@ -2869,7 +2914,7 @@ public class runtime extends ModuleBody implements Runnable {
                 callContext.proc = moduleMethod;
                 callContext.pc = 3;
                 return 0;
-            case ComponentConstants.TEXTBOX_PREFERRED_WIDTH /*160*/:
+            case 161:
                 callContext.value1 = obj;
                 callContext.value2 = obj2;
                 callContext.value3 = obj3;
@@ -2883,7 +2928,7 @@ public class runtime extends ModuleBody implements Runnable {
                 callContext.proc = moduleMethod;
                 callContext.pc = 3;
                 return 0;
-            case 181:
+            case 164:
                 callContext.value1 = obj;
                 callContext.value2 = obj2;
                 callContext.value3 = obj3;
@@ -2891,6 +2936,13 @@ public class runtime extends ModuleBody implements Runnable {
                 callContext.pc = 3;
                 return 0;
             case 183:
+                callContext.value1 = obj;
+                callContext.value2 = obj2;
+                callContext.value3 = obj3;
+                callContext.proc = moduleMethod;
+                callContext.pc = 3;
+                return 0;
+            case 185:
                 callContext.value1 = obj;
                 callContext.value2 = obj2;
                 callContext.value3 = obj3;
@@ -2941,36 +2993,36 @@ public class runtime extends ModuleBody implements Runnable {
 
     static Object lambda17(Object stx) {
         Object[] allocVars = SyntaxPattern.allocVars(3, null);
-        if (!Lit83.match(stx, allocVars, 0)) {
+        if (!Lit89.match(stx, allocVars, 0)) {
             return syntax_case.error("syntax-case", stx);
         }
-        return std_syntax.datum$To$SyntaxObject(stx, Lit84.execute(allocVars, TemplateScope.make()));
+        return std_syntax.datum$To$SyntaxObject(stx, Lit90.execute(allocVars, TemplateScope.make()));
     }
 
     static Object lambda18(Object stx) {
         Object[] allocVars = SyntaxPattern.allocVars(3, null);
-        if (!Lit86.match(stx, allocVars, 0)) {
+        if (!Lit92.match(stx, allocVars, 0)) {
             return syntax_case.error("syntax-case", stx);
         }
-        return std_syntax.datum$To$SyntaxObject(stx, Lit87.execute(allocVars, TemplateScope.make()));
+        return std_syntax.datum$To$SyntaxObject(stx, Lit93.execute(allocVars, TemplateScope.make()));
     }
 
     static Object lambda19(Object stx) {
         Object[] allocVars = SyntaxPattern.allocVars(5, null);
-        if (!Lit93.match(stx, allocVars, 0)) {
+        if (!Lit99.match(stx, allocVars, 0)) {
             return syntax_case.error("syntax-case", stx);
         }
         TemplateScope make = TemplateScope.make();
-        return Quote.append$V(new Object[]{Lit94.execute(allocVars, make), Pair.make(Quote.append$V(new Object[]{Lit95.execute(allocVars, make), Quote.consX$V(new Object[]{symbolAppend$V(new Object[]{Lit96.execute(allocVars, make), Lit97, Lit98.execute(allocVars, make)}), Lit99.execute(allocVars, make)})}), Lit100.execute(allocVars, make))});
+        return Quote.append$V(new Object[]{Lit100.execute(allocVars, make), Pair.make(Quote.append$V(new Object[]{Lit101.execute(allocVars, make), Quote.consX$V(new Object[]{symbolAppend$V(new Object[]{Lit102.execute(allocVars, make), Lit103, Lit104.execute(allocVars, make)}), Lit105.execute(allocVars, make)})}), Lit106.execute(allocVars, make))});
     }
 
     static Object lambda20(Object stx) {
         Object[] allocVars = SyntaxPattern.allocVars(5, null);
-        if (!Lit102.match(stx, allocVars, 0)) {
+        if (!Lit108.match(stx, allocVars, 0)) {
             return syntax_case.error("syntax-case", stx);
         }
         TemplateScope make = TemplateScope.make();
-        return Quote.append$V(new Object[]{Lit103.execute(allocVars, make), Pair.make(Quote.append$V(new Object[]{Lit104.execute(allocVars, make), Quote.consX$V(new Object[]{symbolAppend$V(new Object[]{Lit105, Lit106.execute(allocVars, make), Lit97, Lit107.execute(allocVars, make)}), Lit108.execute(allocVars, make)})}), Lit109.execute(allocVars, make))});
+        return Quote.append$V(new Object[]{Lit109.execute(allocVars, make), Pair.make(Quote.append$V(new Object[]{Lit110.execute(allocVars, make), Quote.consX$V(new Object[]{symbolAppend$V(new Object[]{Lit111, Lit112.execute(allocVars, make), Lit103, Lit113.execute(allocVars, make)}), Lit114.execute(allocVars, make)})}), Lit115.execute(allocVars, make))});
     }
 
     public Object apply1(ModuleMethod moduleMethod, Object obj) {
@@ -3101,11 +3153,11 @@ public class runtime extends ModuleBody implements Runnable {
             case 100:
                 return radians$To$Degrees(obj);
             case 101:
-                return Double.valueOf(sinDegrees(obj));
+                return sinDegrees(obj);
             case 102:
-                return Double.valueOf(cosDegrees(obj));
+                return cosDegrees(obj);
             case 103:
-                return Double.valueOf(tanDegrees(obj));
+                return tanDegrees(obj);
             case 104:
                 return asinDegrees(obj);
             case 105:
@@ -3116,108 +3168,116 @@ public class runtime extends ModuleBody implements Runnable {
                 return stringToUpperCase(obj);
             case 109:
                 return stringToLowerCase(obj);
+            case 110:
+                try {
+                    return unicodeString$To$List((CharSequence) obj);
+                } catch (ClassCastException e7) {
+                    throw new WrongType(e7, "unicode-string->list", 1, obj);
+                }
             case 111:
-                return isIsNumber(obj);
-            case 112:
-                return isIsBase10(obj) ? Boolean.TRUE : Boolean.FALSE;
+                return stringReverse(obj);
             case 113:
-                return isIsHexadecimal(obj) ? Boolean.TRUE : Boolean.FALSE;
+                return isIsNumber(obj);
             case 114:
-                return isIsBinary(obj) ? Boolean.TRUE : Boolean.FALSE;
+                return isIsBase10(obj) ? Boolean.TRUE : Boolean.FALSE;
             case 115:
-                return mathConvertDecHex(obj);
+                return isIsHexadecimal(obj) ? Boolean.TRUE : Boolean.FALSE;
             case 116:
-                return mathConvertHexDec(obj);
+                return isIsBinary(obj) ? Boolean.TRUE : Boolean.FALSE;
             case 117:
-                return mathConvertBinDec(obj);
+                return mathConvertDecHex(obj);
             case 118:
-                return mathConvertDecBin(obj);
+                return mathConvertHexDec(obj);
             case 119:
-                return patchedNumber$To$StringBinary(obj);
+                return mathConvertBinDec(obj);
             case 120:
-                return alternateNumber$To$StringBinary(obj);
+                return mathConvertDecBin(obj);
             case 121:
-                return internalBinaryConvert(obj);
+                return patchedNumber$To$StringBinary(obj);
             case 122:
-                return isYailList(obj);
+                return alternateNumber$To$StringBinary(obj);
             case 123:
-                return isYailListCandidate(obj);
+                return internalBinaryConvert(obj);
             case 124:
-                return yailListContents(obj);
+                return isYailList(obj);
+            case 125:
+                return isYailListCandidate(obj);
             case 126:
-                return insertYailListHeader(obj);
-            case 127:
-                return kawaList$To$YailList(obj);
+                return yailListContents(obj);
             case 128:
-                return yailList$To$KawaList(obj);
+                return insertYailListHeader(obj);
             case 129:
-                return isYailListEmpty(obj);
+                return kawaList$To$YailList(obj);
+            case 130:
+                return yailList$To$KawaList(obj);
             case 131:
-                return yailListCopy(obj);
-            case 132:
-                return yailListReverse(obj);
+                return isYailListEmpty(obj);
             case 133:
-                return yailListToCsvTable(obj);
+                return yailListCopy(obj);
             case 134:
-                return yailListToCsvRow(obj);
+                return yailListReverse(obj);
             case 135:
-                return convertToStringsForCsv(obj);
+                return yailListToCsvTable(obj);
             case 136:
-                return yailListFromCsvTable(obj);
+                return yailListToCsvRow(obj);
             case 137:
-                return yailListFromCsvRow(obj);
+                return convertToStringsForCsv(obj);
             case 138:
+                return yailListFromCsvTable(obj);
+            case 139:
+                return yailListFromCsvRow(obj);
+            case 140:
                 return Integer.valueOf(yailListLength(obj));
-            case 147:
+            case 149:
                 return yailListPickRandom(obj);
-            case 153:
+            case 155:
                 return isPairOk(obj);
-            case 163:
+            case 165:
                 return yailDictionaryGetKeys(obj);
-            case 164:
-                return yailDictionaryGetValues(obj);
             case 166:
-                return Integer.valueOf(yailDictionaryLength(obj));
-            case 167:
-                return yailDictionaryAlistToDict(obj);
+                return yailDictionaryGetValues(obj);
             case 168:
-                return yailDictionaryDictToAlist(obj);
+                return Integer.valueOf(yailDictionaryLength(obj));
             case 169:
-                return yailDictionaryCopy(obj);
+                return yailDictionaryAlistToDict(obj);
+            case 170:
+                return yailDictionaryDictToAlist(obj);
             case 171:
-                return isYailDictionary(obj);
-            case 172:
-                return makeDisjunct(obj);
+                return yailDictionaryCopy(obj);
             case 173:
+                return isYailDictionary(obj);
+            case 174:
+                return makeDisjunct(obj);
+            case 175:
                 return array$To$List(obj);
-            case 180:
-                return stringSplitAtSpaces(obj);
             case 182:
-                return stringTrim(obj);
+                return stringSplitAtSpaces(obj);
             case 184:
-                return isStringEmpty(obj);
+                return stringTrim(obj);
             case 186:
-                return makeExactYailInteger(obj);
-            case 187:
-                return makeColor(obj);
-            case 188:
-                return splitColor(obj);
+                return isStringEmpty(obj);
             case FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_PLAY /*191*/:
+                return makeExactYailInteger(obj);
+            case FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_PAUSE /*192*/:
+                return makeColor(obj);
+            case FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_STOP /*193*/:
+                return splitColor(obj);
+            case FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_DURATION /*196*/:
                 openAnotherScreen(obj);
                 return Values.empty;
-            case FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_SOURCE /*194*/:
+            case 199:
                 closeScreenWithValue(obj);
                 return Values.empty;
-            case FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_DURATION /*196*/:
+            case ErrorMessages.ERROR_CAMERA_NO_IMAGE_RETURNED /*201*/:
                 closeScreenWithPlainText(obj);
                 return Values.empty;
-            case ErrorMessages.ERROR_CAMERA_NO_IMAGE_RETURNED /*201*/:
+            case YaVersion.YOUNG_ANDROID_VERSION /*206*/:
                 return setFormName(obj);
-            case ErrorMessages.ERROR_NO_CAMERA_PERMISSION /*202*/:
-                return removeComponent(obj);
-            case 206:
-                return clarify(obj);
             case 207:
+                return removeComponent(obj);
+            case 211:
+                return clarify(obj);
+            case 212:
                 return clarify1(obj);
             default:
                 return super.apply1(moduleMethod, obj);
@@ -3317,7 +3377,7 @@ public class runtime extends ModuleBody implements Runnable {
     }
 
     static Object lambda21(Object arg$Mnname, Object bodyform, Object list$Mnof$Mnargs) {
-        return Quote.append$V(new Object[]{Lit122, Pair.make(Quote.append$V(new Object[]{Lit123, Pair.make(Lit124, Pair.make(Quote.append$V(new Object[]{Lit125, Pair.make(Pair.make(Quote.append$V(new Object[]{Lit126, Pair.make(Quote.append$V(new Object[]{Lit127, Pair.make(Quote.consX$V(new Object[]{arg$Mnname, LList.Empty}), Quote.consX$V(new Object[]{bodyform, LList.Empty}))}), LList.Empty)}), LList.Empty), Pair.make(Quote.append$V(new Object[]{Lit128, Quote.consX$V(new Object[]{list$Mnof$Mnargs, LList.Empty})}), LList.Empty))}), LList.Empty))}), LList.Empty)});
+        return Quote.append$V(new Object[]{Lit128, Pair.make(Quote.append$V(new Object[]{Lit129, Pair.make(Lit130, Pair.make(Quote.append$V(new Object[]{Lit131, Pair.make(Pair.make(Quote.append$V(new Object[]{Lit132, Pair.make(Quote.append$V(new Object[]{Lit133, Pair.make(Quote.consX$V(new Object[]{arg$Mnname, LList.Empty}), Quote.consX$V(new Object[]{bodyform, LList.Empty}))}), LList.Empty)}), LList.Empty), Pair.make(Quote.append$V(new Object[]{Lit134, Quote.consX$V(new Object[]{list$Mnof$Mnargs, LList.Empty})}), LList.Empty))}), LList.Empty))}), LList.Empty)});
     }
 
     public static Object $StYailBreak$St(Object ignore) {
@@ -3325,12 +3385,12 @@ public class runtime extends ModuleBody implements Runnable {
     }
 
     static Object lambda22(Object lambda$Mnarg$Mnname, Object body$Mnform, Object start, Object end, Object step) {
-        return Quote.append$V(new Object[]{Lit131, Pair.make(Quote.append$V(new Object[]{Lit132, Pair.make(Lit133, Pair.make(Quote.append$V(new Object[]{Lit134, Pair.make(Quote.append$V(new Object[]{Lit135, Pair.make(Quote.consX$V(new Object[]{lambda$Mnarg$Mnname, LList.Empty}), Quote.consX$V(new Object[]{body$Mnform, LList.Empty}))}), Quote.consX$V(new Object[]{start, Quote.consX$V(new Object[]{end, Quote.consX$V(new Object[]{step, LList.Empty})})}))}), LList.Empty))}), LList.Empty)});
+        return Quote.append$V(new Object[]{Lit137, Pair.make(Quote.append$V(new Object[]{Lit138, Pair.make(Lit139, Pair.make(Quote.append$V(new Object[]{Lit140, Pair.make(Quote.append$V(new Object[]{Lit141, Pair.make(Quote.consX$V(new Object[]{lambda$Mnarg$Mnname, LList.Empty}), Quote.consX$V(new Object[]{body$Mnform, LList.Empty}))}), Quote.consX$V(new Object[]{start, Quote.consX$V(new Object[]{end, Quote.consX$V(new Object[]{step, LList.Empty})})}))}), LList.Empty))}), LList.Empty)});
     }
 
     static Object lambda23$V(Object condition, Object body, Object[] argsArray) {
         LList rest = LList.makeList(argsArray, 0);
-        return Quote.append$V(new Object[]{Lit137, Pair.make(Pair.make(Quote.append$V(new Object[]{Lit138, Pair.make(Quote.append$V(new Object[]{Lit139, Pair.make(Lit140, Pair.make(Quote.append$V(new Object[]{Lit141, Pair.make(Quote.append$V(new Object[]{Lit142, Quote.consX$V(new Object[]{condition, Pair.make(Quote.append$V(new Object[]{Lit143, Pair.make(Quote.append$V(new Object[]{Lit144, Quote.consX$V(new Object[]{body, rest})}), Lit145)}), Lit146)})}), LList.Empty)}), LList.Empty))}), LList.Empty)}), LList.Empty), Lit147)});
+        return Quote.append$V(new Object[]{Lit143, Pair.make(Pair.make(Quote.append$V(new Object[]{Lit144, Pair.make(Quote.append$V(new Object[]{Lit145, Pair.make(Lit146, Pair.make(Quote.append$V(new Object[]{Lit147, Pair.make(Quote.append$V(new Object[]{Lit148, Quote.consX$V(new Object[]{condition, Pair.make(Quote.append$V(new Object[]{Lit149, Pair.make(Quote.append$V(new Object[]{Lit150, Quote.consX$V(new Object[]{body, rest})}), Lit151)}), Lit152)})}), LList.Empty)}), LList.Empty))}), LList.Empty)}), LList.Empty), Lit153)});
     }
 
     public static Object callComponentMethod(Object component$Mnname, Object method$Mnname, Object arglist, Object typelist) {
@@ -3510,7 +3570,7 @@ public class runtime extends ModuleBody implements Runnable {
             objArr[3] = showArglistNoParens(arglist);
             return signalRuntimeError(strings.stringAppend(objArr), strings.stringAppend("Bad arguments to ", string$Mnname));
         } catch (ClassCastException e) {
-            throw new WrongType(e, "length", 1, arglist);
+            throw new WrongType(e, PropertyTypeConstants.PROPERTY_TYPE_LENGTH, 1, arglist);
         }
     }
 
@@ -3576,10 +3636,10 @@ public class runtime extends ModuleBody implements Runnable {
                     }
                     return LList.reverseInPlace(obj);
                 } catch (ClassCastException e3) {
-                    throw new WrongType(e3, "length", 1, typelist);
+                    throw new WrongType(e3, PropertyTypeConstants.PROPERTY_TYPE_LENGTH, 1, typelist);
                 }
             } catch (ClassCastException e4) {
-                throw new WrongType(e4, "length", 1, arglist);
+                throw new WrongType(e4, PropertyTypeConstants.PROPERTY_TYPE_LENGTH, 1, arglist);
             }
         } else if (lists.isNull(arglist)) {
             return arglist;
@@ -3855,9 +3915,9 @@ public class runtime extends ModuleBody implements Runnable {
 
     public static Object joinStrings(Object list$Mnof$Mnstrings, Object separator) {
         try {
-            return JavaJoinListOfStrings.joinStrings((List) list$Mnof$Mnstrings, separator == null ? null : separator.toString());
+            return JavaStringUtils.joinStrings((List) list$Mnof$Mnstrings, separator == null ? null : separator.toString());
         } catch (ClassCastException e) {
-            throw new WrongType(e, "com.google.appinventor.components.runtime.util.JavaJoinListOfStrings.joinStrings(java.util.List,java.lang.String)", 1, list$Mnof$Mnstrings);
+            throw new WrongType(e, "com.google.appinventor.components.runtime.util.JavaStringUtils.joinStrings(java.util.List,java.lang.String)", 1, list$Mnof$Mnstrings);
         }
     }
 
@@ -4186,28 +4246,46 @@ public class runtime extends ModuleBody implements Runnable {
         return DivideOp.modulo.apply2(radians$To$DegreesInternal(radians), Lit29);
     }
 
-    public static double sinDegrees(Object degrees) {
-        Object degrees$To$RadiansInternal = degrees$To$RadiansInternal(degrees);
-        try {
-            return numbers.sin(((Number) degrees$To$RadiansInternal).doubleValue());
-        } catch (ClassCastException e) {
-            throw new WrongType(e, "sin", 1, degrees$To$RadiansInternal);
+    public static Object sinDegrees(Object degrees) {
+        if (Scheme.numEqu.apply2(DivideOp.modulo.apply2(degrees, Lit30), Lit22) == Boolean.FALSE) {
+            Object degrees$To$RadiansInternal = degrees$To$RadiansInternal(degrees);
+            try {
+                return Double.valueOf(numbers.sin(((Number) degrees$To$RadiansInternal).doubleValue()));
+            } catch (ClassCastException e) {
+                throw new WrongType(e, "sin", 1, degrees$To$RadiansInternal);
+            }
+        } else if (Scheme.numEqu.apply2(DivideOp.modulo.apply2(DivideOp.$Sl.apply2(degrees, Lit30), Lit23), Lit22) != Boolean.FALSE) {
+            return Lit22;
+        } else {
+            return Scheme.numEqu.apply2(DivideOp.modulo.apply2(DivideOp.$Sl.apply2(AddOp.$Mn.apply2(degrees, Lit30), Lit26), Lit23), Lit22) != Boolean.FALSE ? Lit21 : Lit31;
         }
     }
 
-    public static double cosDegrees(Object degrees) {
-        Object degrees$To$RadiansInternal = degrees$To$RadiansInternal(degrees);
-        try {
-            return numbers.cos(((Number) degrees$To$RadiansInternal).doubleValue());
-        } catch (ClassCastException e) {
-            throw new WrongType(e, "cos", 1, degrees$To$RadiansInternal);
+    public static Object cosDegrees(Object degrees) {
+        if (Scheme.numEqu.apply2(DivideOp.modulo.apply2(degrees, Lit30), Lit22) == Boolean.FALSE) {
+            Object degrees$To$RadiansInternal = degrees$To$RadiansInternal(degrees);
+            try {
+                return Double.valueOf(numbers.cos(((Number) degrees$To$RadiansInternal).doubleValue()));
+            } catch (ClassCastException e) {
+                throw new WrongType(e, "cos", 1, degrees$To$RadiansInternal);
+            }
+        } else if (Scheme.numEqu.apply2(DivideOp.modulo.apply2(DivideOp.$Sl.apply2(degrees, Lit30), Lit23), Lit21) != Boolean.FALSE) {
+            return Lit22;
+        } else {
+            return Scheme.numEqu.apply2(DivideOp.modulo.apply2(DivideOp.$Sl.apply2(degrees, Lit26), Lit23), Lit21) != Boolean.FALSE ? Lit31 : Lit21;
         }
     }
 
-    public static double tanDegrees(Object degrees) {
+    public static Object tanDegrees(Object degrees) {
+        if (Scheme.numEqu.apply2(DivideOp.modulo.apply2(degrees, Lit26), Lit22) != Boolean.FALSE) {
+            return Lit22;
+        }
+        if (Scheme.numEqu.apply2(DivideOp.modulo.apply2(AddOp.$Mn.apply2(degrees, Lit32), Lit30), Lit22) != Boolean.FALSE) {
+            return Scheme.numEqu.apply2(DivideOp.modulo.apply2(DivideOp.$Sl.apply2(AddOp.$Mn.apply2(degrees, Lit32), Lit30), Lit23), Lit22) != Boolean.FALSE ? Lit21 : Lit31;
+        }
         Object degrees$To$RadiansInternal = degrees$To$RadiansInternal(degrees);
         try {
-            return numbers.tan(((Number) degrees$To$RadiansInternal).doubleValue());
+            return Double.valueOf(numbers.tan(((Number) degrees$To$RadiansInternal).doubleValue()));
         } catch (ClassCastException e) {
             throw new WrongType(e, "tan", 1, degrees$To$RadiansInternal);
         }
@@ -4243,6 +4321,54 @@ public class runtime extends ModuleBody implements Runnable {
 
     public static String stringToLowerCase(Object s) {
         return s.toString().toLowerCase();
+    }
+
+    /* JADX WARNING: Code restructure failed: missing block: B:18:0x0070, code lost:
+        r3 = new gnu.lists.Pair(gnu.text.Char.make(kawa.lib.strings.stringRef(r10, r2)), r4);
+     */
+    /* JADX WARNING: Code restructure failed: missing block: B:19:0x007f, code lost:
+        if (r5 != false) goto L_0x004c;
+     */
+    /* JADX WARNING: Code restructure failed: missing block: B:20:0x0082, code lost:
+        if (r5 != false) goto L_0x004c;
+     */
+    /* JADX WARNING: Code restructure failed: missing block: B:21:0x0085, code lost:
+        if (r5 != false) goto L_0x004c;
+     */
+    public static LList unicodeString$To$List(CharSequence str) {
+        LList result = LList.Empty;
+        int i = strings.stringLength(str);
+        while (true) {
+            LList result2 = result;
+            i--;
+            if (i < 0) {
+                return result2;
+            }
+            boolean x = i >= 1;
+            if (x) {
+                char c = strings.stringRef(str, i);
+                char c1 = strings.stringRef(str, i - 1);
+                boolean x2 = characters.isChar$Gr$Eq(Char.make(c), Lit33);
+                if (x2) {
+                    boolean x3 = characters.isChar$Ls$Eq(Char.make(c), Lit34);
+                    if (x3) {
+                        boolean x4 = characters.isChar$Gr$Eq(Char.make(c1), Lit35);
+                        if (!x4) {
+                        }
+                    }
+                }
+            }
+            result = new Pair(Char.make(strings.stringRef(str, i)), new Pair(Char.make(strings.stringRef(str, i - 1)), result2));
+            i--;
+        }
+    }
+
+    public static CharSequence stringReverse(Object s) {
+        try {
+            return strings.list$To$String(lists.reverse(unicodeString$To$List((CharSequence) s)));
+        } catch (ClassCastException e) {
+            throw new WrongType(e, "unicode-string->list", 0, s);
+        }
     }
 
     public static Object formatAsDecimal(Object number, Object places) {
@@ -4362,7 +4488,7 @@ public class runtime extends ModuleBody implements Runnable {
 
     public static Object patchedNumber$To$StringBinary(Object x) {
         try {
-            if (Scheme.numLss.apply2(numbers.abs((Number) x), Lit30) == Boolean.FALSE) {
+            if (Scheme.numLss.apply2(numbers.abs((Number) x), Lit36) == Boolean.FALSE) {
                 return alternateNumber$To$StringBinary(x);
             }
             try {
@@ -4413,7 +4539,7 @@ public class runtime extends ModuleBody implements Runnable {
 
     public static Object isYailListCandidate(Object x) {
         boolean x2 = lists.isPair(x);
-        return x2 ? IsEqual.apply(lists.car.apply1(x), Lit31) ? Boolean.TRUE : Boolean.FALSE : x2 ? Boolean.TRUE : Boolean.FALSE;
+        return x2 ? IsEqual.apply(lists.car.apply1(x), Lit37) ? Boolean.TRUE : Boolean.FALSE : x2 ? Boolean.TRUE : Boolean.FALSE;
     }
 
     public static Object yailListContents(Object yail$Mnlist) {
@@ -4429,7 +4555,7 @@ public class runtime extends ModuleBody implements Runnable {
     }
 
     public static Object insertYailListHeader(Object x) {
-        return Invoke.invokeStatic.apply3(YailList, Lit32, x);
+        return Invoke.invokeStatic.apply3(YailList, Lit38, x);
     }
 
     public static Object kawaList$To$YailList(Object x) {
@@ -4605,7 +4731,7 @@ public class runtime extends ModuleBody implements Runnable {
         try {
             return lists.length((LList) yailListContents);
         } catch (ClassCastException e) {
-            throw new WrongType(e, "length", 1, yailListContents);
+            throw new WrongType(e, PropertyTypeConstants.PROPERTY_TYPE_LENGTH, 1, yailListContents);
         }
     }
 
@@ -4727,7 +4853,7 @@ public class runtime extends ModuleBody implements Runnable {
                 throw new WrongType(e, "set-cdr!", 1, listTail);
             }
         } catch (ClassCastException e2) {
-            throw new WrongType(e2, "length", 1, yailListContents);
+            throw new WrongType(e2, PropertyTypeConstants.PROPERTY_TYPE_LENGTH, 1, yailListContents);
         }
     }
 
@@ -4885,9 +5011,9 @@ public class runtime extends ModuleBody implements Runnable {
                 return callWithCoercedArgs(obj, obj2, obj3, obj4);
             case 54:
                 return $PcSetAndCoerceProperty$Ex(obj, obj2, obj3, obj4);
-            case 149:
+            case 151:
                 return yailForRange(obj, obj2, obj3, obj4);
-            case 150:
+            case 152:
                 return yailForRangeWithNumericCheckedArgs(obj, obj2, obj3, obj4);
             default:
                 return super.apply4(moduleMethod, obj, obj2, obj3, obj4);
@@ -4937,7 +5063,7 @@ public class runtime extends ModuleBody implements Runnable {
         try {
             return lists.length((LList) yailListContents) == 2 ? Boolean.TRUE : Boolean.FALSE;
         } catch (ClassCastException e) {
-            throw new WrongType(e, "length", 1, yailListContents);
+            throw new WrongType(e, PropertyTypeConstants.PROPERTY_TYPE_LENGTH, 1, yailListContents);
         }
     }
 
@@ -4977,9 +5103,9 @@ public class runtime extends ModuleBody implements Runnable {
                 return processAndDelayed$V(objArr);
             case 88:
                 return processOrDelayed$V(objArr);
-            case 130:
+            case 132:
                 return makeYailList$V(objArr);
-            case 145:
+            case 147:
                 Object obj3 = objArr[0];
                 int length2 = objArr.length - 1;
                 Object[] objArr3 = new Object[length2];
@@ -4991,7 +5117,7 @@ public class runtime extends ModuleBody implements Runnable {
                     }
                     objArr3[length2] = objArr[length2 + 1];
                 }
-            case 155:
+            case 157:
                 return makeYailDictionary$V(objArr);
             default:
                 return super.applyN(moduleMethod, objArr);
@@ -5044,7 +5170,7 @@ public class runtime extends ModuleBody implements Runnable {
     }
 
     public static Object yailDictionaryRecursiveSet(Object keys, Object yail$Mndictionary, Object value) {
-        return Scheme.applyToArgs.apply3(GetNamedPart.getNamedPart.apply2(yail$Mndictionary, Lit33), yailListContents(keys), value);
+        return Scheme.applyToArgs.apply3(GetNamedPart.getNamedPart.apply2(yail$Mndictionary, Lit39), yailListContents(keys), value);
     }
 
     public static YailList yailDictionaryGetKeys(Object yail$Mndictionary) {
@@ -5223,25 +5349,25 @@ public class runtime extends ModuleBody implements Runnable {
                 return $PcSetSubformLayoutProperty$Ex(obj, obj2, obj3);
             case 58:
                 return coerceArgs(obj, obj2, obj3);
-            case 141:
+            case 143:
                 yailListSetItem$Ex(obj, obj2, obj3);
                 return Values.empty;
-            case 143:
+            case 145:
                 yailListInsertItem$Ex(obj, obj2, obj3);
                 return Values.empty;
-            case 152:
+            case 154:
                 return yailAlistLookup(obj, obj2, obj3);
-            case 157:
-                return yailDictionarySetPair(obj, obj2, obj3);
             case 159:
+                return yailDictionarySetPair(obj, obj2, obj3);
+            case 161:
                 return yailDictionaryLookup(obj, obj2, obj3);
-            case ComponentConstants.TEXTBOX_PREFERRED_WIDTH /*160*/:
-                return yailDictionaryRecursiveLookup(obj, obj2, obj3);
             case 162:
+                return yailDictionaryRecursiveLookup(obj, obj2, obj3);
+            case 164:
                 return yailDictionaryRecursiveSet(obj, obj2, obj3);
-            case 181:
-                return stringSubstring(obj, obj2, obj3);
             case 183:
+                return stringSubstring(obj, obj2, obj3);
+            case 185:
                 return stringReplaceAll(obj, obj2, obj3);
             default:
                 return super.apply3(moduleMethod, obj, obj2, obj3);
@@ -5278,15 +5404,15 @@ public class runtime extends ModuleBody implements Runnable {
                     try {
                         try {
                             int c = characters.char$To$Integer(Char.make(strings.stringRef((CharSequence) obj4, ((Number) obj).intValue())));
-                            Object b = BitwiseOp.and.apply2(BitwiseOp.xor.apply2(Integer.valueOf(c), AddOp.$Mn.apply2(valueOf, obj)), Lit34);
-                            Object b2 = BitwiseOp.and.apply2(BitwiseOp.xor.apply2(Integer.valueOf(c >> 8), obj), Lit34);
-                            Object b3 = BitwiseOp.and.apply2(BitwiseOp.ior.apply2(BitwiseOp.ashiftl.apply2(b2, Lit35), b), Lit34);
+                            Object b = BitwiseOp.and.apply2(BitwiseOp.xor.apply2(Integer.valueOf(c), AddOp.$Mn.apply2(valueOf, obj)), Lit40);
+                            Object b2 = BitwiseOp.and.apply2(BitwiseOp.xor.apply2(Integer.valueOf(c >> 8), obj), Lit40);
+                            Object b3 = BitwiseOp.and.apply2(BitwiseOp.ior.apply2(BitwiseOp.ashiftl.apply2(b2, Lit41), b), Lit40);
                             BitwiseOp bitwiseOp = BitwiseOp.and;
                             BitwiseOp bitwiseOp2 = BitwiseOp.xor;
                             Object obj5 = frame42.lc;
                             try {
                                 try {
-                                    LList cons = lists.cons(bitwiseOp.apply2(bitwiseOp2.apply2(b3, Integer.valueOf(characters.char$To$Integer(Char.make(strings.stringRef((CharSequence) obj5, ((Number) obj).intValue()))))), Lit34), lList);
+                                    LList cons = lists.cons(bitwiseOp.apply2(bitwiseOp2.apply2(b3, Integer.valueOf(characters.char$To$Integer(Char.make(strings.stringRef((CharSequence) obj5, ((Number) obj).intValue()))))), Lit40), lList);
                                     obj = AddOp.$Pl.apply2(Lit21, obj);
                                     lList = cons;
                                 } catch (ClassCastException e) {
@@ -5341,6 +5467,30 @@ public class runtime extends ModuleBody implements Runnable {
         }
     }
 
+    public static String stringReplaceMappingsDictionary(Object text, Object mappings) {
+        try {
+            return JavaStringUtils.replaceAllMappingsDictionaryOrder(text == null ? null : text.toString(), (Map) mappings);
+        } catch (ClassCastException e) {
+            throw new WrongType(e, "com.google.appinventor.components.runtime.util.JavaStringUtils.replaceAllMappingsDictionaryOrder(java.lang.String,java.util.Map)", 2, mappings);
+        }
+    }
+
+    public static String stringReplaceMappingsLongestString(Object text, Object mappings) {
+        try {
+            return JavaStringUtils.replaceAllMappingsLongestStringOrder(text == null ? null : text.toString(), (Map) mappings);
+        } catch (ClassCastException e) {
+            throw new WrongType(e, "com.google.appinventor.components.runtime.util.JavaStringUtils.replaceAllMappingsLongestStringOrder(java.lang.String,java.util.Map)", 2, mappings);
+        }
+    }
+
+    public static String stringReplaceMappingsEarliestOccurrence(Object text, Object mappings) {
+        try {
+            return JavaStringUtils.replaceAllMappingsEarliestOccurrenceOrder(text == null ? null : text.toString(), (Map) mappings);
+        } catch (ClassCastException e) {
+            throw new WrongType(e, "com.google.appinventor.components.runtime.util.JavaStringUtils.replaceAllMappingsEarliestOccurrenceOrder(java.lang.String,java.util.Map)", 2, mappings);
+        }
+    }
+
     public static Number makeExactYailInteger(Object x) {
         Object coerceToNumber = coerceToNumber(x);
         try {
@@ -5354,9 +5504,9 @@ public class runtime extends ModuleBody implements Runnable {
         Number alpha;
         Number red = makeExactYailInteger(yailListGetItem(color$Mncomponents, Lit21));
         Number green = makeExactYailInteger(yailListGetItem(color$Mncomponents, Lit23));
-        Number blue = makeExactYailInteger(yailListGetItem(color$Mncomponents, Lit39));
+        Number blue = makeExactYailInteger(yailListGetItem(color$Mncomponents, Lit45));
         if (yailListLength(color$Mncomponents) > 3) {
-            alpha = makeExactYailInteger(yailListGetItem(color$Mncomponents, Lit40));
+            alpha = makeExactYailInteger(yailListGetItem(color$Mncomponents, Lit46));
         } else {
             Object obj = $Stalpha$Mnopaque$St;
             try {
@@ -5408,7 +5558,7 @@ public class runtime extends ModuleBody implements Runnable {
     }
 
     public static String getServerAddressFromWifi() {
-        Object slotValue = SlotGet.getSlotValue(false, Scheme.applyToArgs.apply1(GetNamedPart.getNamedPart.apply2(((Context) $Stthis$Mnform$St).getSystemService(Context.WIFI_SERVICE), Lit42)), "ipAddress", "ipAddress", "getIpAddress", "isIpAddress", Scheme.instance);
+        Object slotValue = SlotGet.getSlotValue(false, Scheme.applyToArgs.apply1(GetNamedPart.getNamedPart.apply2(((Context) $Stthis$Mnform$St).getSystemService(Context.WIFI_SERVICE), Lit48)), "ipAddress", "ipAddress", "getIpAddress", "isIpAddress", Scheme.instance);
         try {
             return Formatter.formatIpAddress(((Number) slotValue).intValue());
         } catch (ClassCastException e) {
@@ -5421,7 +5571,7 @@ public class runtime extends ModuleBody implements Runnable {
         frame52.blockid = blockid;
         frame52.promise = promise;
         $Stthis$Mnis$Mnthe$Mnrepl$St = Boolean.TRUE;
-        return Scheme.applyToArgs.apply2(GetNamedPart.getNamedPart.apply2($Stui$Mnhandler$St, Lit43), thread.runnable(frame52.lambda$Fn13));
+        return Scheme.applyToArgs.apply2(GetNamedPart.getNamedPart.apply2($Stui$Mnhandler$St, Lit49), thread.runnable(frame52.lambda$Fn13));
     }
 
     public static Object sendToBlock(Object blockid, Object message) {
@@ -5538,62 +5688,68 @@ public class runtime extends ModuleBody implements Runnable {
                 return yailDivide(obj, obj2);
             case 107:
                 return atan2Degrees(obj, obj2);
-            case 110:
+            case 112:
                 return formatAsDecimal(obj, obj2);
-            case 125:
+            case 127:
                 setYailListContents$Ex(obj, obj2);
                 return Values.empty;
-            case 139:
+            case 141:
                 return yailListIndex(obj, obj2);
-            case 140:
-                return yailListGetItem(obj, obj2);
             case 142:
+                return yailListGetItem(obj, obj2);
+            case 144:
                 yailListRemoveItem$Ex(obj, obj2);
                 return Values.empty;
-            case 144:
+            case 146:
                 yailListAppend$Ex(obj, obj2);
                 return Values.empty;
-            case 146:
-                return isYailListMember(obj, obj2);
             case 148:
+                return isYailListMember(obj, obj2);
+            case 150:
                 return yailForEach(obj, obj2);
-            case 151:
+            case 153:
                 return yailNumberRange(obj, obj2);
-            case 154:
-                return yailListJoinWithSeparator(obj, obj2);
             case 156:
-                return makeDictionaryPair(obj, obj2);
+                return yailListJoinWithSeparator(obj, obj2);
             case 158:
+                return makeDictionaryPair(obj, obj2);
+            case ComponentConstants.TEXTBOX_PREFERRED_WIDTH /*160*/:
                 return yailDictionaryDeletePair(obj, obj2);
-            case 161:
+            case 163:
                 return yailDictionaryWalk(obj, obj2);
-            case 165:
+            case 167:
                 return yailDictionaryIsKeyIn(obj, obj2) ? Boolean.TRUE : Boolean.FALSE;
-            case 170:
+            case 172:
                 yailDictionaryCombineDicts(obj, obj2);
                 return Values.empty;
-            case 174:
-                return Integer.valueOf(stringStartsAt(obj, obj2));
-            case 175:
-                return stringContains(obj, obj2);
             case 176:
-                return stringSplitAtFirst(obj, obj2);
+                return Integer.valueOf(stringStartsAt(obj, obj2));
             case 177:
-                return stringSplitAtFirstOfAny(obj, obj2);
+                return stringContains(obj, obj2);
             case 178:
-                return stringSplit(obj, obj2);
+                return stringSplitAtFirst(obj, obj2);
             case 179:
+                return stringSplitAtFirstOfAny(obj, obj2);
+            case 180:
+                return stringSplit(obj, obj2);
+            case 181:
                 return stringSplitAtAny(obj, obj2);
-            case 185:
+            case 187:
                 return textDeobfuscate(obj, obj2);
-            case FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_PAUSE /*192*/:
+            case 188:
+                return stringReplaceMappingsDictionary(obj, obj2);
+            case FullScreenVideoUtil.FULLSCREEN_VIDEO_DIALOG_FLAG /*189*/:
+                return stringReplaceMappingsLongestString(obj, obj2);
+            case FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_SEEK /*190*/:
+                return stringReplaceMappingsEarliestOccurrence(obj, obj2);
+            case 197:
                 openAnotherScreenWithStartValue(obj, obj2);
                 return Values.empty;
-            case 198:
-                return inUi(obj, obj2);
-            case 199:
-                return sendToBlock(obj, obj2);
             case 203:
+                return inUi(obj, obj2);
+            case 204:
+                return sendToBlock(obj, obj2);
+            case 208:
                 return renameComponent(obj, obj2);
             default:
                 return super.apply2(moduleMethod, obj, obj2);
@@ -5619,24 +5775,24 @@ public class runtime extends ModuleBody implements Runnable {
                 return Values.empty;
             case 93:
                 return Double.valueOf(randomFraction());
-            case FullScreenVideoUtil.FULLSCREEN_VIDEO_DIALOG_FLAG /*189*/:
+            case FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_SOURCE /*194*/:
                 closeScreen();
                 return Values.empty;
-            case FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_SEEK /*190*/:
+            case FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_FULLSCREEN /*195*/:
                 closeApplication();
                 return Values.empty;
-            case FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_STOP /*193*/:
+            case 198:
                 return getStartValue();
-            case FullScreenVideoUtil.FULLSCREEN_VIDEO_ACTION_FULLSCREEN /*195*/:
-                return getPlainStartText();
-            case YaVersion.YOUNG_ANDROID_VERSION /*197*/:
-                return getServerAddressFromWifi();
             case HttpRequestContext.HTTP_OK /*200*/:
+                return getPlainStartText();
+            case ErrorMessages.ERROR_NO_CAMERA_PERMISSION /*202*/:
+                return getServerAddressFromWifi();
+            case 205:
                 return clearCurrentForm();
-            case 204:
+            case 209:
                 initRuntime();
                 return Values.empty;
-            case 205:
+            case 210:
                 setThisForm();
                 return Values.empty;
             default:

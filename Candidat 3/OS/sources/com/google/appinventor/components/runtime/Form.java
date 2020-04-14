@@ -17,7 +17,6 @@ import android.support.annotation.VisibleForTesting;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MenuItem.OnMenuItemClickListener;
@@ -76,7 +75,7 @@ import java.util.Random;
 import java.util.Set;
 import org.json.JSONException;
 
-@DesignerComponent(androidMinSdk = 7, category = ComponentCategory.USERINTERFACE, description = "Top-level component containing all other components in the program", showOnPalette = false, version = 26)
+@DesignerComponent(androidMinSdk = 7, category = ComponentCategory.USERINTERFACE, description = "Top-level component containing all other components in the program", showOnPalette = false, version = 27)
 @SimpleObject
 @UsesPermissions(permissionNames = "android.permission.INTERNET,android.permission.ACCESS_WIFI_STATE,android.permission.ACCESS_NETWORK_STATE")
 public class Form extends AppInventorCompatActivity implements Component, ComponentContainer, HandlesEventDispatching, OnGlobalLayoutListener {
@@ -359,16 +358,11 @@ public class Form extends AppInventorCompatActivity implements Component, Compon
         }
     }
 
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode != 4) {
-            return super.onKeyDown(keyCode, event);
+    public void onBackPressed() {
+        if (!BackPressed()) {
+            AnimationUtil.ApplyCloseScreenAnimation(this, this.closeAnimType);
+            super.onBackPressed();
         }
-        if (BackPressed()) {
-            return true;
-        }
-        boolean handled = super.onKeyDown(keyCode, event);
-        AnimationUtil.ApplyCloseScreenAnimation(this, this.closeAnimType);
-        return handled;
     }
 
     @SimpleEvent(description = "Device back button pressed.")
@@ -552,12 +546,12 @@ public class Form extends AppInventorCompatActivity implements Component, Compon
 
     /* access modifiers changed from: protected */
     public void onDestroy() {
-        super.onDestroy();
         Log.i(LOG_TAG, "Form " + this.formName + " got onDestroy");
         EventDispatcher.removeDispatchDelegate(this);
         for (OnDestroyListener onDestroyListener : this.onDestroyListeners) {
             onDestroyListener.onDestroy();
         }
+        super.onDestroy();
     }
 
     public void registerForOnDestroy(OnDestroyListener component) {
@@ -1180,6 +1174,16 @@ public class Form extends AppInventorCompatActivity implements Component, Compon
     @DesignerProperty(defaultValue = "", editorType = "subset_json")
     @SimpleProperty(description = "A JSON string representing the subset for the screen. Authors of template apps can use this to control what components, designer properties, and blocks are available in the project.", userVisible = false)
     public void BlocksToolkit(String json) {
+    }
+
+    @SimpleProperty(description = "The platform the app is running on, for example \"Android\" or \"iOS\".")
+    public String Platform() {
+        return "Android";
+    }
+
+    @SimpleProperty(description = "The dotted version number of the platform, such as 4.2.2 or 10.0. This is platform specific and there is no guarantee that it has a particular format.")
+    public String PlatformVersion() {
+        return VERSION.RELEASE;
     }
 
     public static void switchForm(String nextFormName2) {

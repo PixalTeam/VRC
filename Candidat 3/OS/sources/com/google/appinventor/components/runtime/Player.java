@@ -84,39 +84,55 @@ public final class Player extends AndroidNonvisibleComponent implements Componen
     }
 
     @DesignerProperty(defaultValue = "", editorType = "asset")
+    @UsesPermissions({"android.permission.READ_EXTERNAL_STORAGE"})
     @SimpleProperty
     public void Source(String path) {
+        final String tempPath;
         if (path == null) {
-            path = "";
+            tempPath = "";
+        } else {
+            tempPath = path;
         }
-        this.sourcePath = path;
-        if (this.playerState == State.PREPARED || this.playerState == State.PLAYING || this.playerState == State.PAUSED_BY_USER) {
-            this.player.stop();
-            this.playerState = State.INITIAL;
-        }
-        if (this.player != null) {
-            this.player.release();
-            this.player = null;
-        }
-        if (this.sourcePath.length() > 0) {
-            this.player = new MediaPlayer();
-            this.player.setOnCompletionListener(this);
-            try {
-                MediaUtil.loadMediaPlayer(this.player, this.form, this.sourcePath);
-                this.player.setAudioStreamType(3);
-                if (audioFocusSupported) {
-                    requestPermanentFocus();
-                }
-                prepare();
-            } catch (PermissionException e) {
-                this.player.release();
-                this.player = null;
-                this.form.dispatchPermissionDeniedEvent((Component) this, "Source", e);
-            } catch (IOException e2) {
-                this.player.release();
-                this.player = null;
-                this.form.dispatchErrorOccurredEvent(this, "Source", ErrorMessages.ERROR_UNABLE_TO_LOAD_MEDIA, this.sourcePath);
+        if (!MediaUtil.isExternalFile(tempPath) || !this.form.isDeniedPermission("android.permission.READ_EXTERNAL_STORAGE")) {
+            this.sourcePath = tempPath;
+            if (this.playerState == State.PREPARED || this.playerState == State.PLAYING || this.playerState == State.PAUSED_BY_USER) {
+                this.player.stop();
+                this.playerState = State.INITIAL;
             }
+            if (this.player != null) {
+                this.player.release();
+                this.player = null;
+            }
+            if (this.sourcePath.length() > 0) {
+                this.player = new MediaPlayer();
+                this.player.setOnCompletionListener(this);
+                try {
+                    MediaUtil.loadMediaPlayer(this.player, this.form, this.sourcePath);
+                    this.player.setAudioStreamType(3);
+                    if (audioFocusSupported) {
+                        requestPermanentFocus();
+                    }
+                    prepare();
+                } catch (PermissionException e) {
+                    this.player.release();
+                    this.player = null;
+                    this.form.dispatchPermissionDeniedEvent((Component) this, "Source", e);
+                } catch (IOException e2) {
+                    this.player.release();
+                    this.player = null;
+                    this.form.dispatchErrorOccurredEvent(this, "Source", ErrorMessages.ERROR_UNABLE_TO_LOAD_MEDIA, this.sourcePath);
+                }
+            }
+        } else {
+            this.form.askPermission("android.permission.READ_EXTERNAL_STORAGE", new PermissionResultHandler() {
+                public void HandlePermissionResponse(String permission, boolean granted) {
+                    if (granted) {
+                        Player.this.Source(tempPath);
+                    } else {
+                        Player.this.form.dispatchPermissionDeniedEvent((Component) Player.this, "Source", permission);
+                    }
+                }
+            });
         }
     }
 

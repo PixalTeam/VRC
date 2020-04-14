@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -127,12 +126,8 @@ public class ListPickerActivity extends AppInventorCompatActivity implements OnI
         AnimationUtil.ApplyCloseScreenAnimation(this, this.closeAnim);
     }
 
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode != 4) {
-            return super.onKeyDown(keyCode, event);
-        }
-        boolean handled = super.onKeyDown(keyCode, event);
+    public void onBackPressed() {
         AnimationUtil.ApplyCloseScreenAnimation(this, this.closeAnim);
-        return handled;
+        super.onBackPressed();
     }
 }

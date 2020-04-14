@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
 import android.graphics.Bitmap.Config;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Paint.Align;
@@ -16,7 +17,9 @@ import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.RequiresApi;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
@@ -40,6 +43,7 @@ import com.google.appinventor.components.runtime.util.FileUtil;
 import com.google.appinventor.components.runtime.util.FileUtil.FileException;
 import com.google.appinventor.components.runtime.util.MediaUtil;
 import com.google.appinventor.components.runtime.util.PaintUtil;
+import com.google.appinventor.components.runtime.util.SdkLevel;
 import com.google.appinventor.components.runtime.util.YailList;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -52,7 +56,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
-@DesignerComponent(category = ComponentCategory.ANIMATION, description = "<p>A two-dimensional touch-sensitive rectangular panel on which drawing can be done and sprites can be moved.</p> <p>The <code>BackgroundColor</code>, <code>PaintColor</code>, <code>BackgroundImage</code>, <code>Width</code>, and <code>Height</code> of the Canvas can be set in either the Designer or in the Blocks Editor.  The <code>Width</code> and <code>Height</code> are measured in pixels and must be positive.</p><p>Any location on the Canvas can be specified as a pair of (X, Y) values, where <ul> <li>X is the number of pixels away from the left edge of the Canvas</li><li>Y is the number of pixels away from the top edge of the Canvas</li></ul>.</p> <p>There are events to tell when and where a Canvas has been touched or a <code>Sprite</code> (<code>ImageSprite</code> or <code>Ball</code>) has been dragged.  There are also methods for drawing points, lines, and circles.</p>", version = 12)
+@DesignerComponent(category = ComponentCategory.ANIMATION, description = "<p>A two-dimensional touch-sensitive rectangular panel on which drawing can be done and sprites can be moved.</p> <p>The <code>BackgroundColor</code>, <code>PaintColor</code>, <code>BackgroundImage</code>, <code>Width</code>, and <code>Height</code> of the Canvas can be set in either the Designer or in the Blocks Editor.  The <code>Width</code> and <code>Height</code> are measured in pixels and must be positive.</p><p>Any location on the Canvas can be specified as a pair of (X, Y) values, where <ul> <li>X is the number of pixels away from the left edge of the Canvas</li><li>Y is the number of pixels away from the top edge of the Canvas</li></ul>.</p> <p>There are events to tell when and where a Canvas has been touched or a <code>Sprite</code> (<code>ImageSprite</code> or <code>Ball</code>) has been dragged.  There are also methods for drawing points, lines, and circles.</p>", version = 13)
 @SimpleObject
 @UsesPermissions(permissionNames = "android.permission.INTERNET,android.permission.WRITE_EXTERNAL_STORAGE")
 public final class Canvas extends AndroidViewComponent implements ComponentContainer {
@@ -202,6 +206,24 @@ public final class Canvas extends AndroidViewComponent implements ComponentConta
                 } catch (IOException e) {
                     Log.e(Canvas.LOG_TAG, "Unable to load " + Canvas.this.backgroundImagePath);
                 }
+            }
+            setBackground();
+            clearDrawingLayer();
+        }
+
+        /* access modifiers changed from: 0000 */
+        @RequiresApi(api = 8)
+        public void setBackgroundImageBase64(String imageUrl) {
+            Canvas canvas2 = Canvas.this;
+            if (imageUrl == null) {
+                imageUrl = "";
+            }
+            canvas2.backgroundImagePath = imageUrl;
+            this.backgroundDrawable = null;
+            this.scaledBackgroundBitmap = null;
+            if (!TextUtils.isEmpty(Canvas.this.backgroundImagePath)) {
+                byte[] decodedString = Base64.decode(Canvas.this.backgroundImagePath, 0);
+                this.backgroundDrawable = new BitmapDrawable(BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length));
             }
             setBackground();
             clearDrawingLayer();
@@ -577,6 +599,16 @@ public final class Canvas extends AndroidViewComponent implements ComponentConta
     @SimpleProperty
     public void BackgroundImage(String path) {
         this.view.setBackgroundImage(path);
+    }
+
+    @RequiresApi(api = 8)
+    @SimpleProperty(description = "Set the background image in Base64 format. This requires API level >= 8. For devices with API level less than 8, setting this will end up with an empty background.")
+    public void BackgroundImageinBase64(String imageUrl) {
+        if (SdkLevel.getLevel() >= 8) {
+            this.view.setBackgroundImageBase64(imageUrl);
+        } else {
+            this.view.setBackgroundImageBase64("");
+        }
     }
 
     @SimpleProperty(category = PropertyCategory.APPEARANCE, description = "The color in which lines are drawn")

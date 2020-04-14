@@ -10,6 +10,7 @@ import com.google.appinventor.components.annotations.SimpleProperty;
 import com.google.appinventor.components.runtime.util.BluetoothReflection;
 import com.google.appinventor.components.runtime.util.ErrorMessages;
 import com.google.appinventor.components.runtime.util.Ev3Constants.Opcode;
+import com.google.appinventor.components.runtime.util.SdkLevel;
 import com.google.appinventor.components.runtime.util.YailList;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -28,21 +29,25 @@ public abstract class BluetoothConnectionBase extends AndroidNonvisibleComponent
     private ByteOrder byteOrder;
     private Object connectedBluetoothSocket;
     private byte delimiter;
+    protected boolean disconnectOnError;
     private String encoding;
     private InputStream inputStream;
     protected final String logTag;
     private OutputStream outputStream;
+    private final int sdkLevel;
     protected boolean secure;
 
     protected BluetoothConnectionBase(ComponentContainer container, String logTag2) {
-        this(container.$form(), logTag2);
+        this(container.$form(), logTag2, SdkLevel.getLevel());
         this.form.registerForOnDestroy(this);
     }
 
-    private BluetoothConnectionBase(Form form, String logTag2) {
+    private BluetoothConnectionBase(Form form, String logTag2, int sdkLevel2) {
         super(form);
         this.bluetoothConnectionListeners = new ArrayList();
         this.logTag = logTag2;
+        this.sdkLevel = sdkLevel2;
+        this.disconnectOnError = false;
         HighByteFirst(false);
         CharacterEncoding("UTF-8");
         DelimiterByte(0);
@@ -50,7 +55,7 @@ public abstract class BluetoothConnectionBase extends AndroidNonvisibleComponent
     }
 
     protected BluetoothConnectionBase(OutputStream outputStream2, InputStream inputStream2) {
-        this((Form) null, (String) null);
+        this(null, null, 7);
         this.connectedBluetoothSocket = "Not Null";
         this.outputStream = outputStream2;
         this.inputStream = inputStream2;
@@ -131,9 +136,23 @@ public abstract class BluetoothConnectionBase extends AndroidNonvisibleComponent
         this.outputStream = null;
     }
 
-    @SimpleProperty(category = PropertyCategory.BEHAVIOR)
+    @SimpleProperty(category = PropertyCategory.BEHAVIOR, description = "On devices with API level 14 (LEVEL_ICE_CREAM_SANDWICH) or higher, this property returned is accurate. But on old devices with API level lower than 14, it may not return the current state of connection(e.g., it might be disconnected but you may not know until you attempt to read/write the socket.")
     public final boolean IsConnected() {
-        return this.connectedBluetoothSocket != null;
+        if (this.sdkLevel >= 14) {
+            if (this.connectedBluetoothSocket == null || !BluetoothReflection.isBluetoothSocketConnected(this.connectedBluetoothSocket)) {
+                return false;
+            }
+            return true;
+        } else if (this.connectedBluetoothSocket == null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    /* access modifiers changed from: protected */
+    public boolean DisconnectOnError() {
+        return this.disconnectOnError;
     }
 
     @SimpleProperty(category = PropertyCategory.BEHAVIOR, description = "Whether to invoke SSP (Simple Secure Pairing), which is supported on devices with Bluetooth v2.1 or higher. When working with embedded Bluetooth devices, this property may need to be set to False. For Android 2.0-2.2, this property setting will be ignored.")
@@ -319,6 +338,10 @@ public abstract class BluetoothConnectionBase extends AndroidNonvisibleComponent
             this.outputStream.write(b);
             this.outputStream.flush();
         } catch (IOException e) {
+            Log.e(this.logTag, "IO Exception during Writing" + e.getMessage());
+            if (this.disconnectOnError) {
+                Disconnect();
+            }
             bluetoothError(functionName, ErrorMessages.ERROR_BLUETOOTH_UNABLE_TO_WRITE, e.getMessage());
         }
     }
@@ -333,6 +356,10 @@ public abstract class BluetoothConnectionBase extends AndroidNonvisibleComponent
             this.outputStream.write(bytes);
             this.outputStream.flush();
         } catch (IOException e) {
+            Log.e(this.logTag, "IO Exception during Writing" + e.getMessage());
+            if (this.disconnectOnError) {
+                Disconnect();
+            }
             bluetoothError(functionName, ErrorMessages.ERROR_BLUETOOTH_UNABLE_TO_WRITE, e.getMessage());
         }
     }
@@ -348,6 +375,10 @@ public abstract class BluetoothConnectionBase extends AndroidNonvisibleComponent
         try {
             return this.inputStream.available();
         } catch (IOException e) {
+            Log.e(this.logTag, "IO Exception during Getting Receive Availability " + e.getMessage());
+            if (this.disconnectOnError) {
+                Disconnect();
+            }
             bluetoothError(functionName, ErrorMessages.ERROR_BLUETOOTH_UNABLE_TO_READ, e.getMessage());
             return i;
         }
@@ -475,6 +506,10 @@ public abstract class BluetoothConnectionBase extends AndroidNonvisibleComponent
                     }
                     totalBytesRead += numBytesRead;
                 } catch (IOException e) {
+                    Log.e(this.logTag, "IO Exception during Reading " + e.getMessage());
+                    if (this.disconnectOnError) {
+                        Disconnect();
+                    }
                     bluetoothError(functionName, ErrorMessages.ERROR_BLUETOOTH_UNABLE_TO_READ, e.getMessage());
                 }
             }
@@ -493,6 +528,10 @@ public abstract class BluetoothConnectionBase extends AndroidNonvisibleComponent
                         break;
                     }
                 } catch (IOException e2) {
+                    Log.e(this.logTag, "IO Exception during Reading " + e2.getMessage());
+                    if (this.disconnectOnError) {
+                        Disconnect();
+                    }
                     bluetoothError(functionName, ErrorMessages.ERROR_BLUETOOTH_UNABLE_TO_READ, e2.getMessage());
                 }
             }

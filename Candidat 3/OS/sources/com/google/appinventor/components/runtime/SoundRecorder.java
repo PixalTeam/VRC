@@ -15,6 +15,7 @@ import com.google.appinventor.components.annotations.SimpleProperty;
 import com.google.appinventor.components.annotations.UsesPermissions;
 import com.google.appinventor.components.common.ComponentCategory;
 import com.google.appinventor.components.runtime.errors.PermissionException;
+import com.google.appinventor.components.runtime.util.BulkPermissionRequest;
 import com.google.appinventor.components.runtime.util.ErrorMessages;
 import com.google.appinventor.components.runtime.util.FileUtil;
 import java.io.IOException;
@@ -91,14 +92,10 @@ public final class SoundRecorder extends AndroidNonvisibleComponent implements C
         if (!this.havePermission) {
             this.form.runOnUiThread(new Runnable() {
                 public void run() {
-                    SoundRecorder.this.form.askPermission("android.permission.RECORD_AUDIO", new PermissionResultHandler() {
-                        public void HandlePermissionResponse(String permission, boolean granted) {
-                            if (granted) {
-                                this.havePermission = true;
-                                this.Start();
-                                return;
-                            }
-                            SoundRecorder.this.form.dispatchPermissionDeniedEvent((Component) this, "Start", "android.permission.RECORD_AUDIO");
+                    SoundRecorder.this.form.askPermission(new BulkPermissionRequest(this, "Start", "android.permission.RECORD_AUDIO", "android.permission.WRITE_EXTERNAL_STORAGE") {
+                        public void onGranted() {
+                            this.havePermission = true;
+                            this.Start();
                         }
                     });
                 }

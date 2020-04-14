@@ -3,11 +3,13 @@ package com.google.appinventor.components.runtime;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import com.google.appinventor.components.annotations.DesignerComponent;
 import com.google.appinventor.components.annotations.DesignerProperty;
 import com.google.appinventor.components.annotations.PropertyCategory;
+import com.google.appinventor.components.annotations.SimpleEvent;
 import com.google.appinventor.components.annotations.SimpleObject;
 import com.google.appinventor.components.annotations.SimpleProperty;
 import com.google.appinventor.components.annotations.UsesPermissions;
@@ -22,9 +24,10 @@ import com.google.appinventor.components.runtime.util.ViewUtil;
 import java.io.IOException;
 
 @SimpleObject
-@DesignerComponent(category = ComponentCategory.USERINTERFACE, description = "Component for displaying images.  The picture to display, and other aspects of the Image's appearance, can be specified in the Designer or in the Blocks Editor.", version = 3)
+@DesignerComponent(category = ComponentCategory.USERINTERFACE, description = "Component for displaying images.  The picture to display, and other aspects of the Image's appearance, can be specified in the Designer or in the Blocks Editor.", version = 4)
 @UsesPermissions(permissionNames = "android.permission.INTERNET,android.permission.READ_EXTERNAL_STORAGE")
 public final class Image extends AndroidViewComponent {
+    private boolean clickable = false;
     private String picturePath = "";
     private double rotationAngle = 0.0d;
     private int scalingMode = 0;
@@ -44,6 +47,32 @@ public final class Image extends AndroidViewComponent {
 
     public View getView() {
         return this.view;
+    }
+
+    @SimpleEvent(description = "An event that occurs when an image is clicked.")
+    public void Click() {
+        EventDispatcher.dispatchEvent(this, "Click", new Object[0]);
+    }
+
+    @DesignerProperty(defaultValue = "False", editorType = "boolean")
+    @SimpleProperty(description = "Specifies whether the image should be clickable or not.")
+    public void Clickable(boolean clickable2) {
+        this.clickable = clickable2;
+        this.view.setClickable(this.clickable);
+        if (this.clickable) {
+            this.view.setOnClickListener(new OnClickListener() {
+                public void onClick(View v) {
+                    Image.this.Click();
+                }
+            });
+        } else {
+            this.view.setOnClickListener(null);
+        }
+    }
+
+    @SimpleProperty(category = PropertyCategory.APPEARANCE, description = "Specifies whether the image should be clickable or not.")
+    public boolean Clickable() {
+        return this.clickable;
     }
 
     @SimpleProperty(category = PropertyCategory.APPEARANCE)

@@ -464,7 +464,7 @@ public class XQParser extends Lexer {
                 if (checkNext(':')) {
                     skipComment();
                 } else if (checkNext('#')) {
-                    return setToken(197, 2);
+                    return setToken(PRAGMA_START_TOKEN, 2);
                 } else {
                     return setToken(40, 1);
                 }
@@ -2706,7 +2706,7 @@ public class XQParser extends Lexer {
                 exp = syntaxError("saw unexpected '{' - assume you meant '('");
                 parseEnclosedExpr();
                 break;
-            case 197:
+            case PRAGMA_START_TOKEN /*197*/:
                 Stack extArgs = new Stack();
                 do {
                     getRawToken();
@@ -2752,7 +2752,7 @@ public class XQParser extends Lexer {
                         sbuf.append((char) ch);
                         ch = read();
                     }
-                } while (this.curToken == 197);
+                } while (this.curToken == PRAGMA_START_TOKEN);
                 if (this.curToken != 123) {
                     exp = syntaxError("missing '{' after pragma");
                     break;

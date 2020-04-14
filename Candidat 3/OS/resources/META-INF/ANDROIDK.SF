@@ -1,16 +1,16 @@
 Signature-Version: 1.0
 Created-By: 1.0 (Android)
-SHA1-Digest-Manifest: zHB369pYBBx4hl59pRQzyB8F1Cc=
+SHA1-Digest-Manifest: ieW/Sx48p2LNePiPoZT4qN9Vd2M=
 X-Android-APK-Signed: 2, 3
 
 Name: AndroidManifest.xml
-SHA1-Digest: 7CwNZrqYlUJIuhUo4K/OLNDfPJM=
+SHA1-Digest: rbX2X9n2UeAA+b5KWOxV4hYcez0=
 
 Name: assets/56673328.png
 SHA1-Digest: 1f6l+LMSsQrqvoYpCteXQ27LdMc=
 
 Name: classes.dex
-SHA1-Digest: F0RbWIMtkKeg+u0R1ACoOxz9y04=
+SHA1-Digest: NVwFrGapG3PUozjqwFeBFF3D3hk=
 
 Name: res/anim/abc_fade_in.xml
 SHA1-Digest: xuSWnlSNBpBW5KZZ6AqoycVG4bY=
@@ -1397,5 +1397,5 @@ Name: res/xml/provider_paths.xml
 SHA1-Digest: 17HGOSuw7uncTBB/4Bw42GFxUVA=
 
 Name: resources.arsc
-SHA1-Digest: H0FZXNyuEgDX9FTTgWcmkoIJnXU=
+SHA1-Digest: JGKoDWr5SezjCdxANB/dPToDESo=
 

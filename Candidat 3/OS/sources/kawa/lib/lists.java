@@ -1,6 +1,7 @@
 package kawa.lib;
 
 import android.support.v4.app.FragmentTransaction;
+import com.google.appinventor.components.common.PropertyTypeConstants;
 import gnu.expr.GenericProc;
 import gnu.expr.Keyword;
 import gnu.expr.ModuleBody;
@@ -41,7 +42,7 @@ public class lists extends ModuleBody {
     static final SimpleSymbol Lit5 = ((SimpleSymbol) new SimpleSymbol("null?").readResolve());
     static final SimpleSymbol Lit6 = ((SimpleSymbol) new SimpleSymbol("set-car!").readResolve());
     static final SimpleSymbol Lit7 = ((SimpleSymbol) new SimpleSymbol("set-cdr!").readResolve());
-    static final SimpleSymbol Lit8 = ((SimpleSymbol) new SimpleSymbol("length").readResolve());
+    static final SimpleSymbol Lit8 = ((SimpleSymbol) new SimpleSymbol(PropertyTypeConstants.PROPERTY_TYPE_LENGTH).readResolve());
     static final SimpleSymbol Lit9 = ((SimpleSymbol) new SimpleSymbol("reverse").readResolve());
     public static final ModuleMethod assoc;
     public static final ModuleMethod assq;
@@ -1124,7 +1125,7 @@ public class lists extends ModuleBody {
                 try {
                     return Integer.valueOf(length((LList) obj));
                 } catch (ClassCastException e3) {
-                    throw new WrongType(e3, "length", 1, obj);
+                    throw new WrongType(e3, PropertyTypeConstants.PROPERTY_TYPE_LENGTH, 1, obj);
                 }
             case 65:
                 try {

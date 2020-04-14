@@ -1,5 +1,6 @@
 package gnu.kawa.reflect;
 
+import com.google.appinventor.components.common.PropertyTypeConstants;
 import gnu.bytecode.ArrayType;
 import gnu.bytecode.ClassType;
 import gnu.bytecode.Field;
@@ -391,8 +392,9 @@ public class CompileInvoke {
         if (args.length >= 3 && (args[1] instanceof QuoteExp)) {
             Object arg1 = ((QuoteExp) args[1]).getValue();
             if (arg1 instanceof Keyword) {
+                String str = PropertyTypeConstants.PROPERTY_TYPE_LENGTH;
                 String name2 = ((Keyword) arg1).getName();
-                if ("length".equals(name2) || "size".equals(name2)) {
+                if (str.equals(name2) || "size".equals(name2)) {
                     sizeArg = args[2];
                     lengthSpecified = true;
                 }

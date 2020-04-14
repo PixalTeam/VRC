@@ -24,10 +24,12 @@ public class PropertyTypeConstants {
     public static final String PROPERTY_TYPE_LEGO_EV3_ULTRASONIC_SENSOR_MODE = "lego_ev3_ultrasonic_sensor_mode";
     public static final String PROPERTY_TYPE_LEGO_NXT_GENERATED_COLOR = "lego_nxt_generated_color";
     public static final String PROPERTY_TYPE_LEGO_NXT_SENSOR_PORT = "lego_nxt_sensor_port";
+    public static final String PROPERTY_TYPE_LENGTH = "length";
     public static final String PROPERTY_TYPE_LONGITUDE = "longitude";
     public static final String PROPERTY_TYPE_MAP_TYPE = "map_type";
     public static final String PROPERTY_TYPE_MAP_UNIT_SYSTEM = "map_unit_system";
     public static final String PROPERTY_TYPE_MAP_ZOOM = "map_zoom";
+    public static final String PROPERTY_TYPE_NAVIGATION_METHOD = "navigation_method";
     public static final String PROPERTY_TYPE_NON_NEGATIVE_FLOAT = "non_negative_float";
     public static final String PROPERTY_TYPE_NON_NEGATIVE_INTEGER = "non_negative_integer";
     public static final String PROPERTY_TYPE_SCALING = "scaling";

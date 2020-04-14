@@ -6,6 +6,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.Build.VERSION;
 import android.os.Handler;
 import android.util.Log;
 import android.view.WindowManager;
@@ -107,14 +108,14 @@ public class AccelerometerSensor extends AndroidNonvisibleComponent implements O
     }
 
     public int getDeviceDefaultOrientation() {
+        if (VERSION.SDK_INT < 8) {
+            return 1;
+        }
         Configuration config = this.resources.getConfiguration();
         int rotation = this.windowManager.getDefaultDisplay().getRotation();
         Log.d(LOG_TAG, "rotation = " + rotation);
         Log.d(LOG_TAG, "config.orientation = " + config.orientation);
-        if ((rotation == 0 || rotation == 2) && config.orientation == 2) {
-            return 2;
-        }
-        if ((rotation == 1 || rotation == 3) && config.orientation == 1) {
+        if (((rotation == 0 || rotation == 2) && config.orientation == 2) || ((rotation == 1 || rotation == 3) && config.orientation == 1)) {
             return 2;
         }
         return 1;

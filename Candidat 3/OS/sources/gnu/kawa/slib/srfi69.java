@@ -1,6 +1,7 @@
 package gnu.kawa.slib;
 
 import android.support.v4.app.FragmentTransaction;
+import com.google.appinventor.components.common.PropertyTypeConstants;
 import gnu.expr.ModuleBody;
 import gnu.expr.ModuleInfo;
 import gnu.expr.ModuleMethod;
@@ -675,7 +676,7 @@ public class srfi69 extends ModuleBody {
             objArr[1] = Integer.valueOf(lists.length((LList) obj) * 2);
             return alist$To$HashTable(obj, obj2, obj3, numbers.max(objArr));
         } catch (ClassCastException e) {
-            throw new WrongType(e, "length", 1, obj);
+            throw new WrongType(e, PropertyTypeConstants.PROPERTY_TYPE_LENGTH, 1, obj);
         }
     }
 

@@ -81,8 +81,8 @@ public class SlotGet extends Procedure2 implements HasSetter, Inlineable {
         }
         if ("class".equals(fname)) {
             fname = "class";
-        } else if ("length".equals(fname)) {
-            fname = "length";
+        } else if (PropertyTypeConstants.PROPERTY_TYPE_LENGTH.equals(fname)) {
+            fname = PropertyTypeConstants.PROPERTY_TYPE_LENGTH;
         }
         return getSlotValue(this.isStatic, arg1, name, fname, getName, isName, Language.getDefaultLanguage());
     }
@@ -93,7 +93,7 @@ public class SlotGet extends Procedure2 implements HasSetter, Inlineable {
         java.lang.reflect.Method getmethod;
         java.lang.reflect.Field field2;
         Class clas = isStatic2 ? coerceToClass(obj) : obj.getClass();
-        if (fname == "length" && clas.isArray()) {
+        if (fname == PropertyTypeConstants.PROPERTY_TYPE_LENGTH && clas.isArray()) {
             return Integer.valueOf(Array.getLength(obj));
         }
         if (fname == "class") {
@@ -223,7 +223,7 @@ public class SlotGet extends Procedure2 implements HasSetter, Inlineable {
             }
         }
         String name = ClassMethods.checkName(arg1);
-        if (!(type instanceof ArrayType) || !"length".equals(name) || this.isStatic) {
+        if (!(type instanceof ArrayType) || !PropertyTypeConstants.PROPERTY_TYPE_LENGTH.equals(name) || this.isStatic) {
             ApplyExp.compile(exp, comp, target);
             return;
         }
@@ -244,7 +244,7 @@ public class SlotGet extends Procedure2 implements HasSetter, Inlineable {
                 if (part instanceof Method) {
                     return ((Method) part).getReturnType();
                 }
-                if (!this.isStatic && (arg0.getType() instanceof ArrayType) && "length".equals(ClassMethods.checkName(arg1, true))) {
+                if (!this.isStatic && (arg0.getType() instanceof ArrayType) && PropertyTypeConstants.PROPERTY_TYPE_LENGTH.equals(ClassMethods.checkName(arg1, true))) {
                     return LangPrimType.intType;
                 }
             }

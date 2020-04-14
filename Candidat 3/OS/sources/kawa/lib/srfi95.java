@@ -1,6 +1,7 @@
 package kawa.lib;
 
 import android.support.v4.app.FragmentTransaction;
+import com.google.appinventor.components.common.PropertyTypeConstants;
 import gnu.expr.ModuleBody;
 import gnu.expr.ModuleInfo;
 import gnu.expr.ModuleMethod;
@@ -530,14 +531,14 @@ public class srfi95 extends ModuleBody {
                 }
                 return frame02.seq;
             } catch (ClassCastException e3) {
-                throw new WrongType(e3, "length", 1, obj2);
+                throw new WrongType(e3, PropertyTypeConstants.PROPERTY_TYPE_LENGTH, 1, obj2);
             }
         } else {
             Object obj3 = frame02.seq;
             try {
                 return frame02.lambda2step(Integer.valueOf(lists.length((LList) obj3)));
             } catch (ClassCastException e4) {
-                throw new WrongType(e4, "length", 1, obj3);
+                throw new WrongType(e4, PropertyTypeConstants.PROPERTY_TYPE_LENGTH, 1, obj3);
             }
         }
     }

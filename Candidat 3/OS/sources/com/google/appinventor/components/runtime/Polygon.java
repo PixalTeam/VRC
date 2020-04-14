@@ -85,6 +85,7 @@ public class Polygon extends PolygonBase implements MapPolygon {
         clearGeometry();
         this.map.getController().updateFeaturePosition((MapPolygon) this);
         this.map.getController().updateFeatureHoles(this);
+        this.map.getController().updateFeatureText(this);
     }
 
     @SimpleProperty(category = PropertyCategory.BEHAVIOR, description = "Returns the type of the feature. For polygons, this returns the text \"Polygon\".")

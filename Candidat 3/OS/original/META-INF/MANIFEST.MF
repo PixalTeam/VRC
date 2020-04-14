@@ -1,13 +1,13 @@
 Manifest-Version: 1.0
 
 Name: AndroidManifest.xml
-SHA1-Digest: KrcyyA2BdWP6snsHLVzgjBekNE0=
+SHA1-Digest: fWSF7rV4EdEKuy3Je5QczDx1tKw=
 
 Name: assets/56673328.png
 SHA1-Digest: tFQWFUt8BIpKqzlv/kyfx6qRLoU=
 
 Name: classes.dex
-SHA1-Digest: N6E8+9tlkC2qFkOlaoKtGmM0riA=
+SHA1-Digest: ENt1pGNhKDkrPqN4pIPZx7H2f7k=
 
 Name: res/anim/abc_fade_in.xml
 SHA1-Digest: AcuBNEx7Jg8K6XCieCSQfQAJk5Q=
@@ -1394,5 +1394,5 @@ Name: res/xml/provider_paths.xml
 SHA1-Digest: SaJkzg6lz5Yg9JHGqqg6QKu9lNI=
 
 Name: resources.arsc
-SHA1-Digest: PSH5OWf8k6Jm3+KhHuZgNcXQkHo=
+SHA1-Digest: gpwiIp57mMNy/PBptSjacwBTYKk=
 

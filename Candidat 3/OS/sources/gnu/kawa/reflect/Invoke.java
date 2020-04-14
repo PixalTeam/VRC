@@ -1,5 +1,6 @@
 package gnu.kawa.reflect;
 
+import com.google.appinventor.components.common.PropertyTypeConstants;
 import gnu.bytecode.ArrayType;
 import gnu.bytecode.ClassType;
 import gnu.bytecode.ObjectType;
@@ -130,8 +131,9 @@ public class Invoke extends ProcedureN {
                 Type elementType = ((ArrayType) dtype).getComponentType();
                 int len = args.length - 1;
                 if (len >= 2 && (args[1] instanceof Keyword)) {
+                    String str = PropertyTypeConstants.PROPERTY_TYPE_LENGTH;
                     String name = args[1].getName();
-                    if ("length".equals(name) || "size".equals(name)) {
+                    if (str.equals(name) || "size".equals(name)) {
                         length = args[2].intValue();
                         i = 3;
                         lengthSpecified = true;

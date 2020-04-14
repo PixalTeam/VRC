@@ -1,6 +1,7 @@
 package kawa.lib;
 
 import android.support.v4.app.FragmentTransaction;
+import com.google.appinventor.components.common.PropertyTypeConstants;
 import gnu.expr.ApplicationMainSupport;
 import gnu.expr.Compilation;
 import gnu.expr.ModuleBody;
@@ -202,7 +203,7 @@ public class system extends ModuleBody {
             }
             return arr;
         } catch (ClassCastException e2) {
-            throw new WrongType(e2, "length", 1, lst);
+            throw new WrongType(e2, PropertyTypeConstants.PROPERTY_TYPE_LENGTH, 1, lst);
         }
     }
 
@@ -230,7 +231,7 @@ public class system extends ModuleBody {
             }
             return arr;
         } catch (ClassCastException e2) {
-            throw new WrongType(e2, "length", 1, rlist);
+            throw new WrongType(e2, PropertyTypeConstants.PROPERTY_TYPE_LENGTH, 1, rlist);
         }
     }
 

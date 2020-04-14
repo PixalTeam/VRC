@@ -2,19 +2,19 @@ package com.google.appinventor.components.common;
 
 public class YaVersion {
     public static final int ACCELEROMETERSENSOR_COMPONENT_VERSION = 4;
-    public static final String[] ACCEPTABLE_COMPANIONS = {"2.52", "2.52u", "2.53", "2.53u", "2.54", "2.54u", "2.55", "2.55u", "2.56", "2.56u", "2.57", "2.57u", "2.57a", "2.57au", PREFERRED_COMPANION, "2.57bu"};
+    public static final String[] ACCEPTABLE_COMPANIONS = {"2.52", "2.52u", "2.53", "2.53u", "2.54", "2.54u", "2.55", "2.55u", "2.56", "2.56u", "2.57", "2.57u", "2.58", "2.58u", PREFERRED_COMPANION, "2.58au"};
     public static final String ACCEPTABLE_COMPANION_PACKAGE = "edu.mit.appinventor.aicompanion3";
     public static final int ACTIVITYSTARTER_COMPONENT_VERSION = 6;
     public static final int BALL_COMPONENT_VERSION = 6;
     public static final int BARCODESCANNER_COMPONENT_VERSION = 2;
     public static final int BAROMETER_COMPONENT_VERSION = 1;
-    public static final int BLOCKS_LANGUAGE_VERSION = 28;
-    public static final int BLUETOOTHCLIENT_COMPONENT_VERSION = 5;
+    public static final int BLOCKS_LANGUAGE_VERSION = 31;
+    public static final int BLUETOOTHCLIENT_COMPONENT_VERSION = 6;
     public static final int BLUETOOTHSERVER_COMPONENT_VERSION = 5;
     public static final int BUTTON_COMPONENT_VERSION = 6;
     public static final int CAMCORDER_COMPONENT_VERSION = 1;
     public static final int CAMERA_COMPONENT_VERSION = 3;
-    public static final int CANVAS_COMPONENT_VERSION = 12;
+    public static final int CANVAS_COMPONENT_VERSION = 13;
     public static final int CHECKBOX_COMPONENT_VERSION = 2;
     public static final int CIRCLE_COMPONENT_VERSION = 2;
     public static final int CLOCK_COMPONENT_VERSION = 4;
@@ -36,7 +36,7 @@ public class YaVersion {
     public static final int FEATURE_COLLECTION_COMPONENT_VERSION = 2;
     public static final int FILE_COMPONENT_VERSION = 2;
     public static final int FIREBASE_COMPONENT_VERSION = 3;
-    public static final int FORM_COMPONENT_VERSION = 26;
+    public static final int FORM_COMPONENT_VERSION = 27;
     public static final int FUSIONTABLESCONTROL_COMPONENT_VERSION = 4;
     public static final int GAMECLIENT_COMPONENT_VERSION = 1;
     public static final int GYROSCOPESENSOR_COMPONENT_VERSION = 1;
@@ -45,16 +45,18 @@ public class YaVersion {
     public static final int HYGROMETER_COMPONENT_VERSION = 1;
     public static final int IMAGEPICKER_COMPONENT_VERSION = 5;
     public static final int IMAGESPRITE_COMPONENT_VERSION = 6;
-    public static final int IMAGE_COMPONENT_VERSION = 3;
+    public static final int IMAGE_COMPONENT_VERSION = 4;
     public static final int LABEL_COMPONENT_VERSION = 5;
     public static final int LIGHTSENSOR_COMPONENT_VERSION = 1;
     public static final int LINESTRING_COMPONENT_VERSION = 2;
     public static final int LISTPICKER_COMPONENT_VERSION = 9;
     public static final int LISTVIEW_COMPONENT_VERSION = 5;
     public static final int LOCATIONSENSOR_COMPONENT_VERSION = 3;
+    public static final int MAGNETICFIELDSENSOR_COMPONENT_VERSION = 1;
     public static final int MAP_COMPONENT_VERSION = 5;
     public static final int MARKER_COMPONENT_VERSION = 3;
     public static final int MEDIASTORE_COMPONENT_VERSION = 1;
+    public static final int NAVIGATION_COMPONENT_VERSION = 1;
     public static final int NEARFIELD_COMPONENT_VERSION = 1;
     public static final int NOTIFIER_COMPONENT_VERSION = 6;
     public static final int NXT_COLORSENSOR_COMPONENT_VERSION = 1;
@@ -72,10 +74,11 @@ public class YaVersion {
     public static final int PHONESTATUS_COMPONENT_VERSION = 1;
     public static final int PLAYER_COMPONENT_VERSION = 6;
     public static final int POLYGON_COMPONENT_VERSION = 2;
-    public static final String PREFERRED_COMPANION = "2.57b";
+    public static final String PREFERRED_COMPANION = "2.58a";
     public static final int PROXIMITYSENSOR_COMPONENT_VERSION = 1;
     public static final int RECTANGLE_COMPONENT_VERSION = 2;
     public static final String RENDEZVOUS_SERVER = "rendezvous.appinventor.mit.edu";
+    public static final int SERIAL_COMPONENT_VERSION = 1;
     public static final int SHARING_COMPONENT_VERSION = 1;
     public static final int SLIDER_COMPONENT_VERSION = 2;
     public static final int SOUND_COMPONENT_VERSION = 3;
@@ -99,10 +102,10 @@ public class YaVersion {
     public static final int VERTICALSCROLLARRANGEMENT_COMPONENT_VERSION = 1;
     public static final int VIDEOPLAYER_COMPONENT_VERSION = 6;
     public static final int VOTING_COMPONENT_VERSION = 1;
-    public static final int WEBVIEWER_COMPONENT_VERSION = 8;
+    public static final int WEBVIEWER_COMPONENT_VERSION = 10;
     public static final int WEB_COMPONENT_VERSION = 7;
-    public static final int YANDEX_COMPONENT_VERSION = 1;
-    public static final int YOUNG_ANDROID_VERSION = 197;
+    public static final int YANDEX_COMPONENT_VERSION = 2;
+    public static final int YOUNG_ANDROID_VERSION = 206;
 
     private YaVersion() {
     }

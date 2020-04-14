@@ -1,7 +1,10 @@
 package com.google.appinventor.components.runtime;
 
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.GradientDrawable.Orientation;
+import android.graphics.drawable.StateListDrawable;
 import android.text.Editable;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -11,6 +14,7 @@ import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -26,22 +30,25 @@ import com.google.appinventor.components.runtime.util.YailList;
 
 @SimpleObject
 @DesignerComponent(category = ComponentCategory.USERINTERFACE, description = "<p>This is a visible component that displays a list of text elements. <br> The list can be set using the ElementsFromString property or using the Elements block in the blocks editor. </p>", iconName = "images/listView.png", nonVisible = false, version = 5)
-public final class ListView extends AndroidViewComponent implements OnItemClickListener {
+public final class ListView extends AndroidViewComponent implements OnItemClickListener, OnItemSelectedListener {
     private static final int DEFAULT_BACKGROUND_COLOR = -16777216;
     private static final boolean DEFAULT_ENABLED = false;
     private static final int DEFAULT_SELECTION_COLOR = -3355444;
     private static final int DEFAULT_TEXT_COLOR = -1;
     private static final int DEFAULT_TEXT_SIZE = 22;
     private static final String LOG_TAG = "ListView";
+    private static final Drawable UNSELECTED_DRAWABLE = new ColorDrawable(0);
     /* access modifiers changed from: private */
     public ArrayAdapter<Spannable> adapter;
     private ArrayAdapter<Spannable> adapterCopy;
     private int backgroundColor;
     protected final ComponentContainer container;
     private YailList items;
+    private View lastSelected;
     private final LinearLayout listViewLayout;
     private String selection;
     private int selectionColor;
+    private Drawable selectionDrawable;
     private int selectionIndex;
     private boolean showFilter = false;
     private int textColor;
@@ -56,8 +63,10 @@ public final class ListView extends AndroidViewComponent implements OnItemClickL
         SelectionIndex(0);
         this.view = new android.widget.ListView(container2.$context());
         this.view.setOnItemClickListener(this);
+        this.view.setOnItemSelectedListener(this);
         this.view.setChoiceMode(1);
         this.view.setScrollingCacheEnabled(false);
+        this.view.setSelector(new StateListDrawable());
         this.listViewLayout = new LinearLayout(container2.$context());
         this.listViewLayout.setOrientation(1);
         this.txtSearchBox = new EditText(container2.$context());
@@ -187,6 +196,7 @@ public final class ListView extends AndroidViewComponent implements OnItemClickL
     public void SelectionIndex(int index) {
         this.selectionIndex = ElementsUtil.selectionIndex(index, this.items);
         this.selection = ElementsUtil.setSelectionFromIndex(index, this.items);
+        updateSelectionIndex();
     }
 
     @SimpleProperty(category = PropertyCategory.BEHAVIOR, description = "Returns the text last selected in the ListView.")
@@ -199,13 +209,40 @@ public final class ListView extends AndroidViewComponent implements OnItemClickL
     public void Selection(String value) {
         this.selection = value;
         this.selectionIndex = ElementsUtil.setSelectedIndexFromValue(value, this.items);
+        updateSelectionIndex();
+    }
+
+    private void updateSelectionIndex() {
+        if (this.selectionIndex > 0) {
+            View previousView = Form.getActiveForm().getCurrentFocus();
+            this.view.requestFocusFromTouch();
+            this.view.setSelection(this.selectionIndex - 1);
+            if (previousView != null) {
+                previousView.requestFocus();
+            }
+        } else if (this.lastSelected != null) {
+            this.lastSelected.setBackgroundDrawable(UNSELECTED_DRAWABLE);
+            this.lastSelected = null;
+        }
     }
 
     public void onItemClick(AdapterView<?> parent, View view2, int position, long id) {
         Spannable item = (Spannable) parent.getAdapter().getItem(position);
         this.selection = item.toString();
         this.selectionIndex = this.adapterCopy.getPosition(item) + 1;
+        if (this.lastSelected != null) {
+            this.lastSelected.setBackgroundDrawable(UNSELECTED_DRAWABLE);
+        }
+        view2.setBackgroundDrawable(this.selectionDrawable);
+        this.lastSelected = view2;
         AfterPicking();
+    }
+
+    public void onItemSelected(AdapterView<?> adapterView, View view2, int i, long l) {
+        onItemClick(adapterView, view2, i, l);
+    }
+
+    public void onNothingSelected(AdapterView<?> adapterView) {
     }
 
     @SimpleEvent(description = "Simple event to be raised after the an element has been chosen in the list. The selected element is available in the Selection property.")
@@ -241,7 +278,7 @@ public final class ListView extends AndroidViewComponent implements OnItemClickL
     @SimpleProperty
     public void SelectionColor(int argb) {
         this.selectionColor = argb;
-        this.view.setSelector(new GradientDrawable(Orientation.TOP_BOTTOM, new int[]{argb, argb}));
+        this.selectionDrawable = new GradientDrawable(Orientation.TOP_BOTTOM, new int[]{argb, argb});
     }
 
     @SimpleProperty(category = PropertyCategory.APPEARANCE, description = "The text color of the listview items.")

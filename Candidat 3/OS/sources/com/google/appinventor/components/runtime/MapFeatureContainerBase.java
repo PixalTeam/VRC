@@ -26,14 +26,11 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.concurrent.CopyOnWriteArrayList;
-import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 @SimpleObject
 public abstract class MapFeatureContainerBase extends AndroidViewComponent implements MapFeatureContainer {
@@ -311,14 +308,9 @@ public abstract class MapFeatureContainerBase extends AndroidViewComponent imple
 
     /* access modifiers changed from: protected */
     public void processGeoJSON(final String url, String content) throws JSONException {
-        JSONObject parsedData = new JSONObject(stripBOM(content));
-        String type = parsedData.optString(GEOJSON_TYPE);
+        String type = GeoJSONUtil.getGeoJSONType(content, GEOJSON_TYPE);
         if (GEOJSON_FEATURECOLLECTION.equals(type) || GEOJSON_GEOMETRYCOLLECTION.equals(type)) {
-            JSONArray features2 = parsedData.getJSONArray(GEOJSON_FEATURES);
-            final List<YailList> yailFeatures = new ArrayList<>();
-            for (int i = 0; i < features2.length(); i++) {
-                yailFeatures.add(jsonObjectToYail(features2.getJSONObject(i)));
-            }
+            final List<YailList> yailFeatures = GeoJSONUtil.getGeoJSONFeatures(TAG, content);
             $form().runOnUiThread(new Runnable() {
                 public void run() {
                     MapFeatureContainerBase.this.GotFeatures(url, YailList.makeList(yailFeatures));
@@ -331,50 +323,5 @@ public abstract class MapFeatureContainerBase extends AndroidViewComponent imple
                 MapFeatureContainerBase.this.LoadError(url, -3, MapFeatureContainerBase.ERROR_MALFORMED_GEOJSON);
             }
         });
-    }
-
-    private YailList jsonObjectToYail(JSONObject object) throws JSONException {
-        List<YailList> pairs = new ArrayList<>();
-        Iterator<String> j = object.keys();
-        while (j.hasNext()) {
-            String key = (String) j.next();
-            Object value = object.get(key);
-            if ((value instanceof Boolean) || (value instanceof Integer) || (value instanceof Long) || (value instanceof Double) || (value instanceof String)) {
-                pairs.add(YailList.makeList(new Object[]{key, value}));
-            } else if (value instanceof JSONArray) {
-                pairs.add(YailList.makeList(new Object[]{key, jsonArrayToYail((JSONArray) value)}));
-            } else if (value instanceof JSONObject) {
-                pairs.add(YailList.makeList(new Object[]{key, jsonObjectToYail((JSONObject) value)}));
-            } else if (!JSONObject.NULL.equals(value)) {
-                Log.wtf(TAG, "Unrecognized/invalid type in JSON object: " + value.getClass());
-                throw new IllegalArgumentException(ERROR_UNKNOWN_TYPE);
-            }
-        }
-        return YailList.makeList((List) pairs);
-    }
-
-    private YailList jsonArrayToYail(JSONArray array) throws JSONException {
-        List<Object> items = new ArrayList<>();
-        for (int i = 0; i < array.length(); i++) {
-            Object value = array.get(i);
-            if ((value instanceof Boolean) || (value instanceof Integer) || (value instanceof Long) || (value instanceof Double) || (value instanceof String)) {
-                items.add(value);
-            } else if (value instanceof JSONArray) {
-                items.add(jsonArrayToYail((JSONArray) value));
-            } else if (value instanceof JSONObject) {
-                items.add(jsonObjectToYail((JSONObject) value));
-            } else if (!JSONObject.NULL.equals(value)) {
-                Log.wtf(TAG, "Unrecognized/invalid type in JSON object: " + value.getClass());
-                throw new IllegalArgumentException(ERROR_UNKNOWN_TYPE);
-            }
-        }
-        return YailList.makeList((List) items);
-    }
-
-    private static String stripBOM(String content) {
-        if (content.charAt(0) == 65279) {
-            return content.substring(1);
-        }
-        return content;
     }
 }

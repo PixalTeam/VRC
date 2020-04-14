@@ -2,6 +2,7 @@ package com.google.appinventor.components.runtime;
 
 import android.util.Log;
 import com.google.appinventor.components.annotations.DesignerComponent;
+import com.google.appinventor.components.annotations.DesignerProperty;
 import com.google.appinventor.components.annotations.PropertyCategory;
 import com.google.appinventor.components.annotations.SimpleFunction;
 import com.google.appinventor.components.annotations.SimpleObject;
@@ -20,7 +21,7 @@ import java.util.Set;
 import java.util.UUID;
 
 @SimpleObject
-@DesignerComponent(category = ComponentCategory.CONNECTIVITY, description = "Bluetooth client component", iconName = "images/bluetooth.png", nonVisible = true, version = 5)
+@DesignerComponent(category = ComponentCategory.CONNECTIVITY, description = "Bluetooth client component", iconName = "images/bluetooth.png", nonVisible = true, version = 6)
 @UsesPermissions(permissionNames = "android.permission.BLUETOOTH, android.permission.BLUETOOTH_ADMIN")
 public final class BluetoothClient extends BluetoothConnectionBase {
     private static final String SPP_UUID = "00001101-0000-1000-8000-00805F9B34FB";
@@ -29,6 +30,18 @@ public final class BluetoothClient extends BluetoothConnectionBase {
 
     public BluetoothClient(ComponentContainer container) {
         super(container, PropertyTypeConstants.PROPERTY_TYPE_BLUETOOTHCLIENT);
+        DisconnectOnError(false);
+    }
+
+    @SimpleProperty(category = PropertyCategory.BEHAVIOR, description = "Disconnects BluetoothClient automatically when an error occurs.")
+    public boolean DisconnectOnError() {
+        return this.disconnectOnError;
+    }
+
+    @DesignerProperty(defaultValue = "False", editorType = "boolean")
+    @SimpleProperty
+    public void DisconnectOnError(boolean disconnectOnError) {
+        this.disconnectOnError = disconnectOnError;
     }
 
     /* access modifiers changed from: 0000 */

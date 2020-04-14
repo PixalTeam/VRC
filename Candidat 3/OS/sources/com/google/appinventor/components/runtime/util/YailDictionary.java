@@ -168,18 +168,7 @@ public class YailDictionary extends LinkedHashMap<Object, Object> implements Yai
     public static YailList dictToAlist(YailDictionary dict) {
         List<Object> list = new ArrayList<>();
         for (Entry<Object, Object> entry : dict.entrySet()) {
-            Object currentKey = entry.getKey();
-            Object currentValue = entry.getValue();
-            List<Object> currentPair = new ArrayList<>();
-            currentPair.add(currentKey);
-            if (currentValue instanceof YailDictionary) {
-                currentPair.add(dictToAlist((YailDictionary) currentValue));
-            } else if (currentValue instanceof YailList) {
-                currentPair.add(checkListForDicts((YailList) currentValue));
-            } else {
-                currentPair.add(currentValue);
-            }
-            list.add(YailList.makeList((List) currentPair));
+            list.add(YailList.makeList(new Object[]{entry.getKey(), entry.getValue()}));
         }
         return YailList.makeList((List) list);
     }

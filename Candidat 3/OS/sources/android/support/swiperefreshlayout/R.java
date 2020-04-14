@@ -123,12 +123,12 @@ public final class R {
     }
 
     public static final class styleable {
-        public static final int[] ColorStateListItem = {16843173, 16843551, appinventor.ai_gumbraise.Pixal.R.attr.alpha};
+        public static final int[] ColorStateListItem = {16843173, 16843551, appinventor.ai_kellislelouer47.Pixal.R.attr.alpha};
         public static final int ColorStateListItem_alpha = 2;
         public static final int ColorStateListItem_android_alpha = 1;
         public static final int ColorStateListItem_android_color = 0;
-        public static final int[] FontFamily = {appinventor.ai_gumbraise.Pixal.R.attr.fontProviderAuthority, appinventor.ai_gumbraise.Pixal.R.attr.fontProviderPackage, appinventor.ai_gumbraise.Pixal.R.attr.fontProviderQuery, appinventor.ai_gumbraise.Pixal.R.attr.fontProviderCerts, appinventor.ai_gumbraise.Pixal.R.attr.fontProviderFetchStrategy, appinventor.ai_gumbraise.Pixal.R.attr.fontProviderFetchTimeout};
-        public static final int[] FontFamilyFont = {16844082, 16844083, 16844095, 16844143, 16844144, appinventor.ai_gumbraise.Pixal.R.attr.fontStyle, appinventor.ai_gumbraise.Pixal.R.attr.font, appinventor.ai_gumbraise.Pixal.R.attr.fontWeight, appinventor.ai_gumbraise.Pixal.R.attr.fontVariationSettings, appinventor.ai_gumbraise.Pixal.R.attr.ttcIndex};
+        public static final int[] FontFamily = {appinventor.ai_kellislelouer47.Pixal.R.attr.fontProviderAuthority, appinventor.ai_kellislelouer47.Pixal.R.attr.fontProviderPackage, appinventor.ai_kellislelouer47.Pixal.R.attr.fontProviderQuery, appinventor.ai_kellislelouer47.Pixal.R.attr.fontProviderCerts, appinventor.ai_kellislelouer47.Pixal.R.attr.fontProviderFetchStrategy, appinventor.ai_kellislelouer47.Pixal.R.attr.fontProviderFetchTimeout};
+        public static final int[] FontFamilyFont = {16844082, 16844083, 16844095, 16844143, 16844144, appinventor.ai_kellislelouer47.Pixal.R.attr.fontStyle, appinventor.ai_kellislelouer47.Pixal.R.attr.font, appinventor.ai_kellislelouer47.Pixal.R.attr.fontWeight, appinventor.ai_kellislelouer47.Pixal.R.attr.fontVariationSettings, appinventor.ai_kellislelouer47.Pixal.R.attr.ttcIndex};
         public static final int FontFamilyFont_android_font = 0;
         public static final int FontFamilyFont_android_fontStyle = 2;
         public static final int FontFamilyFont_android_fontVariationSettings = 4;

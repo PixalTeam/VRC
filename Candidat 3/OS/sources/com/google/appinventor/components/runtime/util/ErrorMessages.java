@@ -72,6 +72,7 @@ public final class ErrorMessages {
     public static final int ERROR_INSUFFICIENT_PERMISSIONS = 3803;
     public static final int ERROR_INVALID_ANCHOR_HORIZONTAL = 3417;
     public static final int ERROR_INVALID_ANCHOR_VERTICAL = 3416;
+    public static final int ERROR_INVALID_API_KEY = 4001;
     public static final int ERROR_INVALID_CONFIGURATION_VALUE = 3700;
     public static final int ERROR_INVALID_GEOJSON = 3411;
     public static final int ERROR_INVALID_LATITUDE = 3413;
@@ -105,6 +106,7 @@ public final class ErrorMessages {
     public static final int ERROR_NO_FOCUSABLE_VIEW_FOUND = 906;
     public static final int ERROR_NO_MATCH = 3806;
     public static final int ERROR_NO_READ_CONTACTS_PERMISSION = 1116;
+    public static final int ERROR_NO_ROUTE_FOUND = 4004;
     public static final int ERROR_NO_SCANNER_FOUND = 1501;
     public static final int ERROR_NO_SMS_PERMISSION = 1702;
     public static final int ERROR_NO_SMS_RECEIVE_PERMISSION = 1703;
@@ -136,10 +138,13 @@ public final class ErrorMessages {
     public static final int ERROR_POLYGON_PARSE_ERROR = 3404;
     public static final int ERROR_RECOGNIZER_BUSY = 3807;
     public static final int ERROR_REPL_SECURITY_ERROR = 1801;
+    public static final int ERROR_ROUTING_SERVICE_ERROR = 4003;
     public static final int ERROR_SCREEN_BAD_VALUE_FOR_SENDING = 904;
     public static final int ERROR_SCREEN_BAD_VALUE_RECEIVED = 903;
     public static final int ERROR_SCREEN_INVALID_ANIMATION = 905;
     public static final int ERROR_SCREEN_NOT_FOUND = 902;
+    public static final int ERROR_SERIAL_NOT_INITIALIZED = 3901;
+    public static final int ERROR_SERIAL_WRITING = 3902;
     public static final int ERROR_SERVER = 3808;
     public static final int ERROR_SOUND_NOT_READY = 710;
     public static final int ERROR_SOUND_NO_PERMISSION = 806;
@@ -174,6 +179,7 @@ public final class ErrorMessages {
     public static final int ERROR_UNABLE_TO_LOAD_MEDIA = 701;
     public static final int ERROR_UNABLE_TO_PLAY_MEDIA = 703;
     public static final int ERROR_UNABLE_TO_PREPARE_MEDIA = 702;
+    public static final int ERROR_UNABLE_TO_REQUEST_DIRECTIONS = 4002;
     public static final int ERROR_VIDEOPLAYER_FULLSCREEN_CANT_EXIT = 1302;
     public static final int ERROR_VIDEOPLAYER_FULLSCREEN_UNAVAILBLE = 1301;
     public static final int ERROR_VIDEOPLAYER_FULLSCREEN_UNSUPPORTED = 1303;
@@ -387,6 +393,12 @@ public final class ErrorMessages {
         errorMessages.put(Integer.valueOf(ERROR_RECOGNIZER_BUSY), "RecognitionService Busy");
         errorMessages.put(Integer.valueOf(ERROR_SERVER), "Error From Server");
         errorMessages.put(Integer.valueOf(ERROR_SPEECH_TIMEOUT), "No Speech Input");
+        errorMessages.put(Integer.valueOf(ERROR_SERIAL_NOT_INITIALIZED), "Serial was not initialized");
+        errorMessages.put(Integer.valueOf(ERROR_SERIAL_WRITING), "Error writing data to serial");
+        errorMessages.put(Integer.valueOf(ERROR_INVALID_API_KEY), "No api key provided");
+        errorMessages.put(Integer.valueOf(ERROR_UNABLE_TO_REQUEST_DIRECTIONS), "Unable to request directions. Reason: %s");
+        errorMessages.put(Integer.valueOf(ERROR_ROUTING_SERVICE_ERROR), "Routing service failed with status %d %s");
+        errorMessages.put(Integer.valueOf(ERROR_NO_ROUTE_FOUND), "No route returned by the routing service.");
     }
 
     private ErrorMessages() {

@@ -1,6 +1,7 @@
 package gnu.commonlisp.lisp;
 
 import android.support.v4.app.FragmentTransaction;
+import com.google.appinventor.components.common.PropertyTypeConstants;
 import gnu.commonlisp.lang.CommonLisp;
 import gnu.commonlisp.lang.Lisp2;
 import gnu.commonlisp.lang.Symbols;
@@ -47,7 +48,7 @@ public class PrimOps extends ModuleBody {
     static final SimpleSymbol Lit2 = ((SimpleSymbol) new SimpleSymbol("car").readResolve());
     static final SimpleSymbol Lit20 = ((SimpleSymbol) new SimpleSymbol("fset").readResolve());
     static final SimpleSymbol Lit21 = ((SimpleSymbol) new SimpleSymbol("apply").readResolve());
-    static final SimpleSymbol Lit22 = ((SimpleSymbol) new SimpleSymbol("length").readResolve());
+    static final SimpleSymbol Lit22 = ((SimpleSymbol) new SimpleSymbol(PropertyTypeConstants.PROPERTY_TYPE_LENGTH).readResolve());
     static final SimpleSymbol Lit23 = ((SimpleSymbol) new SimpleSymbol("arrayp").readResolve());
     static final SimpleSymbol Lit24 = ((SimpleSymbol) new SimpleSymbol("aref").readResolve());
     static final SimpleSymbol Lit25 = ((SimpleSymbol) new SimpleSymbol("aset").readResolve());
@@ -671,7 +672,7 @@ public class PrimOps extends ModuleBody {
                 try {
                     return Integer.valueOf(length((Sequence) obj));
                 } catch (ClassCastException e) {
-                    throw new WrongType(e, "length", 1, obj);
+                    throw new WrongType(e, PropertyTypeConstants.PROPERTY_TYPE_LENGTH, 1, obj);
                 }
             case 24:
                 return arrayp(obj) ? Lisp2.TRUE : LList.Empty;

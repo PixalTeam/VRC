@@ -1,7 +1,6 @@
 package gnu.bytecode;
 
 import android.support.v4.internal.view.SupportMenu;
-import com.google.appinventor.components.common.YaVersion;
 import com.google.appinventor.components.runtime.util.Ev3Constants.Opcode;
 import com.google.appinventor.components.runtime.util.FullScreenVideoUtil;
 import java.io.DataOutputStream;
@@ -1007,7 +1006,7 @@ public class CodeAttr extends Attribute implements AttrContainer {
             putIndex2(getConstants().addClass((ObjectType) element_type));
         } else if (element_type instanceof ArrayType) {
             reserve(4);
-            put1(YaVersion.YOUNG_ANDROID_VERSION);
+            put1(197);
             putIndex2(getConstants().addClass((ObjectType) new ArrayType(element_type)));
             if (dims < 1 || dims > 255) {
                 throw new Error("dims out of range in emitNewArray");
