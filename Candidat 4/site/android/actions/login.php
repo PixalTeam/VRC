@@ -3,7 +3,7 @@ session_start();
 $bdd = new PDO('mysql:host=localhost;dbname=vrc', 'root', '');
 if(isset($_GET['login'])){
     if(!empty($_GET['username']) AND !empty($_GET['password'])) {
-        $username = htmlspecialchars($_GET['username']);
+        $username = $_GET['username'];
         $password = md5($_GET['password']);
 
         $requser = $bdd->prepare("SELECT * FROM users WHERE username = ? AND password = ?");
@@ -25,7 +25,7 @@ if(isset($_GET['login'])){
 
             $_SESSION['id'] = $usernameexistfr['id'];
             if(isset($_SESSION['id'])) {
-                echo 'ok';
+                echo 'yes/'.$_SESSION['id'];
             } else {
                 echo "Erreur de connexion";
             }

@@ -25,7 +25,7 @@ if(isset($_GET['register'])) {
 
                 $_SESSION['id'] = $usernameexistfr['id'];
                 if(isset($_SESSION['id'])) {
-                    echo 'ok';
+                    echo 'yes/'.$_SESSION['id'];
                 } else {
                     echo "Erreur de connexion";
                 }

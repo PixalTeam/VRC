@@ -8,7 +8,7 @@ if(isset($_POST['addvrc'])) {
             $name = htmlspecialchars($_POST['name']);
             $digit = htmlspecialchars($_POST['digit']);
 
-            $reqdigit = $bdd->prepare("SELECT * FROM vrc WHERE id = ?");
+            $reqdigit = $bdd->prepare("SELECT * FROM vrc WHERE digit = ?");
             $reqdigit->execute(array($digit));
             $digitexist = $reqdigit->rowCount();
 
