@@ -4,7 +4,7 @@ if (!isset($_SESSION['id'])) {
         <div class="center">
             <div class="box animated fadeInRight fast">
                 <h1>CONNEXION</h1>
-                <input type="text" placeholder="Identifiant ou Email"><br>
+                <input type="text" placeholder="Identifiant"><br>
                 <input type="password" placeholder="Mot de passe"><br>
                 <input type="submit" class="form" onclick="connexion(\'Connexion\')" value="Connexion">
             </div>
