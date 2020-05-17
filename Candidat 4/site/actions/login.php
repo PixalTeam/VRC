@@ -9,10 +9,8 @@ if(isset($_POST['Connexion'])){
         $requser = $bdd->prepare("SELECT * FROM users WHERE username = ? AND password = ?");
         $requser->execute(array($username, $password));
         $userexist = $requser->rowCount();
-        $reqmail = $bdd->prepare("SELECT * FROM users WHERE mail = ? AND password = ?");
-        $reqmail->execute(array($username, $password));
-        $mailexist = $reqmail->rowCount();
-        if($userexist == 1 OR $mailexist == 1) {
+
+        if($userexist == 1) {
             $userinfo = $requser->fetch();
             $_SESSION['id'] = $userinfo['id'];
             $requser = $bdd->prepare("UPDATE users SET ip = ? WHERE id = ?");
